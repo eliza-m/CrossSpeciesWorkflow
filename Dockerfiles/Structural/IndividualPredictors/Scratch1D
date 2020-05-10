@@ -31,9 +31,9 @@ RUN perl install.pl
 
 # The provided blast binaries are not compatible, therefore we replace them
 WORKDIR /home/SCRATCH-1D_1.2/pkg/
-wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/legacy.NOTSUPPORTED/2.2.26/blast-2.2.26-x64-linux.tar.gz
-tar -xvzf blast-2.2.26-x64-linux.tar.gz
-rm blast-2.2.26-x64-linux.tar.gz
+RUN wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/legacy.NOTSUPPORTED/2.2.26/blast-2.2.26-x64-linux.tar.gz
+RUN tar -xvzf blast-2.2.26-x64-linux.tar.gz
+RUN rm blast-2.2.26-x64-linux.tar.gz
  
 
 # TODO: DisPro seems to run with older version SSPRO4 (?!). Check if ok to use.
