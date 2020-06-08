@@ -38,11 +38,18 @@ Python3
     git clone https://github.com/eliza-m/CrossSpeciesWorkflow.git
 ```
 
-### Create docker images of the predictors you are interested in. 
+### Create docker images of the modules or individual predictors you are interested in. 
 
-Please note that some of the predictors require registering on their website in order to download the source code. Also make sure that you have enough disk space available at the location were the docker image is being stored.
+Please note that some of the predictors require registering on their website in order to download the source code. Also make sure that you have enough disk space available at the location were the docker image is being stored. Details of each predictors are shown bellow
 
-#### Structural predictors:
+### Modules
+
+### Structural module
+
+#### 1. RaptorX-Property [WLLX 2016](#[WLLX 2016])
+* 
+* 
+* 
 
 RaptorX-property 
 Scratch
@@ -69,19 +76,13 @@ YinOYang
 
 
 
-## Modules
 
-### Structural module
-1. RaptorX-Property [WLLX 2016](#[WLLX 2016])
-* 
-* 
-* 
 
 ## Usage
 
 ## References
 
-[WLLX 2016] Wang, S.; Li, W.; Liu, S.; Xu, J. RaptorX-Property: a web server for protein structure property prediction. Nucleic Acids Res. 2016, 44, W430–W435.
+######[WLLX 2016] Wang, S.; Li, W.; Liu, S.; Xu, J. RaptorX-Property: a web server for protein structure property prediction. Nucleic Acids Res. 2016, 44, W430–W435.
 
 Wang, S.; Peng, J.; Ma, J.; Xu, J. Protein Secondary Structure Prediction Using Deep Convolutional Neural Fields. Sci. Rep. 2016, 6, 1–11.
 
