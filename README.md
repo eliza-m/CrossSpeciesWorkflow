@@ -14,7 +14,10 @@ This repo intends to create an easy, user accesible and open-source tool for run
 * a common workflow language (CWL) pipeline that facilitates large protein sequences sets prediction jobs submissions.  
 
 # Project status 
-The project is currently under development. Currently there are 3 main modules that deal with:
+The project is currently under development ::exclamation:: ::exclamation:: ::exclamation::. 
+Many features in this devevelopment branch are not yet implemented and won't work properly ::exclamation::
+
+Currently there are 3 main modules that deal with:
 * Structural related predictors (secondary structure, relative solvent accesibility and intrinsical disorder regions predictions)
 * Glycosylaytion predictors
 * Phosphorylation
