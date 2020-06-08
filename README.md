@@ -3,7 +3,7 @@
 Content summary:
 * [General Info](#general-info)
 * [Project status](#project-status)
-* [Prediction Modules - Installation & Usage](#prediction-modules-\--installation-&-usage)
+* [Prediction Modules. Installation & Usage](#prediction-modules.-installation-and-usage)
 * [CWL pipelines](#cwl-pipelines)
 * [References](#references)
 
@@ -20,28 +20,28 @@ The project is currently under development. Currently there are 3 main modules t
 * Phosphorylation
 
 
-# Prediction Modules - Installation & Usage
+# Prediction Modules. Installation and Usage
 
-The setup has the following steps:
 
 ## Install prerequisites:
 
-Docker client: 
-	* Docker Desktop for Windows or MAC - [click](https://www.docker.com/products/docker-desktop)
-	* docker-ce-cli for Linux - [click](docs.docker.com/install/linux/docker-ce/ubuntu/)
-
-Cwltool - [click](https://github.com/common-workflow-language/cwltool)
-Python3
-
+* Docker client: 
+    * Docker Desktop for Windows or MAC - [click](https://www.docker.com/products/docker-desktop)
+    * docker-ce-cli for Linux - [click](docs.docker.com/install/linux/docker-ce/ubuntu/)
+* cwltool - [click](https://github.com/common-workflow-language/cwltool)
+* Python3
 
 ## Clone repo
 ```
     git clone https://github.com/eliza-m/CrossSpeciesWorkflow.git
 ```
 
+
 ## Create docker images of the modules or individual predictors you are interested in. 
 
 Please note that some of the predictors require registering on their website in order to download the source code. Also make sure that you have enough disk space available at the location were the docker image is being stored. Details of each predictors are shown bellow
+
+
 
 ## Prediction Modules
 
@@ -85,6 +85,42 @@ Get protein sequence database, according to the sequence profile generator sofwa
     
     
 Usage example:
+* bash
+```
+# location of the protein database to be use for generatig sequence profiles
+export u20=/home/storage/eliza/uniprot20_2016_02
+
+# output folder
+export output=$(pwd)/output
+
+# input folder
+export input=$(pwd)/input
+
+# protein name
+export prot="1pazA"
+
+# CPU threads and maximum RAM (GB) to be used
+export CPUnum=10
+export maxRAM=4
+
+
+docker run \
+-v ${u20}:/home/TGT_Package/databases/uniprot20_2016_02 \
+-v ${output}:/home/output -v ${input}:/home/input \
+-e prot \
+-e CPUnum \
+-e maxRAM \
+-it raptorx-property:latest bash -c \
+'TGT_Package/A3M_TGT_Gen.sh -i input/${prot}.fasta -h hhsuite3 -d uniprot20_2016_02 -c ${CPUnum} -m ${maxRAM}; \
+Predict_Property/Predict_Property.sh -i ${prot}_A3MTGT/${prot}.tgt; \
+mkdir -p output/${prot}; \
+mkdir -p output/${prot}/RaptorX; \
+cp -r ${prot}_A3MTGT output/${prot}/RaptorX/ && \
+cp -r ${prot}_PROP output/${prot}/RaptorX; ' 
+
+```
+
+* cwl
 
 
 ### A2. [SCRATCH-1D Protein Predictor v1.2 & DisPRO1.0](http://scratch.proteomics.ics.uci.edu/) - from Baldi group  
@@ -149,7 +185,7 @@ Afterwards, you can proceed building the docker image:
 
 ### C2. [MusiteDeep Phosphorylation predictors](https://www.musite.net/) 
 
-MusiteDeep ([github repo](https://github.com/duolinwang/MusiteDeep)) predicts general and/or kinase specific phosphorylation sites [\[WX 2017\]](#wx-2017). 
+MusiteDeep Phosphorylation ([github repo](https://github.com/duolinwang/MusiteDeep)) predicts general and/or kinase specific phosphorylation sites [\[WX 2017\]](#wx-2017). 
 
 There are available 4 dokerfiles:
 * MusiteDeep using Keras1 and Theano CPU-based
@@ -165,6 +201,7 @@ According to your choice, build the selected docker image:
 
 
 TODO
+https://github.com/duolinwang/MusiteDeep_web
 
 https://github.com/USTC-HIlab/DeepPhos
 https://pubmed.ncbi.nlm.nih.gov/30601936/
@@ -174,7 +211,7 @@ https://pubmed.ncbi.nlm.nih.gov/30520972/
 https://github.com/duolinwang/CapsNet_PTM.
 
 
-# Usage
+# CWL pipelines
 
 # References
 
