@@ -68,7 +68,7 @@ Build docker image
 Get protein sequence database, according to the sequence profile generator sofware you want to use (installed in the docker image): 
 
 * HHblits (default):
-    *  UniProt20 (default) :
+    *  UniProt20 (default) ~ 40 GB :
     http://wwwuser.gwdg.de/~compbiol/data/hhsuite/databases/hhsuite_dbs/old-releases/uniprot20_2016_02.tgz
     *  UniClust30 :
     http://wwwuser.gwdg.de/~compbiol/uniclust/2017_10/uniclust30_2017_10_hhsuite.tar.gz
@@ -84,11 +84,11 @@ Get protein sequence database, according to the sequence profile generator sofwa
     http://raptorx.uchicago.edu/download/
     
     
-Usage example:
-* bash
+Usage example using bash :
+
 ```
 # location of the protein database to be use for generatig sequence profiles
-export u20=/home/storage/eliza/uniprot20_2016_02
+export u20=[PATH to database]/uniprot20_2016_02
 
 # output folder
 export output=$(pwd)/output
@@ -120,7 +120,6 @@ cp -r ${prot}_PROP output/${prot}/RaptorX; '
 
 ```
 
-* cwl
 
 
 ### A2. [SCRATCH-1D Protein Predictor v1.2 & DisPRO1.0](http://scratch.proteomics.ics.uci.edu/) - from Baldi group  
@@ -135,6 +134,25 @@ Docker image contains 2 packages:
     * Secondary structure predictions (SSpro3 & SSpro8 - 3 and 8 classes classification) 
     * Relative solvent accesibility (ACCpro).
 * DISpro1.0 Disorder prediction [\[CSB 2005\]](#csb-2005) 
+
+
+### A3. [Psipred predictors](http://bioinf.cs.ucl.ac.uk/psipred/) - from UCL Bioinformatics group  
+Docker image contains 2 packages:
+* PSIPRED Protein Secondary Structure Predictor v4.0 ([github repo](https://github.com/psipred/psipred)) [\[BJ 2019\]](#bj-2019), [\[J 1999\]](#j-1999).
+* Disopred Disorder Predictor v3.1 ([github repo](https://github.com/psipred/disopred)) [\[JC 2014\]](#jc-2014)
+
+....
+
+### A4. [SPOT-1D predictors](https://sparks-lab.org/server/spot-1d/) - from Sparks Lab  
+SPOT-1D [\[HZ 2019\]](#hz-2019) is the updated version of Spider3 containing also additional features such as :
+....
+
+There are 2 available dokerfiles:
+* CPU based
+* GPU based
+
+....
+
 
 
 ## B. Glycosylation module
@@ -187,7 +205,7 @@ Afterwards, you can proceed building the docker image:
 
 MusiteDeep Phosphorylation ([github repo](https://github.com/duolinwang/MusiteDeep)) predicts general and/or kinase specific phosphorylation sites [\[WX 2017\]](#wx-2017). 
 
-There are available 4 dokerfiles:
+There are 4 available dokerfiles:
 * MusiteDeep using Keras1 and Theano CPU-based
 * MusiteDeep using Keras1 and Theano GPU-based
 * MusiteDeep using Keras2 and Tensorflow CPU-based - which is much faster than Theano's version
@@ -213,7 +231,21 @@ https://github.com/duolinwang/CapsNet_PTM.
 
 # CWL pipelines
 
+
+## Structural prediction only
+
+
+## PTS predictions
+
+
+## All available predictors
+
+
+
+
 # References
+
+### Structural predictors:
 
 ##### \[WLLX 2016\]
 Wang, S.; Li, W.; Liu, S.; Xu, J. RaptorX-Property: a web server for protein structure property prediction. Nucleic Acids Res. 2016, 44, W430–W435.
@@ -234,6 +266,18 @@ J. Cheng, A. Randall, M. Sweredoski, & P. Baldi. SCRATCH: a Protein Structure an
 Nucleic Acids Research, vol. 33 (web server issue), w72-76, (2005).
 ##### \[CSB 2005\] 
 J. Cheng, M. Sweredoski, & P. Baldi. Accurate Prediction of Protein Disordered Regions by Mining Protein Structure Data. Data Mining and Knowledge Discovery, vol. 11, no. 3, pp. 213-222, (2005).
+##### \[JC 2014]
+Jones, D.T. and Cozzetto, D. (2014) DISOPRED3: Precise disordered region predictions with annotated protein binding acrivity, Bioinformatics.
+##### \[BJ 2019]
+Buchan DWA, Jones DT (2019). The PSIPRED Protein Analysis Workbench: 20 years on. Nucleic Acids Research. https://doi.org/10.1093/nar/gkz297
+##### \[J 1999]
+Jones DT. (1999) Protein secondary structure prediction based on position-specific scoring matrices. J. Mol. Biol. 292: 195-202.
+##### \[HZ 2019]
+Hanson, J., Paliwal, K., Litfin, T., Yang, Y., & Zhou, Y. (2019). Improving prediction of protein secondary structure, backbone angles, solvent accessibility and contact numbers by using predicted contact maps and an ensemble of recurrent and residual convolutional neural networks. Bioinformatics (Oxford, England), 35(14), 2403–2410. https://doi.org/10.1093/bioinformatics/bty1006
+
+
+### Glycosylation predictors:
+
 ##### \[GJB 2004]
 R. Gupta, E. Jung and S. Brunak. Prediction of N-glycosylation sites in human proteins. In preparation, 2004.
 ##### \[SC 2013]
@@ -244,6 +288,10 @@ R Gupta. Prediction of glycosylation sites in proteomes: from post-translational
 Gupta, R. and S. Brunak. Prediction of glycosylation across the human proteome and the correlation to protein function. Pacific Symposium on Biocomputing, 7:310-322, 2002.
 ##### \[J 2007]
 Karin Julenius. NetCGlyc 1.0: Prediction of mammalian C-mannosylation sites. Glycobiology, 17:868-876, 2007.
+
+
+### Phosphorylation predictors:
+
 ##### \[BGB 1999]
 Blom, N., Gammeltoft, S., and Brunak, S. Sequence- and structure-based prediction of eukaryotic protein phosphorylation sites. Journal of Molecular Biology: 294(5): 1351-1362, 1999.
 ##### \[BB 2004]
