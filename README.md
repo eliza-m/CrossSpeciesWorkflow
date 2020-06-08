@@ -3,27 +3,28 @@
 Content summary:
 * [General Info](#general-info)
 * [Project status](#project-status)
-* [Installation](#installation)
-* [Modules](#modules)
-* [Usage](#usage)
+* [Prediction Modules - Installation & Usage](#prediction-modules-\--installation-&-usage)
+* [CWL pipelines](#cwl-pipelines)
+* [References](#references)
 
-## General Info
+# General Info
 This repo intends to create an easy, user accesible and open-source tool for running a series of third party predictions software. The main focus is on:
 * Dockerfiles for easy installing existing prediction software.
 * a Python API for facilitating parsing and organising each predictor's output data.
 * a common workflow language (CWL) pipeline that facilitates large protein sequences sets prediction jobs submissions.  
 
-## Project status 
+# Project status 
 The project is currently under development. Currently there are 3 main modules that deal with:
 * Structural related predictors (secondary structure, relative solvent accesibility and intrinsical disorder regions predictions)
 * Glycosylaytion predictors
 * Phosphorylation
 
-## Installation
+
+# Prediction Modules - Installation & Usage
 
 The setup has the following steps:
 
-### Install prerequisites:
+## Install prerequisites:
 
 Docker client: 
 	* Docker Desktop for Windows or MAC - [click](https://www.docker.com/products/docker-desktop)
@@ -33,25 +34,24 @@ Cwltool - [click](https://github.com/common-workflow-language/cwltool)
 Python3
 
 
-### Clone repo
+## Clone repo
 ```
     git clone https://github.com/eliza-m/CrossSpeciesWorkflow.git
 ```
 
-### Create docker images of the modules or individual predictors you are interested in. 
+## Create docker images of the modules or individual predictors you are interested in. 
 
 Please note that some of the predictors require registering on their website in order to download the source code. Also make sure that you have enough disk space available at the location were the docker image is being stored. Details of each predictors are shown bellow
 
-### Modules
+## Prediction Modules
 
-### A. Structural module
+## A. Structural module
 
-#### A1. RaptorX Protein Structure Property Prediction - from Xu group
+### A1. [RaptorX Protein Structure Property Prediction](http://raptorx.uchicago.edu/StructurePropertyPred/predict/) - from Xu group
 
-Links:
-* [Website](http://raptorx.uchicago.edu/StructurePropertyPred/predict/)
-* [Github repo & manual](https://github.com/realbigws/Predict_Property) 
-
+The [RaptorX-Property repo](https://github.com/realbigws/RaptorX_Property_Fast) linked to the journal paper has been upgraded and split into 2 packages: 
+* [Predict_Property - github repo & manual](https://github.com/realbigws/Predict_Property) 
+* [TGT Package - github repo & manual](https://github.com/realbigws/TGT_Package)
 
 Docker image contains:
 * Secondary structure (SS) predictions (SS3 & SS8 - 3 and 8 classes classification) [\[WLLX 2016\]](#wllx-2016), [\[WPMX 2016\]](#wpmx-2016), [\[WSX 2016\]](#wsx-2016)
@@ -83,9 +83,11 @@ Get protein sequence database, according to the sequence profile generator sofwa
     This should be mounted (or using simlinks) in "databases/nr_databases" (must contain nr90 and nr70).
     http://raptorx.uchicago.edu/download/
     
+    
+Usage example:
 
 
-#### A2. SCRATCH-1D Protein Predictor v1.2 & DisPRO1.0 - from Baldi group  
+### A2. [SCRATCH-1D Protein Predictor v1.2 & DisPRO1.0](http://scratch.proteomics.ics.uci.edu/) - from Baldi group  
 
 Links:
 * [Website](http://scratch.proteomics.ics.uci.edu/)
@@ -99,37 +101,25 @@ Docker image contains 2 packages:
 * DISpro1.0 Disorder prediction [\[CSB 2005\]](#csb-2005) 
 
 
-### B. Glycosylation module
+## B. Glycosylation module
 
-#### B1. Glycosylation predictors - from DTU Health Tech 
+### B1. Glycosylation predictors - from DTU Health Tech 
 
 Docker image contains the following predictors:
-* [NetNGlyc v1.0](https://services.healthtech.dtu.dk/service.php?NetNGlyc-1.0) 
-Predicts N-Glycosylation sites in human proteins [\[GJB 2004\]](#gjb-2004). 
-[CLI user guide](http://www.cbs.dtu.dk/cgi-bin/nph-runsafe?man=netNglyc)
+* [NetNGlyc v1.0](https://services.healthtech.dtu.dk/service.php?NetNGlyc-1.0) predicts N-Glycosylation sites in human proteins [\[GJB 2004\]](#gjb-2004). [CLI user guide](http://www.cbs.dtu.dk/cgi-bin/nph-runsafe?man=netNglyc)
     
-* NetOGlyc v4.0 (https://services.healthtech.dtu.dk/service.php?NetOGlyc-4.0)
-Predicts O-GalNAc (mucin type) glycosylation sites in mammalian proteins. [\[SC 2013\]](#sc-2013):
+* NetOGlyc v4.0 (https://services.healthtech.dtu.dk/service.php?NetOGlyc-4.0) predicts O-GalNAc (mucin type) glycosylation sites in mammalian proteins. [\[SC 2013\]](#sc-2013):
     
-* [YinOYang v1.2](https://services.healthtech.dtu.dk/service.php?YinOYang-1.2)
-Predicts O-(beta)-GlcNAc glycosylation and Yin-Yang sites [\[GB 2002\]](#gb-2002), [\[G 2001\]](#g-2001). 
+* [YinOYang v1.2](https://services.healthtech.dtu.dk/service.php?YinOYang-1.2) predicts O-(beta)-GlcNAc glycosylation and Yin-Yang sites [\[GB 2002\]](#gb-2002), [\[G 2001\]](#g-2001). 
 Also includes SignalP and NetPhos v3.1 predictors (discussed in their corresponding module).
     
-* [NetCGlyc v1.0](http://www.cbs.dtu.dk/services/NetCGlyc/)
-Predicts C-mannosylation sites in mammalian proteins [\[J 2007\]](#j-2007).
-
-
-
-
-
+* [NetCGlyc v1.0](http://www.cbs.dtu.dk/services/NetCGlyc/) predicts C-mannosylation sites in mammalian proteins [\[J 2007\]](#j-2007).
 
 
 
 As all DTU predictors require to register using an academic account prior accesing the download page, we could not integrate and automatise the download step into the pipeline.
 
-Please register and download the above predictors (linux version as the docker image is ubuntu based) from the link bellow:
-
-[Download link](https://services.healthtech.dtu.dk/software.php)
+Please register and download the above predictors (linux version as the docker image is ubuntu based) from the [Download link(https://services.healthtech.dtu.dk/software.php)
 
 Afterwards, you can proceed building the docker image:
 ```
@@ -138,35 +128,55 @@ Afterwards, you can proceed building the docker image:
 
 
 
-### C. Phosphorylation module :
+## C. Phosphorylation module :
 
-#### C1. Phosphorylation predictors - from DTU Health Tech 
-NetPhos
-NetPhospan
-YinOYang
+### C1. Phosphorylation predictors - from DTU Health Tech 
 
-https://services.healthtech.dtu.dk/service.php?NetPhos-3.1
-
-Sequence- and structure-based prediction of eukaryotic protein phosphorylation sites.
-Blom, N., Gammeltoft, S., and Brunak, S.
-Journal of Molecular Biology: 294(5): 1351-1362, 1999.
-
-Prediction of post-translational glycosylation and phosphorylation of proteins from the amino acid sequence.
-Blom N, Sicheritz-Ponten T, Gupta R, Gammeltoft S, Brunak S.
-Proteomics: Jun;4(6):1633-49, review 2004.
+Docker image contains the following predictors:
+* [NetPhos v3.1](https://services.healthtech.dtu.dk/service.php?NetPhos-3.1) predicts serine, threonine or tyrosine phosphorylation sites in eukaryotic proteins, either generic or kinase specific (17 kinases) [\[BGB 1999\]](#bgb-1999), [\[BB 2004\]](#bb-2004).
+* [NetPhospan v1.0](https://services.healthtech.dtu.dk/service.php?NetPhospan-1.0) predicts phophorylation sites from a set of 120 human kinase [\[FN 2018\]](#fn-2018).
 
 
-https://services.healthtech.dtu.dk/service.php?NetPhospan-1.0
+As all DTU predictors require to register using an academic account prior accesing the download page, we could not integrate and automatise the download step into the pipeline.
 
-A generic Deep Convolutional Neural Network framework for prediction of Receptor-ligand Interactions. NetPhosPan; Application to Kinase Phosphorylation prediction.
-Emilio Fenoy, Jose M. G. Izarzugaza, Vanessa Jurtz, Søren Brunak and Morten Nielsen.
-Bioinformatics (2018).
+Please register and download the above predictors (linux version as the docker image is ubuntu based) from the [Download link(https://services.healthtech.dtu.dk/software.php)
+
+Afterwards, you can proceed building the docker image:
+```
+	sudo ...
+```
+
+
+### C2. [MusiteDeep Phosphorylation predictors](https://www.musite.net/) 
+
+MusiteDeep ([github repo](https://github.com/duolinwang/MusiteDeep)) predicts general and/or kinase specific phosphorylation sites [\[WX 2017\]](#wx-2017). 
+
+There are available 4 dokerfiles:
+* MusiteDeep using Keras1 and Theano CPU-based
+* MusiteDeep using Keras1 and Theano GPU-based
+* MusiteDeep using Keras2 and Tensorflow CPU-based - which is much faster than Theano's version
+* MusiteDeep using Keras2 and Tensorflow GPU-based
+
+According to your choice, build the selected docker image:
+```
+	docker ...
+```
 
 
 
-## Usage
+TODO
 
-## References
+https://github.com/USTC-HIlab/DeepPhos
+https://pubmed.ncbi.nlm.nih.gov/30601936/
+
+
+https://pubmed.ncbi.nlm.nih.gov/30520972/
+https://github.com/duolinwang/CapsNet_PTM.
+
+
+# Usage
+
+# References
 
 ##### \[WLLX 2016\]
 Wang, S.; Li, W.; Liu, S.; Xu, J. RaptorX-Property: a web server for protein structure property prediction. Nucleic Acids Res. 2016, 44, W430–W435.
@@ -197,6 +207,15 @@ R Gupta. Prediction of glycosylation sites in proteomes: from post-translational
 Gupta, R. and S. Brunak. Prediction of glycosylation across the human proteome and the correlation to protein function. Pacific Symposium on Biocomputing, 7:310-322, 2002.
 ##### \[J 2007]
 Karin Julenius. NetCGlyc 1.0: Prediction of mammalian C-mannosylation sites. Glycobiology, 17:868-876, 2007.
+##### \[BGB 1999]
+Blom, N., Gammeltoft, S., and Brunak, S. Sequence- and structure-based prediction of eukaryotic protein phosphorylation sites. Journal of Molecular Biology: 294(5): 1351-1362, 1999.
+##### \[BB 2004]
+Blom N, Sicheritz-Ponten T, Gupta R, Gammeltoft S, Brunak S. Prediction of post-translational glycosylation and phosphorylation of proteins from the amino acid sequence. Proteomics: Jun;4(6):1633-49, review 2004.
+##### \[FN 2018]
+Emilio Fenoy, Jose M. G. Izarzugaza, Vanessa Jurtz, Søren Brunak and Morten Nielsen. A generic Deep Convolutional Neural Network framework for prediction of Receptor-ligand Interactions. NetPhosPan; Application to Kinase Phosphorylation prediction.
+Bioinformatics (2018).
+##### \[WX 2017]
+Duolin Wang, Shuai Zeng, Chunhui Xu, Wangren Qiu, Yanchun Liang, Trupti Joshi, Dong Xu, MusiteDeep: a Deep-learning Framework for General and Kinase-specific Phosphorylation Site Prediction, Bioinformatics 2017.
 
 
 
