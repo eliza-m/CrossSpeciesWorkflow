@@ -46,7 +46,7 @@ Please note that some of the predictors require registering on their website in 
 
 ### Structural module
 
-#### 1. RaptorX-Property [WLLX 2016](#wwlx)
+#### 1. RaptorX-Property [\[WLLX 2016\]](#\[wllx-2016\])
 
 * 
 * 
@@ -82,7 +82,7 @@ YinOYang
 
 ## References
 
-## WLLX
+##### \[WLLX 2016\]
 
 Wang, S.; Li, W.; Liu, S.; Xu, J. RaptorX-Property: a web server for protein structure property prediction. Nucleic Acids Res. 2016, 44, W430–W435.
 
