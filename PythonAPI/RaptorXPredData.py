@@ -1,12 +1,142 @@
 import sys
-
+# import os
 
 class RaptorXPredData:
-    # default threshold value as used by RaptorX, but it can be reinterpreted
-    # at parsing if one wants to
-    DIS_threshold = 0.50
+    """Class that parses RaptorX-property prediction output data.
 
-    def __init__(self):
+    Parameters
+    ----------
+    DIS_threshold: probability threshold for DisPRO disorder prediction class
+        definition, default=0.50
+
+    Attributes
+    ----------
+    SS3_classes : array of str of size (n_aminoacis)
+        Predicted Secondary structure in 3 class classification (H - helix,
+        E - sheet, C - coil).
+
+    SS3_proba : array of dictionaries of size (n_aminoacis * 3 dictkeys * float)
+        Stores SS3 class probability. Dictionary keys are:
+            "H" - helix probability (float)
+            "E" - sheet probability (float)
+            "C" - coil probability (float)
+        Sum of all three H, E and C probabilities must be ~ 1.
+        For a particular residue id "resid", the helix probability will be:
+        this.SS3_proba[ resid ][ "H" ]
+
+    SS3_conf : array of int of size (n_aminoacis)
+        Contains SS3/SS8 prediction confidence (the same values for 3 and 8
+        classes as SS3 is being calculated based on SS8 classification)
+        Confidence values are on a scale from 0 (least confident)
+        to 9 (very confident). Please keep in mind that confidence measures
+        accross different structural predictors are probably not comparable as
+        they are defined differently between the methods. Please consult each
+        predictor documentation and paper for further info.
+
+
+    SS8_classes : array of str of size (n_aminoacis)
+        Predicted Secondary structure in 8 class classification (H - alphahelix,
+        G - 310 helix, I - pi helix, E - sheet, B - strand, S - bend, T - turn,
+        C - coil).
+
+    SS8_proba : array of dictionaries of size (n_aminoacis * 8 dictkeys * float)
+        Stores SS8 class probability. Dictionary keys are:
+            "H" - alpha helix probability (float)
+            "G" - 310 helix probability (float)
+            "I" - pi helix probability (float)
+            "E" - sheet probability (float)
+            "B" - strand probability (float)
+            "T" - turn probability (float)
+            "S" - bend probability (float)
+            "C" - coil probability (float)
+        Sum of all 8 probabilities must be ~ 1.
+        For a particular residue id "resid", the alpha helix probability is:
+        this.SS8_proba[ resid ][ "H" ]
+
+    SS8_conf : empty array
+        Contains SS3/SS8 prediction confidence (the same values for 3 and 8
+        classes as SS3 is being calculated based on SS8 classification)
+        Confidence values are on a scale from 0 (least confident)
+        to 9 (very confident). Please keep in mind that confidence measures
+        accross different structural predictors are probably not comparable as
+        they are defined differently between the methods. Please consult each
+        predictor documentation and paper for further info.
+
+
+
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    TODO: add more options regarding RSA threshholds !!!!
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+    ACC3_classes : array of str of size (n_aminoacis)
+        Predicted Relatice solvent aceessibility (RSA) in the original 3 classes
+        split used by RaptorX:
+        B - burried (pACC: 0-10),
+        M - mediumly burried (pACC: 11-40),
+        E - exposed (pACC: 41-100).
+        where pACC is the relative solvent accessibility value defined by DSSP.
+
+    ACC3_proba : empty array
+        Stores ACC3 class probability. Dictionary keys are:
+            "B" - burried probability (float)
+            "M" - mediumly burried probability (float)
+            "E" - exposed probability (float)
+        as defined above.
+        Sum of all 3 probabilities must be ~ 1.
+        For a particular residue id "resid", the probability to be solvent
+        exposed is:
+        this.ACC3_proba[ resid ][ "E" ]
+
+    ACC3_conf : empty array
+        Contains ACC prediction confidence on a scale from 0 (least confident)
+        to 9 (very confident). Please keep in mind that confidence measures
+        accross different structural predictors are probably not comparable as
+        they are defined differently between the methods. Please consult each
+        predictor documentation and paper for further info.
+
+
+    DIS_threshold : float with values between 0. and 1. (default=0.50)
+        Threshold used for disorder class definition.
+
+    DIS_classes : array of str of size (n_aminoacis)
+        Predicted disordered regions in 2 classes based on
+        DIS_threshold (default = 0.50) : O - ordered, D - disorder.
+
+    DIS_proba : empty array
+        This was added only for maintaining consistency with other structural
+        predictors classes, as Scratch1D does not provide the class
+        probabilities
+
+
+    Public Methods
+    --------------
+    parseResults( self, proteinName, folderName )
+        Parses the RaptorX prediction output files and add the data inside the
+        above attribute data structures.
+        Passed as arguments are the folder name folderName (according to
+        raptorX provided output folder) and the protein name (ex "1paz") that
+        is being used as root for each output file (that are composed of the
+        proteinName and a specific extension for each output file type
+        (example: "1paz.ss3", "1paz.ss3_simple", "1paz.ss8", etc).
+        The proteinName string is actually the first word provided in the
+        initial FASTA file header that was subjected to prediction with RaptorX.
+    """
+
+
+    def __init__(self, DIS_threshold = None):
+        """
+        Parameters
+        ----------
+        DIS_threshold : float with values between 0. and 1. (default=0.50)
+            Threshold used for disorder class definition.
+        """
+
+        self.DIS_threshold = DIS_threshold if ( DIS_threshold is not None and \
+                                    DIS_threshold > 0.0 and \
+                                    DIS_threshold < 1.0 ) \
+                                    else 0.50
+
         self.SS3_classes = []
         self.SS3_proba = []
         self.SS3_conf = []
@@ -14,12 +144,13 @@ class RaptorXPredData:
         self.SS8_classes = []
         self.SS8_proba = []
 
-        self.ACC_classes = []
-        self.ACC_proba = []
-        self.ACC_conf = []
+        self.ACC3_classes = []
+        self.ACC3_proba = []
+        self.ACC3_conf = []
 
         self.DIS_classes = []
         self.DIS_proba = []
+
 
         # TODO
         # self.TM2_classes = []
@@ -30,18 +161,61 @@ class RaptorXPredData:
 
 
     def parseResults( self, proteinName, folderName ):
+        """
+        Parses the RaptorX prediction output files and add the data inside the
+        above attribute data structures.
+
+        Parameters
+        ----------
+        proteinName : str
+            protein name that is being used as root for each output file.
+            (example: "1paz.ss3", "1paz.ss3_simple", "1paz.ss8", etc).
+
+        folderName : str
+            folder name where RaptorX prediction output is being stored.
+            (example: "CrossSpeciesWorkflow/output/1pazA/RaptorX/1pazA_PROP/")
+        """
+
         fileNameRoot = folderName + '/' + proteinName
 
-        self.SS3_classes, self.SS3_proba = RaptorXPredData.readSS3(  fileNameRoot + '.ss3' )
-        self.SS8_classes, self.SS8_proba = RaptorXPredData.readSS8(  fileNameRoot + '.ss8' )
-        self.ACC_classes, self.ACC_proba = RaptorXPredData.readACC(  fileNameRoot + '.acc' )
-        self.DIS_classes, self.DIS_proba = RaptorXPredData.readDIS(  fileNameRoot + '.diso' )
-
-        self.SS3_conf, self.ACC_conf = RaptorXPredData.readCONF(  fileNameRoot + '.tgt2' )
+        print(fileNameRoot)
 
 
+        self.SS3_classes, self.SS3_proba = \
+            RaptorXPredData.__readSS3( fileNameRoot + '.ss3' )
+        self.SS8_classes, self.SS8_proba = \
+            RaptorXPredData.__readSS8(  fileNameRoot + '.ss8' )
+        self.ACC3_classes, self.ACC3_proba = \
+            RaptorXPredData.__readACC(  fileNameRoot + '.acc' )
+        self.DIS_classes, self.DIS_proba = \
+            RaptorXPredData.__readDIS( fileNameRoot + '.diso', \
+                                        self.DIS_threshold )
 
-    def readDIS( fileName ):
+        self.SS3_conf, self.ACC3_conf = \
+            RaptorXPredData.__readCONF( fileNameRoot + '.tgt2')
+
+
+
+    def __readDIS( fileName, DIS_threshold ):
+        """
+        Parses "*.diso" output files and add the data inside the
+        above attribute data structures.
+
+        Parameters
+        ----------
+        fileName : str
+            Path to file
+
+        DIS_threshold : float
+            Threshold for disorder class definition
+
+        Raises
+        ------
+        OSError
+        Other errors
+        """
+
+        # for cases when the method is called twice
         DIS_classes = []
         DIS_proba = []
 
@@ -53,13 +227,14 @@ class RaptorXPredData:
                 if l[0][0] != '#':
                     current = float(l[3])
                     DIS_proba.append( current )
-                    if current >= RaptorXPredData.DIS_threshold:
+                    if current >= DIS_threshold:
                         DIS_classes.append( 'D' )
                     else:
                         DIS_classes.append( 'O' )
 
-        except OSError as e:
-            print(e.errno)
+        except OSError:
+            print("File error:", sys.exc_info()[0])
+            raise
 
         except:
             print("Unexpected error:", sys.exc_info()[0])
@@ -68,8 +243,24 @@ class RaptorXPredData:
 
         return DIS_classes, DIS_proba
 
-    # Reads ${name}.ss3 file
-    def readSS3( fileName ):
+
+    def __readSS3( fileName ):
+        """
+        Parses "*.ss3" output files and add the data inside the
+        above attribute data structures.
+
+        Parameters
+        ----------
+        fileName : str
+            Path to file
+
+        Raises
+        ------
+        OSError
+        Other errors
+        """
+
+        # for cases when the method is called twice
         SS3_classes = []
         SS3_proba = []
 
@@ -90,7 +281,8 @@ class RaptorXPredData:
                     SS3_classes.append(ss)
 
         except OSError as e:
-            print(e.errno)
+            print("File error:", sys.exc_info()[0])
+            raise
 
         except:
             print("Unexpected error:", sys.exc_info()[0])
@@ -100,8 +292,23 @@ class RaptorXPredData:
         return SS3_classes, SS3_proba
 
 
-    # Reads ${name}.ss8 file. Classes are named as in DSSP
-    def readSS8( fileName ):
+    def __readSS8( fileName ):
+        """
+        Parses "*.ss8" output files and add the data inside the
+        above attribute data structures.
+
+        Parameters
+        ----------
+        fileName : str
+            Path to file
+
+        Raises
+        ------
+        OSError
+        Other errors
+        """
+
+        # for cases when the method is called twice
         SS8_classes = []
         SS8_proba = []
 
@@ -138,7 +345,8 @@ class RaptorXPredData:
                     SS8_classes.append(ss)
 
         except OSError as e:
-            print(e.errno)
+            print("File error:", sys.exc_info()[0])
+            raise
 
         except:
             print("Unexpected error:", sys.exc_info()[0])
@@ -148,14 +356,26 @@ class RaptorXPredData:
         return SS8_classes, SS8_proba
 
 
-    # Reads ${name}.acc file
-    # classes: B (Bury, pACC: 0-10), M (Medium, pACC: 11-40) and E (Exposed,
-    # pACC: 41-100).
-    # TODO: add normalization feature if possible... as other define B (burried)
-    # with different threshholds....
-    def readACC( fileName ):
-        ACC_classes = []
-        ACC_proba = []
+
+    def __readACC( fileName ):
+        """
+        Parses "*.acc" output files and add the data inside the
+        above attribute data structures.
+
+        Parameters
+        ----------
+        fileName : str
+            Path to file
+
+        Raises
+        ------
+        OSError
+        Other errors
+        """
+
+        # for cases when the method is called twice
+        ACC3_classes = []
+        ACC3_proba = []
 
         try:
             f = open(fileName, 'r')
@@ -169,24 +389,40 @@ class RaptorXPredData:
 
                     acc = l[2]
 
-                    ACC_proba.append( { "B": Bproba,
+                    ACC3_proba.append( { "B": Bproba,
                                         "M": Mproba,
                                         "E": Eproba } )
-                    ACC_classes.append( acc )
+                    ACC3_classes.append( acc )
 
         except OSError as e:
-            print(e.errno)
+            print("File error:", sys.exc_info()[0])
+            raise
 
         except:
             print("Unexpected error:", sys.exc_info()[0])
             raise
 
-        return ACC_classes, ACC_proba
+        return ACC3_classes, ACC3_proba
 
 
-    # Reads ${name}.tgt2 file to extract confidence values (0 to 9)
-    def readCONF( fileName ):
-        ACC_conf = []
+    def __readCONF( fileName ):
+        """
+        Parses "*.tgt2" output files and add the data inside the
+        above attribute data structures.
+
+        Parameters
+        ----------
+        fileName : str
+            Path to file
+
+        Raises
+        ------
+        OSError
+        Other errors
+        """
+
+        # for cases when the method is called twice
+        ACC3_conf = []
         SS3_conf = []
 
         try:
@@ -201,13 +437,25 @@ class RaptorXPredData:
 
             for it in range(len(SS3conf)):
                 SS3_conf.append( int( SS3conf[ it ] ) )
-                ACC_conf.append( int( ACCconf[ it ] ) )
+                ACC3_conf.append( int( ACCconf[ it ] ) )
 
         except OSError as e:
-            print(e.errno)
+            print("File error:", sys.exc_info()[0])
+            raise
 
         except:
             print("Unexpected error:", sys.exc_info()[0])
             raise
 
-        return SS3_conf, ACC_conf
+        return SS3_conf, ACC3_conf
+
+
+
+#
+#
+# CSW_HOME = os.environ.get('CSW_HOME')
+# predData = RaptorXPredData()
+# proteinName = "1pazA"
+# folderName = CSW_HOME + "/output/1pazA/RaptorX/1pazA_PROP/"
+#
+# predData.parseResults( proteinName, folderName )
