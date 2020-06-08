@@ -46,7 +46,7 @@ Please note that some of the predictors require registering on their website in 
 
 ### Structural module
 
-#### 1. RaptorX-Property [\[WLLX 2016\]](#\[wllx-2016\])
+#### 1. RaptorX-Property [\[WLLX 2016\]](#wllx-2016)
 
 * 
 * 
