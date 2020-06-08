@@ -3,7 +3,7 @@
 Content summary:
 * [General Info](#general-info)
 * [Project status](#project-status)
-* [Prediction Modules. Installation & Usage](#prediction-modules\.-installation-and-usage)
+* [Prediction Modules - Installation & Usage](#prediction-modules-\--installation-and-usage)
 * [CWL pipelines](#cwl-pipelines)
 * [References](#references)
 
@@ -20,7 +20,7 @@ The project is currently under development. Currently there are 3 main modules t
 * Phosphorylation
 
 
-# Prediction Modules. Installation and Usage
+# Prediction Modules - Installation and Usage
 
 
 ## Install prerequisites:
@@ -43,7 +43,7 @@ Please note that some of the predictors require registering on their website in 
 
 
 
-## Prediction Modules
+## Prediction Modules 
 
 ## A. Structural module  
 
@@ -120,8 +120,8 @@ cp -r ${prot}_PROP output/${prot}/RaptorX; '
 
 ```
 
+<br /><br />
 
-  
 ### A2. [SCRATCH-1D Protein Predictor v1.2 & DisPRO1.0](http://scratch.proteomics.ics.uci.edu/) - from Baldi group  
 
 Links:
@@ -135,14 +135,16 @@ Docker image contains 2 packages:
     * Relative solvent accesibility (ACCpro).
 * DISpro1.0 Disorder prediction [\[CSB 2005\]](#csb-2005) 
 
-  
+<br /><br />
+
 ### A3. [Psipred predictors](http://bioinf.cs.ucl.ac.uk/psipred/) - from UCL Bioinformatics group  
 Docker image contains 2 packages:
 * PSIPRED Protein Secondary Structure Predictor v4.0 ([github repo](https://github.com/psipred/psipred)) [\[BJ 2019\]](#bj-2019), [\[J 1999\]](#j-1999).
 * Disopred Disorder Predictor v3.1 ([github repo](https://github.com/psipred/disopred)) [\[JC 2014\]](#jc-2014)
 
 ....
-  
+<br /><br />
+
 ### A4. [SPOT-1D predictors](https://sparks-lab.org/server/spot-1d/) - from Sparks Lab  
 SPOT-1D [\[HZ 2019\]](#hz-2019) is the updated version of Spider3 containing also additional features such as :
 ....
@@ -154,7 +156,7 @@ There are 2 available dokerfiles:
 ....
 
 
-  
+<br /><br />  
     
 ## B. Glycosylation module
   
@@ -200,7 +202,8 @@ Afterwards, you can proceed building the docker image:
 ```
 	sudo ...
 ```
-  
+
+<br /><br />
 
 ### C2. [MusiteDeep Phosphorylation predictors](https://www.musite.net/) 
 
@@ -276,6 +279,7 @@ Jones DT. (1999) Protein secondary structure prediction based on position-specif
 ##### \[HZ 2019]
 Hanson, J., Paliwal, K., Litfin, T., Yang, Y., & Zhou, Y. (2019). Improving prediction of protein secondary structure, backbone angles, solvent accessibility and contact numbers by using predicted contact maps and an ensemble of recurrent and residual convolutional neural networks. Bioinformatics (Oxford, England), 35(14), 2403–2410. https://doi.org/10.1093/bioinformatics/bty1006  
 
+<br /><br />
 
 ### Glycosylation predictors:
 
@@ -290,6 +294,7 @@ Gupta, R. and S. Brunak. Prediction of glycosylation across the human proteome a
 ##### \[J 2007]
 Karin Julenius. NetCGlyc 1.0: Prediction of mammalian C-mannosylation sites. Glycobiology, 17:868-876, 2007.  
 
+<br /><br />
 
 ### Phosphorylation predictors:
 
