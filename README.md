@@ -3,7 +3,7 @@
 Content summary:
 * [General Info](#general-info)
 * [Project status](#project-status)
-* [Prediction Modules. Installation & Usage](#prediction-modules.-installation-and-usage)
+* [Prediction Modules. Installation & Usage](#prediction-modules\.-installation-and-usage)
 * [CWL pipelines](#cwl-pipelines)
 * [References](#references)
 
@@ -45,7 +45,7 @@ Please note that some of the predictors require registering on their website in 
 
 ## Prediction Modules
 
-## A. Structural module
+## A. Structural module  
 
 ### A1. [RaptorX Protein Structure Property Prediction](http://raptorx.uchicago.edu/StructurePropertyPred/predict/) - from Xu group
 
@@ -121,7 +121,7 @@ cp -r ${prot}_PROP output/${prot}/RaptorX; '
 ```
 
 
-
+  
 ### A2. [SCRATCH-1D Protein Predictor v1.2 & DisPRO1.0](http://scratch.proteomics.ics.uci.edu/) - from Baldi group  
 
 Links:
@@ -135,14 +135,14 @@ Docker image contains 2 packages:
     * Relative solvent accesibility (ACCpro).
 * DISpro1.0 Disorder prediction [\[CSB 2005\]](#csb-2005) 
 
-
+  
 ### A3. [Psipred predictors](http://bioinf.cs.ucl.ac.uk/psipred/) - from UCL Bioinformatics group  
 Docker image contains 2 packages:
 * PSIPRED Protein Secondary Structure Predictor v4.0 ([github repo](https://github.com/psipred/psipred)) [\[BJ 2019\]](#bj-2019), [\[J 1999\]](#j-1999).
 * Disopred Disorder Predictor v3.1 ([github repo](https://github.com/psipred/disopred)) [\[JC 2014\]](#jc-2014)
 
 ....
-
+  
 ### A4. [SPOT-1D predictors](https://sparks-lab.org/server/spot-1d/) - from Sparks Lab  
 SPOT-1D [\[HZ 2019\]](#hz-2019) is the updated version of Spider3 containing also additional features such as :
 ....
@@ -154,15 +154,16 @@ There are 2 available dokerfiles:
 ....
 
 
-
+  
+    
 ## B. Glycosylation module
-
+  
 ### B1. Glycosylation predictors - from DTU Health Tech 
 
 Docker image contains the following predictors:
 * [NetNGlyc v1.0](https://services.healthtech.dtu.dk/service.php?NetNGlyc-1.0) predicts N-Glycosylation sites in human proteins [\[GJB 2004\]](#gjb-2004). [CLI user guide](http://www.cbs.dtu.dk/cgi-bin/nph-runsafe?man=netNglyc)
     
-* NetOGlyc v4.0 (https://services.healthtech.dtu.dk/service.php?NetOGlyc-4.0) predicts O-GalNAc (mucin type) glycosylation sites in mammalian proteins. [\[SC 2013\]](#sc-2013):
+* [NetOGlyc v4.0](https://services.healthtech.dtu.dk/service.php?NetOGlyc-4.0) predicts O-GalNAc (mucin type) glycosylation sites in mammalian proteins. [\[SC 2013\]](#sc-2013):
     
 * [YinOYang v1.2](https://services.healthtech.dtu.dk/service.php?YinOYang-1.2) predicts O-(beta)-GlcNAc glycosylation and Yin-Yang sites [\[GB 2002\]](#gb-2002), [\[G 2001\]](#g-2001). 
 Also includes SignalP and NetPhos v3.1 predictors (discussed in their corresponding module).
@@ -182,7 +183,7 @@ Afterwards, you can proceed building the docker image:
 
 
 
-## C. Phosphorylation module :
+## C. Phosphorylation module :  
 
 ### C1. Phosphorylation predictors - from DTU Health Tech 
 
@@ -199,7 +200,7 @@ Afterwards, you can proceed building the docker image:
 ```
 	sudo ...
 ```
-
+  
 
 ### C2. [MusiteDeep Phosphorylation predictors](https://www.musite.net/) 
 
@@ -243,7 +244,7 @@ https://github.com/duolinwang/CapsNet_PTM.
 
 
 
-# References
+# References  
 
 ### Structural predictors:
 
@@ -273,7 +274,7 @@ Buchan DWA, Jones DT (2019). The PSIPRED Protein Analysis Workbench: 20 years on
 ##### \[J 1999]
 Jones DT. (1999) Protein secondary structure prediction based on position-specific scoring matrices. J. Mol. Biol. 292: 195-202.
 ##### \[HZ 2019]
-Hanson, J., Paliwal, K., Litfin, T., Yang, Y., & Zhou, Y. (2019). Improving prediction of protein secondary structure, backbone angles, solvent accessibility and contact numbers by using predicted contact maps and an ensemble of recurrent and residual convolutional neural networks. Bioinformatics (Oxford, England), 35(14), 2403–2410. https://doi.org/10.1093/bioinformatics/bty1006
+Hanson, J., Paliwal, K., Litfin, T., Yang, Y., & Zhou, Y. (2019). Improving prediction of protein secondary structure, backbone angles, solvent accessibility and contact numbers by using predicted contact maps and an ensemble of recurrent and residual convolutional neural networks. Bioinformatics (Oxford, England), 35(14), 2403–2410. https://doi.org/10.1093/bioinformatics/bty1006  
 
 
 ### Glycosylation predictors:
@@ -287,7 +288,7 @@ R Gupta. Prediction of glycosylation sites in proteomes: from post-translational
 ##### \[GB 2002]
 Gupta, R. and S. Brunak. Prediction of glycosylation across the human proteome and the correlation to protein function. Pacific Symposium on Biocomputing, 7:310-322, 2002.
 ##### \[J 2007]
-Karin Julenius. NetCGlyc 1.0: Prediction of mammalian C-mannosylation sites. Glycobiology, 17:868-876, 2007.
+Karin Julenius. NetCGlyc 1.0: Prediction of mammalian C-mannosylation sites. Glycobiology, 17:868-876, 2007.  
 
 
 ### Phosphorylation predictors:
