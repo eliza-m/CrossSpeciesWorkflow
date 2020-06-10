@@ -165,7 +165,7 @@ There are 2 available dokerfiles:
   
 ### B1. Glycosylation predictors - from DTU Health Tech 
 
-Docker image contains the following predictors:
+The [DTUHealthTech_Glycosylation_CPU Dockerfile](CrossSpeciesWorkflow/Dockerfiles/Glycosylation/DTUHealthTech_Glycosylation_CPU.Dockerfile) contains installation instructions for the following predictors from DTU Health Tech :
 * [NetNGlyc v1.0](https://services.healthtech.dtu.dk/service.php?NetNGlyc-1.0) predicts N-Glycosylation sites in human proteins [\[GJB 2004\]](#gjb-2004). [CLI user guide](http://www.cbs.dtu.dk/cgi-bin/nph-runsafe?man=netNglyc)
     
 * [NetOGlyc v4.0](https://services.healthtech.dtu.dk/service.php?NetOGlyc-4.0) predicts O-GalNAc (mucin type) glycosylation sites in mammalian proteins. [\[SC 2013\]](#sc-2013):
@@ -176,12 +176,11 @@ Also includes SignalP and NetPhos v3.1 predictors (discussed in their correspond
 * [NetCGlyc v1.0](http://www.cbs.dtu.dk/services/NetCGlyc/) predicts C-mannosylation sites in mammalian proteins [\[J 2007\]](#j-2007).
 
 
+As all DTU predictors license is for academic and non-profit usage only, in order to download the software it is required to register on their website and accept the license agreement prior accessing the download page. 
 
-As all DTU predictors require to register using an academic account prior accesing the download page, we could not integrate and automatise the download step into the pipeline.
+Please register and download the above predictors (linux version as the dockerfile image is ubuntu based) from the [Download link](https://services.healthtech.dtu.dk/software.php)
 
-Please register and download the above predictors (linux version as the docker image is ubuntu based) from the [Download link(https://services.healthtech.dtu.dk/software.php)
-
-Afterwards, you can proceed building the docker image:
+After you complete the license agreement and download the software, you can proceed building the docker image:
 ```
 	sudo ...
 ```
@@ -192,16 +191,16 @@ Afterwards, you can proceed building the docker image:
 
 ### C1. Phosphorylation predictors - from DTU Health Tech 
 
-Docker image contains the following predictors:
+The [DTUHealthTech_Phosphorylation_CPU Dockerfile](CrossSpeciesWorkflow/Dockerfiles/Phosphorylation/DTUHealthTech_Phosphorylation_CPU.Dockerfile) contains installation instructions for the following predictors from DTU Health Tech :
 * [NetPhos v3.1](https://services.healthtech.dtu.dk/service.php?NetPhos-3.1) predicts serine, threonine or tyrosine phosphorylation sites in eukaryotic proteins, either generic or kinase specific (17 kinases) [\[BGB 1999\]](#bgb-1999), [\[BB 2004\]](#bb-2004).
 * [NetPhospan v1.0](https://services.healthtech.dtu.dk/service.php?NetPhospan-1.0) predicts phophorylation sites from a set of 120 human kinase [\[FN 2018\]](#fn-2018).
 
 
-As all DTU predictors require to register using an academic account prior accesing the download page, we could not integrate and automatise the download step into the pipeline.
+As all DTU predictors license is for academic and non-profit usage only, in order to download the software it is required to register on their website and accept the license agreement prior accessing the download page. 
 
-Please register and download the above predictors (linux version as the docker image is ubuntu based) from the [Download link(https://services.healthtech.dtu.dk/software.php)
+Please register and download the above predictors (linux version as the dockerfile image is ubuntu based) from the [Download link](https://services.healthtech.dtu.dk/software.php)
 
-Afterwards, you can proceed building the docker image:
+After you complete the license agreement and download the software, you can proceed building the docker image:
 ```
 	sudo ...
 ```
