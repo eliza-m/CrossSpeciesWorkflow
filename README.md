@@ -145,7 +145,120 @@ Docker image contains 2 packages:
 * PSIPRED Protein Secondary Structure Predictor v4.0 ([github repo](https://github.com/psipred/psipred)) [\[BJ 2019\]](#bj-2019), [\[J 1999\]](#j-1999).
 * Disopred Disorder Predictor v3.1 ([github repo](https://github.com/psipred/disopred)) [\[JC 2014\]](#jc-2014)
 
-....
+Build docker image:
+```
+	cd Dockerfiles/Structural/
+	docker build -t psipred_cpu -f Psipred_CPU.Dockerfile .	
+```
+
+This docker image will use BLAST+ for building the sequence profile. Therefore we need to download and setup a sequence database. Psipred recomands the usage of UniRef90. For more details visit their documentation (link above). Download UniRef90 in fasta format from uniprot.org/downloads .
+
+Afterwards a blast database needs to be created (this steps need to be done only once, afterwards the database can be used or moved anywhere):
+'''
+	# if you do not habe BLAST+ installed run:
+	sudo apt-get install 
+	
+	# go to the place where Uniref fasta file is being stored (change the path bellow accordingly):
+	cd /Place/where/UnirefX.fasta/file/is/stored
+	
+	## create database (this might take a while from several minutes to one hour)
+	makeblastdb -dbtype prot -in uniref90.fasta
+	
+'''
+
+After the BLAST+ database has been generated, from now on we can use the docker image anytime.
+Let's see an usage example using bash and also test that everything works as expected :
+
+Go to CrossSpeciesWorkflow repo home directory (change the path bellow accordingly):
+	`cd /path/to/CrossSpeciesWorkflow/repo/home`
+
+Let's set some custom variables:
+	
+* The path to the folder where uniref is being stored (change it according to you case):
+	`export uniref_folder=/storage/uniref/uniref90/`
+	
+* The name of the uniref fasta file (in case you wish to use uniref50 or other database)
+	`export uniref_fastafile=uniref90.fasta`
+	
+* The number of CPU threads to be used when using psiblast
+	`export CPUnum=4`
+	
+* Specify the folder where the input fasta files are. We will use the provided examples in this repo.
+	`export input=$(pwd)/input`
+	
+* Set an output folder there the results will be generated. We will in this repo.
+```
+	mkdir output_tests
+	export output=$(pwd)/output
+```
+* Specify the protein root name (in our example the fasta file is "1pazA.fasta"):
+	`export prot="1pazA"`
+
+Let's run Psipred ( no need to change anything as the variables used are being set above - just copy paste the whole command bellow )
+```
+sudo docker run \
+	-v ${uniref_folder}:/home/database/ \
+	-v ${output}:/output \
+	-v ${input}:/input \
+	-e prot=$prot \
+	-e RunNumOfThreads=$CPUnum \
+	-e unirefX=${uniref_fastafile} \
+	-it psipred_cpu:latest \
+	bash -c '\
+	mkdir -p ${prot}; \
+	mkdir -p ${prot}/PsiPred; \
+	cp /input/${prot}.fasta /output/${prot}/PsiPred/ && cd ${prot}/PsiPred/ ;\
+	$psipredplus ${prot}.fasta;'	
+```
+Let's run now Disopred for this protein example:
+```
+sudo docker run \
+	-v ${uniref_folder}:/home/database/ \
+	-v ${output}:/output \
+	-v ${input}:/input \
+	-e prot=$prot \
+	-e RunNumOfThreads=$CPUnum \
+	-e unirefX=${uniref_fastafile} \
+	-it psipred_cpu:latest \
+	bash -c '\
+	mkdir -p ${prot}; \
+	mkdir -p ${prot}/DisoPred; \
+	cp /input/${prot}.fasta /output/${prot}/DisoPred/ && cd ${prot}/DisoPred/ ;\
+	$psipredplus ${prot}.fasta;'	
+```
+
+Now let's see the predictions. The output files must have been saved here:
+
+```
+../CrossSpeciesWorkflow$ ls -l output_tests/1pazA/PsiPred/
+total 996
+-rw-r--r-- 1 root root    131 Jun 11 14:36 1pazA.fasta
+-rw-r--r-- 1 root root    612 Jun 11 14:37 1pazA.horiz
+-rw-r--r-- 1 root root   3813 Jun 11 14:37 1pazA.ss
+-rw-r--r-- 1 root root   3847 Jun 11 14:37 1pazA.ss2
+-rw-r--r-- 1 root root 812138 Jun 11 14:37 psitmp1411ac0300.blast
+-rw-r--r-- 1 root root 159201 Jun 11 14:37 psitmp1411ac0300.chk
+-rw-r--r-- 1 root root    131 Jun 11 14:36 psitmp1411ac0300.fasta
+-rw-r--r-- 1 root root  20983 Jun 11 14:37 psitmp1411ac0300.mtx
+
+../CrossSpeciesWorkflow$ ls -l output_tests/1pazA/DisoPred/
+total 788
+-rw-r--r-- 1 root root 124094 Jun 11 14:38 1pazA_9_11ac0300.blast
+-rw-r--r-- 1 root root 159375 Jun 11 14:38 1pazA_9_11ac0300.chk
+-rw-r--r-- 1 root root  21281 Jun 11 14:38 1pazA_9_11ac0300.mtx
+-rw-r--r-- 1 root root     44 Jun 11 14:38 1pazA_9_11ac0300.pn
+-rw-r--r-- 1 root root     35 Jun 11 14:38 1pazA_9_11ac0300.sn
+-rw-r--r-- 1 root root   1987 Jun 11 14:39 1pazA.diso
+-rw-r--r-- 1 root root   3507 Jun 11 14:38 1pazA.diso2
+-rw-r--r-- 1 root root   2214 Jun 11 14:39 1pazA.dnb
+-rw-r--r-- 1 root root    131 Jun 11 14:38 1pazA.fasta
+-rw-r--r-- 1 root root    823 Jun 11 14:38 1pazA.horiz_d
+-rw-r--r-- 1 root root 453217 Jun 11 14:39 1pazA.in_svm_dat
+-rw-r--r-- 1 root root   1845 Jun 11 14:38 1pazA.nndiso
+-rw-r--r-- 1 root root   2123 Jun 11 14:39 1pazA.out_svm_dat
+-rw-r--r-- 1 root root   2156 Jun 11 14:39 1pazA.pbdat
+```
+
 <br /><br />
 
 ### A4. [SPOT-1D predictors](https://sparks-lab.org/server/spot-1d/) - from Sparks Lab  
