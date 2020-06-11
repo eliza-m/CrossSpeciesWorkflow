@@ -147,24 +147,25 @@ Docker image contains 2 packages:
 
 Build docker image:
 ```
-	cd Dockerfiles/Structural/
-	docker build -t psipred_cpu -f Psipred_CPU.Dockerfile .	
+cd Dockerfiles/Structural/
+
+docker build -t psipred_cpu -f Psipred_CPU.Dockerfile .	
 ```
 
-This docker image will use BLAST+ for building the sequence profile. Therefore we need to download and setup a sequence database. Psipred recomands the usage of UniRef90. For more details visit their documentation (link above). Download UniRef90 in fasta format from uniprot.org/downloads .
+This docker image will use BLAST+ for building the sequence profile. Therefore we need to download and setup a sequence database. Psipred recomands the usage of UniRef90. For more details visit their documentation (link above). Download UniRef90 in fasta format from [uniprot.org/downloads](https://www.uniprot.org/downloads).
 
 Afterwards a blast database needs to be created (this steps need to be done only once, afterwards the database can be used or moved anywhere):
-'''
+```
 	# if you do not habe BLAST+ installed run:
 	sudo apt-get install 
 	
 	# go to the place where Uniref fasta file is being stored (change the path bellow accordingly):
 	cd /Place/where/UnirefX.fasta/file/is/stored
 	
-	## create database (this might take a while from several minutes to one hour)
+	# create database (this might take a while from several minutes to one hour)
 	makeblastdb -dbtype prot -in uniref90.fasta
 	
-'''
+```
 
 After the BLAST+ database has been generated, from now on we can use the docker image anytime.
 Let's see an usage example using bash and also test that everything works as expected :
@@ -174,19 +175,19 @@ Go to CrossSpeciesWorkflow repo home directory (change the path bellow according
 
 Let's set some custom variables:
 	
-* The path to the folder where uniref is being stored (change it according to you case):
+The path to the folder where uniref is being stored (change it according to you case):
 	`export uniref_folder=/storage/uniref/uniref90/`
 	
-* The name of the uniref fasta file (in case you wish to use uniref50 or other database)
+The name of the uniref fasta file (in case you wish to use uniref50 or other database)
 	`export uniref_fastafile=uniref90.fasta`
 	
-* The number of CPU threads to be used when using psiblast
+The number of CPU threads to be used when using psiblast
 	`export CPUnum=4`
 	
-* Specify the folder where the input fasta files are. We will use the provided examples in this repo.
+Specify the folder where the input fasta files are. We will use the provided examples in this repo.
 	`export input=$(pwd)/input`
 	
-* Set an output folder there the results will be generated. We will in this repo.
+Set an output folder there the results will be generated. We will in this repo.
 ```
 	mkdir output_tests
 	export output=$(pwd)/output
