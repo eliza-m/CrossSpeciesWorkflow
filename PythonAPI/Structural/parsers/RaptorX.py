@@ -1,16 +1,20 @@
 import sys
 # import os
 
-class RaptorXPredData:
+class RaptorX:
     """Class that parses RaptorX-property prediction output data.
 
     Parameters
     ----------
-    DIS_threshold: probability threshold for DisPRO disorder prediction class
+    DIS_threshold: float
+        probability threshold for DisPRO disorder prediction class
         definition, default=0.50
 
     Attributes
     ----------
+    sequence : array of str of size (n_aminoacis)
+        Amino acid sequence
+
     SS3_classes : array of str of size (n_aminoacis)
         Predicted Secondary structure in 3 class classification (H - helix,
         E - sheet, C - coil).
@@ -77,7 +81,7 @@ class RaptorXPredData:
         E - exposed (pACC: 41-100).
         where pACC is the relative solvent accessibility value defined by DSSP.
 
-    ACC3_proba : empty array
+    ACC3_proba : array of dictionaries of size (n_aminoacis * 3 dictkeys * float)
         Stores ACC3 class probability. Dictionary keys are:
             "B" - burried probability (float)
             "M" - mediumly burried probability (float)
@@ -103,10 +107,8 @@ class RaptorXPredData:
         Predicted disordered regions in 2 classes based on
         DIS_threshold (default = 0.50) : O - ordered, D - disorder.
 
-    DIS_proba : empty array
-        This was added only for maintaining consistency with other structural
-        predictors classes, as Scratch1D does not provide the class
-        probabilities
+    DIS_proba : array of float of size (n_aminoacis * float)
+        Stores disorder class probability.
 
 
     Public Methods
@@ -115,16 +117,16 @@ class RaptorXPredData:
         Parses the RaptorX prediction output files and add the data inside the
         above attribute data structures.
         Passed as arguments are the folder name folderName (according to
-        raptorX provided output folder) and the protein name (ex "1paz") that
+        raptorX provided output folder) and the protein name (ex "1pazA") that
         is being used as root for each output file (that are composed of the
         proteinName and a specific extension for each output file type
-        (example: "1paz.ss3", "1paz.ss3_simple", "1paz.ss8", etc).
+        (example: "1pazA.ss3", "1pazA.ss3_simple", "1pazA.ss8", etc).
         The proteinName string is actually the first word provided in the
         initial FASTA file header that was subjected to prediction with RaptorX.
     """
 
 
-    def __init__(self, DIS_threshold = None):
+    def __init__(self, DIS_threshold = None ):
         """
         Parameters
         ----------
@@ -136,6 +138,8 @@ class RaptorXPredData:
                                     DIS_threshold > 0.0 and \
                                     DIS_threshold < 1.0 ) \
                                     else 0.50
+
+        self.sequence = []
 
         self.SS3_classes = []
         self.SS3_proba = []
@@ -160,7 +164,7 @@ class RaptorXPredData:
         # self.TM8_proba = []
 
 
-    def parseResults( self, proteinName, folderName ):
+    def parseResults( self, proteinName : str, folderName  : str):
         """
         Parses the RaptorX prediction output files and add the data inside the
         above attribute data structures.
@@ -178,25 +182,23 @@ class RaptorXPredData:
 
         fileNameRoot = folderName + '/' + proteinName
 
-        print(fileNameRoot)
 
-
-        self.SS3_classes, self.SS3_proba = \
-            RaptorXPredData.__readSS3( fileNameRoot + '.ss3' )
+        self.sequence, self.SS3_classes, self.SS3_proba = \
+            RaptorX.__readSS3( fileNameRoot + '.ss3' )
         self.SS8_classes, self.SS8_proba = \
-            RaptorXPredData.__readSS8(  fileNameRoot + '.ss8' )
+            RaptorX.__readSS8(  fileNameRoot + '.ss8' )
         self.ACC3_classes, self.ACC3_proba = \
-            RaptorXPredData.__readACC(  fileNameRoot + '.acc' )
+            RaptorX.__readACC(  fileNameRoot + '.acc' )
         self.DIS_classes, self.DIS_proba = \
-            RaptorXPredData.__readDIS( fileNameRoot + '.diso', \
+            RaptorX.__readDIS( fileNameRoot + '.diso', \
                                         self.DIS_threshold )
 
         self.SS3_conf, self.ACC3_conf = \
-            RaptorXPredData.__readCONF( fileNameRoot + '.tgt2')
+            RaptorX.__readCONF( fileNameRoot + '.tgt2')
 
 
 
-    def __readDIS( fileName, DIS_threshold ):
+    def __readDIS( fileName : str, DIS_threshold  : float):
         """
         Parses "*.diso" output files and add the data inside the
         above attribute data structures.
@@ -244,7 +246,7 @@ class RaptorXPredData:
         return DIS_classes, DIS_proba
 
 
-    def __readSS3( fileName ):
+    def __readSS3( fileName : str):
         """
         Parses "*.ss3" output files and add the data inside the
         above attribute data structures.
@@ -261,6 +263,7 @@ class RaptorXPredData:
         """
 
         # for cases when the method is called twice
+        seq = []
         SS3_classes = []
         SS3_proba = []
 
@@ -270,11 +273,13 @@ class RaptorXPredData:
             for line in lines:
                 l = line.split()
                 if l[0][0] != '#':
+
                     Hproba = float(l[3])
                     Eproba = float(l[4])
                     Cproba = float(l[5])
                     ss = l[2]
 
+                    seq.append(l[1])
                     SS3_proba.append( { "H": Hproba,
                                         "E": Eproba,
                                         "C": Cproba } )
@@ -289,10 +294,10 @@ class RaptorXPredData:
             raise
 
 
-        return SS3_classes, SS3_proba
+        return seq, SS3_classes, SS3_proba
 
 
-    def __readSS8( fileName ):
+    def __readSS8( fileName : str ):
         """
         Parses "*.ss8" output files and add the data inside the
         above attribute data structures.
@@ -357,7 +362,7 @@ class RaptorXPredData:
 
 
 
-    def __readACC( fileName ):
+    def __readACC( fileName : str ):
         """
         Parses "*.acc" output files and add the data inside the
         above attribute data structures.
@@ -405,7 +410,7 @@ class RaptorXPredData:
         return ACC3_classes, ACC3_proba
 
 
-    def __readCONF( fileName ):
+    def __readCONF( fileName : str ):
         """
         Parses "*.tgt2" output files and add the data inside the
         above attribute data structures.
@@ -454,7 +459,7 @@ class RaptorXPredData:
 #
 #
 # CSW_HOME = os.environ.get('CSW_HOME')
-# predData = RaptorXPredData()
+# predData = RaptorX()
 # proteinName = "1pazA"
 # folderName = CSW_HOME + "/output/1pazA/RaptorX/1pazA_PROP/"
 #
