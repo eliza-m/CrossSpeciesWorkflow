@@ -17,13 +17,13 @@ export PsipredProtDB_NAME=uniref50
 
 
 # input folder where FASTA file is located
-export inputFolder=${CSW_HOME}/input
+export inputFolder=${CSW_HOME}/test/input
 
 # protein name root ( in our example the FASTA file is 1pazA.fasta )
 export prot="1pazA"
 
 # output folder
-export outputFolder=${CSW_HOME}/output
+export outputFolder=${CSW_HOME}/test/output
 
 # CPU threads and maximum RAM (GB) to be used
 export CPUnum=10
