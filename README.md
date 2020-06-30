@@ -8,10 +8,17 @@ Content summary:
 * [References](#references)
 
 # General Info
+While there are a multitude of open source ML methods for prediction of various structural or biological related attributes, there are no open source pipelines or APIs which allow to performing a one command task for running multiple/equivalent methods and join the results in a way that facilitates comparisons and further dissemination. This limits any type of structural/comparative biology analyses, as one would need to install and run >50 software and put together all the results using in-house scripts.
+
+This project aims at developing a scalable workflow that receives the protein FASTA file and runs a series of structural and phenotype related predictors, generating a knowledge dataset that will facilitate further exploration and comparisons according to the following categories of features: secondary structure, solvent accessibility, disordered regions, PTS modifications (phosphorylation, glycosylation, lipid modification, sumoylation, etc) or binding sites.
+
+Deliverables of this project consists of 8 modules for each analysis type organised as Docker images, a Python library for processing inputs & outputs of the included methods and bash and CWL pipelines that will facilitate a one-line command run of all the predictors (default or custom configuration).
+
 This repo intends to create an easy, user accesible and open-source tool for running a series of third party predictions software. The main focus is on:
 * Dockerfiles for easy installing existing prediction software.
 * a Python API for facilitating parsing and organising each predictor's output data.
-* a common workflow language (CWL) pipeline that facilitates large protein sequences sets prediction jobs submissions.  
+* bash and CWL pipelines that facilitates large protein sequences sets prediction jobs submissions.  
+
 
 # Project status 
 The project is currently under development ::exclamation:: ::exclamation:: ::exclamation::. 
