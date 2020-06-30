@@ -36,15 +36,22 @@ Currently there are 3 main modules that deal with:
 
 ## Clone repo
 ```
-    git clone https://github.com/eliza-m/CrossSpeciesWorkflow.git
+git clone https://github.com/eliza-m/CrossSpeciesWorkflow.git
 ```
-
+Please set the CrossSpeciesWorkflow project home variable:
+```
+export CSW_HOME=/path/to/CrossSpeciesWorkflow/project/home
+```
 
 ## Create docker images of the modules or individual predictors you are interested in. 
 
-Please note that some of the predictors require registering on their website in order to download the source code. Also make sure that you have enough disk space available at the location were the docker image is being stored. Details of each predictors are shown bellow
+Please note that some of the predictors require registering on their website in order to download the source code. Also make sure that you have enough disk space available at the location were the docker image is being stored. 
 
-
+You can build only the docker images of the predictors you are interested in (please see bellow), or you can build all docker images by using the following bash script:
+```
+bash ${CSW_HOME}/bin/build_all_docker_images.sh
+```
+Some of the individual predictors require downloading and setting up different protein databases. Details of each predictors requirements and usage are shown in the sections bellow :
 
 ## Prediction Modules 
 
@@ -65,15 +72,16 @@ Docker image contains:
 
 Build docker image
 ```
-	sudo docker ...
+cd ${CSW_HOME}/dockerfiles/structural/raptorx
+docker build -t raptorx_property_cpu -f raptorx_property_cpu.dockerfile .
 ```
 
 Get protein sequence database, according to the sequence profile generator sofware you want to use (installed in the docker image): 
 
-* HHblits (default):
-    *  UniProt20 (default) ~ 40 GB :
+* hhblits (default):
+    *  uniprot20 (default) ~ 40 GB :
     http://wwwuser.gwdg.de/~compbiol/data/hhsuite/databases/hhsuite_dbs/old-releases/uniprot20_2016_02.tgz
-    *  UniClust30 :
+    *  uniclust30 :
     http://wwwuser.gwdg.de/~compbiol/uniclust/2017_10/uniclust30_2017_10_hhsuite.tar.gz
     
 * jackhmm :
@@ -90,17 +98,21 @@ Get protein sequence database, according to the sequence profile generator sofwa
 Usage example using bash :
 
 ```
+# for RaptorX the recommended db is uniprot20_2016_02 or uniclust30. For now, only the usage of uniprot20_2016_02 and hhsuite3 was tested.
+export RaptorxProtDB_NAME=uniprot20_2016_02
+
 # location of the protein database to be use for generatig sequence profiles
-export u20=[PATH to database]/uniprot20_2016_02
+export RaptorxProtDB_PATH=/storage1/eliza/protDBs/uniprot20_2016_02
+
+
+# input folder where FASTA file is located
+export inputFolder=${CSW_HOME}/test/input
+
+# protein name root ( in our example the FASTA file is 1pazA.fasta )
+export prot="1pazA"
 
 # output folder
-export output=$(pwd)/output
-
-# input folder
-export input=$(pwd)/input
-
-# protein name
-export prot="1pazA"
+export outputFolder=${CSW_HOME}/test/output
 
 # CPU threads and maximum RAM (GB) to be used
 export CPUnum=10
@@ -108,18 +120,17 @@ export maxRAM=4
 
 
 docker run \
--v ${u20}:/home/TGT_Package/databases/uniprot20_2016_02 \
--v ${output}:/home/output -v ${input}:/home/input \
+-v ${RaptorxProtDB_PATH}:/home/TGT_Package/databases/uniprot20_2016_02 \
+-v ${outputFolder}:/output \
+-v ${inputFolder}:/input \
 -e prot \
 -e CPUnum \
 -e maxRAM \
--it raptorx-property:latest bash -c \
-'TGT_Package/A3M_TGT_Gen.sh -i input/${prot}.fasta -h hhsuite3 -d uniprot20_2016_02 -c ${CPUnum} -m ${maxRAM}; \
-Predict_Property/Predict_Property.sh -i ${prot}_A3MTGT/${prot}.tgt; \
-mkdir -p output/${prot}; \
-mkdir -p output/${prot}/RaptorX; \
-cp -r ${prot}_A3MTGT output/${prot}/RaptorX/ && \
-cp -r ${prot}_PROP output/${prot}/RaptorX; ' 
+-it raptorx_property_cpu:latest bash -c '\
+mkdir -p /output/${prot}; \
+mkdir -p /output/${prot}/RaptorX; \
+TGT_Package/A3M_TGT_Gen.sh -i /input/${prot}.fasta -h hhsuite3 -d uniprot20_2016_02 -c ${CPUnum} -m ${maxRAM} -o /output/${prot}/RaptorX/${prot}_A3MTGT; \
+Predict_Property/Predict_Property.sh -i /output/${prot}/RaptorX/${prot}_A3MTGT/${prot}.tgt -o /output/${prot}/RaptorX/${prot}_PROP; '\
 
 ```
 
@@ -129,7 +140,7 @@ cp -r ${prot}_PROP output/${prot}/RaptorX; '
 
 Links:
 * [Website](http://scratch.proteomics.ics.uci.edu/)
-* [Documentation](http://download.igb.uci.edu/SCRATCH-1D_documentation.txt; 
+* [Documentation](http://download.igb.uci.edu/SCRATCH-1D_documentation.txt); 
 * [Installation guide](http://download.igb.uci.edu/SCRATCH-1D_readme.txt) 
 
 Docker image contains 2 packages:
@@ -138,100 +149,142 @@ Docker image contains 2 packages:
     * Relative solvent accesibility (ACCpro).
 * DISpro1.0 Disorder prediction [\[CSB 2005\]](#csb-2005) 
 
+
+Build docker image
+```
+cd ${CSW_HOME}/dockerfiles/structural/scratch1d
+docker build -t scratch1d_cpu -f scratch1d_cpu.dockerfile .
+```
+
+Usage example using bash :
+
+```
+# input folder where FASTA file is located
+export inputFolder=${CSW_HOME}/test/input
+
+# protein name root ( in our example the FASTA file is 1pazA.fasta )
+export prot="1pazA"
+
+# output folder
+export outputFolder=${CSW_HOME}/test/output
+
+# CPU threads to be used
+export CPUnum=10
+
+docker run \
+-v ${outputFolder}:/output \
+-v ${inputFolder}:/input \
+-e prot \
+-e CPUnum \
+-it scratch1d_cpu:latest bash -c '\
+mkdir -p output/${prot}; \
+mkdir -p output/${prot}/Scratch1D; \
+SCRATCH-1D_1.2/bin/run_SCRATCH-1D_predictors.sh /input/${prot}.fasta /output/${prot}/Scratch1D/${prot} ${CPUnum} ;' 
+
+```    
+
+
 <br /><br />
 
 ### A3. [Psipred predictors](http://bioinf.cs.ucl.ac.uk/psipred/) - from UCL Bioinformatics group  
 Docker image contains 2 packages:
 * PSIPRED Protein Secondary Structure Predictor v4.0 ([github repo](https://github.com/psipred/psipred)) [\[BJ 2019\]](#bj-2019), [\[J 1999\]](#j-1999).
-* Disopred Disorder Predictor v3.1 ([github repo](https://github.com/psipred/disopred)) [\[JC 2014\]](#jc-2014)
+* DISOPRED Disorder Predictor v3.1 ([github repo](https://github.com/psipred/disopred)) [\[JC 2014\]](#jc-2014)
 
 Build docker image:
 ```
-cd Dockerfiles/Structural/
-
-docker build -t psipred_cpu -f Psipred_CPU.Dockerfile .	
+cd ${CSW_HOME}/dockerfiles/structural/psipred_disopred
+docker build -t psipred_disopred_cpu -f psipred_disopred_cpu.dockerfile .
 ```
 
 This docker image will use BLAST+ for building the sequence profile. Therefore we need to download and setup a sequence database. Psipred recomands the usage of UniRef90. For more details visit their documentation (link above). Download UniRef90 in fasta format from [uniprot.org/downloads](https://www.uniprot.org/downloads).
 
 Afterwards a blast database needs to be created (this steps need to be done only once, afterwards the database can be used or moved anywhere):
 ```
-	# if you do not habe BLAST+ installed run:
-	sudo apt-get install 
+# if you do not habe BLAST+ installed run:
+sudo apt-get install 
 	
-	# go to the place where Uniref fasta file is being stored (change the path bellow accordingly):
-	cd /Place/where/UnirefX.fasta/file/is/stored
+# go to the place where Uniref fasta file is being stored (change the path bellow accordingly):
+cd /Place/where/UnirefX.fasta/file/is/stored
 	
-	# create database (this might take a while from several minutes to one hour)
-	makeblastdb -dbtype prot -in uniref90.fasta
+# create database (this might take a while from several minutes to one hour)
+makeblastdb -dbtype prot -in uniref90.fasta
 	
 ```
 
 After the BLAST+ database has been generated, from now on we can use the docker image anytime.
 Let's see an usage example using bash and also test that everything works as expected :
 
-Go to CrossSpeciesWorkflow repo home directory (change the path bellow accordingly):
-	`cd /path/to/CrossSpeciesWorkflow/repo/home`
-
 Let's set some custom variables:
 	
 The path to the folder where uniref is being stored (change it according to you case):
-	`export uniref_folder=/storage/uniref/uniref90/`
-	
+```
+export PsipredProtDB_PATH=/storage1/eliza/protDBs/uniref90
+```
+
 The name of the uniref fasta file (in case you wish to use uniref50 or other database)
-	`export uniref_fastafile=uniref90.fasta`
+```
+export PsipredProtDB_NAME=uniref90
+```
 	
 The number of CPU threads to be used when using psiblast
-	`export CPUnum=4`
+```
+export CPUnum=4
+```
 	
 Specify the folder where the input fasta files are. We will use the provided examples in this repo.
-	`export input=$(pwd)/input`
-	
+```
+export inputFolder=${CSW_HOME}/test/input
+```
+
+Specify the protein root name (in our example the fasta file is "1pazA.fasta"):
+```
+export prot="1pazA"
+```
+
 Set an output folder there the results will be generated. We will in this repo.
 ```
-	mkdir output_tests
-	export output=$(pwd)/output
+export outputFolder=${CSW_HOME}/test/output
 ```
-* Specify the protein root name (in our example the fasta file is "1pazA.fasta"):
-	`export prot="1pazA"`
+
 
 Let's run Psipred ( no need to change anything as the variables used are being set above - just copy paste the whole command bellow )
 ```
-sudo docker run \
-	-v ${uniref_folder}:/home/database/ \
-	-v ${output}:/output \
-	-v ${input}:/input \
-	-e prot=$prot \
-	-e RunNumOfThreads=$CPUnum \
-	-e unirefX=${uniref_fastafile} \
-	-it psipred_cpu:latest \
-	bash -c '\
-	mkdir -p ${prot}; \
-	mkdir -p ${prot}/PsiPred; \
-	cp /input/${prot}.fasta /output/${prot}/PsiPred/ && cd ${prot}/PsiPred/ ;\
-	$psipredplus ${prot}.fasta;'	
+docker run \
+-v ${PsipredProtDB_PATH}:/home/database/ \
+-e ${PsipredProtDB_NAME}=${uniref_fastafile} \
+-v ${outputFolder}:/output \
+-v ${inputFolder}:/input \
+-e prot=$prot \
+-e RunNumOfThreads=$CPUnum \
+-it psipred_disopred_cpu:latest \
+bash -c '\
+mkdir -p ${prot}; \
+mkdir -p ${prot}/PsiPred; \
+cp /input/${prot}.fasta /output/${prot}/PsiPred/ && cd ${prot}/PsiPred/ ;\
+$psipredplus ${prot}.fasta;'
 ```
 Let's run now Disopred for this protein example:
 ```
-sudo docker run \
-	-v ${uniref_folder}:/home/database/ \
-	-v ${output}:/output \
-	-v ${input}:/input \
-	-e prot=$prot \
-	-e RunNumOfThreads=$CPUnum \
-	-e unirefX=${uniref_fastafile} \
-	-it psipred_cpu:latest \
-	bash -c '\
-	mkdir -p ${prot}; \
-	mkdir -p ${prot}/DisoPred; \
-	cp /input/${prot}.fasta /output/${prot}/DisoPred/ && cd ${prot}/DisoPred/ ;\
-	$psipredplus ${prot}.fasta;'	
+docker run \
+-v ${PsipredProtDB_PATH}:/home/database/ \
+-e ${PsipredProtDB_NAME}=${uniref_fastafile} \
+-v ${outputFolder}:/output \
+-v ${inputFolder}:/input \
+-e prot=$prot \
+-e RunNumOfThreads=$CPUnum \
+-it psipred_disopred_cpu:latest \
+bash -c '\
+mkdir -p ${prot}; \
+mkdir -p ${prot}/DisoPred; \
+cp /input/${prot}.fasta /output/${prot}/DisoPred/ && cd ${prot}/DisoPred/ ;\
+$disopredplus ${prot}.fasta;'
 ```
 
 Now let's see the predictions. The output files must have been saved here:
 
 ```
-../CrossSpeciesWorkflow$ ls -l output_tests/1pazA/PsiPred/
+../CrossSpeciesWorkflow$ ls -l test/output/1pazA/PsiPred/
 total 996
 -rw-r--r-- 1 root root    131 Jun 11 14:36 1pazA.fasta
 -rw-r--r-- 1 root root    612 Jun 11 14:37 1pazA.horiz
@@ -242,7 +295,7 @@ total 996
 -rw-r--r-- 1 root root    131 Jun 11 14:36 psitmp1411ac0300.fasta
 -rw-r--r-- 1 root root  20983 Jun 11 14:37 psitmp1411ac0300.mtx
 
-../CrossSpeciesWorkflow$ ls -l output_tests/1pazA/DisoPred/
+../CrossSpeciesWorkflow$ ls -l test/output/1pazA/DisoPred/
 total 788
 -rw-r--r-- 1 root root 124094 Jun 11 14:38 1pazA_9_11ac0300.blast
 -rw-r--r-- 1 root root 159375 Jun 11 14:38 1pazA_9_11ac0300.chk
@@ -270,7 +323,7 @@ There are 2 available dokerfiles:
 * CPU based
 * GPU based
 
-....
+:exclamation: On progress
 
 
 <br /><br />  
@@ -295,9 +348,7 @@ As all DTU predictors license is for academic and non-profit usage only, in orde
 Please register and download the above predictors (linux version as the dockerfile image is ubuntu based) from the [Download link](https://services.healthtech.dtu.dk/software.php)
 
 After you complete the license agreement and download the software, you can proceed building the docker image:
-```
-	sudo ...
-```
+
 
 
 
@@ -316,7 +367,12 @@ Please register and download the above predictors (linux version as the dockerfi
 
 After you complete the license agreement and download the software, you can proceed building the docker image:
 ```
-	sudo ...
+cd ${CSW_HOME}/dockerfiles/phosphorylation/dtu_predictors
+
+cp ${netphospan_SOURCE}/netphospan-1.0* ${CSW_HOME}/dockerfiles/phosphorylation/dtu_predictors/
+cp ${netphospan_SOURCE}/netphospan-1.0* ${CSW_HOME}/dockerfiles/phosphorylation/dtu_predictors/
+
+docker build -t dtu_phosphorylation_cpu -f dtu_phosphorylation_cpu.dockerfile .    
 ```
 
 <br /><br />
@@ -327,39 +383,25 @@ MusiteDeep Phosphorylation ([github repo](https://github.com/duolinwang/MusiteDe
 
 There are 4 available dokerfiles:
 * MusiteDeep using Keras1 and Theano CPU-based
-* MusiteDeep using Keras1 and Theano GPU-based
 * MusiteDeep using Keras2 and Tensorflow CPU-based - which is much faster than Theano's version
-* MusiteDeep using Keras2 and Tensorflow GPU-based
 
 According to your choice, build the selected docker image:
 ```
-	docker ...
+cd ${CSW_HOME}/dockerfiles/phosphorylation/musitedeep
+
+docker build -t musitedeep_keras2_tensorflow_cpu -f musitedeep_keras2_tensorflow_cpu.dockerfile .
+docker build -t musitedeep_keras1_theano_cpu -f musitedeep_keras1_theano_cpu.dockerfile .
 ```
 
 
-
-TODO
-https://github.com/duolinwang/MusiteDeep_web
-
-https://github.com/USTC-HIlab/DeepPhos
-https://pubmed.ncbi.nlm.nih.gov/30601936/
-
-
-https://pubmed.ncbi.nlm.nih.gov/30520972/
-https://github.com/duolinwang/CapsNet_PTM.
-
-
 # CWL pipelines
-
+:exclamation: On progress
 
 ## Structural prediction only
 
-
 ## PTS predictions
 
-
 ## All available predictors
-
 
 
 
