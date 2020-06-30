@@ -25,9 +25,10 @@ The project is currently under development ::exclamation:: ::exclamation:: ::exc
 Many features in this devevelopment branch are not yet implemented and won't work properly ::exclamation::
 
 Currently there are 3 main modules that deal with:
-* Structural related predictors (secondary structure, relative solvent accesibility and intrinsical disorder regions predictions)
-* Glycosylaytion predictors
-* Phosphorylation
+* A. Structural related predictors (secondary structure, relative solvent accesibility and intrinsical disorder regions predictions)
+* B. Phosphorylation preditors
+* C. Glycosylaytion predictors
+
 
 
 # Prediction Modules - Installation and Usage
@@ -334,34 +335,10 @@ There are 2 available dokerfiles:
 
 
 <br /><br />  
-    
-## B. Glycosylation module
-  
-### B1. Glycosylation predictors - from DTU Health Tech 
 
-The [DTUHealthTech_Glycosylation_CPU Dockerfile](CrossSpeciesWorkflow/Dockerfiles/Glycosylation/DTUHealthTech_Glycosylation_CPU.Dockerfile) contains installation instructions for the following predictors from DTU Health Tech :
-* [NetNGlyc v1.0](https://services.healthtech.dtu.dk/service.php?NetNGlyc-1.0) predicts N-Glycosylation sites in human proteins [\[GJB 2004\]](#gjb-2004). [CLI user guide](http://www.cbs.dtu.dk/cgi-bin/nph-runsafe?man=netNglyc)
-    
-* [NetOGlyc v4.0](https://services.healthtech.dtu.dk/service.php?NetOGlyc-4.0) predicts O-GalNAc (mucin type) glycosylation sites in mammalian proteins. [\[SC 2013\]](#sc-2013):
-    
-* [YinOYang v1.2](https://services.healthtech.dtu.dk/service.php?YinOYang-1.2) predicts O-(beta)-GlcNAc glycosylation and Yin-Yang sites [\[GB 2002\]](#gb-2002), [\[G 2001\]](#g-2001). 
-Also includes SignalP and NetPhos v3.1 predictors (discussed in their corresponding module).
-    
-* [NetCGlyc v1.0](http://www.cbs.dtu.dk/services/NetCGlyc/) predicts C-mannosylation sites in mammalian proteins [\[J 2007\]](#j-2007).
+## B. Phosphorylation module :  
 
-
-As all DTU predictors license is for academic and non-profit usage only, in order to download the software it is required to register on their website and accept the license agreement prior accessing the download page. 
-
-Please register and download the above predictors (linux version as the dockerfile image is ubuntu based) from the [Download link](https://services.healthtech.dtu.dk/software.php)
-
-After you complete the license agreement and download the software, you can proceed building the docker image:
-
-
-
-
-## C. Phosphorylation module :  
-
-### C1. Phosphorylation predictors - from DTU Health Tech 
+### B1. Phosphorylation predictors - from DTU Health Tech 
 
 The [DTUHealthTech_Phosphorylation_CPU Dockerfile](CrossSpeciesWorkflow/Dockerfiles/Phosphorylation/DTUHealthTech_Phosphorylation_CPU.Dockerfile) contains installation instructions for the following predictors from DTU Health Tech :
 * [NetPhos v3.1](https://services.healthtech.dtu.dk/service.php?NetPhos-3.1) predicts serine, threonine or tyrosine phosphorylation sites in eukaryotic proteins, either generic or kinase specific (17 kinases) [\[BGB 1999\]](#bgb-1999), [\[BB 2004\]](#bb-2004).
@@ -384,7 +361,7 @@ docker build -t dtu_phosphorylation_cpu -f dtu_phosphorylation_cpu.dockerfile .
 
 <br /><br />
 
-### C2. [MusiteDeep Phosphorylation predictors](https://www.musite.net/) 
+### B2. [MusiteDeep Phosphorylation predictors](https://www.musite.net/) 
 
 MusiteDeep Phosphorylation ([github repo](https://github.com/duolinwang/MusiteDeep)) predicts general and/or kinase specific phosphorylation sites [\[WX 2017\]](#wx-2017). 
 
@@ -399,6 +376,28 @@ cd ${CSW_HOME}/dockerfiles/phosphorylation/musitedeep
 docker build -t musitedeep_keras2_tensorflow_cpu -f musitedeep_keras2_tensorflow_cpu.dockerfile .
 docker build -t musitedeep_keras1_theano_cpu -f musitedeep_keras1_theano_cpu.dockerfile .
 ```
+
+    
+## C. Glycosylation module
+  
+### C1. Glycosylation predictors - from DTU Health Tech 
+
+The [DTUHealthTech_Glycosylation_CPU Dockerfile](CrossSpeciesWorkflow/Dockerfiles/Glycosylation/DTUHealthTech_Glycosylation_CPU.Dockerfile) contains installation instructions for the following predictors from DTU Health Tech :
+* [NetNGlyc v1.0](https://services.healthtech.dtu.dk/service.php?NetNGlyc-1.0) predicts N-Glycosylation sites in human proteins [\[GJB 2004\]](#gjb-2004). [CLI user guide](http://www.cbs.dtu.dk/cgi-bin/nph-runsafe?man=netNglyc)
+    
+* [NetOGlyc v4.0](https://services.healthtech.dtu.dk/service.php?NetOGlyc-4.0) predicts O-GalNAc (mucin type) glycosylation sites in mammalian proteins. [\[SC 2013\]](#sc-2013):
+    
+* [YinOYang v1.2](https://services.healthtech.dtu.dk/service.php?YinOYang-1.2) predicts O-(beta)-GlcNAc glycosylation and Yin-Yang sites [\[GB 2002\]](#gb-2002), [\[G 2001\]](#g-2001). 
+Also includes SignalP and NetPhos v3.1 predictors (discussed in their corresponding module).
+    
+* [NetCGlyc v1.0](http://www.cbs.dtu.dk/services/NetCGlyc/) predicts C-mannosylation sites in mammalian proteins [\[J 2007\]](#j-2007).
+
+
+As all DTU predictors license is for academic and non-profit usage only, in order to download the software it is required to register on their website and accept the license agreement prior accessing the download page. 
+
+Please register and download the above predictors (linux version as the dockerfile image is ubuntu based) from the [Download link](https://services.healthtech.dtu.dk/software.php)
+
+After you complete the license agreement and download the software, you can proceed building the docker image:
 
 
 # CWL pipelines
