@@ -3,7 +3,7 @@
 # Prerequisites !!!!!!!!!!!!
 ############################
 
-# Be sure you have set the ${CrossSpeciesWorkflow_HOME} variable.
+# Be sure you have set the CrossSpeciesWorkflow project home variable.
 # As this variable is often used, it can be added to bashrc profile.
 
 export CSW_HOME=/path/to/CSW/home
