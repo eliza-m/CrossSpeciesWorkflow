@@ -250,7 +250,7 @@ Specify the protein root name (in our example the fasta file is "1pazA.fasta"):
 export prot="1pazA"
 ```
 
-Set an output folder there the results will be generated. We will in this repo.
+Set an output folder there the results will be generated. We will use the test example from this repo.
 ```
 export outputFolder=${CSW_HOME}/test/output
 ```
@@ -358,6 +358,44 @@ cp ${netphospan_SOURCE}/netphospan-1.0* ${CSW_HOME}/dockerfiles/phosphorylation/
 
 docker build -t dtu_phosphorylation_cpu -f dtu_phosphorylation_cpu.dockerfile .    
 ```
+Let's see an usage example using bash and also test that everything works as expected :
+```
+# input folder
+export inputFolder=${CSW_HOME}/test/input
+
+# protein root name (in our example the fasta file is "1pazA.fasta"):
+export prot="1pazA"
+
+# output folder```
+export outputFolder=${CSW_HOME}/test/output
+```
+
+Let's run NetPhos3.1 ( no need to change anything as the variables used are being set above - just copy paste the whole command bellow )
+```
+docker run \
+-v ${outputFolder}:/output \
+-v ${inputFolder}:/input \
+-e prot=$prot \
+-it dtu_phosphorylation_cpu:latest \
+bash -c '\
+mkdir -p /output/${prot}/netphos-3.1; \
+/home/netphos-3.1/ape-1.0/ape /input/1pazA.fasta > /output/1pazA/netphos-3.1/netphos.txt ; '
+```
+
+Let's run now NetPhospan for this protein example, using either the generic predictor (`-generic` flag), or a kinase specific model (`-a kinasename`). For a list of supported kinase models please see the documentation for this predictor :
+
+```
+
+docker run \
+-v ${outputFolder}:/output \
+-v ${inputFolder}:/input \
+-e prot=$prot \
+-it dtu_phosphorylation_cpu:latest \
+bash -c '\
+mkdir -p /output/${prot}/netphospan; \
+netphospan-1.0.Linux/netphospan -f /input/${prot}.fasta -generic > /output/${prot}/netphospan/generic.txt; \
+netphospan-1.0.Linux/netphospan -f /input/${prot}.fasta -a PKACA > /output/${prot}/netphospan/PKACA.txt;'
+```
 
 <br /><br />
 
@@ -376,6 +414,74 @@ cd ${CSW_HOME}/dockerfiles/phosphorylation/musitedeep
 docker build -t musitedeep_keras2_tensorflow_cpu -f musitedeep_keras2_tensorflow_cpu.dockerfile .
 docker build -t musitedeep_keras1_theano_cpu -f musitedeep_keras1_theano_cpu.dockerfile .
 ```
+
+Let's see an usage example using bash and also test that everything works as expected. We will use the same example as above:
+```
+export inputFolder=${CSW_HOME}/test/input
+export prot="1pazA"
+export outputFolder=${CSW_HOME}/test/output
+```
+MusiteDeep contains a generic phosphorylation predictor, as well as trained kinase specific models (only for 'CDK','PKA','CK2', 'MAPK', 'PKC' kinases). Additionally it provides some custom models and the possibility to train custom models based on users data. Please see their documentation for detailed usage info.
+
+Using MusiteDeep v1.0 (theano) : 
+
+Either the general predictor :
+```
+docker run \
+-v ${outputFolder}:/output \
+-v ${inputFolder}:/input \
+-e prot=$prot \
+-it musitedeep_keras1_theano_cpu:latest \
+bash -c '\
+mkdir -p /output/${prot}/musitedeep_keras1_theano; \
+python predict.py -input /input/${prot}.fasta \
+-output /output/${prot}/musitedeep_keras1_theano/ \
+-predict-type general -residue-types S,T,Y ;'
+```
+
+Or kinase specific:
+```
+docker run \
+-v ${outputFolder}:/output \
+-v ${inputFolder}:/input \
+-e prot=$prot \
+-it musitedeep_keras1_theano_cpu:latest \
+bash -c '\
+mkdir -p /output/${prot}/musitedeep_keras1_theano; \
+python predict.py -input /input/${prot}.fasta \
+-output /output/${prot}/musitedeep_keras1_theano/ \
+-predict-type kinase -kinase CDK ;'
+```
+
+Similarly for MusiteDeep v2.0 (tensorflow), only the image name needs to be change and the usage is equivalent : 
+
+For the general predictor :
+```
+docker run \
+-v ${outputFolder}:/output \
+-v ${inputFolder}:/input \
+-e prot=$prot \
+-it musitedeep_keras2_tensorflow_cpu:latest \
+bash -c '\
+mkdir -p /output/${prot}/musitedeep_keras2_tensorflow; \
+python predict.py -input /input/${prot}.fasta \
+-output /output/${prot}/musitedeep_keras2_tensorflow/ \
+-predict-type general -residue-types S,T,Y ;'
+```
+Or Kinase specific :
+```
+docker run \
+-v ${outputFolder}:/output \
+-v ${inputFolder}:/input \
+-e prot=$prot \
+-it musitedeep_keras2_tensorflow_cpu:latest \
+bash -c '\
+mkdir -p /output/${prot}/musitedeep_keras2_tensorflow; \
+python predict.py -input /input/${prot}.fasta \
+-output /output/${prot}/musitedeep_keras2_tensorflow/ \
+-predict-type kinase -kinase CDK ;'
+```
+
 
     
 ## C. Glycosylation module
