@@ -25,6 +25,7 @@ RUN apt-get update && \
 		# in theano if not prior installed 
 		libblas-dev liblapack-dev
 
+ENV HOME=/home/
 		
 # Clone & Build MusiteDeep
 WORKDIR /home/

@@ -22,6 +22,7 @@ RUN apt-get update && \
 		wget bash python-pip \
 		libblas-dev liblapack-dev
 
+ENV HOME=/home/
 
 # Clone & Build MusiteDeep
 WORKDIR /home/
@@ -45,6 +46,9 @@ RUN bash -c 'echo -e "{\n\x22image_dim_ordering\x22: \x22th\x22,\n\x22epsilon\x2
 
 # Setting working directory when docker image is running
 WORKDIR /home/MusiteDeep/MusiteDeep_Keras2.0/MusiteDeep/
+
+# they renamed the files without updating the script
+RUN sed -i 's|_model_|_HDF5model_|g' predict.py
 
 # COMMENT: the standard version of tensorflow does not use all the common 
 # compiler flags.. it could be recompiled to use SSE4.2, AVX, etc... 
