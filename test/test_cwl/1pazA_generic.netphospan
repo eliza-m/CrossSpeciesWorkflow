@@ -1,0 +1,55 @@
+# /home/netphospan-1.0.Linux/Linux_x86_64/bin/netphospan -generic -f /var/lib/cwl/stg673bfc96-c783-44ce-993f-64647d3ec4be/1pazA.fasta
+# Wed Jul  1 12:10:56 2020
+# User: root
+# PWD : /storage1/eliza/git/CrossSpeciesWorkflow/test/test_cwl
+# Host: Linux 7fa8e581f329 5.4.0-37-generic x86_64
+# -generic 1                    Use generic predictor
+# -f       /var/lib/cwl/stg673bfc96-c783-44ce-993f-64647d3ec4be/1pazA.fasta File name with input
+# Command line parameters set to:
+#	[-rdir filename]     /home/netphospan-1.0.Linux/Linux_x86_64 Home directory for NetPhospan
+#	[-pdir filename]     /usr/bin/python2.7   Home directory for Python
+#	[-syn filename]      /home/netphospan-1.0.Linux/Linux_x86_64/data/ensemblelist Param file
+#	[-v]                 0                    Verbose mode
+#	[-dirty]             0                    Dirty mode, leave tmp dir+files
+#	[-tdir filename]     /tmp/                Temporary directory
+#	[-kindomain filename] /home/netphospan-1.0.Linux/Linux_x86_64/data/KIN_pseudo.dat File with kinase domain sequences
+#	[-kinseq filename]                        Fasta file with full length kinase domain sequences
+#	[-l string]          21                   Peptide length [21]
+#	[-a line]            PKACA                Kinase gen name
+#	[-f filename]        /var/lib/cwl/stg673bfc96-c783-44ce-993f-64647d3ec4be/1pazA.fasta File name with input
+#	[-s]                 0                    Sort output on descending prediction
+#	[-p]                 0                    Use peptide input
+#	[-xls]               0                    Save output to xls file
+#	[-xlsfile filename]  NetPhospan.xls       Filename for xls dump
+#	[-t float]           -9.000000            Threshold for output
+#	[-version filename]  /home/netphospan-1.0.Linux/Linux_x86_64/data/version File with version information
+#	[-inptype int]       0                    Input type [0] FASTA [1] Peptide
+#	[-listKIN]           0                    Print list of kinases included in NetPhosPan
+#	[-generic]           1                    Use generic predictor
+
+
+# Tmpdir made /tmp//11
+# Input is in FSA format
+
+# Peptide length 21
+-----------------------------------------------------------------------------------------------------
+   pos        kin        peptide                 Identity     Pred
+-----------------------------------------------------------------------------------------------------
+   12      GENERIC AEGAMVFEPAYIKANPGDTVT           1pazA      0.232
+   20      GENERIC PAYIKANPGDTVTFIPVDKGH           1pazA      0.113
+   22      GENERIC YIKANPGDTVTFIPVDKGHNV           1pazA      0.087
+   34      GENERIC IPVDKGHNVESIKDMIPEGAE           1pazA      0.147
+   48      GENERIC MIPEGAEKFKSKINENYVLTV           1pazA      0.077
+   54      GENERIC EKFKSKINENYVLTVTQPGAY           1pazA      0.239
+   57      GENERIC KSKINENYVLTVTQPGAYLVK           1pazA      0.111
+   59      GENERIC KINENYVLTVTQPGAYLVKCT           1pazA      0.072
+   64      GENERIC YVLTVTQPGAYLVKCTPHYAM           1pazA      0.109
+   69      GENERIC TQPGAYLVKCTPHYAMGMIAL           1pazA      0.063
+   72      GENERIC GAYLVKCTPHYAMGMIALIAV           1pazA      0.132
+   85      GENERIC GMIALIAVGDSPANLDQIVSA           1pazA      0.168
+   94      GENERIC DSPANLDQIVSAKKPKIVQER           1pazA      0.145
+-----------------------------------------------------------------------------------------------------
+
+Protein 1pazA. Kinase GENERIC. Number of peptides 13
+
+-----------------------------------------------------------------------------------------------------

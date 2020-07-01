@@ -1,0 +1,4 @@
+fastaFile:
+  class: File
+  name: 1pazA
+  path: ../1pazA.fasta
