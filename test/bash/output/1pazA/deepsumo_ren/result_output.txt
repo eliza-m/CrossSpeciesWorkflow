@@ -1,0 +1,3 @@
+ID	Position	Sequence	Score	Cutoff	Cluster
+1pazA	87-91	PHYAMGM IALIA VGDSPAN	0.13681734	0.08375	SUMO-interaction
+1pazA	123	EKVIASA K *******	0.11830271	0.04625	SUMOylation
