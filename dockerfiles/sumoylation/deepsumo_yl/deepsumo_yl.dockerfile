@@ -30,12 +30,21 @@ RUN pip3 install pandas
 RUN pip3 install -v keras==2.2.2
 RUN pip3 install -v tensorflow==1.5.0 
 
+
 # Create folders for input and output data
 RUN mkdir /input
 RUN mkdir /output
 
 # Setting working directory when docker image is running
+
+ENV PATH "$PATH:/home/DeepSUMO/codes/"
+
 WORKDIR /home/DeepSUMO/codes/
+
+# solve input argv problem
+RUN sed -i "s|inputfile = 'example.txt'|inputfile = args.inputfile;|g" predict.py
+RUN sed -i "s|bestmodel.h5|/home/DeepSUMO/codes/bestmodel.h5|g" predict.py
+
 
 
 ################################################################################

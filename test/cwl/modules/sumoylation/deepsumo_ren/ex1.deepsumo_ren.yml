@@ -1,0 +1,6 @@
+fastaFile:
+  class: File
+  location: ../data/ex1.fasta
+threshold_sumo: low
+threshold_sim: low
+outputFilename: ex1.deepsumo_ren.out

@@ -36,5 +36,8 @@ RUN mkdir /output
 # Setting working directory when docker image is running
 WORKDIR /home/DeepSumo/
 
+# workaround for cwl
+COPY ./deepsumo.sh /home/
+
 
 ################################################################################
