@@ -1,0 +1,48 @@
+# Predictions for N-Glycosylation sites in 1 sequence
+SignalP-5.0. Starting fasta file reading...
+Total proteins read: 1.
+Organism: euk.
+Starting protein prediction...
+Temporary directory: /tmp/signalp5.699252801
+Protein prediction done!
+Generating output files...
+Completed.
+
+########################################################################################
+
+    Warning: This sequence may not contain a signal peptide!!
+
+    Proteins without signal peptides are unlikely to be exposed to
+    the N-glycosylation machinery and thus may not be glycosylated
+    (in vivo) even though they contain potential motifs.
+
+    SignalP-NN euk predictions are as follows:
+
+  # name                Cmax  pos ?  Ymax  pos ?  Smax  pos ?  Smean ?  D     ? 
+  LEUK_RAT	OTHER	0.001541	0.998459	
+
+    SignalP output is explained at http://www.cbs.dtu.dk/services/SignalP/output.html
+
+########################################################################################
+
+Name:  LEUK_RAT 	Length:  378
+WAQVVSQENLPNTMTMLPFTPNSESPSTSEALSTYSSIATVPVTEDPKESISPWGQTTAPASSIPLGTPELSSFFFTSAG      80
+ASGNTPVPELTTSQEVSTEASLVLFPKSSGVASDPPVTITNPATSSAVASTSLETFKGTSAPPVTVTSSTMTSGPFVATT     160
+VSSETSGPPVTMATGSLGPSKETHGLSATIATSSGESSSVAGGTPVFSTKISTTSTPNPITTVPPRPGSSGMLLVSMLIA     240
+LTVVLVLVALLLLWRQRQKRRTGALTLSRGGKRNGTVDAWAGPARVPDEEATTASGSGGNKSSGAPETDGSGQRPTLTTF     320
+FSRRKSRQGSVALEELKPGTGPNLKGEEEPLVGSEDEAVETPTSDGPQAKDGAAPQSL                           400
+................................................................................      80
+................................................................................     160
+................................................................................     240
+.................................N.........................N....................     320
+..........................................................                           400
+
+(Threshold=0.5)
+----------------------------------------------------------------------
+SeqName        Position      Potential          Jury          N-Glyc
+				              agreement       result
+----------------------------------------------------------------------
+LEUK_RAT       274 NGTV		0.7323		(9/9)		  ++
+LEUK_RAT       300 NKSS		0.5404		(6/9)		   +
+----------------------------------------------------------------------
+

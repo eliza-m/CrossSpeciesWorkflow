@@ -1,0 +1,54 @@
+# Predictions for N-Glycosylation sites in 1 sequence
+SignalP-5.0. Starting fasta file reading...
+Total proteins read: 1.
+Organism: euk.
+Starting protein prediction...
+Temporary directory: /tmp/signalp5.039708113
+Protein prediction done!
+Generating output files...
+Completed.
+
+########################################################################################
+
+    Warning: This sequence may not contain a signal peptide!!
+
+    Proteins without signal peptides are unlikely to be exposed to
+    the N-glycosylation machinery and thus may not be glycosylated
+    (in vivo) even though they contain potential motifs.
+
+    SignalP-NN euk predictions are as follows:
+
+  # name                Cmax  pos ?  Ymax  pos ?  Smax  pos ?  Smean ?  D     ? 
+  CBG_HUMAN	SP(Sec/SPI)	0.974526	0.025474	CS pos: 22-23. VQA-MD. Pr: 0.7688
+
+    SignalP output is explained at http://www.cbs.dtu.dk/services/SignalP/output.html
+
+########################################################################################
+
+Name:  CBG_HUMAN 	Length:  405
+MPLLLYTCLLWLPTSGLWTVQAMDPNAAYVNMSNHHRGLASANVDFAFSLYKHLVALSPKKNIFISPVSISMALAMLSLG      80
+TCGHTRAQLLQGLGFNLTERSETEIHQGFQHLHQLFAKSDTSLEMTMGNALFLDGSLELLESFSADIKHYYESEVLAMNF     160
+QDWATASRQINSYVKNKTQGKIVDLFSGLDSPAILVLVNYIFFKGTWTQPFDLASTREENFYVDETTVVKVPMMLQSSTI     240
+SYLHDSELPCQLVQMNYVGNGTVFFILPDKGKMNTVIAALSRDTINRWSAGLTSSQVDLYIPKVTISGVYDLGDVLEEMG     320
+IADLFTNQANFSRITQDAQLKSSKVVHKAVLQLNEEGVDTAGSTGVTLNLTSKPIILRFNQPFIIMIFDHFTWSSLFLAR     400
+VMNPV                                                                                480
+..............................N.................................................      80
+...............N................................................................     160
+...............N................................................................     240
+...................N............................................................     320
+.........N......................................N...............................     400
+.....                                                                                480
+
+(Threshold=0.5)
+----------------------------------------------------------------------
+SeqName        Position      Potential          Jury          N-Glyc
+				              agreement       result
+----------------------------------------------------------------------
+CBG_HUMAN       31 NMSN		0.7166		(9/9)		  ++
+CBG_HUMAN       96 NLTE		0.6356		(8/9)		   +
+CBG_HUMAN      176 NKTQ		0.3941		(7/9)		   -
+CBG_HUMAN      260 NGTV		0.7400		(9/9)		  ++
+CBG_HUMAN      330 NFSR		0.4223		(7/9)		   -
+CBG_HUMAN      369 NLTS		0.6684		(9/9)		  ++
+----------------------------------------------------------------------
+

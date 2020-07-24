@@ -1,0 +1,4 @@
+fastaFile:
+  class: File
+  location: ../data/CBG_HUMAN.fsa
+outputFilename: "CBG_HUMAN.isoglyp.csv"  

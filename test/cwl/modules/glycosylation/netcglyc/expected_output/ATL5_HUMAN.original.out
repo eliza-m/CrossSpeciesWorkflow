@@ -1,0 +1,19 @@
+##gff-version 2
+##source-version netCglyc-1.0b
+##date 2009-02-23
+##Type Protein
+# seqname                source         feature  start    end   score +/-  ?
+# ----------------------------------------------------------------------------
+ATL5_HUMAN               netCglyc-1.0b	C-manno     21     21   0.269  .   .
+ATL5_HUMAN               netCglyc-1.0b	C-manno     38     38   0.459  .   .
+ATL5_HUMAN               netCglyc-1.0b	C-manno     41     41   0.639  .   W
+ATL5_HUMAN               netCglyc-1.0b	C-manno     44     44   0.484  .   .
+ATL5_HUMAN               netCglyc-1.0b	C-manno     72     72   0.221  .   .
+ATL5_HUMAN               netCglyc-1.0b	C-manno    115    115   0.285  .   .
+ATL5_HUMAN               netCglyc-1.0b	C-manno    207    207   0.228  .   .
+ATL5_HUMAN               netCglyc-1.0b	C-manno    244    244   0.246  .   .
+ATL5_HUMAN               netCglyc-1.0b	C-manno    299    299   0.160  .   .
+ATL5_HUMAN               netCglyc-1.0b	C-manno    317    317   0.203  .   .
+ATL5_HUMAN               netCglyc-1.0b	C-manno    410    410   0.243  .   .
+ATL5_HUMAN               netCglyc-1.0b	C-manno    454    454   0.227  .   .
+# ----------------------------------------------------------------------------

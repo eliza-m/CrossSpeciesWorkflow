@@ -1,0 +1,4 @@
+fastaFile:
+  class: File
+  location: ../data/ATL5_HUMAN.fsa
+outputFilename: ATL5.netcglyc.out  

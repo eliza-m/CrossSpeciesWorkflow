@@ -1,0 +1,5 @@
+fastaFile:
+  class: File
+  location: ../data/LEUK_RAT.fsa
+outputFilename: LEUK_RAT.isoglyp.csv
+  

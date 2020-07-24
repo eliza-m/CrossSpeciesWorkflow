@@ -1,0 +1,175 @@
+Name:  GLP_MACFU		Length:  144
+SSTTVPATHTSSSSLGPEQYVSSQSNDKHTSDSHPTPTSAHEVTTEFSGRTHYPPEEDDRVQLVHEFSELVIALIIFGVM
+AGVIGTILFISYGSRRLIKKSESDVQPLPPPDAEVPLSSVEIEDPEETDELNSFTKPNQERNES
+SSTT...T.TSSSS.......SS.S....TS.S..T.TS....TT..S..T.............................
+.....................................SS........T......T.........
+
+Name                         S/T   Pos  G-score I-score Y/N  Comment
+----------------------------------------------------------------------------
+GLP_MACFU                     S      1   0.693   0.028   S   -
+GLP_MACFU                     S      2   0.708   0.037   S   -
+GLP_MACFU                     T      3   0.765   0.204   T   -
+GLP_MACFU                     T      4   0.751   0.125   T   -
+GLP_MACFU                     T      8   0.742   0.054   T   -
+GLP_MACFU                     T     10   0.727   0.045   T   -
+GLP_MACFU                     S     11   0.619   0.054   S   -
+GLP_MACFU                     S     12   0.600   0.036   S   -
+GLP_MACFU                     S     13   0.571   0.049   S   -
+GLP_MACFU                     S     14   0.564   0.071   S   -
+GLP_MACFU                     S     22   0.601   0.093   S   -
+GLP_MACFU                     S     23   0.613   0.056   S   -
+GLP_MACFU                     S     25   0.628   0.027   S   -
+GLP_MACFU                     T     30   0.681   0.053   T   -
+GLP_MACFU                     S     31   0.584   0.084   S   -
+GLP_MACFU                     S     33   0.563   0.036   S   -
+GLP_MACFU                     T     36   0.690   0.485   T   -
+GLP_MACFU                     T     38   0.649   0.427   T   -
+GLP_MACFU                     S     39   0.556   0.095   S   -
+GLP_MACFU                     T     44   0.690   0.043   T   -
+GLP_MACFU                     T     45   0.682   0.055   T   -
+GLP_MACFU                     S     48   0.547   0.054   S   -
+GLP_MACFU                     T     51   0.602   0.026   T   -
+GLP_MACFU                     S     68   0.191   0.049   .   -
+GLP_MACFU                     T     86   0.165   0.117   .   -
+GLP_MACFU                     S     91   0.162   0.069   .   -
+GLP_MACFU                     S     94   0.241   0.075   .   -
+GLP_MACFU                     S    101   0.423   0.023   .   -
+GLP_MACFU                     S    103   0.436   0.027   .   -
+GLP_MACFU                     S    118   0.552   0.122   S   -
+GLP_MACFU                     S    119   0.516   0.079   S   -
+GLP_MACFU                     T    128   0.540   0.080   T   -
+GLP_MACFU                     S    133   0.473   0.033   .   -
+GLP_MACFU                     T    135   0.568   0.059   T   -
+GLP_MACFU                     S    144   0.484   0.019   .   -
+----------------------------------------------------------------------------
+
+
+Name:  LEUK_RAT		Length:  378
+WAQVVSQENLPNTMTMLPFTPNSESPSTSEALSTYSSIATVPVTEDPKESISPWGQTTAPASSIPLGTPELSSFFFTSAG
+ASGNTPVPELTTSQEVSTEASLVLFPKSSGVASDPPVTITNPATSSAVASTSLETFKGTSAPPVTVTSSTMTSGPFVATT
+VSSETSGPPVTMATGSLGPSKETHGLSATIATSSGESSSVAGGTPVFSTKISTTSTPNPITTVPPRPGSSGMLLVSMLIA
+LTVVLVLVALLLLWRQRQKRRTGALTLSRGGKRNGTVDAWAGPARVPDEEATTASGSGGNKSSGAPETDGSGQRPTLTTF
+FSRRKSRQGSVALEELKPGTGPNLKGEEEPLVGSEDEAVETPTSDGPQAKDGAAPQSL
+..............T....T....S.STS...ST.SS..T...T.....S.S....TT.........T....S...T...
+....T.....TT.....T..............S....T.T...TSS...STS..T...TS....T.TSST.TS.....TT
+.SS.TS....T..T.S...S..T.....T..TSS...SS....T...ST..STTST....TT..................
+...................................................TT.S.S....SS....T.......T....
+........................................T.T.............S.
+
+Name                         S/T   Pos  G-score I-score Y/N  Comment
+----------------------------------------------------------------------------
+LEUK_RAT                      S      6   0.379   0.054   .   -
+LEUK_RAT                      T     13   0.498   0.039   .   -
+LEUK_RAT                      T     15   0.535   0.095   T   -
+LEUK_RAT                      T     20   0.567   0.070   T   -
+LEUK_RAT                      S     23   0.469   0.059   .   -
+LEUK_RAT                      S     25   0.502   0.029   S   -
+LEUK_RAT                      S     27   0.526   0.190   S   -
+LEUK_RAT                      T     28   0.659   0.100   T   -
+LEUK_RAT                      S     29   0.552   0.153   S   -
+LEUK_RAT                      S     33   0.567   0.035   S   -
+LEUK_RAT                      T     34   0.650   0.097   T   -
+LEUK_RAT                      S     36   0.557   0.047   S   -
+LEUK_RAT                      S     37   0.550   0.046   S   -
+LEUK_RAT                      T     40   0.653   0.087   T   -
+LEUK_RAT                      T     44   0.609   0.408   T   -
+LEUK_RAT                      S     50   0.565   0.065   S   -
+LEUK_RAT                      S     52   0.554   0.053   S   -
+LEUK_RAT                      T     57   0.669   0.045   T   -
+LEUK_RAT                      T     58   0.661   0.050   T   -
+LEUK_RAT                      S     62   0.477   0.084   .   -
+LEUK_RAT                      S     63   0.457   0.277   .   -
+LEUK_RAT                      T     68   0.576   0.081   T   -
+LEUK_RAT                      S     72   0.497   0.040   .   -
+LEUK_RAT                      S     73   0.503   0.034   S   -
+LEUK_RAT                      T     77   0.592   0.054   T   -
+LEUK_RAT                      S     78   0.466   0.050   .   -
+LEUK_RAT                      S     82   0.459   0.163   .   -
+LEUK_RAT                      T     85   0.562   0.110   T   -
+LEUK_RAT                      T     91   0.592   0.072   T   -
+LEUK_RAT                      T     92   0.577   0.152   T   -
+LEUK_RAT                      S     93   0.451   0.065   .   -
+LEUK_RAT                      S     97   0.454   0.048   .   -
+LEUK_RAT                      T     98   0.570   0.190   T   -
+LEUK_RAT                      S    101   0.498   0.029   .   -
+LEUK_RAT                      S    108   0.461   0.048   .   -
+LEUK_RAT                      S    109   0.465   0.043   .   -
+LEUK_RAT                      S    113   0.508   0.243   S   -
+LEUK_RAT                      T    118   0.657   0.529   T   -
+LEUK_RAT                      T    120   0.668   0.134   T   -
+LEUK_RAT                      T    124   0.633   0.038   T   -
+LEUK_RAT                      S    125   0.536   0.103   S   -
+LEUK_RAT                      S    126   0.543   0.028   S   -
+LEUK_RAT                      S    130   0.598   0.084   S   -
+LEUK_RAT                      T    131   0.687   0.157   T   -
+LEUK_RAT                      S    132   0.581   0.028   S   -
+LEUK_RAT                      T    135   0.692   0.048   T   -
+LEUK_RAT                      T    139   0.679   0.075   T   -
+LEUK_RAT                      S    140   0.590   0.287   S   -
+LEUK_RAT                      T    145   0.679   0.233   T   -
+LEUK_RAT                      T    147   0.664   0.619   T   -
+LEUK_RAT                      S    148   0.555   0.048   S   -
+LEUK_RAT                      S    149   0.570   0.021   S   -
+LEUK_RAT                      T    150   0.679   0.104   T   -
+LEUK_RAT                      T    152   0.687   0.193   T   -
+LEUK_RAT                      S    153   0.623   0.208   S   -
+LEUK_RAT                      T    159   0.714   0.034   T   -
+LEUK_RAT                      T    160   0.708   0.506   T   -
+LEUK_RAT                      S    162   0.590   0.061   S   -
+LEUK_RAT                      S    163   0.568   0.055   S   -
+LEUK_RAT                      T    165   0.687   0.148   T   -
+LEUK_RAT                      S    166   0.547   0.149   S   -
+LEUK_RAT                      T    171   0.637   0.472   T   -
+LEUK_RAT                      T    174   0.674   0.112   T   -
+LEUK_RAT                      S    176   0.538   0.058   S   -
+LEUK_RAT                      S    180   0.516   0.121   S   -
+LEUK_RAT                      T    183   0.633   0.077   T   -
+LEUK_RAT                      S    187   0.492   0.039   .   -
+LEUK_RAT                      T    189   0.608   0.202   T   -
+LEUK_RAT                      T    192   0.597   0.255   T   -
+LEUK_RAT                      S    193   0.520   0.033   S   -
+LEUK_RAT                      S    194   0.526   0.033   S   -
+LEUK_RAT                      S    197   0.478   0.037   .   -
+LEUK_RAT                      S    198   0.501   0.031   S   -
+LEUK_RAT                      S    199   0.503   0.104   S   -
+LEUK_RAT                      T    204   0.696   0.099   T   -
+LEUK_RAT                      S    208   0.600   0.078   S   -
+LEUK_RAT                      T    209   0.700   0.298   T   -
+LEUK_RAT                      S    212   0.615   0.041   S   -
+LEUK_RAT                      T    213   0.707   0.070   T   -
+LEUK_RAT                      T    214   0.712   0.644   T   -
+LEUK_RAT                      S    215   0.613   0.046   S   -
+LEUK_RAT                      T    216   0.711   0.609   T   -
+LEUK_RAT                      T    221   0.670   0.193   T   -
+LEUK_RAT                      T    222   0.650   0.465   T   -
+LEUK_RAT                      S    229   0.428   0.064   .   -
+LEUK_RAT                      S    230   0.379   0.056   .   -
+LEUK_RAT                      S    236   0.215   0.053   .   -
+LEUK_RAT                      T    242   0.113   0.093   .   -
+LEUK_RAT                      T    262   0.193   0.055   .   -
+LEUK_RAT                      T    266   0.228   0.060   .   -
+LEUK_RAT                      S    268   0.201   0.073   .   -
+LEUK_RAT                      T    276   0.402   0.045   .   -
+LEUK_RAT                      T    292   0.603   0.232   T   -
+LEUK_RAT                      T    293   0.616   0.413   T   -
+LEUK_RAT                      S    295   0.507   0.098   S   -
+LEUK_RAT                      S    297   0.533   0.047   S   -
+LEUK_RAT                      S    302   0.520   0.038   S   -
+LEUK_RAT                      S    303   0.503   0.038   S   -
+LEUK_RAT                      T    308   0.577   0.208   T   -
+LEUK_RAT                      S    311   0.385   0.072   .   -
+LEUK_RAT                      T    316   0.506   0.221   T   -
+LEUK_RAT                      T    318   0.496   0.070   .   -
+LEUK_RAT                      T    319   0.469   0.045   .   -
+LEUK_RAT                      S    322   0.254   0.055   .   -
+LEUK_RAT                      S    326   0.292   0.024   .   -
+LEUK_RAT                      S    330   0.288   0.047   .   -
+LEUK_RAT                      T    340   0.422   0.058   .   -
+LEUK_RAT                      S    354   0.463   0.034   .   -
+LEUK_RAT                      T    361   0.594   0.214   T   -
+LEUK_RAT                      T    363   0.598   0.403   T   -
+LEUK_RAT                      S    364   0.492   0.463   .   -
+LEUK_RAT                      S    377   0.579   0.021   S   -
+----------------------------------------------------------------------------
+
+

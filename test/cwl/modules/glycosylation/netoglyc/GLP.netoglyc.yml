@@ -1,0 +1,4 @@
+fastaFile:
+  class: File
+  location: ../data/GLP_MACFU.fsa
+outputFilename: GLP_MACFU.netoglyc.out  

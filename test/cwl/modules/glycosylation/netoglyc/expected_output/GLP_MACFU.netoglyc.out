@@ -1,0 +1,46 @@
+Name:  GLP_MACFU		Length:  144
+SSTTVPATHTSSSSLGPEQYVSSQSNDKHTSDSHPTPTSAHEVTTEFSGRTHYPPEEDDRVQLVHEFSELVIALIIFGVM
+AGVIGTILFISYGSRRLIKKSESDVQPLPPPDAEVPLSSVEIEDPEETDELNSFTKPNQERNES
+SSTT...T.TSSSS.......SS.S....TS.S..T.TS....TT..S..T.............................
+.....................................SS........T......T.........
+
+Name                         S/T   Pos  G-score I-score Y/N  Comment
+----------------------------------------------------------------------------
+GLP_MACFU                     S      1   0.693   0.028   S   -
+GLP_MACFU                     S      2   0.708   0.037   S   -
+GLP_MACFU                     T      3   0.765   0.204   T   -
+GLP_MACFU                     T      4   0.751   0.125   T   -
+GLP_MACFU                     T      8   0.742   0.054   T   -
+GLP_MACFU                     T     10   0.727   0.045   T   -
+GLP_MACFU                     S     11   0.619   0.054   S   -
+GLP_MACFU                     S     12   0.600   0.036   S   -
+GLP_MACFU                     S     13   0.571   0.049   S   -
+GLP_MACFU                     S     14   0.564   0.071   S   -
+GLP_MACFU                     S     22   0.601   0.093   S   -
+GLP_MACFU                     S     23   0.613   0.056   S   -
+GLP_MACFU                     S     25   0.628   0.027   S   -
+GLP_MACFU                     T     30   0.681   0.053   T   -
+GLP_MACFU                     S     31   0.584   0.084   S   -
+GLP_MACFU                     S     33   0.563   0.036   S   -
+GLP_MACFU                     T     36   0.690   0.485   T   -
+GLP_MACFU                     T     38   0.649   0.427   T   -
+GLP_MACFU                     S     39   0.556   0.095   S   -
+GLP_MACFU                     T     44   0.690   0.043   T   -
+GLP_MACFU                     T     45   0.682   0.055   T   -
+GLP_MACFU                     S     48   0.547   0.054   S   -
+GLP_MACFU                     T     51   0.602   0.026   T   -
+GLP_MACFU                     S     68   0.191   0.049   .   -
+GLP_MACFU                     T     86   0.165   0.117   .   -
+GLP_MACFU                     S     91   0.162   0.069   .   -
+GLP_MACFU                     S     94   0.241   0.075   .   -
+GLP_MACFU                     S    101   0.423   0.023   .   -
+GLP_MACFU                     S    103   0.436   0.027   .   -
+GLP_MACFU                     S    118   0.552   0.122   S   -
+GLP_MACFU                     S    119   0.516   0.079   S   -
+GLP_MACFU                     T    128   0.540   0.080   T   -
+GLP_MACFU                     S    133   0.473   0.033   .   -
+GLP_MACFU                     T    135   0.568   0.059   T   -
+GLP_MACFU                     S    144   0.484   0.019   .   -
+----------------------------------------------------------------------------
+
+

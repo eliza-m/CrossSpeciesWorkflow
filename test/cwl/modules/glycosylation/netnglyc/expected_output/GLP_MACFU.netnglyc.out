@@ -1,0 +1,41 @@
+# Predictions for N-Glycosylation sites in 1 sequence
+SignalP-5.0. Starting fasta file reading...
+Total proteins read: 1.
+Organism: euk.
+Starting protein prediction...
+Temporary directory: /tmp/signalp5.785756193
+Protein prediction done!
+Generating output files...
+Completed.
+
+########################################################################################
+
+    Warning: This sequence may not contain a signal peptide!!
+
+    Proteins without signal peptides are unlikely to be exposed to
+    the N-glycosylation machinery and thus may not be glycosylated
+    (in vivo) even though they contain potential motifs.
+
+    SignalP-NN euk predictions are as follows:
+
+  # name                Cmax  pos ?  Ymax  pos ?  Smax  pos ?  Smean ?  D     ? 
+  GLP_MACFU	OTHER	0.000860	0.999140	
+
+    SignalP output is explained at http://www.cbs.dtu.dk/services/SignalP/output.html
+
+########################################################################################
+
+Name:  GLP_MACFU 	Length:  144
+SSTTVPATHTSSSSLGPEQYVSSQSNDKHTSDSHPTPTSAHEVTTEFSGRTHYPPEEDDRVQLVHEFSELVIALIIFGVM      80
+AGVIGTILFISYGSRRLIKKSESDVQPLPPPDAEVPLSSVEIEDPEETDELNSFTKPNQERNES                     160
+................................................................................      80
+.............................................................N..                     160
+
+(Threshold=0.5)
+----------------------------------------------------------------------
+SeqName        Position      Potential          Jury          N-Glyc
+				              agreement       result
+----------------------------------------------------------------------
+GLP_MACFU      142 NES-		0.3147		(9/9)		 ---
+----------------------------------------------------------------------
+
