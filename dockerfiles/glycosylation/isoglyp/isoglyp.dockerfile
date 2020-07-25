@@ -30,11 +30,12 @@ RUN git clone https://github.com/jonmohl/ISOGlyP-EV_Tables.git
 ENV PATH "$PATH:/home/ISOGlyP/"
 
 RUN sed -i 's|evd=~/github/|evd=/home/|g' ISOGlyP/isoPara.txt
-
+RUN sed -i "s|'%s/%s'%(workdir,parIn|'%s'%(parIn|g" ISOGlyP/isoglypCL.py
 
 # Create folders for input and output data
 RUN mkdir -p /input
 RUN mkdir -p /output
 
 # Setting working directory when docker image is running
-WORKDIR /output
+WORKDIR /home/
+
