@@ -1,8 +1,0 @@
-fastaFile:
-  class: File
-  name: 1pazA
-  path: ../1pazA.fasta
-
-exclusive_parameters:
-  label: PKACA
-  kinase: PKACA
