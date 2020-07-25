@@ -1,9 +1,9 @@
 
 ################################################################################
 #	DOCKERFILE
-#	DeepSUMO - CPU based
+#	TMP-SSurface - CPU based
 #
-#	DeepSUMO Repo: https://github.com/Liuzhe30/TMP-SSurface-2.0.git
+#	TMP-SSurface Repo: https://github.com/Liuzhe30/TMP-SSurface-2.0.git
 #
 #	Reference:  C. Lu, Z. Liu, B. Kan, Y. Gong, Z. Ma and H. Wang, 
 #	"TMP-SSurface: A deep learning-based predictor for surface accessibility 
@@ -40,6 +40,9 @@ RUN mkdir /output
 
 # Setting working directory when docker image is running
 WORKDIR /home/TMP-SSurface-2.0/TMP-SSurface-2.0
+
+# workaround for CWL
+COPY ./tmp_ssurface.sh /home/
 
 
 ################################################################################

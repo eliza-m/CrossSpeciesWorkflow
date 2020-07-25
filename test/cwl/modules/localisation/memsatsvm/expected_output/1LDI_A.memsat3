@@ -1,0 +1,299 @@
+MEMSAT Version 3.5 (ACADEMIC VERSION) - Copyright 2006 D.T. Jones
+
+
+COMMERCIAL USE OF THIS PROGRAM IS FORBIDDEN
+
+/LTvObF/1LDI_A.nn
+281 residues read from file.
+
+Helix 1 from  14 (in) to  38 (out) : 26685
++++++++++++++IIIIIIXXXXXXXXXXXXXOOOOOO---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Score = 30.973000
+Helix 1 from 143 (out) to 167 (in) : 29332
+----------------------------------------------------------------------------------------------------------------------------------------------OOOOOOXXXXXXXXXXXXXIIIIII++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Score = 29.332000
+Helix 1 from   3 (in) to  21 (out) : 2656
+Helix 2 from  24 (out) to  42 (in) : 6932
+Helix 3 from  45 (in) to  63 (out) : 13085
+Helix 4 from  66 (out) to  84 (in) : 8148
+Helix 5 from  87 (in) to 105 (out) : 12897
+Helix 6 from 108 (out) to 126 (in) : 4294951838
+Helix 7 from 129 (in) to 147 (out) : 4294955648
+Helix 8 from 150 (out) to 168 (in) : 19182
+Helix 9 from 171 (in) to 189 (out) : 4246
+Helix 10 from 192 (out) to 210 (in) : 5444
+Helix 11 from 213 (in) to 231 (out) : 4294955820
+Helix 12 from 234 (out) to 252 (in) : 16594
+Helix 13 from 260 (in) to 278 (out) : 4294947540
+++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII+++++++IIIIXXXXXXXXXXXOOOO---
+Score = -100000.000000
+Helix 1 from   3 (out) to  21 (in) : 4294964200
+Helix 2 from  24 (in) to  42 (out) : 8060
+Helix 3 from  45 (out) to  63 (in) : 20249
+Helix 4 from  67 (in) to  85 (out) : 737
+Helix 5 from  88 (out) to 106 (in) : 17200
+Helix 6 from 109 (in) to 127 (out) : 4294949942
+Helix 7 from 143 (out) to 162 (in) : 20901
+Helix 8 from 165 (in) to 183 (out) : 4294962903
+Helix 9 from 186 (out) to 204 (in) : 18248
+Helix 10 from 207 (in) to 225 (out) : 4294963859
+Helix 11 from 233 (out) to 253 (in) : 17208
+Helix 12 from 260 (in) to 278 (out) : 4294947540
+--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII+++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO---------------OOOOOXXXXXXXXXXIIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO-------OOOOOXXXXXXXXXXXIIIII++++++IIIIXXXXXXXXXXXOOOO---
+Score = -100000.000000
+Helix 1 from  11 (in) to  31 (out) : 23426
+Helix 2 from  34 (out) to  53 (in) : 19155
+Helix 3 from  56 (in) to  74 (out) : 8632
+Helix 4 from  77 (out) to  95 (in) : 4800
+Helix 5 from  98 (in) to 116 (out) : 8828
+Helix 6 from 143 (out) to 162 (in) : 20901
+Helix 7 from 165 (in) to 183 (out) : 4294962903
+Helix 8 from 186 (out) to 204 (in) : 18248
+Helix 9 from 207 (in) to 225 (out) : 4294963859
+Helix 10 from 233 (out) to 253 (in) : 17208
+Helix 11 from 260 (in) to 278 (out) : 4294947540
+++++++++++IIIIIXXXXXXXXXXXOOOOO--OOOOOXXXXXXXXXXIIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--------------------------OOOOOXXXXXXXXXXIIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO-------OOOOOXXXXXXXXXXXIIIII++++++IIIIXXXXXXXXXXXOOOO---
+Score = -100000.000000
+Helix 1 from  14 (out) to  32 (in) : 11891
+Helix 2 from  39 (in) to  59 (out) : 16014
+Helix 3 from  62 (out) to  85 (in) : 15319
+Helix 4 from  88 (in) to 112 (out) : 22198
+Helix 5 from 143 (out) to 162 (in) : 20901
+Helix 6 from 165 (in) to 183 (out) : 4294962903
+Helix 7 from 186 (out) to 204 (in) : 18248
+Helix 8 from 207 (in) to 225 (out) : 4294963859
+Helix 9 from 233 (out) to 253 (in) : 17208
+Helix 10 from 260 (in) to 278 (out) : 4294947540
+-------------OOOOXXXXXXXXXXXIIII++++++IIIIIXXXXXXXXXXXOOOOO--OOOOOOXXXXXXXXXXXXIIIIII++IIIIIIXXXXXXXXXXXXXOOOOOO------------------------------OOOOOXXXXXXXXXXIIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO-------OOOOOXXXXXXXXXXXIIIII++++++IIIIXXXXXXXXXXXOOOO---
+Score = -100000.000000
+Helix 1 from  11 (in) to  31 (out) : 23426
+Helix 2 from  34 (out) to  53 (in) : 19155
+Helix 3 from  56 (in) to  74 (out) : 8632
+Helix 4 from  77 (out) to  95 (in) : 4800
+Helix 5 from  98 (in) to 116 (out) : 8828
+Helix 6 from 143 (out) to 167 (in) : 29332
+Helix 7 from 179 (in) to 199 (out) : 14863
+Helix 8 from 233 (out) to 253 (in) : 17208
+Helix 9 from 260 (in) to 278 (out) : 4294947540
+++++++++++IIIIIXXXXXXXXXXXOOOOO--OOOOOXXXXXXXXXXIIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--------------------------OOOOOOXXXXXXXXXXXXXIIIIII+++++++++++IIIIIXXXXXXXXXXXOOOOO---------------------------------OOOOOXXXXXXXXXXXIIIII++++++IIIIXXXXXXXXXXXOOOO---
+Score = -100000.000000
+Helix 1 from  14 (out) to  32 (in) : 11891
+Helix 2 from  39 (in) to  59 (out) : 16014
+Helix 3 from  62 (out) to  85 (in) : 15319
+Helix 4 from  88 (in) to 112 (out) : 22198
+Helix 5 from 143 (out) to 167 (in) : 29332
+Helix 6 from 179 (in) to 199 (out) : 14863
+Helix 7 from 233 (out) to 253 (in) : 17208
+Helix 8 from 260 (in) to 278 (out) : 4294947540
+-------------OOOOXXXXXXXXXXXIIII++++++IIIIIXXXXXXXXXXXOOOOO--OOOOOOXXXXXXXXXXXXIIIIII++IIIIIIXXXXXXXXXXXXXOOOOOO------------------------------OOOOOOXXXXXXXXXXXXXIIIIII+++++++++++IIIIIXXXXXXXXXXXOOOOO---------------------------------OOOOOXXXXXXXXXXXIIIII++++++IIIIXXXXXXXXXXXOOOO---
+Score = -100000.000000
+Helix 1 from  12 (in) to  36 (out) : 26864
+Helix 2 from  40 (out) to  63 (in) : 25552
+Helix 3 from  84 (in) to 108 (out) : 20641
+Helix 4 from 143 (out) to 167 (in) : 29332
+Helix 5 from 179 (in) to 199 (out) : 14863
+Helix 6 from 233 (out) to 253 (in) : 17208
+Helix 7 from 260 (in) to 278 (out) : 4294947540
++++++++++++IIIIIIXXXXXXXXXXXXXOOOOOO---OOOOOOXXXXXXXXXXXXIIIIII++++++++++++++++++++IIIIIIXXXXXXXXXXXXXOOOOOO----------------------------------OOOOOOXXXXXXXXXXXXXIIIIII+++++++++++IIIIIXXXXXXXXXXXOOOOO---------------------------------OOOOOXXXXXXXXXXXIIIII++++++IIIIXXXXXXXXXXXOOOO---
+Score = -100000.000000
+Helix 1 from  14 (out) to  32 (in) : 11891
+Helix 2 from  39 (in) to  59 (out) : 16014
+Helix 3 from  62 (out) to  85 (in) : 15319
+Helix 4 from  88 (in) to 112 (out) : 22198
+Helix 5 from 143 (out) to 167 (in) : 29332
+Helix 6 from 178 (in) to 196 (out) : 16218
+-------------OOOOXXXXXXXXXXXIIII++++++IIIIIXXXXXXXXXXXOOOOO--OOOOOOXXXXXXXXXXXXIIIIII++IIIIIIXXXXXXXXXXXXXOOOOOO------------------------------OOOOOOXXXXXXXXXXXXXIIIIII++++++++++IIIIXXXXXXXXXXXOOOO-------------------------------------------------------------------------------------
+Score = 131.852000
+Helix 1 from  12 (in) to  36 (out) : 26864
+Helix 2 from  40 (out) to  63 (in) : 25552
+Helix 3 from  84 (in) to 108 (out) : 20641
+Helix 4 from 143 (out) to 167 (in) : 29332
+Helix 5 from 178 (in) to 196 (out) : 16218
++++++++++++IIIIIIXXXXXXXXXXXXXOOOOOO---OOOOOOXXXXXXXXXXXXIIIIII++++++++++++++++++++IIIIIIXXXXXXXXXXXXXOOOOOO----------------------------------OOOOOOXXXXXXXXXXXXXIIIIII++++++++++IIIIXXXXXXXXXXXOOOO-------------------------------------------------------------------------------------
+Score = 148.869000
+Helix 1 from  40 (out) to  63 (in) : 25552
+Helix 2 from  84 (in) to 108 (out) : 20641
+Helix 3 from 143 (out) to 167 (in) : 29332
+Helix 4 from 178 (in) to 196 (out) : 16218
+---------------------------------------OOOOOOXXXXXXXXXXXXIIIIII++++++++++++++++++++IIIIIIXXXXXXXXXXXXXOOOOOO----------------------------------OOOOOOXXXXXXXXXXXXXIIIIII++++++++++IIIIXXXXXXXXXXXOOOO-------------------------------------------------------------------------------------
+Score = 114.330000
+Helix 1 from  80 (in) to 104 (out) : 20355
+Helix 2 from 143 (out) to 167 (in) : 29332
+Helix 3 from 178 (in) to 196 (out) : 16218
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++IIIIIIXXXXXXXXXXXXXOOOOOO--------------------------------------OOOOOOXXXXXXXXXXXXXIIIIII++++++++++IIIIXXXXXXXXXXXOOOO-------------------------------------------------------------------------------------
+Score = 91.512000
+Helix 1 from 143 (out) to 167 (in) : 29332
+Helix 2 from 178 (in) to 196 (out) : 16218
+----------------------------------------------------------------------------------------------------------------------------------------------OOOOOOXXXXXXXXXXXXXIIIIII++++++++++IIIIXXXXXXXXXXXOOOO-------------------------------------------------------------------------------------
+Score = 49.496000
+Helix 1 from   3 (out) to  21 (in) : 4294964200
+Helix 2 from  24 (in) to  42 (out) : 8060
+Helix 3 from  45 (out) to  63 (in) : 20249
+Helix 4 from  67 (in) to  85 (out) : 737
+Helix 5 from  88 (out) to 106 (in) : 17200
+Helix 6 from 109 (in) to 127 (out) : 4294949942
+Helix 7 from 134 (out) to 152 (in) : 136
+Helix 8 from 155 (in) to 173 (out) : 4294967274
+Helix 9 from 176 (out) to 194 (in) : 5564
+Helix 10 from 197 (in) to 215 (out) : 4294966573
+Helix 11 from 218 (out) to 236 (in) : 4294950557
+Helix 12 from 239 (in) to 257 (out) : 11666
+Helix 13 from 260 (out) to 278 (in) : 4294949185
+--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII+++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO------OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII+++
+Score = -100000.000000
+Helix 1 from   3 (in) to  21 (out) : 2656
+Helix 2 from  24 (out) to  42 (in) : 6932
+Helix 3 from  45 (in) to  63 (out) : 13085
+Helix 4 from  66 (out) to  84 (in) : 8148
+Helix 5 from  87 (in) to 105 (out) : 12897
+Helix 6 from 108 (out) to 126 (in) : 4294951838
+Helix 7 from 129 (in) to 147 (out) : 4294955648
+Helix 8 from 150 (out) to 168 (in) : 19182
+Helix 9 from 171 (in) to 189 (out) : 4246
+Helix 10 from 192 (out) to 210 (in) : 5444
+Helix 11 from 213 (in) to 231 (out) : 4294955820
+Helix 12 from 234 (out) to 252 (in) : 16594
+++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII+++++++++++++++++++++++++++++
+Score = -100000.000000
+Helix 1 from   3 (out) to  21 (in) : 4294964200
+Helix 2 from  24 (in) to  42 (out) : 8060
+Helix 3 from  45 (out) to  63 (in) : 20249
+Helix 4 from  67 (in) to  85 (out) : 737
+Helix 5 from  88 (out) to 106 (in) : 17200
+Helix 6 from 109 (in) to 127 (out) : 4294949942
+Helix 7 from 143 (out) to 162 (in) : 20901
+Helix 8 from 165 (in) to 183 (out) : 4294962903
+Helix 9 from 186 (out) to 204 (in) : 18248
+Helix 10 from 207 (in) to 225 (out) : 4294963859
+Helix 11 from 233 (out) to 253 (in) : 17208
+--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII+++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO---------------OOOOOXXXXXXXXXXIIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO-------OOOOOXXXXXXXXXXXIIIII++++++++++++++++++++++++++++
+Score = -100000.000000
+Helix 1 from  11 (in) to  31 (out) : 23426
+Helix 2 from  34 (out) to  53 (in) : 19155
+Helix 3 from  56 (in) to  74 (out) : 8632
+Helix 4 from  77 (out) to  95 (in) : 4800
+Helix 5 from  98 (in) to 116 (out) : 8828
+Helix 6 from 143 (out) to 162 (in) : 20901
+Helix 7 from 165 (in) to 183 (out) : 4294962903
+Helix 8 from 186 (out) to 204 (in) : 18248
+Helix 9 from 207 (in) to 225 (out) : 4294963859
+Helix 10 from 233 (out) to 253 (in) : 17208
+++++++++++IIIIIXXXXXXXXXXXOOOOO--OOOOOXXXXXXXXXXIIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--------------------------OOOOOXXXXXXXXXXIIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO-------OOOOOXXXXXXXXXXXIIIII++++++++++++++++++++++++++++
+Score = -100000.000000
+Helix 1 from  14 (out) to  32 (in) : 11891
+Helix 2 from  39 (in) to  59 (out) : 16014
+Helix 3 from  62 (out) to  85 (in) : 15319
+Helix 4 from  88 (in) to 112 (out) : 22198
+Helix 5 from 143 (out) to 162 (in) : 20901
+Helix 6 from 165 (in) to 183 (out) : 4294962903
+Helix 7 from 186 (out) to 204 (in) : 18248
+Helix 8 from 207 (in) to 225 (out) : 4294963859
+Helix 9 from 233 (out) to 253 (in) : 17208
+-------------OOOOXXXXXXXXXXXIIII++++++IIIIIXXXXXXXXXXXOOOOO--OOOOOOXXXXXXXXXXXXIIIIII++IIIIIIXXXXXXXXXXXXXOOOOOO------------------------------OOOOOXXXXXXXXXXIIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO-------OOOOOXXXXXXXXXXXIIIII++++++++++++++++++++++++++++
+Score = -100000.000000
+Helix 1 from  11 (in) to  31 (out) : 23426
+Helix 2 from  34 (out) to  53 (in) : 19155
+Helix 3 from  56 (in) to  74 (out) : 8632
+Helix 4 from  77 (out) to  95 (in) : 4800
+Helix 5 from  98 (in) to 116 (out) : 8828
+Helix 6 from 143 (out) to 167 (in) : 29332
+Helix 7 from 179 (in) to 199 (out) : 14863
+Helix 8 from 233 (out) to 253 (in) : 17208
+++++++++++IIIIIXXXXXXXXXXXOOOOO--OOOOOXXXXXXXXXXIIIII++IIIIXXXXXXXXXXXOOOO--OOOOXXXXXXXXXXXIIII++IIIIXXXXXXXXXXXOOOO--------------------------OOOOOOXXXXXXXXXXXXXIIIIII+++++++++++IIIIIXXXXXXXXXXXOOOOO---------------------------------OOOOOXXXXXXXXXXXIIIII++++++++++++++++++++++++++++
+Score = 167.361000
+Helix 1 from  14 (out) to  32 (in) : 11891
+Helix 2 from  39 (in) to  59 (out) : 16014
+Helix 3 from  62 (out) to  85 (in) : 15319
+Helix 4 from  88 (in) to 112 (out) : 22198
+Helix 5 from 143 (out) to 167 (in) : 29332
+Helix 6 from 179 (in) to 199 (out) : 14863
+Helix 7 from 233 (out) to 253 (in) : 17208
+-------------OOOOXXXXXXXXXXXIIII++++++IIIIIXXXXXXXXXXXOOOOO--OOOOOOXXXXXXXXXXXXIIIIII++IIIIIIXXXXXXXXXXXXXOOOOOO------------------------------OOOOOOXXXXXXXXXXXXXIIIIII+++++++++++IIIIIXXXXXXXXXXXOOOOO---------------------------------OOOOOXXXXXXXXXXXIIIII++++++++++++++++++++++++++++
+Score = 166.894000
+Helix 1 from  12 (in) to  36 (out) : 26864
+Helix 2 from  40 (out) to  63 (in) : 25552
+Helix 3 from  84 (in) to 108 (out) : 20641
+Helix 4 from 143 (out) to 167 (in) : 29332
+Helix 5 from 179 (in) to 199 (out) : 14863
+Helix 6 from 233 (out) to 253 (in) : 17208
++++++++++++IIIIIIXXXXXXXXXXXXXOOOOOO---OOOOOOXXXXXXXXXXXXIIIIII++++++++++++++++++++IIIIIIXXXXXXXXXXXXXOOOOOO----------------------------------OOOOOOXXXXXXXXXXXXXIIIIII+++++++++++IIIIIXXXXXXXXXXXOOOOO---------------------------------OOOOOXXXXXXXXXXXIIIII++++++++++++++++++++++++++++
+Score = 183.911000
+Helix 1 from  40 (out) to  63 (in) : 25552
+Helix 2 from  84 (in) to 108 (out) : 20641
+Helix 3 from 143 (out) to 167 (in) : 29332
+Helix 4 from 179 (in) to 199 (out) : 14863
+Helix 5 from 233 (out) to 253 (in) : 17208
+---------------------------------------OOOOOOXXXXXXXXXXXXIIIIII++++++++++++++++++++IIIIIIXXXXXXXXXXXXXOOOOOO----------------------------------OOOOOOXXXXXXXXXXXXXIIIIII+++++++++++IIIIIXXXXXXXXXXXOOOOO---------------------------------OOOOOXXXXXXXXXXXIIIII++++++++++++++++++++++++++++
+Score = 149.372000
+Helix 1 from  12 (in) to  36 (out) : 26864
+Helix 2 from  40 (out) to  63 (in) : 25552
+Helix 3 from  84 (in) to 108 (out) : 20641
+Helix 4 from 143 (out) to 167 (in) : 29332
++++++++++++IIIIIIXXXXXXXXXXXXXOOOOOO---OOOOOOXXXXXXXXXXXXIIIIII++++++++++++++++++++IIIIIIXXXXXXXXXXXXXOOOOOO----------------------------------OOOOOOXXXXXXXXXXXXXIIIIII++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Score = 128.705000
+Helix 1 from  40 (out) to  63 (in) : 25552
+Helix 2 from  84 (in) to 108 (out) : 20641
+Helix 3 from 143 (out) to 167 (in) : 29332
+---------------------------------------OOOOOOXXXXXXXXXXXXIIIIII++++++++++++++++++++IIIIIIXXXXXXXXXXXXXOOOOOO----------------------------------OOOOOOXXXXXXXXXXXXXIIIIII++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Score = 94.166000
+Helix 1 from  80 (in) to 104 (out) : 20355
+Helix 2 from 143 (out) to 167 (in) : 29332
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++IIIIIIXXXXXXXXXXXXXOOOOOO--------------------------------------OOOOOOXXXXXXXXXXXXXIIIIII++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Score = 71.348000
+Summary of topology analysis:
+ 1 helix   (+) : Score = 30.973
+ 1 helix   (-) : Score = 29.332
+ 2 helices (+) : Score = 71.348
+ 2 helices (-) : Score = 49.496
+ 3 helices (+) : Score = 91.512
+ 3 helices (-) : Score = 94.166
+ 4 helices (+) : Score = 128.705
+ 4 helices (-) : Score = 114.33
+ 5 helices (+) : Score = 148.869
+ 5 helices (-) : Score = 149.372
+ 6 helices (+) : Score = 183.911
+ 6 helices (-) : Score = 131.852
+ 7 helices (+) : Score = -100000
+ 7 helices (-) : Score = 166.894
+ 8 helices (+) : Score = 167.361
+ 8 helices (-) : Score = -100000
+ 9 helices (+) : Score = -100000
+ 9 helices (-) : Score = -100000
+10 helices (+) : Score = -100000
+10 helices (-) : Score = -100000
+11 helices (+) : Score = -100000
+11 helices (-) : Score = -100000
+12 helices (+) : Score = -100000
+12 helices (-) : Score = -100000
+13 helices (+) : Score = -100000
+13 helices (-) : Score = -100000
+
+FINAL PREDICTION
+================
+1: (in) 12-36	(26.86)
+2: 40-63	(25.55)
+3: 84-108	(20.64)
+4: 143-167	(29.33)
+5: 179-199	(14.86)
+6: 233-253	(17.21)
+
+        10        20        30        40        50        60
++++++++++++IIIIIIXXXXXXXXXXXXXOOOOOO---OOOOOOXXXXXXXXXXXXIII
+MSQTSTLKGQCIAEFLGTGLLIFFGVGCVAALKVAGASFGQWEISVIWGLGVAMAIYLTA
+
+        70        80        90       100       110       120
+III++++++++++++++++++++IIIIIIXXXXXXXXXXXXXOOOOOO------------
+GVSGAHLNPAVTIALWLFACFDKRKVIPFIVSQVAGAFCAAALVYGLYYNLFFDFEQTHH
+
+       130       140       150       160       170       180
+----------------------OOOOOOXXXXXXXXXXXXXIIIIII+++++++++++II
+IVRGSVESVDLAGTFSTYPNPHINFVQAFAVEMVITAILMGLILALTDDGNGVPRGPLAP
+
+       190       200       210       220       230       240
+IIIXXXXXXXXXXXOOOOO---------------------------------OOOOOXXX
+LLIGLLIAVIGASMGPLTGFAMNPARDFGPKVFAWLAGWGNVAFTGGRDIPYFLVPLFGP
+
+       250       260       270       280
+XXXXXXXXIIIII++++++++++++++++++++++++++++
+IVGAIVGAFAYRKLIGRHLPCDICVVEEKETTTPSEQKASL
+

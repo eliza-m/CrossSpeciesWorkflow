@@ -1,0 +1,8 @@
+fastaFile:
+  class: File
+  location: ../data/ex1.fasta
+pssmFolder:
+  class: Directory
+  location: ../data/pssm/
+outputFolder: ./
+  

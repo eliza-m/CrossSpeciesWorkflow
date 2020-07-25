@@ -1,0 +1,371 @@
+Processing 1 helix:
+Transmembrane helix 1 from  60 (in) to  81 (out) :	3903.14
+Score = 3.768288
+
+Processing 1 helix:
+Transmembrane helix 1 from  60 (out) to  81 (in) :	3940.06
+Score = 4.074913
+
+Processing 15 helices:
+Transmembrane helix 1 from  18 (in) to  33 (out) :	-871.86
+Transmembrane helix 2 from  37 (out) to  52 (in) :	-978.893
+Transmembrane helix 3 from  56 (in) to  71 (out) :	2265.42
+Transmembrane helix 4 from  75 (out) to  90 (in) :	490.015
+Transmembrane helix 5 from  94 (in) to 109 (out) :	1422.43
+Transmembrane helix 6 from 113 (out) to 128 (in) :	931.31
+Transmembrane helix 7 from 132 (in) to 147 (out) :	-745.926
+Transmembrane helix 8 from 151 (out) to 166 (in) :	-1154.22
+Transmembrane helix 9 from 170 (in) to 185 (out) :	-1286.54
+Transmembrane helix 10 from 189 (out) to 204 (in) :	-534.948
+Transmembrane helix 11 from 208 (in) to 223 (out) :	-557.847
+Transmembrane helix 12 from 227 (out) to 242 (in) :	-682.615
+Transmembrane helix 13 from 246 (in) to 261 (out) :	-588.494
+Transmembrane helix 14 from 265 (out) to 280 (in) :	-861.545
+Transmembrane helix 15 from 284 (in) to 299 (out) :	-817.98
+Score = -100000.000000
+
+Processing 14 helices:
+Transmembrane helix 1 from  21 (out) to  36 (in) :	-592.776
+Transmembrane helix 2 from  40 (in) to  55 (out) :	-888.694
+Transmembrane helix 3 from  59 (out) to  74 (in) :	3068.39
+Transmembrane helix 4 from  78 (in) to  93 (out) :	-242.548
+Transmembrane helix 5 from  97 (out) to 112 (in) :	2205.5
+Transmembrane helix 6 from 116 (in) to 131 (out) :	218.96
+Transmembrane helix 7 from 135 (out) to 150 (in) :	-826.888
+Transmembrane helix 8 from 156 (in) to 171 (out) :	-1071.07
+Transmembrane helix 9 from 189 (out) to 204 (in) :	-534.948
+Transmembrane helix 10 from 208 (in) to 223 (out) :	-557.847
+Transmembrane helix 11 from 227 (out) to 242 (in) :	-682.615
+Transmembrane helix 12 from 246 (in) to 261 (out) :	-588.494
+Transmembrane helix 13 from 265 (out) to 280 (in) :	-861.545
+Transmembrane helix 14 from 284 (in) to 299 (out) :	-817.98
+Score = -100000.000000
+
+Processing 13 helices:
+Transmembrane helix 1 from  21 (in) to  36 (out) :	-593.324
+Transmembrane helix 2 from  50 (out) to  65 (in) :	566.406
+Transmembrane helix 3 from  69 (in) to  84 (out) :	2461.98
+Transmembrane helix 4 from  95 (out) to 110 (in) :	1693.43
+Transmembrane helix 5 from 114 (in) to 129 (out) :	689.706
+Transmembrane helix 6 from 133 (out) to 148 (in) :	-763.968
+Transmembrane helix 7 from 156 (in) to 171 (out) :	-1071.07
+Transmembrane helix 8 from 189 (out) to 204 (in) :	-534.948
+Transmembrane helix 9 from 208 (in) to 223 (out) :	-557.847
+Transmembrane helix 10 from 227 (out) to 242 (in) :	-682.615
+Transmembrane helix 11 from 246 (in) to 261 (out) :	-588.494
+Transmembrane helix 12 from 265 (out) to 280 (in) :	-861.545
+Transmembrane helix 13 from 284 (in) to 299 (out) :	-817.98
+Score = -100000.000000
+
+Processing 12 helices:
+Transmembrane helix 1 from  21 (out) to  36 (in) :	-592.776
+Transmembrane helix 2 from  41 (in) to  56 (out) :	-861.478
+Transmembrane helix 3 from  60 (out) to  81 (in) :	3940.06
+Transmembrane helix 4 from  95 (in) to 110 (out) :	1701.97
+Transmembrane helix 5 from 114 (out) to 129 (in) :	682.994
+Transmembrane helix 6 from 133 (in) to 148 (out) :	-767.432
+Transmembrane helix 7 from 189 (out) to 204 (in) :	-534.948
+Transmembrane helix 8 from 208 (in) to 223 (out) :	-557.847
+Transmembrane helix 9 from 227 (out) to 242 (in) :	-682.615
+Transmembrane helix 10 from 246 (in) to 261 (out) :	-588.494
+Transmembrane helix 11 from 265 (out) to 280 (in) :	-861.545
+Transmembrane helix 12 from 284 (in) to 299 (out) :	-817.98
+Score = -100000.000000
+
+Processing 11 helices:
+Transmembrane helix 1 from  21 (in) to  36 (out) :	-593.324
+Transmembrane helix 2 from  50 (out) to  65 (in) :	566.406
+Transmembrane helix 3 from  69 (in) to  84 (out) :	2461.98
+Transmembrane helix 4 from  99 (out) to 119 (in) :	3250.38
+Transmembrane helix 5 from 123 (in) to 138 (out) :	-603.589
+Transmembrane helix 6 from 189 (out) to 204 (in) :	-534.948
+Transmembrane helix 7 from 208 (in) to 223 (out) :	-557.847
+Transmembrane helix 8 from 227 (out) to 242 (in) :	-682.615
+Transmembrane helix 9 from 246 (in) to 261 (out) :	-588.494
+Transmembrane helix 10 from 265 (out) to 280 (in) :	-861.545
+Transmembrane helix 11 from 284 (in) to 299 (out) :	-817.98
+Score = -100000.000000
+
+Processing 10 helices:
+Transmembrane helix 1 from  21 (out) to  36 (in) :	-592.776
+Transmembrane helix 2 from  60 (in) to  81 (out) :	3903.14
+Transmembrane helix 3 from  99 (out) to 119 (in) :	3250.38
+Transmembrane helix 4 from 123 (in) to 138 (out) :	-603.589
+Transmembrane helix 5 from 189 (out) to 204 (in) :	-534.948
+Transmembrane helix 6 from 208 (in) to 223 (out) :	-557.847
+Transmembrane helix 7 from 227 (out) to 242 (in) :	-682.615
+Transmembrane helix 8 from 246 (in) to 261 (out) :	-588.494
+Transmembrane helix 9 from 265 (out) to 280 (in) :	-861.545
+Transmembrane helix 10 from 284 (in) to 299 (out) :	-817.98
+Score = -100000.000000
+
+Processing 9 helices:
+Transmembrane helix 1 from  21 (in) to  36 (out) :	-593.324
+Transmembrane helix 2 from  50 (out) to  65 (in) :	566.406
+Transmembrane helix 3 from  69 (in) to  84 (out) :	2461.98
+Transmembrane helix 4 from  99 (out) to 119 (in) :	3250.38
+Transmembrane helix 5 from 123 (in) to 138 (out) :	-603.589
+Transmembrane helix 6 from 190 (out) to 205 (in) :	-519.672
+Transmembrane helix 7 from 209 (in) to 224 (out) :	-569.927
+Transmembrane helix 8 from 228 (out) to 243 (in) :	-688.559
+Transmembrane helix 9 from 250 (in) to 265 (out) :	-565.751
+Score = -100000.000000
+
+Processing 8 helices:
+Transmembrane helix 1 from  21 (out) to  36 (in) :	-592.776
+Transmembrane helix 2 from  60 (in) to  81 (out) :	3903.14
+Transmembrane helix 3 from  99 (out) to 119 (in) :	3250.38
+Transmembrane helix 4 from 123 (in) to 138 (out) :	-603.589
+Transmembrane helix 5 from 190 (out) to 205 (in) :	-519.672
+Transmembrane helix 6 from 209 (in) to 224 (out) :	-569.927
+Transmembrane helix 7 from 228 (out) to 243 (in) :	-688.559
+Transmembrane helix 8 from 250 (in) to 265 (out) :	-565.751
+Score = -100000.000000
+
+Processing 7 helices:
+Transmembrane helix 1 from  21 (in) to  36 (out) :	-593.324
+Transmembrane helix 2 from  60 (out) to  81 (in) :	3940.06
+Transmembrane helix 3 from  99 (in) to 119 (out) :	3253.61
+Transmembrane helix 4 from 189 (out) to 204 (in) :	-534.948
+Transmembrane helix 5 from 208 (in) to 223 (out) :	-557.847
+Transmembrane helix 6 from 227 (out) to 242 (in) :	-682.615
+Transmembrane helix 7 from 250 (in) to 265 (out) :	-565.751
+Score = -100000.000000
+
+Processing 6 helices:
+Transmembrane helix 1 from  60 (out) to  81 (in) :	3940.06
+Transmembrane helix 2 from  99 (in) to 119 (out) :	3253.61
+Transmembrane helix 3 from 189 (out) to 204 (in) :	-534.948
+Transmembrane helix 4 from 208 (in) to 223 (out) :	-557.847
+Transmembrane helix 5 from 227 (out) to 242 (in) :	-682.615
+Transmembrane helix 6 from 250 (in) to 265 (out) :	-565.751
+Score = -100000.000000
+
+Processing 5 helices:
+Transmembrane helix 1 from  21 (in) to  36 (out) :	-593.324
+Transmembrane helix 2 from  60 (out) to  81 (in) :	3940.06
+Transmembrane helix 3 from  99 (in) to 119 (out) :	3253.61
+Transmembrane helix 4 from 193 (out) to 208 (in) :	-506.878
+Transmembrane helix 5 from 250 (in) to 265 (out) :	-565.751
+Score = -100000.000000
+
+Processing 4 helices:
+Transmembrane helix 1 from  60 (out) to  81 (in) :	3940.06
+Transmembrane helix 2 from  99 (in) to 119 (out) :	3253.61
+Transmembrane helix 3 from 193 (out) to 208 (in) :	-506.878
+Transmembrane helix 4 from 250 (in) to 265 (out) :	-565.751
+Score = -100000.000000
+
+Processing 3 helices:
+Transmembrane helix 1 from  21 (in) to  36 (out) :	-593.324
+Transmembrane helix 2 from  60 (out) to  81 (in) :	3940.06
+Transmembrane helix 3 from  99 (in) to 119 (out) :	3253.61
+Score = -100000.000000
+
+Processing 2 helices:
+Transmembrane helix 1 from  60 (out) to  81 (in) :	3940.06
+Transmembrane helix 2 from  99 (in) to 119 (out) :	3253.61
+Score = 7.341037
+
+Processing 15 helices:
+Transmembrane helix 1 from  18 (out) to  33 (in) :	-873.34
+Transmembrane helix 2 from  37 (in) to  52 (out) :	-967.007
+Transmembrane helix 3 from  56 (out) to  71 (in) :	2302.38
+Transmembrane helix 4 from  75 (in) to  90 (out) :	495.185
+Transmembrane helix 5 from  94 (out) to 109 (in) :	1411.07
+Transmembrane helix 6 from 113 (in) to 128 (out) :	941.89
+Transmembrane helix 7 from 132 (out) to 147 (in) :	-742.974
+Transmembrane helix 8 from 151 (in) to 166 (out) :	-1161.68
+Transmembrane helix 9 from 170 (out) to 185 (in) :	-1289.66
+Transmembrane helix 10 from 189 (in) to 204 (out) :	-541.552
+Transmembrane helix 11 from 208 (out) to 223 (in) :	-559.753
+Transmembrane helix 12 from 227 (in) to 242 (out) :	-679.785
+Transmembrane helix 13 from 246 (out) to 261 (in) :	-586.906
+Transmembrane helix 14 from 265 (in) to 280 (out) :	-858.055
+Transmembrane helix 15 from 284 (out) to 299 (in) :	-810.32
+Score = -100000.000000
+
+Processing 14 helices:
+Transmembrane helix 1 from  21 (in) to  36 (out) :	-593.324
+Transmembrane helix 2 from  40 (out) to  55 (in) :	-900.006
+Transmembrane helix 3 from  59 (in) to  74 (out) :	3026.81
+Transmembrane helix 4 from  78 (out) to  93 (in) :	-243.052
+Transmembrane helix 5 from  97 (in) to 112 (out) :	2209.7
+Transmembrane helix 6 from 116 (out) to 131 (in) :	215.44
+Transmembrane helix 7 from 135 (in) to 150 (out) :	-830.412
+Transmembrane helix 8 from 157 (out) to 172 (in) :	-1062.78
+Transmembrane helix 9 from 185 (in) to 200 (out) :	-663.713
+Transmembrane helix 10 from 204 (out) to 219 (in) :	-537.649
+Transmembrane helix 11 from 223 (in) to 238 (out) :	-660.423
+Transmembrane helix 12 from 242 (out) to 257 (in) :	-657.283
+Transmembrane helix 13 from 261 (in) to 276 (out) :	-720.877
+Transmembrane helix 14 from 284 (out) to 299 (in) :	-810.32
+Score = -100000.000000
+
+Processing 13 helices:
+Transmembrane helix 1 from  21 (out) to  36 (in) :	-592.776
+Transmembrane helix 2 from  41 (in) to  56 (out) :	-861.478
+Transmembrane helix 3 from  60 (out) to  81 (in) :	3940.06
+Transmembrane helix 4 from  95 (in) to 110 (out) :	1701.97
+Transmembrane helix 5 from 114 (out) to 129 (in) :	682.994
+Transmembrane helix 6 from 133 (in) to 148 (out) :	-767.432
+Transmembrane helix 7 from 157 (out) to 172 (in) :	-1062.78
+Transmembrane helix 8 from 185 (in) to 200 (out) :	-663.713
+Transmembrane helix 9 from 204 (out) to 219 (in) :	-537.649
+Transmembrane helix 10 from 223 (in) to 238 (out) :	-660.423
+Transmembrane helix 11 from 242 (out) to 257 (in) :	-657.283
+Transmembrane helix 12 from 261 (in) to 276 (out) :	-720.877
+Transmembrane helix 13 from 284 (out) to 299 (in) :	-810.32
+Score = -100000.000000
+
+Processing 12 helices:
+Transmembrane helix 1 from  21 (in) to  36 (out) :	-593.324
+Transmembrane helix 2 from  50 (out) to  65 (in) :	566.406
+Transmembrane helix 3 from  69 (in) to  84 (out) :	2461.98
+Transmembrane helix 4 from  99 (out) to 119 (in) :	3250.38
+Transmembrane helix 5 from 123 (in) to 138 (out) :	-603.589
+Transmembrane helix 6 from 157 (out) to 172 (in) :	-1062.78
+Transmembrane helix 7 from 185 (in) to 200 (out) :	-663.713
+Transmembrane helix 8 from 204 (out) to 219 (in) :	-537.649
+Transmembrane helix 9 from 223 (in) to 238 (out) :	-660.423
+Transmembrane helix 10 from 242 (out) to 257 (in) :	-657.283
+Transmembrane helix 11 from 261 (in) to 276 (out) :	-720.877
+Transmembrane helix 12 from 284 (out) to 299 (in) :	-810.32
+Score = -100000.000000
+
+Processing 11 helices:
+Transmembrane helix 1 from  21 (out) to  36 (in) :	-592.776
+Transmembrane helix 2 from  41 (in) to  56 (out) :	-861.478
+Transmembrane helix 3 from  60 (out) to  81 (in) :	3940.06
+Transmembrane helix 4 from  95 (in) to 110 (out) :	1701.97
+Transmembrane helix 5 from 114 (out) to 129 (in) :	682.994
+Transmembrane helix 6 from 133 (in) to 148 (out) :	-767.432
+Transmembrane helix 7 from 190 (out) to 205 (in) :	-519.672
+Transmembrane helix 8 from 209 (in) to 224 (out) :	-569.927
+Transmembrane helix 9 from 228 (out) to 243 (in) :	-688.559
+Transmembrane helix 10 from 250 (in) to 265 (out) :	-565.751
+Transmembrane helix 11 from 284 (out) to 299 (in) :	-810.32
+Score = -100000.000000
+
+Processing 10 helices:
+Transmembrane helix 1 from  21 (in) to  36 (out) :	-593.324
+Transmembrane helix 2 from  50 (out) to  65 (in) :	566.406
+Transmembrane helix 3 from  69 (in) to  84 (out) :	2461.98
+Transmembrane helix 4 from  99 (out) to 119 (in) :	3250.38
+Transmembrane helix 5 from 123 (in) to 138 (out) :	-603.589
+Transmembrane helix 6 from 190 (out) to 205 (in) :	-519.672
+Transmembrane helix 7 from 209 (in) to 224 (out) :	-569.927
+Transmembrane helix 8 from 228 (out) to 243 (in) :	-688.559
+Transmembrane helix 9 from 250 (in) to 265 (out) :	-565.751
+Transmembrane helix 10 from 284 (out) to 299 (in) :	-810.32
+Score = -100000.000000
+
+Processing 9 helices:
+Transmembrane helix 1 from  21 (out) to  36 (in) :	-592.776
+Transmembrane helix 2 from  60 (in) to  81 (out) :	3903.14
+Transmembrane helix 3 from  99 (out) to 119 (in) :	3250.38
+Transmembrane helix 4 from 123 (in) to 138 (out) :	-603.589
+Transmembrane helix 5 from 190 (out) to 205 (in) :	-519.672
+Transmembrane helix 6 from 209 (in) to 224 (out) :	-569.927
+Transmembrane helix 7 from 228 (out) to 243 (in) :	-688.559
+Transmembrane helix 8 from 250 (in) to 265 (out) :	-565.751
+Transmembrane helix 9 from 284 (out) to 299 (in) :	-810.32
+Score = -100000.000000
+
+Processing 8 helices:
+Transmembrane helix 1 from  21 (in) to  36 (out) :	-593.324
+Transmembrane helix 2 from  60 (out) to  81 (in) :	3940.06
+Transmembrane helix 3 from  99 (in) to 119 (out) :	3253.61
+Transmembrane helix 4 from 123 (out) to 138 (in) :	-613.411
+Transmembrane helix 5 from 189 (in) to 204 (out) :	-541.552
+Transmembrane helix 6 from 208 (out) to 223 (in) :	-559.753
+Transmembrane helix 7 from 227 (in) to 242 (out) :	-679.785
+Transmembrane helix 8 from 253 (out) to 268 (in) :	-559.577
+Score = -100000.000000
+
+Processing 7 helices:
+Transmembrane helix 1 from  21 (out) to  36 (in) :	-592.776
+Transmembrane helix 2 from  60 (in) to  81 (out) :	3903.14
+Transmembrane helix 3 from  99 (out) to 119 (in) :	3250.38
+Transmembrane helix 4 from 123 (in) to 138 (out) :	-603.589
+Transmembrane helix 5 from 190 (out) to 205 (in) :	-519.672
+Transmembrane helix 6 from 209 (in) to 224 (out) :	-569.927
+Transmembrane helix 7 from 253 (out) to 268 (in) :	-559.577
+Score = -100000.000000
+
+Processing 6 helices:
+Transmembrane helix 1 from  21 (in) to  36 (out) :	-593.324
+Transmembrane helix 2 from  60 (out) to  81 (in) :	3940.06
+Transmembrane helix 3 from  99 (in) to 119 (out) :	3253.61
+Transmembrane helix 4 from 190 (out) to 205 (in) :	-519.672
+Transmembrane helix 5 from 209 (in) to 224 (out) :	-569.927
+Transmembrane helix 6 from 253 (out) to 268 (in) :	-559.577
+Score = -100000.000000
+
+Processing 5 helices:
+Transmembrane helix 1 from  60 (out) to  81 (in) :	3940.06
+Transmembrane helix 2 from  99 (in) to 119 (out) :	3253.61
+Transmembrane helix 3 from 190 (out) to 205 (in) :	-519.672
+Transmembrane helix 4 from 209 (in) to 224 (out) :	-569.927
+Transmembrane helix 5 from 253 (out) to 268 (in) :	-559.577
+Score = -100000.000000
+
+Processing 4 helices:
+Transmembrane helix 1 from  21 (in) to  36 (out) :	-593.324
+Transmembrane helix 2 from  60 (out) to  81 (in) :	3940.06
+Transmembrane helix 3 from  99 (in) to 119 (out) :	3253.61
+Transmembrane helix 4 from 193 (out) to 208 (in) :	-506.878
+Score = -100000.000000
+
+Processing 3 helices:
+Transmembrane helix 1 from  60 (out) to  81 (in) :	3940.06
+Transmembrane helix 2 from  99 (in) to 119 (out) :	3253.61
+Transmembrane helix 3 from 193 (out) to 208 (in) :	-506.878
+Score = -100000.000000
+
+Processing 2 helices:
+Transmembrane helix 1 from  60 (in) to  81 (out) :	3903.14
+Transmembrane helix 2 from  99 (out) to 119 (in) :	3250.38
+Score = 7.006164
+
+Summary of topology analysis:
+ 1 helix   (+) : Score = 3.76829
+ 1 helix   (-) : Score = 4.07491
+ 2 helices (+) : Score = 7.00616
+ 2 helices (-) : Score = 7.34104
+ 3 helices (+) : Score = -100000
+ 3 helices (-) : Score = -100000
+ 4 helices (+) : Score = -100000
+ 4 helices (-) : Score = -100000
+ 5 helices (+) : Score = -100000
+ 5 helices (-) : Score = -100000
+ 6 helices (+) : Score = -100000
+ 6 helices (-) : Score = -100000
+ 7 helices (+) : Score = -100000
+ 7 helices (-) : Score = -100000
+ 8 helices (+) : Score = -100000
+ 8 helices (-) : Score = -100000
+ 9 helices (+) : Score = -100000
+ 9 helices (-) : Score = -100000
+10 helices (+) : Score = -100000
+10 helices (-) : Score = -100000
+11 helices (+) : Score = -100000
+11 helices (-) : Score = -100000
+12 helices (+) : Score = -100000
+12 helices (-) : Score = -100000
+13 helices (+) : Score = -100000
+13 helices (-) : Score = -100000
+14 helices (+) : Score = -100000
+14 helices (-) : Score = -100000
+15 helices (+) : Score = -100000
+15 helices (-) : Score = -100000
+
+Results:
+Signal peptide:		o1-19o
+Signal score:		26.928
+Topology:		o60-81i99-119o
+Re-entrant helices:	Not detected.
+Helix count:		2
+N-terminal:		out
+Score:			7.34104
+

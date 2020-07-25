@@ -1,0 +1,9 @@
+mtxFile:
+  class: File
+  location: ../data/1LDI_A.mtx
+predType: 1
+signalPeptide: 1
+version: 1
+format: 1
+
+

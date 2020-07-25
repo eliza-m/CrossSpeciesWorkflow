@@ -1,0 +1,3 @@
+fastaFile:
+  class: File
+  location: ../data/ex1.fasta
