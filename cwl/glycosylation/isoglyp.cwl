@@ -14,7 +14,7 @@ inputs:
 
   fastaFile:
     type: File
-    label: Single protein FASTA file
+    label: Single/Multiple protein FASTA file
     inputBinding:
       prefix: -f
     #format: edam:format_1929
@@ -30,7 +30,12 @@ outputs:
       glob: 'isoglyp-predictions.csv'
       outputEval: |
         ${
-          self[0].basename =  inputs.outputFilename;
+          if ( inputs.outputFilename != null){
+             self[0].basename =  inputs.outputFilename;
+          }
+          else {
+             self[0].basename =  inputs.fastaFile.nameroot + ".isoglyp.out";
+          }
           return self[0]
         }
 

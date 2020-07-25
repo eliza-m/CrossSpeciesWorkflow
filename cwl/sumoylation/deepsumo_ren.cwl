@@ -26,13 +26,14 @@ inputs:
 
   fastaFile:
     type: File
-    label: Single protein FASTA file
+    label: Single/Multiple protein FASTA file
     inputBinding:
       position: 3
     #format: edam:format_1929
 
   outputFilename:
-    type: string
+    type: string?
+    default: "temp.out"
 
 
 outputs:
@@ -42,7 +43,12 @@ outputs:
       glob: 'output.txt'
       outputEval: |
         ${
-          self[0].basename =  inputs.outputFilename;
+          if ( inputs.outputFilename != "temp.out"){
+             self[0].basename =  inputs.outputFilename;
+          }
+          else {
+             self[0].basename =  inputs.fastaFile.nameroot + ".deepsumo_ren.out";
+          }
           return self[0]
         }
 

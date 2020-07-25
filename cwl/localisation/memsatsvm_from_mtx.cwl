@@ -50,7 +50,7 @@ inputs:
       position: 3
     default: 1
 
-  # Output filename when running a single sequence. Default: <fasta file>.memsat_svm
+  # Output filename when running a single sequence.
   outputFilename:
     type: string?
     inputBinding:

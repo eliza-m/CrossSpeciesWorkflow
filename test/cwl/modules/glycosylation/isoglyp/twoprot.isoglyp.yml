@@ -1,5 +1,3 @@
 fastaFile:
   class: File
   location: ../data/twoprot.fsa
-outputFilename: twoprot.isoglyp.csv
-  

@@ -7,11 +7,14 @@ hints:
   DockerRequirement:
     dockerImageId: netnglyc-1.0d
 
+requirements:
+  InlineJavascriptRequirement: {}
+
 inputs:
 
   fastaFile:
     type: File
-    label: Single protein FASTA file
+    label: Single/Multiple protein FASTA file
     inputBinding:
       prefix:
     #format: edam:format_1929
@@ -23,7 +26,15 @@ outputs:
   output:
     type: stdout
 
-stdout: $(inputs.outputFilename)
+stdout: |
+  ${
+     if ( inputs.outputFilename != null){
+     	return inputs.outputFilename;
+     }
+     else {
+        return inputs.fastaFile.nameroot + ".netnglyc.out";
+     }
+   }
 
 
 $namespaces:

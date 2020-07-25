@@ -7,6 +7,10 @@ hints:
   DockerRequirement:
     dockerImageId: tmhmm2
 
+requirements:
+  InlineJavascriptRequirement: {}
+
+
 inputs:
   fastaFile:
     type: File
@@ -15,6 +19,8 @@ inputs:
       position: 1
     #format: edam:format_1929
 
+  outputFilename:
+    type: string?
 
 outputs:
   outputSummary:
@@ -25,9 +31,15 @@ outputs:
     outputBinding:
       glob: 'TMHMM*'
 
-stdout: $(inputs.fastaFile.basename).out
-
-
+stdout: |
+  ${
+     if ( inputs.outputFilename != null){
+     	return inputs.outputFilename;
+     }
+     else {
+        return inputs.fastaFile.nameroot + ".tmhmm2.out";
+     }
+   }
 
 
 

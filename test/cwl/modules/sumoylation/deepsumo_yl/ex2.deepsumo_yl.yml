@@ -2,5 +2,5 @@ fastaFile:
   class: File
   location: ../data/ex2.fasta
 threshold: 0.5
-outputFilename: ex2.deepsumo_yl.out
+
   

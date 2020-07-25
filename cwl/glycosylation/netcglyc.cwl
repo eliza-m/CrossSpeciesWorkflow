@@ -7,6 +7,9 @@ hints:
   DockerRequirement:
     dockerImageId: netcglyc-1.0c
 
+requirements:
+  InlineJavascriptRequirement: {}
+
 inputs:
 
   fastaFile:
@@ -23,8 +26,15 @@ outputs:
   output:
     type: stdout
 
-stdout: $(inputs.outputFilename)
-
+stdout: |
+  ${
+     if ( inputs.outputFilename != null){
+     	return inputs.outputFilename;
+     }
+     else {
+        return inputs.fastaFile.nameroot + ".netcglyc.out";
+     }
+   }
 
 $namespaces:
   edam: http://edamontology.org/

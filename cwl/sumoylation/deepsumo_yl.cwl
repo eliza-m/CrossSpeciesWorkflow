@@ -14,7 +14,7 @@ inputs:
 
   fastaFile:
     type: File
-    label: Single protein FASTA file
+    label: Single/Multiple protein FASTA file
     inputBinding:
       prefix: -input
     #format: edam:format_1929
@@ -26,9 +26,10 @@ inputs:
     default: 0.5
 
   outputFilename:
-    type: string
+    type: string?
     inputBinding:
       prefix: -output
+    default: "temp.out"
 
 
 outputs:
@@ -36,6 +37,17 @@ outputs:
     type: File
     outputBinding:
       glob: '*.*'
+      outputEval: |
+        ${
+          if ( inputs.outputFilename != "temp.out"){
+             self[0].basename =  inputs.outputFilename;
+          }
+          else {
+             self[0].basename =  inputs.fastaFile.nameroot + ".deepsumo_yl.out";
+          }
+          return self[0]
+        }
+
 
 $namespaces:
   edam: http://edamontology.org/

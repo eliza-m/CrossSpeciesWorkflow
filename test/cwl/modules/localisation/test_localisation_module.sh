@@ -12,13 +12,15 @@ TESTFOLDER=${CWL_HOME}/test/cwl/modules/localisation/
 
 # For each predictor folder, expected prediction outputs are provided in epected_output folders.
 
+
+#########################################################
 # Test tmp_ssurface
 
 cd $TESTFOLDER/tmp_ssurface/
 $RUNNER $ARGS $CWLSCRIPTS/tmp_ssurface.cwl ex1.tmp_ssurface.yml
 
 
-
+#########################################################
 # Test tmhmm2
 
 # !!!!!!! 
@@ -30,6 +32,7 @@ sudo $RUNNER $ARGS $CWLSCRIPTS/tmhmm2.cwl ex1.tmhmm2.yml
 
 
 
+#########################################################
 # Test memsatsvm
 
 cd $TESTFOLDER/memsatsvm/
