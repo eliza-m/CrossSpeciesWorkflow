@@ -1,0 +1,55 @@
+# /home/netphospan-1.0.Linux/Linux_x86_64/bin/netphospan -a PKACA -f /var/lib/cwl/stg6e6ed6ed-d1bb-4ea4-8bdf-9c977acee223/1pazA.fasta
+# Sat Jul 25 09:19:40 2020
+# User: root
+# PWD : /PUpSQB
+# Host: Linux d672ef3acd8d 5.4.0-40-generic x86_64
+# -a       PKACA                Kinase gen name
+# -f       /var/lib/cwl/stg6e6ed6ed-d1bb-4ea4-8bdf-9c977acee223/1pazA.fasta File name with input
+# Command line parameters set to:
+#	[-rdir filename]     /home/netphospan-1.0.Linux/Linux_x86_64 Home directory for NetPhospan
+#	[-pdir filename]     /usr/bin/python2.7   Home directory for Python
+#	[-syn filename]      /home/netphospan-1.0.Linux/Linux_x86_64/data/ensemblelist Param file
+#	[-v]                 0                    Verbose mode
+#	[-dirty]             0                    Dirty mode, leave tmp dir+files
+#	[-tdir filename]     /tmp/                Temporary directory
+#	[-kindomain filename] /home/netphospan-1.0.Linux/Linux_x86_64/data/KIN_pseudo.dat File with kinase domain sequences
+#	[-kinseq filename]                        Fasta file with full length kinase domain sequences
+#	[-l string]          21                   Peptide length [21]
+#	[-a line]            PKACA                Kinase gen name
+#	[-f filename]        /var/lib/cwl/stg6e6ed6ed-d1bb-4ea4-8bdf-9c977acee223/1pazA.fasta File name with input
+#	[-s]                 0                    Sort output on descending prediction
+#	[-p]                 0                    Use peptide input
+#	[-xls]               0                    Save output to xls file
+#	[-xlsfile filename]  NetPhospan.xls       Filename for xls dump
+#	[-t float]           -9.000000            Threshold for output
+#	[-version filename]  /home/netphospan-1.0.Linux/Linux_x86_64/data/version File with version information
+#	[-inptype int]       0                    Input type [0] FASTA [1] Peptide
+#	[-listKIN]           0                    Print list of kinases included in NetPhosPan
+#	[-generic]           0                    Use generic predictor
+
+
+# Tmpdir made /tmp//11
+# Input is in FSA format
+
+# Peptide length 21
+-----------------------------------------------------------------------------------------------------
+   pos        kin        peptide                 Identity     Pred
+-----------------------------------------------------------------------------------------------------
+   12        PKACA AEGAMVFEPAYIKANPGDTVT           1pazA      0.133
+   20        PKACA PAYIKANPGDTVTFIPVDKGH           1pazA      0.257
+   22        PKACA YIKANPGDTVTFIPVDKGHNV           1pazA      0.271
+   34        PKACA IPVDKGHNVESIKDMIPEGAE           1pazA      0.319
+   48        PKACA MIPEGAEKFKSKINENYVLTV           1pazA      0.299
+   54        PKACA EKFKSKINENYVLTVTQPGAY           1pazA      0.056
+   57        PKACA KSKINENYVLTVTQPGAYLVK           1pazA      0.288
+   59        PKACA KINENYVLTVTQPGAYLVKCT           1pazA      0.148
+   64        PKACA YVLTVTQPGAYLVKCTPHYAM           1pazA      0.098
+   69        PKACA TQPGAYLVKCTPHYAMGMIAL           1pazA      0.076
+   72        PKACA GAYLVKCTPHYAMGMIALIAV           1pazA      0.062
+   85        PKACA GMIALIAVGDSPANLDQIVSA           1pazA      0.247
+   94        PKACA DSPANLDQIVSAKKPKIVQER           1pazA      0.195
+-----------------------------------------------------------------------------------------------------
+
+Protein 1pazA. Kinase PKACA. Number of peptides 13
+
+-----------------------------------------------------------------------------------------------------

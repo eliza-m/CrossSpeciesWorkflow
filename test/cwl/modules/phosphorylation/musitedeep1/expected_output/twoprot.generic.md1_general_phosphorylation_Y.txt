@@ -1,0 +1,19 @@
+">EFTU_HUMAN  P49411 Elongation factor Tu, mitochondrial precursor (EF-Tu) (P43). - Homo sapiens (Human)."	51	"Y"	0.10538516355057558
+">EFTU_HUMAN  P49411 Elongation factor Tu, mitochondrial precursor (EF-Tu) (P43). - Homo sapiens (Human)."	92	"Y"	0.4932340125242869
+">EFTU_HUMAN  P49411 Elongation factor Tu, mitochondrial precursor (EF-Tu) (P43). - Homo sapiens (Human)."	115	"Y"	0.47706170479456583
+">EFTU_HUMAN  P49411 Elongation factor Tu, mitochondrial precursor (EF-Tu) (P43). - Homo sapiens (Human)."	122	"Y"	0.1197104848921299
+">EFTU_HUMAN  P49411 Elongation factor Tu, mitochondrial precursor (EF-Tu) (P43). - Homo sapiens (Human)."	133	"Y"	0.49144647022088367
+">EFTU_HUMAN  P49411 Elongation factor Tu, mitochondrial precursor (EF-Tu) (P43). - Homo sapiens (Human)."	179	"Y"	0.10538144273062547
+">EFTU_HUMAN  P49411 Elongation factor Tu, mitochondrial precursor (EF-Tu) (P43). - Homo sapiens (Human)."	208	"Y"	0.10723965068658194
+">EFTU_HUMAN  P49411 Elongation factor Tu, mitochondrial precursor (EF-Tu) (P43). - Homo sapiens (Human)."	246	"Y"	0.6718201100826263
+">EFTU_HUMAN  P49411 Elongation factor Tu, mitochondrial precursor (EF-Tu) (P43). - Homo sapiens (Human)."	266	"Y"	0.6559445321559906
+">EFTU_HUMAN  P49411 Elongation factor Tu, mitochondrial precursor (EF-Tu) (P43). - Homo sapiens (Human)."	357	"Y"	0.7269987185796102
+">P53_HUMAN   P04637 Cellular tumor antigen p53 (Tumor suppressor p53) (Phosphoprotein p53) (Antigen NY-CO-13). - Homo sapiens (Human)."	103	"Y"	0.05408709148565928
+">P53_HUMAN   P04637 Cellular tumor antigen p53 (Tumor suppressor p53) (Phosphoprotein p53) (Antigen NY-CO-13). - Homo sapiens (Human)."	107	"Y"	0.1687264027694861
+">P53_HUMAN   P04637 Cellular tumor antigen p53 (Tumor suppressor p53) (Phosphoprotein p53) (Antigen NY-CO-13). - Homo sapiens (Human)."	126	"Y"	0.07756650994221369
+">P53_HUMAN   P04637 Cellular tumor antigen p53 (Tumor suppressor p53) (Phosphoprotein p53) (Antigen NY-CO-13). - Homo sapiens (Human)."	163	"Y"	0.11430473650495211
+">P53_HUMAN   P04637 Cellular tumor antigen p53 (Tumor suppressor p53) (Phosphoprotein p53) (Antigen NY-CO-13). - Homo sapiens (Human)."	205	"Y"	0.22271015197038652
+">P53_HUMAN   P04637 Cellular tumor antigen p53 (Tumor suppressor p53) (Phosphoprotein p53) (Antigen NY-CO-13). - Homo sapiens (Human)."	220	"Y"	0.1739756313463052
+">P53_HUMAN   P04637 Cellular tumor antigen p53 (Tumor suppressor p53) (Phosphoprotein p53) (Antigen NY-CO-13). - Homo sapiens (Human)."	234	"Y"	0.0027856931017595345
+">P53_HUMAN   P04637 Cellular tumor antigen p53 (Tumor suppressor p53) (Phosphoprotein p53) (Antigen NY-CO-13). - Homo sapiens (Human)."	236	"Y"	0.001312503349375523
+">P53_HUMAN   P04637 Cellular tumor antigen p53 (Tumor suppressor p53) (Phosphoprotein p53) (Antigen NY-CO-13). - Homo sapiens (Human)."	327	"Y"	0.8431795080502827

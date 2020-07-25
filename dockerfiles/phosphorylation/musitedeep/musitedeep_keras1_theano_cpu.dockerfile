@@ -47,6 +47,9 @@ RUN mkdir /output
 RUN mkdir /home/.keras
 RUN bash -c 'echo -e "{\n\x22image_dim_ordering\x22: \x22tf\x22,\n\x22epsilon\x22: 1e-07,\n\x22floatx\x22: \x22float32\x22,\n\x22backend\x22: \x22theano\x22\n}" > /home/.keras/keras.json'
 
+# workaround for CWL that overides $HOME variable...
+COPY ./musitedeep1.sh /home/
+
 # Setting working directory when docker image is running
 WORKDIR /home/MusiteDeep/MusiteDeep/
 

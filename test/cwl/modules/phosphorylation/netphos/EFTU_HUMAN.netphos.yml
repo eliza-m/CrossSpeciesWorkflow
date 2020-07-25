@@ -1,0 +1,3 @@
+fastaFile:
+  class: File
+  path: ../data/EFTU_HUMAN.fsa

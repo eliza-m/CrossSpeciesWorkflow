@@ -1,0 +1,3 @@
+fastaFile:
+  class: File
+  path: ../data/1pazA.fasta

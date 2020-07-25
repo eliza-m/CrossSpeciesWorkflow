@@ -1,0 +1,9 @@
+fastaFile:
+  class: File
+  path: ../data/twoprot.fsa
+
+outputNameroot: twoprot.generic.md1
+
+exclusive_parameters:
+  generalMode: general
+  residues: S,T,Y

@@ -1,0 +1,9 @@
+fastaFile:
+  class: File
+  path: ../data/twoprot.fsa
+
+outputNameroot: twoprot.PKA.md1
+
+exclusive_parameters:
+  kinaseMode: kinase
+  customKinase: PKA

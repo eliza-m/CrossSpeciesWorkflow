@@ -1,0 +1,165 @@
+# /home/netphospan-1.0.Linux/Linux_x86_64/bin/netphospan -a PKACA -f /var/lib/cwl/stg7773a0b6-a027-4e9d-85e9-90cb7ca31fca/twoprot.fsa
+# Sat Jul 25 09:29:06 2020
+# User: root
+# PWD : /jJquOy
+# Host: Linux 397049a5792f 5.4.0-40-generic x86_64
+# -a       PKACA                Kinase gen name
+# -f       /var/lib/cwl/stg7773a0b6-a027-4e9d-85e9-90cb7ca31fca/twoprot.fsa File name with input
+# Command line parameters set to:
+#	[-rdir filename]     /home/netphospan-1.0.Linux/Linux_x86_64 Home directory for NetPhospan
+#	[-pdir filename]     /usr/bin/python2.7   Home directory for Python
+#	[-syn filename]      /home/netphospan-1.0.Linux/Linux_x86_64/data/ensemblelist Param file
+#	[-v]                 0                    Verbose mode
+#	[-dirty]             0                    Dirty mode, leave tmp dir+files
+#	[-tdir filename]     /tmp/                Temporary directory
+#	[-kindomain filename] /home/netphospan-1.0.Linux/Linux_x86_64/data/KIN_pseudo.dat File with kinase domain sequences
+#	[-kinseq filename]                        Fasta file with full length kinase domain sequences
+#	[-l string]          21                   Peptide length [21]
+#	[-a line]            PKACA                Kinase gen name
+#	[-f filename]        /var/lib/cwl/stg7773a0b6-a027-4e9d-85e9-90cb7ca31fca/twoprot.fsa File name with input
+#	[-s]                 0                    Sort output on descending prediction
+#	[-p]                 0                    Use peptide input
+#	[-xls]               0                    Save output to xls file
+#	[-xlsfile filename]  NetPhospan.xls       Filename for xls dump
+#	[-t float]           -9.000000            Threshold for output
+#	[-version filename]  /home/netphospan-1.0.Linux/Linux_x86_64/data/version File with version information
+#	[-inptype int]       0                    Input type [0] FASTA [1] Peptide
+#	[-listKIN]           0                    Print list of kinases included in NetPhosPan
+#	[-generic]           0                    Use generic predictor
+
+
+# Tmpdir made /tmp//11
+# Input is in FSA format
+
+# Peptide length 21
+-----------------------------------------------------------------------------------------------------
+   pos        kin        peptide                 Identity     Pred
+-----------------------------------------------------------------------------------------------------
+    4        PKACA ATLLRATPHFSGLAAGRTFLL EFTU_HUMAN_P494      0.107
+   11        PKACA PHFSGLAAGRTFLLQGLLRLL EFTU_HUMAN_P494      0.282
+   40        PKACA CRGLAVEAKKTYVRDKPHVNV EFTU_HUMAN_P494      0.258
+   41        PKACA RGLAVEAKKTYVRDKPHVNVX EFTU_HUMAN_P494      0.087
+   53        PKACA RDKPHVNVXGTIGHVDHGKTT EFTU_HUMAN_P494      0.481
+   62        PKACA GTIGHVDHGKTTLTAAITKIL EFTU_HUMAN_P494      0.115
+   63        PKACA TIGHVDHGKTTLTAAITKILA EFTU_HUMAN_P494      0.100
+   65        PKACA GHVDHGKTTLTAAITKILAEG EFTU_HUMAN_P494      0.146
+   69        PKACA HGKTTLTAAITKILAEGGGAK EFTU_HUMAN_P494      0.294
+   83        PKACA AEGGGAKFKKYEEIDNAPEER EFTU_HUMAN_P494      0.087
+   98        PKACA NAPEERARGITINAAHVEYST EFTU_HUMAN_P494      0.675
+  106        PKACA GITINAAHVEYSTAARXHYAH EFTU_HUMAN_P494      0.050
+  107        PKACA ITINAAHVEYSTAARXHYAHT EFTU_HUMAN_P494      0.186
+  108        PKACA TINAAHVEYSTAARXHYAHTD EFTU_HUMAN_P494      0.161
+  114        PKACA VEYSTAARXHYAHTDCPGHAD EFTU_HUMAN_P494      0.125
+  117        PKACA STAARXHYAHTDCPGHADYVK EFTU_HUMAN_P494      0.143
+  125        PKACA AHTDCPGHADYVKNMITGTAP EFTU_HUMAN_P494      0.174
+  131        PKACA GHADYVKNMITGTAPLDGCIL EFTU_HUMAN_P494      0.209
+  133        PKACA ADYVKNMITGTAPLDGCILVV EFTU_HUMAN_P494      0.124
+  153        PKACA VAANDGPMPQTREHLLLARQI EFTU_HUMAN_P494      0.169
+  171        PKACA RQIGVEHVVVYVXNKADAVQD EFTU_HUMAN_P494      0.122
+  182        PKACA VXNKADAVQDSEMVELVELEI EFTU_HUMAN_P494      0.232
+  197        PKACA LVELEIRELLTEFGYKGEETP EFTU_HUMAN_P494      0.100
+  201        PKACA EIRELLTEFGYKGEETPVIVG EFTU_HUMAN_P494      0.082
+  206        PKACA LTEFGYKGEETPVIVGSALCA EFTU_HUMAN_P494      0.155
+  212        PKACA KGEETPVIVGSALCALEGRDP EFTU_HUMAN_P494      0.195
+  228        PKACA EGRDPELGLKSVQKLLXDAVD EFTU_HUMAN_P494      0.346
+  239        PKACA VQKLLXDAVDTYIPVPARDLE EFTU_HUMAN_P494      0.242
+  240        PKACA QKLLXDAVDTYIPVPARDLEK EFTU_HUMAN_P494      0.146
+  260        PKACA KPFLLPVEAVYSVPGRGTVVT EFTU_HUMAN_P494      0.186
+  261        PKACA PFLLPVEAVYSVPGRGTVVTG EFTU_HUMAN_P494      0.324
+  267        PKACA EAVYSVPGRGTVVTGTLERGI EFTU_HUMAN_P494      0.299
+  270        PKACA YSVPGRGTVVTGTLERGILKK EFTU_HUMAN_P494      0.194
+  272        PKACA VPGRGTVVTGTLERGILKKGD EFTU_HUMAN_P494      0.249
+  290        PKACA KGDECELLGHSKNIRXTVVTG EFTU_HUMAN_P494      0.133
+  296        PKACA LLGHSKNIRXTVVTGIEMFHK EFTU_HUMAN_P494      0.339
+  299        PKACA HSKNIRXTVVTGIEMFHKSLE EFTU_HUMAN_P494      0.360
+  307        PKACA VVTGIEMFHKSLERAEAGDNL EFTU_HUMAN_P494      0.315
+  340        PKACA RRGLVMVKPGSIKPHQKVEAQ EFTU_HUMAN_P494      0.549
+  352        PKACA KPHQKVEAQVYILSXKEEGGR EFTU_HUMAN_P494      0.169
+  355        PKACA QKVEAQVYILSXKEEGGRHKP EFTU_HUMAN_P494      0.377
+  368        PKACA EEGGRHKPFVSHFMPVMFSLT EFTU_HUMAN_P494      0.157
+  376        PKACA FVSHFMPVMFSLTWDMACRII EFTU_HUMAN_P494      0.128
+  378        PKACA SHFMPVMFSLTWDMACRIILP EFTU_HUMAN_P494      0.179
+  420        PKACA MILEKGQXRFTLRDGNRTIGT EFTU_HUMAN_P494      0.437
+  427        PKACA XRFTLRDGNRTIGTGLVTNTL EFTU_HUMAN_P494      0.296
+  430        PKACA TLRDGNRTIGTGLVTNTLAMT EFTU_HUMAN_P494      0.178
+  434        PKACA GNRTIGTGLVTNTLAMTEEEK EFTU_HUMAN_P494      0.111
+  436        PKACA RTIGTGLVTNTLAMTEEEKNI EFTU_HUMAN_P494      0.229
+  440        PKACA TGLVTNTLAMTEEEKNIKWGX EFTU_HUMAN_P494      0.380
+-----------------------------------------------------------------------------------------------------
+
+Protein EFTU_HUMAN_P494. Kinase PKACA. Number of peptides 50
+
+-----------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
+   pos        kin        peptide                 Identity     Pred
+-----------------------------------------------------------------------------------------------------
+    5        PKACA QSDPSVEPPLSQETFSDLWKL P53_HUMAN_P0463      0.782
+    8        PKACA PSVEPPLSQETFSDLWKLLPE P53_HUMAN_P0463      0.680
+   10        PKACA VEPPLSQETFSDLWKLLPENN P53_HUMAN_P0463      0.759
+   23        PKACA WKLLPENNVLSPLPSQAMDDL P53_HUMAN_P0463      0.502
+   27        PKACA PENNVLSPLPSQAMDDLMLSP P53_HUMAN_P0463      0.647
+   36        PKACA PSQAMDDLMLSPDDIEQWFTE P53_HUMAN_P0463      0.609
+   45        PKACA LSPDDIEQWFTEDPGPXDEAP P53_HUMAN_P0463      0.246
+   72        PKACA PPVAPAPAAPTPAAPAPAPSW P53_HUMAN_P0463      0.224
+   81        PKACA PTPAAPAPAPSWPLSSSVPSQ P53_HUMAN_P0463      0.286
+   85        PKACA APAPAPSWPLSSSVPSQKTYQ P53_HUMAN_P0463      0.210
+   86        PKACA PAPAPSWPLSSSVPSQKTYQG P53_HUMAN_P0463      0.161
+   87        PKACA APAPSWPLSSSVPSQKTYQGS P53_HUMAN_P0463      0.271
+   90        PKACA PSWPLSSSVPSQKTYQGSYGF P53_HUMAN_P0463      0.253
+   93        PKACA PLSSSVPSQKTYQGSYGFRLG P53_HUMAN_P0463      0.359
+   94        PKACA LSSSVPSQKTYQGSYGFRLGF P53_HUMAN_P0463      0.145
+   97        PKACA SVPSQKTYQGSYGFRLGFLHS P53_HUMAN_P0463      0.243
+   98        PKACA VPSQKTYQGSYGFRLGFLHSG P53_HUMAN_P0463      0.113
+  107        PKACA SYGFRLGFLHSGTAKXSVTCT P53_HUMAN_P0463      0.240
+  109        PKACA GFRLGFLHSGTAKXSVTCTYS P53_HUMAN_P0463      0.149
+  113        PKACA GFLHSGTAKXSVTCTYSPALN P53_HUMAN_P0463      0.410
+  115        PKACA LHSGTAKXSVTCTYSPALNKM P53_HUMAN_P0463      0.182
+  117        PKACA SGTAKXSVTCTYSPALNKMFC P53_HUMAN_P0463      0.211
+  118        PKACA GTAKXSVTCTYSPALNKMFCQ P53_HUMAN_P0463      0.062
+  119        PKACA TAKXSVTCTYSPALNKMFCQL P53_HUMAN_P0463      0.160
+  132        PKACA LNKMFCQLAKTCPVQLWVDST P53_HUMAN_P0463      0.100
+  141        PKACA KTCPVQLWVDSTPPPGTRVRA P53_HUMAN_P0463      0.277
+  142        PKACA TCPVQLWVDSTPPPGTRVRAM P53_HUMAN_P0463      0.205
+  147        PKACA LWVDSTPPPGTRVRAMAIYKQ P53_HUMAN_P0463      0.170
+  155        PKACA PGTRVRAMAIYKQSQHMTEVV P53_HUMAN_P0463      0.065
+  158        PKACA RVRAMAIYKQSQHMTEVVRRC P53_HUMAN_P0463      0.229
+  162        PKACA MAIYKQSQHMTEVVRRCPHHE P53_HUMAN_P0463      0.170
+  176        PKACA RRCPHHEXRCSDSDGLAPPQH P53_HUMAN_P0463      0.639
+  178        PKACA CPHHEXRCSDSDGLAPPQHLI P53_HUMAN_P0463      0.280
+  198        PKACA IRVEGNLRVEYLDDRNTFRHS P53_HUMAN_P0463      0.082
+  204        PKACA LRVEYLDDRNTFRHSVVVPYE P53_HUMAN_P0463      0.565
+  208        PKACA YLDDRNTFRHSVVVPYEPPEV P53_HUMAN_P0463      0.708
+  213        PKACA NTFRHSVVVPYEPPEVGSDCT P53_HUMAN_P0463      0.103
+  220        PKACA VVPYEPPEVGSDCTTIHYNYM P53_HUMAN_P0463      0.193
+  223        PKACA YEPPEVGSDCTTIHYNYMCNS P53_HUMAN_P0463      0.183
+  224        PKACA EPPEVGSDCTTIHYNYMCNSX P53_HUMAN_P0463      0.063
+  227        PKACA EVGSDCTTIHYNYMCNSXSCM P53_HUMAN_P0463      0.069
+  229        PKACA GSDCTTIHYNYMCNSXSCMGG P53_HUMAN_P0463      0.082
+  233        PKACA TTIHYNYMCNSXSCMGGMNRR P53_HUMAN_P0463      0.106
+  235        PKACA IHYNYMCNSXSCMGGMNRRPI P53_HUMAN_P0463      0.243
+  247        PKACA MGGMNRRPILTIITLEDSSGN P53_HUMAN_P0463      0.323
+  250        PKACA MNRRPILTIITLEDSSGNLLG P53_HUMAN_P0463      0.301
+  254        PKACA PILTIITLEDSSGNLLGRNSF P53_HUMAN_P0463      0.204
+  255        PKACA ILTIITLEDSSGNLLGRNSFE P53_HUMAN_P0463      0.254
+  263        PKACA DSSGNLLGRNSFEVRVCACPG P53_HUMAN_P0463      0.658
+  278        PKACA VCACPGRDRRTEEENLRKKGE P53_HUMAN_P0463      0.472
+  298        PKACA EPHHELPXPGSTKRALPNNTS P53_HUMAN_P0463      0.405
+  299        PKACA PHHELPXPGSTKRALPNNTSS P53_HUMAN_P0463      0.323
+  307        PKACA GSTKRALPNNTSSSPQPKKKP P53_HUMAN_P0463      0.213
+  308        PKACA STKRALPNNTSSSPQPKKKPL P53_HUMAN_P0463      0.433
+  309        PKACA TKRALPNNTSSSPQPKKKPLD P53_HUMAN_P0463      0.430
+  310        PKACA KRALPNNTSSSPQPKKKPLDG P53_HUMAN_P0463      0.544
+  322        PKACA QPKKKPLDGEYFTLQIRGRER P53_HUMAN_P0463      0.217
+  324        PKACA KKKPLDGEYFTLQIRGRERFE P53_HUMAN_P0463      0.317
+  358        PKACA AQAGKEPGXGSRAHSSHLKSK P53_HUMAN_P0463      0.463
+  362        PKACA KEPGXGSRAHSSHLKSKKGQS P53_HUMAN_P0463      0.720
+  363        PKACA EPGXGSRAHSSHLKSKKGQST P53_HUMAN_P0463      0.259
+  367        PKACA GSRAHSSHLKSKKGQSTSRHK P53_HUMAN_P0463      0.551
+  372        PKACA SSHLKSKKGQSTSRHKKLMFK P53_HUMAN_P0463      0.686
+  373        PKACA SHLKSKKGQSTSRHKKLMFKT P53_HUMAN_P0463      0.553
+  374        PKACA HLKSKKGQSTSRHKKLMFKTE P53_HUMAN_P0463      0.740
+-----------------------------------------------------------------------------------------------------
+
+Protein P53_HUMAN_P0463. Kinase PKACA. Number of peptides 65
+
+-----------------------------------------------------------------------------------------------------

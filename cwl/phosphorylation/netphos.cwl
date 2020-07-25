@@ -5,23 +5,21 @@ class: CommandLineTool
 baseCommand: [/home/netphos-3.1/ape-1.0/ape]
 hints:
   DockerRequirement:
-    dockerImageId: dtu_phosphorylation_cpu:latest
-    dockerOutputDirectory: /storage1/eliza/git/CrossSpeciesWorkflow/test/test_cwl
-#   dockerOutputDirectory: $(runtime.outdir)
+    dockerImageId: netphos-3.1:latest
 
-arguments: [$(inputs.fastaFile.path)]
 
 inputs:
   fastaFile:
     type: File
     label: Single protein FASTA file
+    inputBinding:
+      position: 1
     #format: edam:format_1929
 
 outputs:
-  example_out:
+  output:
     type: stdout
-
-stdout: $(inputs.fastaFile.name).netphos
+stdout: $(inputs.fastaFile.nameroot).netphos.out
 
 
 $namespaces:

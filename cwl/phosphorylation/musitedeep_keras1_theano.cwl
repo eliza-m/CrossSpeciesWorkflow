@@ -2,10 +2,10 @@
 
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: [bash, /home/musitedeep2.sh ]
+baseCommand: [bash, /home/musitedeep1.sh ]
 hints:
   DockerRequirement:
-    dockerImageId: musitedeep_keras2_tensorflow_cpu:latest
+    dockerImageId: musitedeep_keras1_theano_cpu:latest
 
 requirements:
   InlineJavascriptRequirement: {}
@@ -66,7 +66,7 @@ outputs:
       type: array
       items: File
     outputBinding:
-      glob: '*.txt'
+      glob: '*.*'
 
 stdout: $(inputs.outputNameroot).log
 

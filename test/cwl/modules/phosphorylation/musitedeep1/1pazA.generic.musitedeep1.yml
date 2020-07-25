@@ -1,0 +1,9 @@
+fastaFile:
+  class: File
+  path: ../data/1pazA.fasta
+
+outputNameroot: 1pazA.generic.md1
+
+exclusive_parameters:
+  generalMode: general
+  residues: S,T,Y

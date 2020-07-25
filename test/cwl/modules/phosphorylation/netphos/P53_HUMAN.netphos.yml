@@ -1,0 +1,3 @@
+fastaFile:
+  class: File
+  path: ../data/P53_HUMAN.fsa
