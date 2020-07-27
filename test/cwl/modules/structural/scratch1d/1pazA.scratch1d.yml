@@ -1,0 +1,7 @@
+fastaFile:
+  class: File
+  path: ../data/1pazA.fasta
+
+outputNameroot: 1pazA
+
+numthreads: 6

@@ -1,0 +1,1549 @@
+PSIBLAST 2.6.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for compositional score matrix adjustment: Stephen F.
+Altschul, John C. Wootton, E. Michael Gertz, Richa Agarwala,
+Aleksandr Morgulis, Alejandro A. Schaffer, and Yi-Kuo Yu (2005)
+"Protein database searches using compositionally adjusted
+substitution matrices", FEBS J. 272:5101-5109.
+
+
+Reference for composition-based statistics starting in round 2:
+Alejandro A. Schaffer, L. Aravind, Thomas L. Madden, Sergei
+Shavirin, John L. Spouge, Yuri I. Wolf, Eugene V. Koonin, and
+Stephen F. Altschul (2001), "Improving the accuracy of PSI-BLAST
+protein database searches with composition-based statistics and
+other refinements", Nucleic Acids Res. 29:2994-3005.
+
+
+
+Database: uniref50.fasta
+           26,169,982 sequences; 8,120,947,734 total letters
+
+Results from round 1
+
+
+Query= 1pazA
+
+Length=123
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+  UniRef50_P04377 Pseudoazurin n=122 Tax=Proteobacteria TaxID=122...  252     2e-85
+  UniRef50_C0RKL3 Pseudoazurin n=24 Tax=Brucella TaxID=234 RepID=...  220     5e-72
+  UniRef50_Q8YBD5 Pseudoazurin n=6 Tax=Brucella TaxID=234 RepID=Q...  218     7e-72
+  UniRef50_I3X953 Pseudoazurin n=135 Tax=Bacteria TaxID=2 RepID=I...  170     8e-53
+  UniRef50_P80401 Pseudoazurin n=232 Tax=Bacteria TaxID=2 RepID=A...  167     5e-52
+  UniRef50_I3X5L6 Pseudoazurin n=97 Tax=Alphaproteobacteria TaxID...  165     4e-51
+  UniRef50_A0A1W6KXP3 Pseudoazurin n=29 Tax=Alphaproteobacteria T...  155     5e-47
+  UniRef50_S5SV32 Pseudoazurin 1 n=46 Tax=Alphaproteobacteria Tax...  152     8e-46
+  UniRef50_J3BL65 Pseudoazurin n=10 Tax=Rhizobium TaxID=379 RepID...  151     2e-45
+  UniRef50_Q52825 Putative pseudoazurin n=20 Tax=Rhizobiales TaxI...  150     3e-45
+  UniRef50_A0A1X6ZYZ1 Pseudoazurin n=1 Tax=Roseovarius albus TaxI...  148     2e-44
+  UniRef50_A0A221K631 Pseudoazurin n=1 Tax=Sulfitobacter pseudoni...  142     5e-42
+  UniRef50_K2I739 Azu1 pseudoazurin (Blue copper protein) n=8 Tax...  140     2e-41
+  UniRef50_A0A196QLK8 Pseudoazurin n=20 Tax=Alphaproteobacteria T...  138     2e-40
+  UniRef50_A0A085F4Q0 Blue copper protein n=15 Tax=Alphaproteobac...  136     2e-39
+  UniRef50_Q11GK5 Pseudoazurin n=2 Tax=Alphaproteobacteria TaxID=...  135     3e-39
+  UniRef50_A7HRU8 Pseudoazurin n=31 Tax=Proteobacteria TaxID=1224...  132     5e-38
+  UniRef50_UPI000930F8CD pseudoazurin n=2 Tax=Hyphomicrobium TaxI...  128     2e-36
+  UniRef50_A0A175RQU1 Pseudoazurin n=8 Tax=Alphaproteobacteria Ta...  128     3e-36
+  UniRef50_K2IV58 Blue (Type 1) copper subtype protein n=4 Tax=Rh...  127     3e-36
+  UniRef50_A0A0Q7SFY1 Uncharacterized protein n=5 Tax=Caulobacter...  127     7e-36
+  UniRef50_A0A1E4ABS3 Pseudoazurin n=2 Tax=Devosia TaxID=46913 Re...  126     1e-35
+  UniRef50_A0A212KJE4 Pseudoazurin n=4 Tax=Alphaproteobacteria Ta...  125     4e-35
+  UniRef50_A0A090MHC6 Blue copper protein n=7 Tax=Alphaproteobact...  125     4e-35
+  UniRef50_A6UD26 Pseudoazurin n=24 Tax=Proteobacteria TaxID=1224...  125     4e-35
+  UniRef50_B4RF43 Plastocyanin n=6 Tax=root TaxID=1 RepID=B4RF43_...  122     3e-34
+  UniRef50_A0A0F5LQW7 Uncharacterized protein n=8 Tax=Alphaproteo...  122     6e-34
+  UniRef50_P04171 Pseudoazurin n=17 Tax=Methylobacterium TaxID=40...  122     7e-34
+  UniRef50_UPI000378E69E pseudoazurin n=1 Tax=Methylobacterium sp...  122     8e-34
+  UniRef50_UPI0002638CE1 Pseudoazurin (Blue copper protein) n=2 T...  120     2e-33
+  UniRef50_N1MW42 Pseudoazurin n=3 Tax=Sphingobium TaxID=165695 R...  120     3e-33
+  UniRef50_A0A1E2RV84 Pseudoazurin n=1 Tax=Methyloligella halotol...  119     1e-32
+  UniRef50_A0A1S7S1E7 Pseudoazurin n=101 Tax=Proteobacteria TaxID...  118     4e-32
+  UniRef50_Q3J3Z8 PpaZ n=7 Tax=Rhodobacter TaxID=1060 RepID=Q3J3Z...  116     9e-32
+  UniRef50_A0A1Q4UMR0 Pseudoazurin n=3 Tax=Alphaproteobacteria Ta...  116     1e-31
+  UniRef50_B9K2V1 Pseudoazurin n=8 Tax=Rhizobium/Agrobacterium gr...  115     2e-31
+  UniRef50_B1J6J4 Pseudoazurin n=47 Tax=Proteobacteria TaxID=1224...  115     3e-31
+  UniRef50_T0IZ37 Uncharacterized protein n=14 Tax=Sphingomonadac...  114     4e-31
+  UniRef50_UPI0008E92566 pseudoazurin n=2 Tax=Rhodobacteraceae Ta...  114     7e-31
+  UniRef50_UPI000B864670 pseudoazurin n=1 Tax=Rhodospirillales ba...  114     8e-31
+  UniRef50_Q6SEV4 Blue copper protein n=3 Tax=Bacteria TaxID=2 Re...  114     8e-31
+  UniRef50_Q2RVA5 Blue (Type 1) copper subtype n=29 Tax=Proteobac...  113     2e-30
+  UniRef50_V5SFC1 Pseudoazurin n=2 Tax=Hyphomicrobium TaxID=81 Re...  113     3e-30
+  UniRef50_A0A0B5DQD1 Pseudoazurin n=2 Tax=Proteobacteria TaxID=1...  112     4e-30
+  UniRef50_UPI000B49C49B pseudoazurin n=2 Tax=Sphingobium sp. Z00...  111     9e-30
+  UniRef50_A0A089WNJ5 Blue copper protein n=33 Tax=Bacteria TaxID...  110     2e-29
+  UniRef50_Q6KGV5 Pseudoazurin-like protein n=2 Tax=Bacteria TaxI...  109     2e-29
+  UniRef50_UPI0008B005E7 pseudoazurin n=3 Tax=Rhodobacteraceae Ta...  110     2e-29
+  UniRef50_A1B1R6 Pseudoazurin n=9 Tax=Proteobacteria TaxID=1224 ...  110     3e-29
+  UniRef50_A0A0F9MM82 Uncharacterized protein n=1 Tax=marine sedi...  109     3e-29
+  UniRef50_UPI000B97D523 pseudoazurin n=2 Tax=Wohlfahrtiimonas Ta...  108     2e-28
+  UniRef50_A0A192ILG1 Pseudoazurin n=4 Tax=Rhizobiales TaxID=356 ...  107     4e-28
+  UniRef50_UPI000B98A984 pseudoazurin n=1 Tax=Ochrobactrum thioph...  107     6e-28
+  UniRef50_A0A0F5K165 Pseudoazurin n=18 Tax=Proteobacteria TaxID=...  107     7e-28
+  UniRef50_A0A021WWS2 Pseudoazurin n=61 Tax=Proteobacteria TaxID=...  106     8e-28
+  UniRef50_B4W968 Pseudoazurin n=3 Tax=Caulobacterales TaxID=2044...  106     1e-27
+  UniRef50_A3N392 Pseudoazurin n=22 Tax=Proteobacteria TaxID=1224...  106     1e-27
+  UniRef50_M9RDJ1 Putative cupredoxin n=5 Tax=Rhodobacteraceae Ta...  106     1e-27
+  UniRef50_B1Z5M1 Pseudoazurin n=26 Tax=Proteobacteria TaxID=1224...  105     1e-27
+  UniRef50_A0A212L9V4 Pseudoazurin n=3 Tax=Alphaproteobacteria Ta...  105     2e-27
+  UniRef50_F0L246 Pseudoazurin / blue copper protein n=27 Tax=Rhi...  105     2e-27
+  UniRef50_A0A1C3JTV2 Pseudoazurin n=1 Tax=Marinomonas gallaica T...  105     3e-27
+  UniRef50_A0A1C3JNG5 Pseudoazurin n=12 Tax=Proteobacteria TaxID=...  105     3e-27
+  UniRef50_A0A0Q5V8Z6 Uncharacterized protein n=3 Tax=Proteobacte...  105     3e-27
+  UniRef50_A7VL37 Blue copper protein n=5 Tax=Hyphomicrobium TaxI...  105     3e-27
+  UniRef50_UPI0008321ED1 pseudoazurin n=1 Tax=Marinomonas gallaic...  104     6e-27
+  UniRef50_Q0AP32 Pseudoazurin n=5 Tax=Alphaproteobacteria TaxID=...  104     7e-27
+  UniRef50_M9RHK4 Putative amicyanin family protein n=2 Tax=Octad...  103     9e-27
+  UniRef50_UPI000B51DD7A pseudoazurin n=2 Tax=Proteobacteria TaxI...  103     1e-26
+  UniRef50_M5QEY4 Pseudoazurin n=19 Tax=Proteobacteria TaxID=1224...  103     2e-26
+  UniRef50_A0A1I7BW00 Pseudoazurin n=4 Tax=Proteobacteria TaxID=1...  102     2e-26
+  UniRef50_A1B6C2 Pseudoazurin n=5 Tax=Alphaproteobacteria TaxID=...  102     2e-26
+  UniRef50_E4PKM4 Pseudoazurin n=7 Tax=Alteromonadaceae TaxID=722...  102     4e-26
+  UniRef50_A0A099DQA9 Pseudoazurin n=7 Tax=Proteobacteria TaxID=1...  102     5e-26
+  UniRef50_UPI0009F9D11F pseudoazurin n=1 Tax=Pseudovibrio sp. Ab...  102     5e-26
+  UniRef50_J5KG24 Pseudoazurin n=1 Tax=SAR86 cluster bacterium SA...  102     6e-26
+  UniRef50_UPI000483E3A0 pseudoazurin n=1 Tax=Rhodovibrio salinar...  102     6e-26
+  UniRef50_UPI000B814880 pseudoazurin n=1 Tax=Aquamicrobium aerol...  100     1e-25
+  UniRef50_UPI0007844927 pseudoazurin n=1 Tax=Caulobacter sp. CCH...  100     2e-25
+  UniRef50_H0HWZ4 Pseudoazurin n=13 Tax=Proteobacteria TaxID=1224...  100     2e-25
+  UniRef50_UPI000A014757 pseudoazurin n=1 Tax=Roseinatronobacter ...  100     4e-25
+  UniRef50_S6H716 Pseudoazurin n=1 Tax=Osedax symbiont Rs1 TaxID=...  99.8    4e-25
+  UniRef50_A0A0P1ESX9 Blue copper protein n=2 Tax=Rhodobacteracea...  99.8    5e-25
+  UniRef50_A0A1M5WHG3 Pseudoazurin n=3 Tax=Rhodobacteraceae TaxID...  99.4    9e-25
+  UniRef50_A0A120CY81 Pseudoazurin n=1 Tax=Hyphomicrobium sulfoni...  98.2    2e-24
+  UniRef50_A6SV41 Pseudoazurin (Blue copper protein) n=10 Tax=Bac...  97.8    2e-24
+  UniRef50_A0A1C3ERK1 Pseudoazurin n=2 Tax=Gammaproteobacteria Ta...  97.4    3e-24
+  UniRef50_A0A1U9RHB1 Pseudoazurin n=3 Tax=Proteobacteria TaxID=1...  97.1    4e-24
+  UniRef50_UPI000A18D58C pseudoazurin n=1 Tax=Neisseria sp. 11472...  97.1    4e-24
+  UniRef50_A0A1C0SSZ1 Pseudoazurin n=8 Tax=Alphaproteobacteria Ta...  96.7    6e-24
+  UniRef50_A0A1C3JQU5 Pseudoazurin n=3 Tax=Marinomonas TaxID=2825...  95.9    1e-23
+  UniRef50_A0A0C1V2F7 Uncharacterized protein n=2 Tax=Bacteria Ta...  96.3    1e-23
+  UniRef50_UPI00092FF244 pseudoazurin n=2 Tax=Gammaproteobacteria...  95.5    3e-23
+  UniRef50_V8C571 Pseudoazurin n=4 Tax=Proteobacteria TaxID=1224 ...  95.1    3e-23
+  UniRef50_A0A1Z8ZYN7 Uncharacterized protein n=1 Tax=Rhizobiales...  94.0    7e-23
+  UniRef50_UPI00048A80FB pseudoazurin n=1 Tax=Microvirgula aerode...  94.0    8e-23
+  UniRef50_A0A0B3S6F8 Pseudoazurin n=11 Tax=Rhodobacteraceae TaxI...  93.6    1e-22
+  UniRef50_A0A1E3GPL1 Pseudoazurin n=2 Tax=Methylophaga muralis T...  95.1    2e-22
+  UniRef50_A0A154WG00 Uncharacterized protein n=3 Tax=Oceanibacul...  92.0    2e-22
+  UniRef50_A0A1Y5E4M9 Uncharacterized protein n=2 Tax=Colwellia T...  92.0    4e-22
+  UniRef50_A0A0P9B4M1 Uncharacterized protein n=1 Tax=Marinosulfo...  92.0    5e-22
+  UniRef50_F5S8H2 Pseudoazurin n=6 Tax=Kingella kingae TaxID=504 ...  91.7    6e-22
+  UniRef50_UPI00055095DA pseudoazurin n=2 Tax=Gammaproteobacteria...  91.3    8e-22
+  UniRef50_C7D6J7 Pseudoazurin n=3 Tax=Rhodobacteraceae TaxID=319...  91.7    8e-22
+  UniRef50_A0A1X6YSK5 Pseudoazurin n=1 Tax=Roseivivax jejudonensi...  90.9    1e-21
+  UniRef50_UPI000B9603A7 hypothetical protein n=1 Tax=Rhodoferax ...  90.9    2e-21
+  UniRef50_A0A0F4R1Z1 Uncharacterized protein n=4 Tax=Gammaproteo...  90.1    2e-21
+  UniRef50_Q6MK46 Pseudoazurin n=6 Tax=Bdellovibrio bacteriovorus...  89.7    2e-21
+  UniRef50_A4G4D0 Pseudoazurin (Blue copper protein) n=18 Tax=roo...  90.1    2e-21
+  UniRef50_A0A099TPT8 Pseudoazurin n=1 Tax=Helicobacter sp. MIT 1...  90.1    2e-21
+  UniRef50_F2BBF5 Pseudoazurin n=8 Tax=Proteobacteria TaxID=1224 ...  89.7    3e-21
+  UniRef50_A0A166BL49 Pseudoazurin n=5 Tax=Pseudovibrio TaxID=258...  90.1    3e-21
+  UniRef50_A0A1E2VBE1 Pseudoazurin n=2 Tax=Terasakiispira papahan...  89.7    3e-21
+  UniRef50_A0A0M6ZGI0 Blue copper protein n=8 Tax=Rhodobacteracea...  90.1    3e-21
+  UniRef50_A0A1E4BYB6 Uncharacterized protein n=1 Tax=Kaistia sp....  89.0    5e-21
+  UniRef50_A0A1A8TD02 Pseudoazurin n=5 Tax=Marinomonas TaxID=2825...  89.0    5e-21
+  UniRef50_UPI000883D9C7 pseudoazurin n=1 Tax=Albidiferax sp. OV4...  89.0    7e-21
+  UniRef50_A0A0P7WIH6 Plastocyanin n=3 Tax=Erythrobacteraceae Tax...  90.1    8e-21
+  UniRef50_J4KRR0 Pseudoazurin n=1 Tax=SAR86 cluster bacterium SA...  90.1    8e-21
+  UniRef50_A0A1Z9VPN8 Uncharacterized protein n=3 Tax=Bacteria Ta...  88.2    1e-20
+  UniRef50_A0A060QA84 Pseudoazurin n=4 Tax=Rhodospirillales TaxID...  88.2    1e-20
+  UniRef50_A0A1G3GY76 Pseudoazurin n=2 Tax=Proteobacteria TaxID=1...  86.3    9e-20
+  UniRef50_UPI00046CF31E hypothetical protein n=1 Tax=Ensifer adh...  85.5    1e-19
+  UniRef50_A0A1Y5DUS0 Pseudoazurin n=4 Tax=Gammaproteobacteria Ta...  85.5    1e-19
+  UniRef50_UPI0003608FD3 pseudoazurin n=1 Tax=Microbulbifer varia...  85.5    2e-19
+  UniRef50_A0A238J5R2 Pseudoazurin n=1 Tax=Boseongicola aestuarii...  85.1    3e-19
+  UniRef50_A0A109LVC4 Uncharacterized protein n=3 Tax=Erythrobact...  85.1    6e-19
+  UniRef50_A0A099KBM7 Blue (Type 1) copper domain protein n=6 Tax...  83.6    8e-19
+  UniRef50_A0A1E3GXI4 Pseudoazurin n=3 Tax=Methylophaga TaxID=402...  86.7    9e-19
+  UniRef50_A0A0F4QTB7 Uncharacterized protein n=2 Tax=Gammaproteo...  83.2    1e-18
+  UniRef50_A0A090K7C6 Pseudoazurin n=4 Tax=Moritella TaxID=58050 ...  82.8    2e-18
+  UniRef50_I2NQJ0 Putative pseudoazurin n=90 Tax=Proteobacteria T...  82.0    3e-18
+  UniRef50_E1WY51 Putative exported pseudoazurin n=1 Tax=Halobact...  81.6    4e-18
+  UniRef50_A0A1T1ASY2 Pseudoazurin n=1 Tax=Rhodoferax fermentans ...  81.6    4e-18
+  UniRef50_A0A074MLX8 Uncharacterized protein n=2 Tax=Erythrobact...  82.8    6e-18
+  UniRef50_D5BQF6 Pseudoazurin n=3 Tax=Alphaproteobacteria TaxID=...  80.9    9e-18
+  UniRef50_A0A1E3GW43 Pseudoazurin n=10 Tax=root TaxID=1 RepID=A0...  80.5    1e-17
+  UniRef50_D5RQS2 Putative pseudoazurin n=1 Tax=Roseomonas cervic...  80.9    1e-17
+  UniRef50_A0A0P9CJS6 Pseudoazurin n=1 Tax=Thiohalorhabdus denitr...  79.0    7e-17
+  UniRef50_M7P3Z4 Pseudoazurin n=1 Tax=Methylophaga lonarensis MP...  80.5    1e-16
+  UniRef50_C0N5E6 Copper binding protein, plastocyanin/azurin fam...  79.7    3e-16
+  UniRef50_E0XXI4 Plastocyanin n=1 Tax=uncultured alpha proteobac...  77.0    3e-16
+  UniRef50_A4GI45 Possible pseudoazurin n=1 Tax=uncultured marine...  77.0    3e-16
+  UniRef50_D5C3H3 Blue (Type 1) copper domain protein n=4 Tax=Nit...  76.6    4e-16
+  UniRef50_A0A074MUI2 Uncharacterized protein n=3 Tax=Erythrobact...  75.9    8e-16
+  UniRef50_A0A0S2EVW9 Uncharacterized protein n=1 Tax=Aureimonas ...  73.2    2e-15
+  UniRef50_A0A1G0K2P5 Uncharacterized protein n=1 Tax=Gammaproteo...  73.2    8e-15
+  UniRef50_K2IZG9 Pseudoazurin n=2 Tax=Oceanibaculum TaxID=659693...  71.6    2e-14
+  UniRef50_A0A0F9DNY1 Uncharacterized protein (Fragment) n=1 Tax=...  72.4    4e-14
+  UniRef50_A0A1E3GNB1 Pseudoazurin n=14 Tax=root TaxID=1 RepID=A0...  71.2    5e-14
+  UniRef50_A0A1Z7WX27 Uncharacterized protein n=1 Tax=Methylophag...  74.7    5e-14
+  UniRef50_E0XT15 Plastocyanin n=4 Tax=Proteobacteria TaxID=1224 ...  70.9    6e-14
+  UniRef50_A0A0F9H8B3 Uncharacterized protein n=1 Tax=marine sedi...  68.2    1e-13
+  UniRef50_B7VRR3 Azu1 pseudoazurin (Blue copper protein) n=24 Ta...  70.5    1e-13
+  UniRef50_A0A1S9CXK1 Pseudoazurin n=1 Tax=Chromatiales bacterium...  70.1    2e-13
+  UniRef50_A0A074MAA2 Uncharacterized protein n=1 Tax=Erythrobact...  68.9    6e-13
+  UniRef50_A3X3Q8 Probable pseudoazurin (Blue copper protein) n=3...  68.6    7e-13
+  UniRef50_H5SRH7 Blue-copper-protein n=1 Tax=Acetothermus autotr...  68.2    1e-12
+  UniRef50_UPI000B853391 hypothetical protein n=1 Tax=Poseidonoce...  67.4    2e-12
+  UniRef50_F5SYC6 Pseudoazurin n=2 Tax=Methylophaga TaxID=40222 R...  66.6    2e-12
+  UniRef50_A0A1K1UFH1 Pseudoazurin n=3 Tax=Paracoccus TaxID=24941...  65.5    4e-12
+  UniRef50_UPI0009FCF23A hypothetical protein n=1 Tax=Shinella sp...  63.5    7e-12
+  UniRef50_A0A1E3W992 Uncharacterized protein n=1 Tax=Methylocean...  63.5    8e-12
+  UniRef50_UPI00098ABE57 hypothetical protein n=1 Tax=Methylocald...  65.1    1e-11
+  UniRef50_T0RML8 Putative pseudoazurin n=2 Tax=Bacteriovorax sp....  64.7    1e-11
+  UniRef50_UPI0008821F28 copper-binding protein n=1 Tax=Pseudovib...  64.3    2e-11
+  UniRef50_A0A1Q9GL34 Azurin n=1 Tax=Photobacterium proteolyticum...  64.3    3e-11
+  UniRef50_A0A1Z8QCP3 Uncharacterized protein (Fragment) n=1 Tax=...  63.9    5e-11
+  UniRef50_A0A0P7H0H7 Halocyanin n=2 Tax=Halolamina pelagica TaxI...  64.3    1e-10
+  UniRef50_A0A1R3V6Y6 Uncharacterized protein n=1 Tax=Mesorhizobi...  63.2    2e-10
+  UniRef50_D0I8L1 Pseudoazurin n=12 Tax=Vibrionaceae TaxID=641 Re...  62.0    2e-10
+  UniRef50_H8GGT8 Plastocyanin n=2 Tax=Methylococcaceae TaxID=403...  61.6    3e-10
+  UniRef50_A4EZW6 Azu1 pseudoazurin (Blue copper protein) n=3 Tax...  61.6    4e-10
+  UniRef50_A0A1H3FC83 Pseudoazurin n=3 Tax=Ruegeria TaxID=97050 R...  58.9    4e-09
+  UniRef50_UPI0004A07608 copper-binding protein n=3 Tax=Halobacte...  59.7    5e-09
+  UniRef50_A0A166BPE1 Pseudoazurin n=17 Tax=Rhodobacteraceae TaxI...  58.2    7e-09
+  UniRef50_UPI0008B87906 hypothetical protein n=1 Tax=Haloriental...  59.3    9e-09
+  UniRef50_A0A1I5MKH3 Plastocyanin n=1 Tax=Halolamina pelagica Ta...  58.2    1e-08
+  UniRef50_A0A1Q1FJ74 Uncharacterized protein n=16 Tax=Halobacter...  57.8    3e-08
+  UniRef50_F8D913 Blue (Type 1) copper domain protein n=3 Tax=Nat...  57.8    3e-08
+  UniRef50_UPI0009E3A2EF hypothetical protein n=1 Tax=Halolamina ...  55.8    5e-08
+  UniRef50_A0A231V1D1 Uncharacterized protein n=1 Tax=Notoacmeiba...  55.8    5e-08
+  UniRef50_B6SSB9 Plastocyanin n=23 Tax=cellular organisms TaxID=...  55.1    1e-07
+  UniRef50_A0A0M6YQM5 Pseudoazurin n=5 Tax=Rhodobacteraceae TaxID...  54.3    2e-07
+  UniRef50_A0A0C1G2P9 Uncharacterized protein (Fragment) n=3 Tax=...  52.0    2e-07
+  UniRef50_UPI0009FF973F hypothetical protein n=1 Tax=Shinella sp...  51.6    4e-07
+  UniRef50_W0JVQ7 Halocyanin n=5 Tax=Halobacteriales TaxID=2235 R...  53.9    4e-07
+  UniRef50_H5S899 Cell surface protein n=2 Tax=Candidatus Acetoth...  54.7    5e-07
+  UniRef50_UPI0009E5BDC1 hypothetical protein n=1 Tax=Ruegeria sp...  50.8    7e-07
+  UniRef50_A0A0C1GA94 Uncharacterized protein (Fragment) n=1 Tax=...  50.8    8e-07
+  UniRef50_A0A160PBV0 Pseudoazurin n=1 Tax=Methylobacterium popul...  50.1    1e-06
+  UniRef50_Q9HQF3 Halocyanin-like n=2 Tax=Halobacterium salinarum...  52.8    1e-06
+  UniRef50_M0DAN0 Halocyanin n=1 Tax=Halogeometricum pallidum JCM...  53.1    2e-06
+  UniRef50_UPI000677B054 hypothetical protein n=4 Tax=Halobacteri...  52.0    2e-06
+  UniRef50_A0A098S1J9 Uncharacterized protein n=2 Tax=Phaeodactyl...  52.8    3e-06
+  UniRef50_A0A0C1VXL8 Uncharacterized protein (Fragment) n=1 Tax=...  52.4    4e-06
+  UniRef50_D8TJU4 Plastocyanin n=2 Tax=Volvox carteri f. nagarien...  50.4    5e-06
+  UniRef50_A0A0C2VQL3 Amicyanin n=39 Tax=Actinobacteria TaxID=201...  49.7    5e-06
+  UniRef50_J3JCR1 Halocyanin domain-containing protein n=2 Tax=Ha...  49.7    8e-06
+  UniRef50_C7P1C5 Blue (Type 1) copper domain protein n=3 Tax=Hal...  49.7    8e-06
+  UniRef50_UPI00096A97A9 halocyanin n=2 Tax=Halobacteria TaxID=18...  50.4    9e-06
+  UniRef50_A0A0J7JEG4 Plastocyanin n=20 Tax=Proteobacteria TaxID=...  49.7    1e-05
+  UniRef50_U1QX69 Halocyanin domain protein n=2 Tax=halophilic ar...  49.3    1e-05
+  UniRef50_UPI00069CAA50 hypothetical protein n=1 Tax=Methylococc...  49.3    1e-05
+  UniRef50_B0R463 Halocyanin HcpC n=7 Tax=Halobacteria TaxID=1839...  49.7    1e-05
+  UniRef50_H6WG90 Plastocyanin n=3 Tax=Viruses TaxID=10239 RepID=...  47.8    2e-05
+  UniRef50_Q9HN93 Halocyanin-like n=1 Tax=Halobacterium salinarum...  49.7    3e-05
+  UniRef50_W0K7H6 Halocyanin n=1 Tax=Halobacterium sp. DL1 TaxID=...  49.3    3e-05
+  UniRef50_A9RT82 Plastocyanin n=2 Tax=Physcomitrella patens subs...  48.5    3e-05
+  UniRef50_UPI000BAB6577 hypothetical protein n=1 Tax=Aliifodinib...  48.5    3e-05
+  UniRef50_M0D1T6 Blue (Type 1) copper domain-containing protein ...  47.4    3e-05
+  UniRef50_K0RWK5 Uncharacterized protein n=3 Tax=cellular organi...  48.1    3e-05
+  UniRef50_A0A1F5YDY6 Uncharacterized protein n=2 Tax=Candidatus ...  48.5    4e-05
+  UniRef50_A0A1R3V6Y8 Pseudoazurin n=2 Tax=Mesorhizobium prunared...  45.8    4e-05
+  UniRef50_E7QSC9 Halocyanin hcpE n=6 Tax=Halobacteria TaxID=1839...  48.1    4e-05
+  UniRef50_A2Y886 Plastocyanin, chloroplastic n=11 Tax=Mesangiosp...  48.1    4e-05
+  UniRef50_UPI0008BB5E50 hypothetical protein n=1 Tax=Halobacteri...  48.5    5e-05
+  UniRef50_Q7NI43 Plastocyanin n=2 Tax=Gloeobacter TaxID=33071 Re...  47.4    5e-05
+  UniRef50_E4NT81 Plastocyanin n=8 Tax=Halobacteria TaxID=183963 ...  48.9    6e-05
+  UniRef50_A0A0W1RAE1 Uncharacterized protein n=1 Tax=Haloprofund...  48.5    6e-05
+  UniRef50_B0R7A9 Halocyanin HcpB / cbaD domain protein n=5 Tax=H...  48.5    8e-05
+  UniRef50_UPI0009B5D215 halocyanin n=1 Tax=Halorubrum sp. SAH-A6...  47.8    8e-05
+  UniRef50_A0A087LS44 Uncharacterized protein n=24 Tax=Bacteria T...  47.4    9e-05
+  UniRef50_V4HAH4 Halocyanin domain-containing protein n=2 Tax=Ca...  48.1    9e-05
+  UniRef50_M0ML40 Plastocyanin n=3 Tax=Halococcus TaxID=2249 RepI...  48.1    1e-04
+  UniRef50_UPI0008813E9F halocyanin domain-containing protein n=1...  48.1    1e-04
+  UniRef50_E4NU89 Plastocyanin n=11 Tax=Halobacteria TaxID=183963...  47.8    1e-04
+  UniRef50_A0A151A922 Halocyanin n=1 Tax=Halalkalicoccus paucihal...  46.6    1e-04
+  UniRef50_U2DN94 Halocyanin-like protein n=4 Tax=Haloarculaceae ...  47.0    1e-04
+  UniRef50_A0A0Q7E7R0 Uncharacterized protein n=22 Tax=Alphaprote...  47.0    1e-04
+  UniRef50_A0A238X1Z0 Halocyanin domain-containing protein n=4 Ta...  47.0    1e-04
+  UniRef50_UPI000889B873 halocyanin domain-containing protein n=1...  47.4    2e-04
+  UniRef50_Q5V2Z9 Halocyanin-like n=15 Tax=Halobacteria TaxID=183...  47.4    2e-04
+  UniRef50_D2S0F7 Blue (Type 1) copper domain protein n=4 Tax=Hal...  45.8    2e-04
+  UniRef50_Q9HRS0 Uncharacterized protein n=2 Tax=Halobacterium s...  47.0    2e-04
+  UniRef50_A0A1M5ELP1 Plastocyanin n=2 Tax=Balneolaceae TaxID=181...  46.2    2e-04
+  UniRef50_A0A1E7EM33 Plastocyanin n=2 Tax=Bacillariophyta TaxID=...  47.0    2e-04
+  UniRef50_A0A1Q6WZ94 Uncharacterized protein n=12 Tax=Bacteria T...  45.8    3e-04
+  UniRef50_P00300 Plastocyanin n=5 Tax=Eukaryota TaxID=2759 RepID...  44.7    3e-04
+  UniRef50_L9XLY0 Blue (Type 1) copper domain-containing protein ...  47.0    3e-04
+  UniRef50_UPI0009E71046 hypothetical protein n=1 Tax=Haloferax s...  46.6    3e-04
+  UniRef50_A0A1G0JB67 Uncharacterized protein n=1 Tax=Gammaproteo...  45.4    3e-04
+  UniRef50_A0A0U5CWJ0 Halocyanin n=10 Tax=Halobacteria TaxID=1839...  46.2    4e-04
+  UniRef50_M0DG90 Uncharacterized protein n=2 Tax=Halorubrum tebe...  46.6    4e-04
+  UniRef50_G2MIK7 Blue (Type 1) copper domain protein n=6 Tax=Arc...  45.4    4e-04
+  UniRef50_I3RAN0 Halocyanin n=5 Tax=Halobacteria TaxID=183963 Re...  46.2    4e-04
+  UniRef50_A0A0U5HTA3 Cox-type terminal oxidase subunit II / halo...  46.2    5e-04
+  UniRef50_UPI0000112921 PLASTOCYANIN n=3 Tax=Cyanobacteria TaxID...  44.3    5e-04
+  UniRef50_UPI00001104DE PLASTOCYANIN n=7 Tax=Pentapetalae TaxID=...  44.3    5e-04
+  UniRef50_M0CLM6 Halocyanin hcpD n=2 Tax=Halosimplex carlsbadens...  45.1    5e-04
+  UniRef50_UPI00069819CE T9SS C-terminal target domain-containing...  46.2    5e-04
+  UniRef50_J3JGT1 Uncharacterized protein n=5 Tax=Haloferacaceae ...  45.8    6e-04
+  UniRef50_A0A1X6YXR0 Pseudoazurin n=1 Tax=Ruegeria meonggei TaxI...  45.1    6e-04
+  UniRef50_UPI0006778DB1 hypothetical protein n=2 Tax=Halococcus ...  45.8    6e-04
+  UniRef50_G6YS96 Pseudoazurin blue-copper protein n=2 Tax=Marino...  43.5    6e-04
+  UniRef50_A0A0W1R9Q0 Uncharacterized protein n=8 Tax=Halobacteri...  45.4    7e-04
+  UniRef50_G2MJ81 Blue (Type 1) copper domain protein n=2 Tax=Arc...  44.3    7e-04
+  UniRef50_A0A0D6JQV3 Plastocyanin n=1 Tax=Haloferax massiliensis...  45.4    7e-04
+  UniRef50_A0A098LG40 Uncharacterized protein n=2 Tax=Sporocytoph...  45.4    7e-04
+  UniRef50_UPI0008EBF7B2 hypothetical protein n=1 Tax=Loktanella ...  44.3    8e-04
+  UniRef50_L9VGT2 Blue (Type 1) copper domain-containing protein ...  45.4    0.001
+  UniRef50_A0A1F3QDV8 Uncharacterized protein n=1 Tax=Bacteroidet...  44.7    0.001
+  UniRef50_Q5V4X3 Copper-binding plastocyanin like protein n=32 T...  44.7    0.001
+  UniRef50_A0A0U5ACB0 Halocyanin n=10 Tax=Halobacteriales TaxID=2...  44.7    0.001
+  UniRef50_A0A1F3BN61 Uncharacterized protein n=2 Tax=Archaea Tax...  45.1    0.001
+  UniRef50_UPI0008844C23 plastocyanin n=1 Tax=Natronorubrum texco...  45.1    0.001
+  UniRef50_A0A1N7FMB9 Uncharacterized protein n=1 Tax=Natronorubr...  45.1    0.001
+  UniRef50_UPI00071E8C6D hypothetical protein n=1 Tax=Haloparvum ...  44.3    0.001
+  UniRef50_P50057 Plastocyanin n=7 Tax=Synechococcales TaxID=1890...  43.5    0.001
+  UniRef50_M0HPN3 Halocyanin-like protein n=5 Tax=Haloferacaceae ...  44.3    0.001
+  UniRef50_A0A0U5H7D9 Halocyanin n=10 Tax=Halobacteria TaxID=1839...  44.7    0.002
+  UniRef50_UPI00088E5BE4 hypothetical protein n=1 Tax=Halogranum ...  44.3    0.002
+  UniRef50_W0JXL0 Uncharacterized protein n=1 Tax=Halobacterium s...  43.9    0.002
+  UniRef50_A0A081MA10 Uncharacterized protein n=1 Tax=Pseudorhizo...  42.0    0.002
+  UniRef50_V4YHA9 Halocyanin domain protein n=1 Tax=uncultured ar...  44.3    0.002
+  UniRef50_UPI000833AE26 copper-binding protein n=2 Tax=Haloferac...  43.5    0.002
+  UniRef50_M0N4Q1 Halocyanin domain protein n=4 Tax=Halococcus Ta...  44.7    0.002
+  UniRef50_M0I661 Halocyanin-like protein n=1 Tax=Haloferax mucos...  43.9    0.002
+  UniRef50_K9SU94 Plastocyanin n=8 Tax=Cyanobacteria TaxID=1117 R...  43.1    0.002
+  UniRef50_P11490 Plastocyanin minor isoform, chloroplastic n=9 T...  43.9    0.002
+  UniRef50_UPI000B7ED2E4 hypothetical protein n=1 Tax=Halogranum ...  44.3    0.002
+  UniRef50_V4XBB5 Halocyanin domain protein n=1 Tax=uncultured ar...  43.9    0.002
+  UniRef50_UPI0009F206A1 hypothetical protein n=2 Tax=Proteobacte...  43.1    0.003
+  UniRef50_A0A1N7F0Y2 Plastocyanin n=1 Tax=Haladaptatus litoreus ...  43.5    0.003
+  UniRef50_A0A0D8HRG9 Amicyanin n=18 Tax=Nocardiaceae TaxID=85025...  42.7    0.003
+  UniRef50_A0A165BX48 Uncharacterized protein n=2 Tax=Exidia glan...  43.5    0.003
+  UniRef50_UPI0008E5FB82 hypothetical protein n=1 Tax=Halogeometr...  43.9    0.003
+  UniRef50_M0D6M2 Blue (Type 1) copper domain-containing protein ...  43.9    0.003
+  UniRef50_K5XJS1 Uncharacterized protein n=2 Tax=Agaricus bispor...  43.9    0.003
+  UniRef50_A0A1I5NN92 Halocyanin domain-containing protein n=1 Ta...  43.9    0.003
+  UniRef50_Q2JHE1 Plastocyanin n=22 Tax=Cyanobacteria TaxID=1117 ...  42.7    0.003
+  UniRef50_R4VZY1 Blue (Type 1) copper domain-containing protein ...  43.9    0.003
+  UniRef50_Q5V725 Halocyanin-like n=9 Tax=Halobacteria TaxID=1839...  43.1    0.004
+  UniRef50_UPI0008BCD950 halocyanin domain-containing protein n=1...  43.5    0.004
+  UniRef50_I3R6L9 Halocyanin n=28 Tax=Halobacteria TaxID=183963 R...  43.9    0.004
+  UniRef50_A0A1M5PNI1 Halocyanin domain-containing protein n=3 Ta...  43.5    0.004
+  UniRef50_M0CV51 Halocyanin-like protein n=2 Tax=Halogeometricum...  42.7    0.004
+  UniRef50_P17341 Plastocyanin A/B n=14 Tax=cellular organisms Ta...  41.6    0.004
+  UniRef50_Q18JX8 Halocyanin n=22 Tax=Archaea TaxID=2157 RepID=Q1...  43.1    0.004
+  UniRef50_UPI000898AB2E halocyanin domain-containing protein n=1...  43.1    0.005
+  UniRef50_B9LUR5 Halocyanin domain protein n=42 Tax=Archaea TaxI...  43.1    0.005
+  UniRef50_G0LGP8 Halocyanin n=11 Tax=Archaea TaxID=2157 RepID=G0...  42.7    0.005
+  UniRef50_P42699 Plastocyanin major isoform, chloroplastic n=97 ...  42.7    0.005
+  UniRef50_A0A1Y6BS19 Plastocyanin n=1 Tax=Tistlia consotensis US...  42.4    0.005
+  UniRef50_P55020 Plastocyanin n=12 Tax=Cyanobacteria TaxID=1117 ...  42.0    0.005
+  UniRef50_R4W3Q4 Plastocyanin n=3 Tax=Halobacteria TaxID=183963 ...  42.7    0.005
+  UniRef50_A0A0P7GVK0 Halocyanin n=4 Tax=Halobacteria TaxID=18396...  42.0    0.005
+  UniRef50_Q5V295 Cytochrome-like protein n=18 Tax=Halobacteriale...  42.4    0.005
+  UniRef50_A0A0U5H3X7 Halocyanin n=3 Tax=Halobacterium TaxID=2239...  42.0    0.006
+  UniRef50_A0A166TFG1 Uncharacterized protein n=2 Tax=Haladaptatu...  42.4    0.006
+  UniRef50_UPI0004414076 hypothetical protein n=1 Tax=Auricularia...  42.7    0.006
+  UniRef50_C7NZM3 Halocyanin domain protein n=3 Tax=Halobacteria ...  43.1    0.006
+  UniRef50_P21697 Plastocyanin n=130 Tax=Terrabacteria group TaxI...  41.6    0.007
+  UniRef50_A0A1J5U7B4 Uncharacterized protein n=2 Tax=Marine Grou...  43.1    0.007
+  UniRef50_V4H9X4 Blue copper domain-containing protein n=1 Tax=C...  42.7    0.007
+  UniRef50_A0A1Q7DWF0 Uncharacterized protein n=1 Tax=Gemmatimona...  41.6    0.007
+  UniRef50_UPI000B7CF408 hypothetical protein n=1 Tax=Halomicrobi...  42.0    0.007
+  UniRef50_M0L2F5 Blue copper domain-containing protein n=2 Tax=H...  42.7    0.007
+  UniRef50_K9YMC8 Plastocyanin n=2 Tax=Oscillatoriophycideae TaxI...  41.6    0.007
+  UniRef50_C1A861 Blue-copper protein n=2 Tax=Gemmatimonadaceae T...  42.0    0.008
+  UniRef50_A0A0D3DQJ6 Plastocyanin n=2 Tax=Brassica oleracea var....  42.7    0.008
+  UniRef50_UPI00089BC7CB halocyanin domain-containing protein n=1...  42.4    0.010
+  UniRef50_R4W7Q1 Plastocyanin n=1 Tax=Salinarchaeum sp. Harcht-B...  42.0    0.010
+  UniRef50_U1P8K7 Halocyanin domain protein n=5 Tax=Halobacteria ...  42.0    0.010
+  UniRef50_UPI0009DD8F59 halocyanin domain-containing protein n=4...  41.6    0.010
+  UniRef50_UPI0008E5BACA halocyanin n=2 Tax=Haloferacaceae TaxID=...  42.0    0.011
+  UniRef50_A0A200QZS0 Plastocyanin n=1 Tax=Macleaya cordata TaxID...  42.4    0.011
+  UniRef50_C7NY85 Halocyanin domain protein n=4 Tax=Halobacteria ...  42.4    0.011
+  UniRef50_V5A5U6 Halocyanin domain protein n=3 Tax=Archaea TaxID...  41.6    0.011
+  UniRef50_UPI0009DB869F hypothetical protein n=1 Tax=Halopiger d...  42.4    0.011
+  UniRef50_Q5UXU5 Halocyanin-like n=17 Tax=Haloarculaceae TaxID=1...  42.0    0.011
+  UniRef50_A0A1X0UK26 Copper-binding protein n=4 Tax=Rhodococcus ...  40.8    0.012
+  UniRef50_E3SJC0 Plastocyanin n=18 Tax=Caudovirales TaxID=28883 ...  40.8    0.012
+  UniRef50_UPI000B85BD57 hypothetical protein n=1 Tax=Paracoccus ...  41.6    0.012
+  UniRef50_UPI000A36494B hypothetical protein n=1 Tax=Lentzea ken...  42.0    0.012
+  UniRef50_A0A1U7ETA1 Halocyanin n=1 Tax=Natronomonas pharaonis (...  42.0    0.012
+  UniRef50_UPI000B861C3A halocyanin domain-containing protein n=1...  42.0    0.012
+  UniRef50_UPI000B97DC48 hypothetical protein n=1 Tax=Synechococc...  41.2    0.013
+  UniRef50_E4NTS3 Plastocyanin n=4 Tax=Halobacteria TaxID=183963 ...  42.0    0.013
+  UniRef50_E4NUX0 Halocyanin n=11 Tax=Halobacteria TaxID=183963 R...  41.6    0.013
+  UniRef50_A0A1H6BAI9 Halocyanin domain-containing protein n=3 Ta...  42.0    0.013
+  UniRef50_G2MM55 Blue (Type 1) copper domain protein n=5 Tax=Arc...  41.6    0.014
+  UniRef50_M0KZF0 Halocyanin-like protein n=24 Tax=Halobacteria T...  41.6    0.014
+  UniRef50_P39442 Halocyanin n=9 Tax=Halobacteria TaxID=183963 Re...  41.2    0.014
+  UniRef50_P56274 Plastocyanin n=5 Tax=Viridiplantae TaxID=33090 ...  40.0    0.016
+  UniRef50_UPI00096AC568 halocyanin domain-containing protein n=1...  41.6    0.017
+  UniRef50_H0A9S8 Blue (Type 1) copper domain-containing protein ...  40.4    0.017
+  UniRef50_A0A1H8USQ2 Halocyanin domain-containing protein n=4 Ta...  41.6    0.018
+  UniRef50_A0A1Q3XCZ8 Uncharacterized protein n=1 Tax=Bacteroidet...  41.2    0.019
+  UniRef50_A0A1G3GXT7 Plastocyanin n=3 Tax=Rhodocyclales TaxID=20...  40.4    0.020
+  UniRef50_UPI000B9866E9 plastocyanin n=1 Tax=Synechococcus sp. 1...  40.0    0.021
+  UniRef50_A0A1W6XGH0 Uncharacterized protein n=2 Tax=Mesorhizobi...  40.4    0.022
+  UniRef50_W0K2X6 Halocyanin n=2 Tax=Halobacterium sp. DL1 TaxID=...  41.6    0.023
+  UniRef50_A0A0A1PLY2 Plastocyanin n=38 Tax=Bacteria TaxID=2 RepI...  40.4    0.024
+  UniRef50_M0MJ82 Halocyanin domain protein n=2 Tax=Halobacteria ...  40.8    0.024
+  UniRef50_A0A1F8RV87 Uncharacterized protein n=1 Tax=Chloroflexi...  39.7    0.025
+  UniRef50_UPI0009B5AF16 halocyanin domain-containing protein n=2...  40.8    0.026
+  UniRef50_Q5V2E6 Halocyanin-like n=2 Tax=Haloarcula marismortui ...  41.2    0.027
+  UniRef50_E7R000 Halocyanin hcpB n=3 Tax=Haladaptatus TaxID=3671...  40.8    0.031
+  UniRef50_M0JG01 Halocyanin-like protein n=5 Tax=Halobacteria Ta...  40.8    0.034
+  UniRef50_M1Y670 Halocyanin n=2 Tax=Natronomonas moolapensis Tax...  40.8    0.034
+  UniRef50_H6BI62 Plastocyanin n=10 Tax=root TaxID=1 RepID=H6BI62...  39.7    0.035
+  UniRef50_E7QVP9 Halocyanin hcpF n=4 Tax=Haladaptatus TaxID=3671...  40.4    0.037
+  UniRef50_Q11VK8 Copper binding protein, plastocyanin n=1 Tax=Cy...  40.4    0.039
+  UniRef50_UPI0008845F63 halocyanin domain-containing protein n=1...  40.4    0.043
+  UniRef50_UPI0008F135D6 halocyanin domain-containing protein n=1...  40.8    0.043
+  UniRef50_UPI00098E5C11 plastocyanin-like n=1 Tax=Asparagus offi...  39.7    0.043
+  UniRef50_UPI000B81730E hypothetical protein n=1 Tax=Halopelagiu...  40.4    0.044
+  UniRef50_P18068 Plastocyanin, chloroplastic n=10 Tax=Viridiplan...  39.7    0.045
+  UniRef50_A0A166TXH2 Halocyanin n=1 Tax=Haladaptatus sp. R4 TaxI...  40.0    0.046
+  UniRef50_A0A075GCM2 NADH-quinone oxidoreductase subunit M (NuoM...  40.4    0.048
+  UniRef50_D8TJU3 Plastocyanin n=1 Tax=Volvox carteri f. nagarien...  39.7    0.049
+  UniRef50_P00299 Plastocyanin A, chloroplastic n=60 Tax=cellular...  39.7    0.052
+  UniRef50_UPI00088D693F halocyanin domain-containing protein n=1...  39.7    0.053
+  UniRef50_A0A1Z1LWM3 Plastocyanin n=1 Tax=Synechococcus phage S-...  38.9    0.054
+  UniRef50_A0A1F3JZQ4 Uncharacterized protein n=1 Tax=Bacteroidet...  40.0    0.054
+  UniRef50_Q7NIA7 Plastocyanin n=2 Tax=Gloeobacter TaxID=33071 Re...  39.7    0.055
+  UniRef50_I3R2Q8 Halocyanin n=4 Tax=Archaea TaxID=2157 RepID=I3R...  40.0    0.055
+  UniRef50_A0A0T6ZT06 Uncharacterized protein n=10 Tax=Rhizobiace...  39.3    0.058
+  UniRef50_G9A8U1 Uncharacterized protein n=10 Tax=Proteobacteria...  39.3    0.065
+  UniRef50_U1QQP4 Halocyanin domain protein n=1 Tax=halophilic ar...  39.7    0.065
+  UniRef50_UPI0008E830C9 halocyanin domain-containing protein n=2...  40.0    0.066
+  UniRef50_A0A0D6JS41 Plastocyanin n=17 Tax=Haloferacales TaxID=1...  39.7    0.073
+  UniRef50_UPI000A046528 hypothetical protein n=3 Tax=Mesorhizobi...  38.9    0.075
+  UniRef50_UPI0008F62A56 plastocyanin n=1 Tax=Halobiforma haloter...  40.0    0.076
+  UniRef50_A0A146HZ84 Uncharacterized protein n=2 Tax=Mycena chlo...  40.0    0.077
+  UniRef50_A7YXT4 Chloroplast plastocyanin n=5 Tax=Karlodinium ve...  39.7    0.078
+  UniRef50_A0A150UA15 Amicyanin n=12 Tax=Bacteria TaxID=2 RepID=A...  38.5    0.083
+  UniRef50_UPI00096A45E7 hypothetical protein n=1 Tax=Natronomona...  39.3    0.089
+  UniRef50_S9ZF42 Uncharacterized protein n=3 Tax=Proteobacteria ...  38.5    0.090
+  UniRef50_UPI0006D28852 hypothetical protein n=1 Tax=Methylogaea...  38.1    0.093
+  UniRef50_B9LTQ1 Blue (Type 1) copper domain protein n=61 Tax=Ar...  39.3    0.094
+  UniRef50_A0A1G1HS32 Uncharacterized protein n=2 Tax=unclassifie...  38.5    0.10 
+  UniRef50_H0I1M5 Blue (Type1) copper domain-containing protein (...  38.5    0.11 
+  UniRef50_A0A1Q1FJ21 Uncharacterized protein n=1 Tax=Haloriental...  39.3    0.11 
+  UniRef50_A0A165DMP4 Uncharacterized protein n=1 Tax=Exidia glan...  39.3    0.11 
+  UniRef50_A0A1H8RRE2 Copper binding protein, plastocyanin/azurin...  39.3    0.11 
+  UniRef50_A0A0W1SVH4 Uncharacterized protein n=2 Tax=Haloferax s...  39.3    0.12 
+  UniRef50_A0A151ACV0 Halocyanin n=2 Tax=Halobacteriaceae TaxID=2...  38.9    0.12 
+  UniRef50_A0A0D7BCY9 Cupredoxin n=2 Tax=Physalacriaceae TaxID=86...  39.3    0.12 
+  UniRef50_UPI0009E5891A hypothetical protein n=1 Tax=Halolamina ...  38.5    0.13 
+  UniRef50_A0A1N7GLP5 Copper binding protein, plastocyanin/azurin...  38.9    0.13 
+  UniRef50_M0MK99 Halocyanin n=3 Tax=Halobacteriales TaxID=2235 R...  37.4    0.13 
+  UniRef50_M0IE83 Uncharacterized protein n=3 Tax=Haloferax TaxID...  39.3    0.14 
+  UniRef50_UPI000B99C175 halocyanin domain-containing protein n=4...  38.9    0.14 
+  UniRef50_A0A1F3CBK3 Uncharacterized protein n=1 Tax=Bacteroidet...  39.3    0.14 
+  UniRef50_A0A1G0L1Y9 Uncharacterized protein n=1 Tax=Gemmatimona...  38.5    0.15 
+  UniRef50_UPI0008927325 plasmid stabilization protein n=2 Tax=Ha...  39.3    0.15 
+  UniRef50_A0A1Q3XA32 Uncharacterized protein n=1 Tax=Bacteroidet...  38.9    0.15 
+  UniRef50_E3SKF1 Plastocyanin n=41 Tax=Viruses TaxID=10239 RepID...  37.7    0.16 
+  UniRef50_V4Y8W6 Halocyanin domain protein n=6 Tax=Archaea TaxID...  38.9    0.16 
+  UniRef50_A0A0F2NX96 Uncharacterized protein n=2 Tax=Bacteroidet...  38.1    0.16 
+  UniRef50_A0A143BFN0 Uncharacterized protein n=5 Tax=Gemmatimona...  38.5    0.17 
+  UniRef50_Q7U643 Type I copper blue protein: plastocyanin n=27 T...  37.7    0.17 
+  UniRef50_A0A0J7HMN4 Halocyanin n=1 Tax=Chitinispirillum alkalip...  38.1    0.17 
+  UniRef50_A0A1D1Z076 Plastocyanin n=2 Tax=Eukaryota TaxID=2759 R...  38.5    0.18 
+  UniRef50_A0A1I5QVW7 Nitrite reductase (NO-forming) n=4 Tax=Halo...  38.9    0.19 
+  UniRef50_A0A165DMJ6 Uncharacterized protein n=2 Tax=Exidia glan...  38.5    0.19 
+  UniRef50_M0EZU7 Halocyanin domain protein n=9 Tax=Halorubrum Ta...  38.1    0.21 
+  UniRef50_E4NLD0 Plastocyanin n=19 Tax=Archaea TaxID=2157 RepID=...  38.5    0.22 
+  UniRef50_R4W8A6 Plastocyanin n=4 Tax=Halobacteria TaxID=183963 ...  37.7    0.23 
+  UniRef50_A0A0P7GAZ5 Halocyanin n=3 Tax=Haloferacales TaxID=1644...  38.1    0.24 
+  UniRef50_M0DRR5 Halocyanin hcpA n=8 Tax=Halorubraceae TaxID=196...  38.1    0.24 
+  UniRef50_D8J3X4 Halocyanin domain protein n=2 Tax=Halobacteria ...  37.7    0.25 
+  UniRef50_UPI000B99B212 hypothetical protein n=1 Tax=Rubricoccus...  38.5    0.25 
+  UniRef50_A0A1F3BH41 Uncharacterized protein n=1 Tax=Bacteroidet...  38.1    0.25 
+  UniRef50_A0A146IPS5 RmlC-like cupin n=1 Tax=Mycena chlorophos T...  38.5    0.26 
+  UniRef50_I3R3N3 Halocyanin n=5 Tax=Haloferacaceae TaxID=1644056...  37.7    0.26 
+  UniRef50_A0A015KJG0 Uncharacterized protein n=2 Tax=Rhizophagus...  38.1    0.26 
+  UniRef50_A5GJR4 Plastocyanin n=83 Tax=root TaxID=1 RepID=A5GJR4...  37.4    0.27 
+  UniRef50_A0A182AM11 Plastocyanin n=2 Tax=Cyanobium TaxID=167375...  37.4    0.29 
+  UniRef50_A0A0M0FZJ9 Uncharacterized protein n=2 Tax=Azoarcus sp...  37.7    0.29 
+  UniRef50_A0A1D7VZV0 Uncharacterized protein n=1 Tax=Brevibacter...  35.8    0.31 
+  UniRef50_UPI00082E5373 hypothetical protein n=1 Tax=Azohydromon...  37.0    0.32 
+  UniRef50_A0A1Z8YRY2 Uncharacterized protein n=1 Tax=Euryarchaeo...  37.7    0.34 
+  UniRef50_K9YXI2 Plastocyanin n=2 Tax=Cyanobacteria TaxID=1117 R...  37.7    0.35 
+  UniRef50_UPI000B820AA4 hypothetical protein n=1 Tax=Natronobact...  37.7    0.36 
+  UniRef50_A0A0N0BPZ1 Halocyanin n=1 Tax=Haloarcula rubripromonto...  37.7    0.36 
+  UniRef50_A0A1G0LMN6 Uncharacterized protein n=2 Tax=unclassifie...  36.6    0.36 
+  UniRef50_UPI0008844746 hypothetical protein n=1 Tax=Haloarchaeo...  37.4    0.37 
+  UniRef50_A0A1H8UQ74 Halocyanin domain-containing protein n=2 Ta...  37.4    0.37 
+  UniRef50_A0A1Q1FFI3 Uncharacterized protein n=3 Tax=Haloriental...  37.4    0.38 
+  UniRef50_C1B064 Putative blue copper protein n=5 Tax=Rhodococcu...  37.0    0.41 
+  UniRef50_UPI0009F8A80D hypothetical protein n=1 Tax=Rhodococcus...  37.0    0.41 
+  UniRef50_K5WZM7 Uncharacterized protein n=5 Tax=Agaricomycetes ...  37.7    0.42 
+  UniRef50_Q9ST31 Plastocyanin n=8 Tax=Chlorophyta TaxID=3041 Rep...  37.0    0.43 
+  UniRef50_A0A1Q7BP72 Uncharacterized protein n=1 Tax=Actinobacte...  37.0    0.44 
+  UniRef50_A0A0W1RKF8 Halocyanin (Fragment) n=1 Tax=Haloferax sp....  37.0    0.46 
+  UniRef50_U2YUB7 Halocyanin n=3 Tax=Halarchaeum acidiphilum TaxI...  37.0    0.46 
+  UniRef50_Q9HRQ9 Uncharacterized protein n=5 Tax=Halobacterium T...  37.4    0.47 
+  UniRef50_D4GW60 Halocyanin n=18 Tax=Halobacteria TaxID=183963 R...  37.0    0.52 
+  UniRef50_A0A1A0RFK8 Uncharacterized protein n=29 Tax=Bacteria T...  36.6    0.53 
+  UniRef50_M0LS65 Blue (Type 1) copper domain-containing protein ...  37.4    0.57 
+  UniRef50_Q2W7H2 Plastocyanin n=10 Tax=Proteobacteria TaxID=1224...  36.6    0.58 
+  UniRef50_L0I9H1 Halocyanin domain protein n=1 Tax=Halovivax rub...  37.4    0.59 
+  UniRef50_A0A0F9H1J6 Uncharacterized protein n=1 Tax=marine sedi...  36.6    0.61 
+  UniRef50_A0A0W1R9A7 Halocyanin n=5 Tax=Haloferacaceae TaxID=164...  36.6    0.63 
+  UniRef50_UPI00088C75EC halocyanin domain-containing protein n=1...  37.4    0.63 
+  UniRef50_C6D4Z5 Blue (Type 1) copper domain protein n=2 Tax=Pae...  37.0    0.65 
+  UniRef50_A0A166RVT9 Halocyanin n=5 Tax=Halobacteriales TaxID=22...  37.0    0.65 
+  UniRef50_E3KGV4 Uncharacterized protein n=2 Tax=Puccinia TaxID=...  37.4    0.66 
+  UniRef50_B6QBK0 Uncharacterized protein n=3 Tax=Eurotiales TaxI...  37.0    0.66 
+  UniRef50_H5SFA1 Blue (Type1) copper domain-containing protein n...  37.0    0.69 
+  UniRef50_A0A0F2NX60 Uncharacterized protein n=2 Tax=Bacteroidet...  37.0    0.73 
+  UniRef50_I3R1X6 Copper-binding plastocyanin like protein n=3 Ta...  36.2    0.74 
+  UniRef50_U1R0M8 Plastocyanin n=1 Tax=halophilic archaeon J07HB6...  36.6    0.74 
+  UniRef50_UPI0009FF0AAF hypothetical protein n=1 Tax=Natronococc...  36.6    0.76 
+  UniRef50_A0A1I3ABH3 Halocyanin domain-containing protein n=1 Ta...  37.4    0.76 
+  UniRef50_D0CP55 Plastocyanin n=5 Tax=Alphaproteobacteria TaxID=...  36.2    0.79 
+  UniRef50_UPI0009E0894C plastocyanin n=1 Tax=Halobellus rufus Ta...  36.6    0.80 
+  UniRef50_UPI00047A8047 hypothetical protein n=1 Tax=Ensifer sp....  35.8    0.81 
+  UniRef50_UPI000B863BAB hypothetical protein n=1 Tax=Thermoleoph...  37.0    0.81 
+  UniRef50_UPI000B87996C hypothetical protein n=1 Tax=Paenibacill...  37.0    0.84 
+  UniRef50_A0A1Z9EUT8 Uncharacterized protein n=1 Tax=Euryarchaeo...  36.6    0.84 
+  UniRef50_Q00GM1 Plastocyanin protein n=1 Tax=Karenia brevis Tax...  36.6    0.88 
+  UniRef50_A0A0W1R311 Uncharacterized protein n=3 Tax=Haloprofund...  36.6    0.89 
+  UniRef50_M0MZ66 Blue (Type 1) copper domain-containing protein ...  36.6    1.0  
+  UniRef50_Q9HRA6 Plastocyanin homology n=6 Tax=Halobacteria TaxI...  36.2    1.0  
+  UniRef50_A0A0V0PTC7 Amicyanin n=3 Tax=Paracoccus TaxID=249411 R...  35.8    1.1  
+  UniRef50_A0A0C2ZTQ8 Uncharacterized protein n=1 Tax=Scleroderma...  36.6    1.1  
+  UniRef50_A0A0U5MWG2 Pseudoazurin (Cupredoxin) (Blue copper prot...  35.0    1.1  
+  UniRef50_A0A0F9UCV1 Uncharacterized protein n=2 Tax=root TaxID=...  35.8    1.2  
+  UniRef50_UPI0008C7FDE5 hypothetical protein n=1 Tax=Halobacteri...  35.8    1.2  
+  UniRef50_A0A146HLQ3 Uncharacterized protein n=1 Tax=Mycena chlo...  36.6    1.2  
+  UniRef50_UPI00082EBF7B halocyanin domain-containing protein n=2...  36.2    1.2  
+  UniRef50_A0A0D5NST9 Uncharacterized protein n=3 Tax=Bacillales ...  34.7    1.2  
+  UniRef50_A0A067SSN3 Uncharacterized protein (Fragment) n=1 Tax=...  36.2    1.3  
+  UniRef50_M0P716 Halocyanin n=2 Tax=Halorubrum lipolyticum TaxID...  36.2    1.3  
+  UniRef50_A0A0P7GPF5 Uncharacterized protein n=1 Tax=Halolamina ...  35.8    1.3  
+  UniRef50_A0A099T6C0 Plastocyanin n=1 Tax=Methanococcoides methy...  35.0    1.3  
+  UniRef50_A0A074Y474 Uncharacterized protein n=4 Tax=Aureobasidi...  36.2    1.3  
+  UniRef50_A0A0A8EXE0 Blue (Type 1) copper domain-containing prot...  34.7    1.3  
+  UniRef50_A0A1H5J5K4 Plastocyanin n=3 Tax=Rhodococcus TaxID=1661...  35.0    1.4  
+  UniRef50_M0FRT8 Halocyanin domain protein n=9 Tax=Halobacteria ...  35.8    1.5  
+  UniRef50_A0A1X4HAT4 Halocyanin n=11 Tax=Halorubrum TaxID=56688 ...  36.2    1.5  
+  UniRef50_Q7SIB8 Plastocyanin n=2 Tax=Dryopteris crassirhizoma T...  35.0    1.5  
+  UniRef50_C3N6V0 Blue (Type 1) copper domain protein n=11 Tax=Su...  36.2    1.5  
+  UniRef50_D3ENC9 Plastocyanin n=30 Tax=Cyanobacteria TaxID=1117 ...  35.0    1.5  
+  UniRef50_Q18HQ8 Halocyanin n=114 Tax=Archaea TaxID=2157 RepID=Q...  35.8    1.5  
+  UniRef50_UPI0008B7675E halocyanin domain-containing protein n=1...  36.2    1.5  
+
+
+
+Lambda      K        H        a         alpha
+   0.314    0.132    0.371    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 203629626130
+Warning: [psiblast] lcl|Query_1 1pazA: Warning: Composition-based score adjustment conditioned on sequence properties and unconditional composition-based score adjustment is not supported with PSSMs, resetting to default value of standard composition-based statistics 
+Results from round 2
+
+
+Query= 1pazA
+
+Length=123
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+Sequences used in model and found again:
+
+  UniRef50_P04377 Pseudoazurin n=122 Tax=Proteobacteria TaxID=122...  190     4e-61
+  UniRef50_C0RKL3 Pseudoazurin n=24 Tax=Brucella TaxID=234 RepID=...  191     9e-61
+  UniRef50_Q8YBD5 Pseudoazurin n=6 Tax=Brucella TaxID=234 RepID=Q...  181     2e-57
+  UniRef50_P80401 Pseudoazurin n=232 Tax=Bacteria TaxID=2 RepID=A...  175     4e-55
+  UniRef50_I3X953 Pseudoazurin n=135 Tax=Bacteria TaxID=2 RepID=I...  175     5e-55
+  UniRef50_Q52825 Putative pseudoazurin n=20 Tax=Rhizobiales TaxI...  174     2e-54
+  UniRef50_Q11GK5 Pseudoazurin n=2 Tax=Alphaproteobacteria TaxID=...  173     2e-54
+  UniRef50_J3BL65 Pseudoazurin n=10 Tax=Rhizobium TaxID=379 RepID...  173     3e-54
+  UniRef50_A0A1W6KXP3 Pseudoazurin n=29 Tax=Alphaproteobacteria T...  171     1e-53
+  UniRef50_A0A1X6ZYZ1 Pseudoazurin n=1 Tax=Roseovarius albus TaxI...  170     4e-53
+  UniRef50_K2I739 Azu1 pseudoazurin (Blue copper protein) n=8 Tax...  170     6e-53
+  UniRef50_A0A085F4Q0 Blue copper protein n=15 Tax=Alphaproteobac...  170     7e-53
+  UniRef50_A0A090MHC6 Blue copper protein n=7 Tax=Alphaproteobact...  170     1e-52
+  UniRef50_S5SV32 Pseudoazurin 1 n=46 Tax=Alphaproteobacteria Tax...  169     2e-52
+  UniRef50_I3X5L6 Pseudoazurin n=97 Tax=Alphaproteobacteria TaxID...  167     6e-52
+  UniRef50_UPI000378E69E pseudoazurin n=1 Tax=Methylobacterium sp...  166     3e-51
+  UniRef50_A7HRU8 Pseudoazurin n=31 Tax=Proteobacteria TaxID=1224...  165     8e-51
+  UniRef50_A0A0F5LQW7 Uncharacterized protein n=8 Tax=Alphaproteo...  164     1e-50
+  UniRef50_J5KG24 Pseudoazurin n=1 Tax=SAR86 cluster bacterium SA...  164     2e-50
+  UniRef50_K2IV58 Blue (Type 1) copper subtype protein n=4 Tax=Rh...  163     3e-50
+  UniRef50_P04171 Pseudoazurin n=17 Tax=Methylobacterium TaxID=40...  163     3e-50
+  UniRef50_A0A175RQU1 Pseudoazurin n=8 Tax=Alphaproteobacteria Ta...  163     4e-50
+  UniRef50_A0A212KJE4 Pseudoazurin n=4 Tax=Alphaproteobacteria Ta...  162     9e-50
+  UniRef50_A0A1Q4UMR0 Pseudoazurin n=3 Tax=Alphaproteobacteria Ta...  161     2e-49
+  UniRef50_A0A221K631 Pseudoazurin n=1 Tax=Sulfitobacter pseudoni...  161     2e-49
+  UniRef50_A0A196QLK8 Pseudoazurin n=20 Tax=Alphaproteobacteria T...  159     8e-49
+  UniRef50_A0A1S7S1E7 Pseudoazurin n=101 Tax=Proteobacteria TaxID...  158     3e-48
+  UniRef50_A0A0F5K165 Pseudoazurin n=18 Tax=Proteobacteria TaxID=...  158     5e-48
+  UniRef50_A0A1E4ABS3 Pseudoazurin n=2 Tax=Devosia TaxID=46913 Re...  157     5e-48
+  UniRef50_B1J6J4 Pseudoazurin n=47 Tax=Proteobacteria TaxID=1224...  156     1e-47
+  UniRef50_A0A0Q7SFY1 Uncharacterized protein n=5 Tax=Caulobacter...  156     2e-47
+  UniRef50_UPI000B98A984 pseudoazurin n=1 Tax=Ochrobactrum thioph...  156     2e-47
+  UniRef50_B1Z5M1 Pseudoazurin n=26 Tax=Proteobacteria TaxID=1224...  155     5e-47
+  UniRef50_H0HWZ4 Pseudoazurin n=13 Tax=Proteobacteria TaxID=1224...  153     2e-46
+  UniRef50_UPI000930F8CD pseudoazurin n=2 Tax=Hyphomicrobium TaxI...  153     2e-46
+  UniRef50_Q2RVA5 Blue (Type 1) copper subtype n=29 Tax=Proteobac...  153     2e-46
+  UniRef50_A6UD26 Pseudoazurin n=24 Tax=Proteobacteria TaxID=1224...  153     3e-46
+  UniRef50_A0A021WWS2 Pseudoazurin n=61 Tax=Proteobacteria TaxID=...  153     3e-46
+  UniRef50_A1B1R6 Pseudoazurin n=9 Tax=Proteobacteria TaxID=1224 ...  152     4e-46
+  UniRef50_UPI000B97D523 pseudoazurin n=2 Tax=Wohlfahrtiimonas Ta...  152     8e-46
+  UniRef50_UPI0008E92566 pseudoazurin n=2 Tax=Rhodobacteraceae Ta...  151     9e-46
+  UniRef50_A0A089WNJ5 Blue copper protein n=33 Tax=Bacteria TaxID...  151     2e-45
+  UniRef50_Q6SEV4 Blue copper protein n=3 Tax=Bacteria TaxID=2 Re...  150     5e-45
+  UniRef50_A0A192ILG1 Pseudoazurin n=4 Tax=Rhizobiales TaxID=356 ...  150     6e-45
+  UniRef50_UPI0008B005E7 pseudoazurin n=3 Tax=Rhodobacteraceae Ta...  149     7e-45
+  UniRef50_A0A0B5DQD1 Pseudoazurin n=2 Tax=Proteobacteria TaxID=1...  149     1e-44
+  UniRef50_UPI0002638CE1 Pseudoazurin (Blue copper protein) n=2 T...  148     2e-44
+  UniRef50_UPI00055095DA pseudoazurin n=2 Tax=Gammaproteobacteria...  147     6e-44
+  UniRef50_J4KRR0 Pseudoazurin n=1 Tax=SAR86 cluster bacterium SA...  148     7e-44
+  UniRef50_B4RF43 Plastocyanin n=6 Tax=root TaxID=1 RepID=B4RF43_...  146     1e-43
+  UniRef50_UPI000B49C49B pseudoazurin n=2 Tax=Sphingobium sp. Z00...  146     2e-43
+  UniRef50_M5QEY4 Pseudoazurin n=19 Tax=Proteobacteria TaxID=1224...  146     2e-43
+  UniRef50_A0A1M5WHG3 Pseudoazurin n=3 Tax=Rhodobacteraceae TaxID...  146     2e-43
+  UniRef50_UPI0009F9D11F pseudoazurin n=1 Tax=Pseudovibrio sp. Ab...  146     4e-43
+  UniRef50_T0IZ37 Uncharacterized protein n=14 Tax=Sphingomonadac...  145     4e-43
+  UniRef50_UPI000A014757 pseudoazurin n=1 Tax=Roseinatronobacter ...  146     4e-43
+  UniRef50_UPI000B814880 pseudoazurin n=1 Tax=Aquamicrobium aerol...  144     8e-43
+  UniRef50_A0A0P1ESX9 Blue copper protein n=2 Tax=Rhodobacteracea...  144     8e-43
+  UniRef50_A0A0C1V2F7 Uncharacterized protein n=2 Tax=Bacteria Ta...  144     1e-42
+  UniRef50_A0A0Q5V8Z6 Uncharacterized protein n=3 Tax=Proteobacte...  144     1e-42
+  UniRef50_M9RDJ1 Putative cupredoxin n=5 Tax=Rhodobacteraceae Ta...  143     2e-42
+  UniRef50_B4W968 Pseudoazurin n=3 Tax=Caulobacterales TaxID=2044...  143     3e-42
+  UniRef50_UPI0008321ED1 pseudoazurin n=1 Tax=Marinomonas gallaic...  142     4e-42
+  UniRef50_A0A1E2VBE1 Pseudoazurin n=2 Tax=Terasakiispira papahan...  142     6e-42
+  UniRef50_A0A1C3JTV2 Pseudoazurin n=1 Tax=Marinomonas gallaica T...  141     9e-42
+  UniRef50_A0A0P9B4M1 Uncharacterized protein n=1 Tax=Marinosulfo...  142     1e-41
+  UniRef50_Q0AP32 Pseudoazurin n=5 Tax=Alphaproteobacteria TaxID=...  141     1e-41
+  UniRef50_A0A1C3JNG5 Pseudoazurin n=12 Tax=Proteobacteria TaxID=...  141     1e-41
+  UniRef50_UPI000B864670 pseudoazurin n=1 Tax=Rhodospirillales ba...  141     2e-41
+  UniRef50_A1B6C2 Pseudoazurin n=5 Tax=Alphaproteobacteria TaxID=...  140     2e-41
+  UniRef50_A0A1E2RV84 Pseudoazurin n=1 Tax=Methyloligella halotol...  141     2e-41
+  UniRef50_A0A0B3S6F8 Pseudoazurin n=11 Tax=Rhodobacteraceae TaxI...  141     3e-41
+  UniRef50_A0A060QA84 Pseudoazurin n=4 Tax=Rhodospirillales TaxID...  140     4e-41
+  UniRef50_A0A238J5R2 Pseudoazurin n=1 Tax=Boseongicola aestuarii...  140     5e-41
+  UniRef50_A0A1Z8ZYN7 Uncharacterized protein n=1 Tax=Rhizobiales...  139     6e-41
+  UniRef50_A0A1I7BW00 Pseudoazurin n=4 Tax=Proteobacteria TaxID=1...  139     6e-41
+  UniRef50_A0A0M6ZGI0 Blue copper protein n=8 Tax=Rhodobacteracea...  139     8e-41
+  UniRef50_V5SFC1 Pseudoazurin n=2 Tax=Hyphomicrobium TaxID=81 Re...  139     8e-41
+  UniRef50_N1MW42 Pseudoazurin n=3 Tax=Sphingobium TaxID=165695 R...  139     1e-40
+  UniRef50_A0A154WG00 Uncharacterized protein n=3 Tax=Oceanibacul...  138     1e-40
+  UniRef50_S6H716 Pseudoazurin n=1 Tax=Osedax symbiont Rs1 TaxID=...  138     3e-40
+  UniRef50_M9RHK4 Putative amicyanin family protein n=2 Tax=Octad...  137     4e-40
+  UniRef50_A7VL37 Blue copper protein n=5 Tax=Hyphomicrobium TaxI...  137     4e-40
+  UniRef50_A0A1C3ERK1 Pseudoazurin n=2 Tax=Gammaproteobacteria Ta...  137     4e-40
+  UniRef50_A0A1Z9VPN8 Uncharacterized protein n=3 Tax=Bacteria Ta...  137     5e-40
+  UniRef50_A4G4D0 Pseudoazurin (Blue copper protein) n=18 Tax=roo...  137     5e-40
+  UniRef50_A6SV41 Pseudoazurin (Blue copper protein) n=10 Tax=Bac...  137     5e-40
+  UniRef50_A0A1U9RHB1 Pseudoazurin n=3 Tax=Proteobacteria TaxID=1...  137     5e-40
+  UniRef50_A0A099DQA9 Pseudoazurin n=7 Tax=Proteobacteria TaxID=1...  136     8e-40
+  UniRef50_Q3J3Z8 PpaZ n=7 Tax=Rhodobacter TaxID=1060 RepID=Q3J3Z...  137     8e-40
+  UniRef50_A3N392 Pseudoazurin n=22 Tax=Proteobacteria TaxID=1224...  136     9e-40
+  UniRef50_A0A120CY81 Pseudoazurin n=1 Tax=Hyphomicrobium sulfoni...  136     1e-39
+  UniRef50_UPI00048A80FB pseudoazurin n=1 Tax=Microvirgula aerode...  136     2e-39
+  UniRef50_UPI000B51DD7A pseudoazurin n=2 Tax=Proteobacteria TaxI...  136     2e-39
+  UniRef50_F0L246 Pseudoazurin / blue copper protein n=27 Tax=Rhi...  136     2e-39
+  UniRef50_C7D6J7 Pseudoazurin n=3 Tax=Rhodobacteraceae TaxID=319...  135     3e-39
+  UniRef50_A0A0F4R1Z1 Uncharacterized protein n=4 Tax=Gammaproteo...  135     4e-39
+  UniRef50_UPI000A18D58C pseudoazurin n=1 Tax=Neisseria sp. 11472...  134     4e-39
+  UniRef50_UPI00092FF244 pseudoazurin n=2 Tax=Gammaproteobacteria...  135     5e-39
+  UniRef50_A0A0P7WIH6 Plastocyanin n=3 Tax=Erythrobacteraceae Tax...  136     5e-39
+  UniRef50_A4GI45 Possible pseudoazurin n=1 Tax=uncultured marine...  134     8e-39
+  UniRef50_A0A212L9V4 Pseudoazurin n=3 Tax=Alphaproteobacteria Ta...  134     9e-39
+  UniRef50_A0A1Y5E4M9 Uncharacterized protein n=2 Tax=Colwellia T...  134     1e-38
+  UniRef50_UPI000883D9C7 pseudoazurin n=1 Tax=Albidiferax sp. OV4...  133     1e-38
+  UniRef50_V8C571 Pseudoazurin n=4 Tax=Proteobacteria TaxID=1224 ...  133     1e-38
+  UniRef50_A0A166BL49 Pseudoazurin n=5 Tax=Pseudovibrio TaxID=258...  133     2e-38
+  UniRef50_A0A1A8TD02 Pseudoazurin n=5 Tax=Marinomonas TaxID=2825...  132     4e-38
+  UniRef50_UPI000483E3A0 pseudoazurin n=1 Tax=Rhodovibrio salinar...  132     4e-38
+  UniRef50_A0A074MLX8 Uncharacterized protein n=2 Tax=Erythrobact...  134     5e-38
+  UniRef50_A0A099TPT8 Pseudoazurin n=1 Tax=Helicobacter sp. MIT 1...  132     6e-38
+  UniRef50_A0A109LVC4 Uncharacterized protein n=3 Tax=Erythrobact...  133     1e-37
+  UniRef50_E1WY51 Putative exported pseudoazurin n=1 Tax=Halobact...  131     2e-37
+  UniRef50_UPI0003608FD3 pseudoazurin n=1 Tax=Microbulbifer varia...  130     2e-37
+  UniRef50_UPI000B9603A7 hypothetical protein n=1 Tax=Rhodoferax ...  131     3e-37
+  UniRef50_F2BBF5 Pseudoazurin n=8 Tax=Proteobacteria TaxID=1224 ...  129     8e-37
+  UniRef50_A0A0F9MM82 Uncharacterized protein n=1 Tax=marine sedi...  128     8e-37
+  UniRef50_A0A1G3GY76 Pseudoazurin n=2 Tax=Proteobacteria TaxID=1...  128     1e-36
+  UniRef50_F5S8H2 Pseudoazurin n=6 Tax=Kingella kingae TaxID=504 ...  128     1e-36
+  UniRef50_E4PKM4 Pseudoazurin n=7 Tax=Alteromonadaceae TaxID=722...  128     1e-36
+  UniRef50_A0A074MUI2 Uncharacterized protein n=3 Tax=Erythrobact...  128     2e-36
+  UniRef50_UPI0007844927 pseudoazurin n=1 Tax=Caulobacter sp. CCH...  128     2e-36
+  UniRef50_Q6MK46 Pseudoazurin n=6 Tax=Bdellovibrio bacteriovorus...  127     2e-36
+  UniRef50_A0A1X6YSK5 Pseudoazurin n=1 Tax=Roseivivax jejudonensi...  128     2e-36
+  UniRef50_A0A090K7C6 Pseudoazurin n=4 Tax=Moritella TaxID=58050 ...  128     3e-36
+  UniRef50_A0A1T1ASY2 Pseudoazurin n=1 Tax=Rhodoferax fermentans ...  128     3e-36
+  UniRef50_A0A1C0SSZ1 Pseudoazurin n=8 Tax=Alphaproteobacteria Ta...  127     3e-36
+  UniRef50_A0A1Y5DUS0 Pseudoazurin n=4 Tax=Gammaproteobacteria Ta...  127     3e-36
+  UniRef50_I2NQJ0 Putative pseudoazurin n=90 Tax=Proteobacteria T...  125     2e-35
+  UniRef50_A0A1C3JQU5 Pseudoazurin n=3 Tax=Marinomonas TaxID=2825...  125     3e-35
+  UniRef50_D5RQS2 Putative pseudoazurin n=1 Tax=Roseomonas cervic...  125     4e-35
+  UniRef50_A0A0F4QTB7 Uncharacterized protein n=2 Tax=Gammaproteo...  124     8e-35
+  UniRef50_A0A074MAA2 Uncharacterized protein n=1 Tax=Erythrobact...  124     1e-34
+  UniRef50_A0A099KBM7 Blue (Type 1) copper domain protein n=6 Tax...  122     3e-34
+  UniRef50_B9K2V1 Pseudoazurin n=8 Tax=Rhizobium/Agrobacterium gr...  122     4e-34
+  UniRef50_A0A0P9CJS6 Pseudoazurin n=1 Tax=Thiohalorhabdus denitr...  122     6e-34
+  UniRef50_B7VRR3 Azu1 pseudoazurin (Blue copper protein) n=24 Ta...  121     1e-33
+  UniRef50_H5SRH7 Blue-copper-protein n=1 Tax=Acetothermus autotr...  120     4e-33
+  UniRef50_A0A1E3GPL1 Pseudoazurin n=2 Tax=Methylophaga muralis T...  121     7e-33
+  UniRef50_A0A1Q9GL34 Azurin n=1 Tax=Photobacterium proteolyticum...  119     7e-33
+  UniRef50_A0A1E4BYB6 Uncharacterized protein n=1 Tax=Kaistia sp....  118     1e-32
+  UniRef50_E0XXI4 Plastocyanin n=1 Tax=uncultured alpha proteobac...  118     2e-32
+  UniRef50_A0A1E3GXI4 Pseudoazurin n=3 Tax=Methylophaga TaxID=402...  121     5e-32
+  UniRef50_D5BQF6 Pseudoazurin n=3 Tax=Alphaproteobacteria TaxID=...  116     7e-32
+  UniRef50_A0A0P7H0H7 Halocyanin n=2 Tax=Halolamina pelagica TaxI...  118     1e-31
+  UniRef50_C0N5E6 Copper binding protein, plastocyanin/azurin fam...  118     3e-31
+  UniRef50_A0A1E3GW43 Pseudoazurin n=10 Tax=root TaxID=1 RepID=A0...  114     4e-31
+  UniRef50_T0RML8 Putative pseudoazurin n=2 Tax=Bacteriovorax sp....  114     7e-31
+  UniRef50_M7P3Z4 Pseudoazurin n=1 Tax=Methylophaga lonarensis MP...  117     8e-31
+  UniRef50_A0A0F9DNY1 Uncharacterized protein (Fragment) n=1 Tax=...  115     8e-31
+  UniRef50_A3X3Q8 Probable pseudoazurin (Blue copper protein) n=3...  114     9e-31
+  UniRef50_A0A1G0K2P5 Uncharacterized protein n=1 Tax=Gammaproteo...  111     1e-29
+  UniRef50_A4EZW6 Azu1 pseudoazurin (Blue copper protein) n=3 Tax...  111     1e-29
+  UniRef50_A0A1Q1FJ74 Uncharacterized protein n=16 Tax=Halobacter...  112     5e-29
+  UniRef50_D5C3H3 Blue (Type 1) copper domain protein n=4 Tax=Nit...  108     1e-28
+  UniRef50_K2IZG9 Pseudoazurin n=2 Tax=Oceanibaculum TaxID=659693...  107     2e-28
+  UniRef50_UPI0008B87906 hypothetical protein n=1 Tax=Haloriental...  111     2e-28
+  UniRef50_A0A1H3FC83 Pseudoazurin n=3 Tax=Ruegeria TaxID=97050 R...  108     3e-28
+  UniRef50_E0XT15 Plastocyanin n=4 Tax=Proteobacteria TaxID=1224 ...  107     4e-28
+  UniRef50_UPI0004A07608 copper-binding protein n=3 Tax=Halobacte...  109     6e-28
+  UniRef50_L9XLY0 Blue (Type 1) copper domain-containing protein ...  110     1e-27
+  UniRef50_UPI0008821F28 copper-binding protein n=1 Tax=Pseudovib...  105     2e-27
+  UniRef50_UPI00046CF31E hypothetical protein n=1 Tax=Ensifer adh...  104     2e-27
+  UniRef50_A0A087LS44 Uncharacterized protein n=24 Tax=Bacteria T...  105     3e-27
+  UniRef50_A0A1I5MKH3 Plastocyanin n=1 Tax=Halolamina pelagica Ta...  105     6e-27
+  UniRef50_A0A1Z7WX27 Uncharacterized protein n=1 Tax=Methylophag...  109     1e-26
+  UniRef50_F5SYC6 Pseudoazurin n=2 Tax=Methylophaga TaxID=40222 R...  103     2e-26
+  UniRef50_A0A231V1D1 Uncharacterized protein n=1 Tax=Notoacmeiba...  103     2e-26
+  UniRef50_A0A1S9CXK1 Pseudoazurin n=1 Tax=Chromatiales bacterium...  101     5e-26
+  UniRef50_A0A0Q7E7R0 Uncharacterized protein n=22 Tax=Alphaprote...  102     1e-25
+  UniRef50_W0K7H6 Halocyanin n=1 Tax=Halobacterium sp. DL1 TaxID=...  102     2e-25
+  UniRef50_A0A1X6YXR0 Pseudoazurin n=1 Tax=Ruegeria meonggei TaxI...  100     3e-25
+  UniRef50_M0D1T6 Blue (Type 1) copper domain-containing protein ...  97.6    9e-25
+  UniRef50_A0A166BPE1 Pseudoazurin n=17 Tax=Rhodobacteraceae TaxI...  98.4    2e-24
+  UniRef50_U2DN94 Halocyanin-like protein n=4 Tax=Haloarculaceae ...  98.4    2e-24
+  UniRef50_A0A1E3GNB1 Pseudoazurin n=14 Tax=root TaxID=1 RepID=A0...  97.6    2e-24
+  UniRef50_Q9HQF3 Halocyanin-like n=2 Tax=Halobacterium salinarum...  99.2    3e-24
+  UniRef50_C7P1C5 Blue (Type 1) copper domain protein n=3 Tax=Hal...  97.2    3e-24
+  UniRef50_UPI0009E71046 hypothetical protein n=1 Tax=Haloferax s...  99.5    4e-24
+  UniRef50_M0DG90 Uncharacterized protein n=2 Tax=Halorubrum tebe...  103     5e-24
+  UniRef50_K0RWK5 Uncharacterized protein n=3 Tax=cellular organi...  96.5    8e-24
+  UniRef50_Q9HN93 Halocyanin-like n=1 Tax=Halobacterium salinarum...  98.8    2e-23
+  UniRef50_Q6KGV5 Pseudoazurin-like protein n=2 Tax=Bacteria TaxI...  93.8    2e-23
+  UniRef50_UPI0009E3A2EF hypothetical protein n=1 Tax=Halolamina ...  95.3    2e-23
+  UniRef50_B0R7A9 Halocyanin HcpB / cbaD domain protein n=5 Tax=H...  100     2e-23
+  UniRef50_UPI000B853391 hypothetical protein n=1 Tax=Poseidonoce...  94.9    3e-23
+  UniRef50_H5S899 Cell surface protein n=2 Tax=Candidatus Acetoth...  98.4    4e-23
+  UniRef50_UPI000889B873 halocyanin domain-containing protein n=1...  98.4    6e-23
+  UniRef50_Q5V2Z9 Halocyanin-like n=15 Tax=Halobacteria TaxID=183...  99.5    6e-23
+  UniRef50_E7QSC9 Halocyanin hcpE n=6 Tax=Halobacteria TaxID=1839...  94.2    6e-23
+  UniRef50_G2MIK7 Blue (Type 1) copper domain protein n=6 Tax=Arc...  94.5    6e-23
+  UniRef50_F8D913 Blue (Type 1) copper domain protein n=3 Tax=Nat...  96.5    8e-23
+  UniRef50_Q9HRS0 Uncharacterized protein n=2 Tax=Halobacterium s...  96.1    9e-23
+  UniRef50_V4HAH4 Halocyanin domain-containing protein n=2 Tax=Ca...  98.0    9e-23
+  UniRef50_UPI0009B5D215 halocyanin n=1 Tax=Halorubrum sp. SAH-A6...  94.9    1e-22
+  UniRef50_D0I8L1 Pseudoazurin n=12 Tax=Vibrionaceae TaxID=641 Re...  93.4    1e-22
+  UniRef50_M0ML40 Plastocyanin n=3 Tax=Halococcus TaxID=2249 RepI...  97.2    2e-22
+  UniRef50_A0A151A922 Halocyanin n=1 Tax=Halalkalicoccus paucihal...  92.6    2e-22
+  UniRef50_A0A0U5CWJ0 Halocyanin n=10 Tax=Halobacteria TaxID=1839...  94.9    2e-22
+  UniRef50_A0A0M6YQM5 Pseudoazurin n=5 Tax=Rhodobacteraceae TaxID...  93.4    2e-22
+  UniRef50_A0A0J7JEG4 Plastocyanin n=20 Tax=Proteobacteria TaxID=...  93.0    2e-22
+  UniRef50_A0A0U5HTA3 Cox-type terminal oxidase subunit II / halo...  96.5    2e-22
+  UniRef50_J3JCR1 Halocyanin domain-containing protein n=2 Tax=Ha...  91.8    3e-22
+  UniRef50_E4NT81 Plastocyanin n=8 Tax=Halobacteria TaxID=183963 ...  98.4    3e-22
+  UniRef50_A0A1F5YDY6 Uncharacterized protein n=2 Tax=Candidatus ...  93.0    4e-22
+  UniRef50_UPI0008BB5E50 hypothetical protein n=1 Tax=Halobacteri...  93.4    4e-22
+  UniRef50_B6SSB9 Plastocyanin n=23 Tax=cellular organisms TaxID=...  92.2    4e-22
+  UniRef50_D8TJU4 Plastocyanin n=2 Tax=Volvox carteri f. nagarien...  91.8    5e-22
+  UniRef50_UPI00096A97A9 halocyanin n=2 Tax=Halobacteria TaxID=18...  93.0    5e-22
+  UniRef50_M0DAN0 Halocyanin n=1 Tax=Halogeometricum pallidum JCM...  95.7    6e-22
+  UniRef50_P00300 Plastocyanin n=5 Tax=Eukaryota TaxID=2759 RepID...  89.9    8e-22
+  UniRef50_UPI00098ABE57 hypothetical protein n=1 Tax=Methylocald...  91.1    1e-21
+  UniRef50_A0A1G0JB67 Uncharacterized protein n=1 Tax=Gammaproteo...  90.7    1e-21
+  UniRef50_B0R463 Halocyanin HcpC n=7 Tax=Halobacteria TaxID=1839...  90.7    2e-21
+  UniRef50_W0JVQ7 Halocyanin n=5 Tax=Halobacteriales TaxID=2235 R...  90.7    3e-21
+  UniRef50_UPI000677B054 hypothetical protein n=4 Tax=Halobacteri...  89.9    6e-21
+  UniRef50_A0A238X1Z0 Halocyanin domain-containing protein n=4 Ta...  89.1    8e-21
+  UniRef50_U1QX69 Halocyanin domain protein n=2 Tax=halophilic ar...  88.4    8e-21
+  UniRef50_G2MJ81 Blue (Type 1) copper domain protein n=2 Tax=Arc...  88.0    1e-20
+  UniRef50_UPI00069819CE T9SS C-terminal target domain-containing...  93.0    1e-20
+  UniRef50_UPI0000112921 PLASTOCYANIN n=3 Tax=Cyanobacteria TaxID...  86.4    2e-20
+  UniRef50_A0A098S1J9 Uncharacterized protein n=2 Tax=Phaeodactyl...  93.0    2e-20
+  UniRef50_J3JGT1 Uncharacterized protein n=5 Tax=Haloferacaceae ...  91.8    2e-20
+  UniRef50_A0A0F9H8B3 Uncharacterized protein n=1 Tax=marine sedi...  84.9    3e-20
+  UniRef50_A0A0C1VXL8 Uncharacterized protein (Fragment) n=1 Tax=...  92.6    3e-20
+  UniRef50_UPI0006778DB1 hypothetical protein n=2 Tax=Halococcus ...  89.9    5e-20
+  UniRef50_I3RAN0 Halocyanin n=5 Tax=Halobacteria TaxID=183963 Re...  89.9    5e-20
+  UniRef50_A0A0C1G2P9 Uncharacterized protein (Fragment) n=3 Tax=...  84.1    6e-20
+  UniRef50_E4NU89 Plastocyanin n=11 Tax=Halobacteria TaxID=183963...  88.4    7e-20
+  UniRef50_D2S0F7 Blue (Type 1) copper domain protein n=4 Tax=Hal...  86.1    7e-20
+  UniRef50_A0A1M5ELP1 Plastocyanin n=2 Tax=Balneolaceae TaxID=181...  86.1    8e-20
+  UniRef50_A2Y886 Plastocyanin, chloroplastic n=11 Tax=Mesangiosp...  86.1    1e-19
+  UniRef50_A0A1E7EM33 Plastocyanin n=2 Tax=Bacillariophyta TaxID=...  88.0    1e-19
+  UniRef50_H8GGT8 Plastocyanin n=2 Tax=Methylococcaceae TaxID=403...  85.3    2e-19
+  UniRef50_UPI000BAB6577 hypothetical protein n=1 Tax=Aliifodinib...  85.7    2e-19
+  UniRef50_A0A1K1UFH1 Pseudoazurin n=3 Tax=Paracoccus TaxID=24941...  84.1    2e-19
+  UniRef50_M0CLM6 Halocyanin hcpD n=2 Tax=Halosimplex carlsbadens...  85.3    2e-19
+  UniRef50_A0A0W1R9Q0 Uncharacterized protein n=8 Tax=Halobacteri...  86.8    3e-19
+  UniRef50_A0A1Z8QCP3 Uncharacterized protein (Fragment) n=1 Tax=...  84.5    5e-19
+  UniRef50_UPI0009E5BDC1 hypothetical protein n=1 Tax=Ruegeria sp...  81.4    7e-19
+  UniRef50_A0A098LG40 Uncharacterized protein n=2 Tax=Sporocytoph...  84.5    1e-18
+  UniRef50_UPI00069CAA50 hypothetical protein n=1 Tax=Methylococc...  82.6    2e-18
+  UniRef50_H6WG90 Plastocyanin n=3 Tax=Viruses TaxID=10239 RepID=...  81.1    2e-18
+  UniRef50_UPI00001104DE PLASTOCYANIN n=7 Tax=Pentapetalae TaxID=...  81.4    2e-18
+  UniRef50_A9RT82 Plastocyanin n=2 Tax=Physcomitrella patens subs...  80.7    2e-17
+  UniRef50_A0A0W1RAE1 Uncharacterized protein n=1 Tax=Haloprofund...  82.6    2e-17
+  UniRef50_A0A0S2EVW9 Uncharacterized protein n=1 Tax=Aureimonas ...  78.4    2e-17
+  UniRef50_UPI0008EBF7B2 hypothetical protein n=1 Tax=Loktanella ...  78.0    9e-17
+  UniRef50_A0A1E3W992 Uncharacterized protein n=1 Tax=Methylocean...  76.0    1e-16
+  UniRef50_UPI0009FCF23A hypothetical protein n=1 Tax=Shinella sp...  74.5    4e-16
+  UniRef50_A0A160PBV0 Pseudoazurin n=1 Tax=Methylobacterium popul...  74.5    4e-16
+  UniRef50_A0A1F3QDV8 Uncharacterized protein n=1 Tax=Bacteroidet...  77.2    5e-16
+  UniRef50_UPI0009FF973F hypothetical protein n=1 Tax=Shinella sp...  74.1    6e-16
+  UniRef50_A0A0C2VQL3 Amicyanin n=39 Tax=Actinobacteria TaxID=201...  74.9    1e-15
+  UniRef50_A0A1Q6WZ94 Uncharacterized protein n=12 Tax=Bacteria T...  74.9    3e-15
+  UniRef50_UPI0008813E9F halocyanin domain-containing protein n=1...  78.0    3e-15
+  UniRef50_L9VGT2 Blue (Type 1) copper domain-containing protein ...  77.2    4e-15
+  UniRef50_Q7NI43 Plastocyanin n=2 Tax=Gloeobacter TaxID=33071 Re...  72.6    1e-14
+
+Sequences not found previously or not previously below threshold:
+
+  UniRef50_A0A0U5ACB0 Halocyanin n=10 Tax=Halobacteriales TaxID=2...  99.5    1e-24
+  UniRef50_H0I1M5 Blue (Type1) copper domain-containing protein (...  98.0    1e-24
+  UniRef50_A0A0U5H7D9 Halocyanin n=10 Tax=Halobacteria TaxID=1839...  100     3e-24
+  UniRef50_A0A1W6XGH0 Uncharacterized protein n=2 Tax=Mesorhizobi...  95.7    1e-23
+  UniRef50_A0A1I5NN92 Halocyanin domain-containing protein n=1 Ta...  99.5    2e-23
+  UniRef50_A0A0U5H3X7 Halocyanin n=3 Tax=Halobacterium TaxID=2239...  94.2    4e-23
+  UniRef50_I3R6L9 Halocyanin n=28 Tax=Halobacteria TaxID=183963 R...  98.8    7e-23
+  UniRef50_Q5V2E6 Halocyanin-like n=2 Tax=Haloarcula marismortui ...  96.5    1e-22
+  UniRef50_A0A0T6ZT06 Uncharacterized protein n=10 Tax=Rhizobiace...  91.8    4e-22
+  UniRef50_G2MM55 Blue (Type 1) copper domain protein n=5 Tax=Arc...  93.0    4e-22
+  UniRef50_UPI000B7CF408 hypothetical protein n=1 Tax=Halomicrobi...  91.5    5e-22
+  UniRef50_M0KZF0 Halocyanin-like protein n=24 Tax=Halobacteria T...  93.0    5e-22
+  UniRef50_W0JXL0 Uncharacterized protein n=1 Tax=Halobacterium s...  92.6    7e-22
+  UniRef50_P55020 Plastocyanin n=12 Tax=Cyanobacteria TaxID=1117 ...  90.7    7e-22
+  UniRef50_UPI0008E59FFD halocyanin n=1 Tax=Halomicrobium zhouii ...  92.2    9e-22
+  UniRef50_Q5V725 Halocyanin-like n=9 Tax=Halobacteria TaxID=1839...  91.8    1e-21
+  UniRef50_D2S171 Blue (Type 1) copper domain protein n=1 Tax=Hal...  93.0    1e-21
+  UniRef50_D3ENC9 Plastocyanin n=30 Tax=Cyanobacteria TaxID=1117 ...  89.1    2e-21
+  UniRef50_K9YMC8 Plastocyanin n=2 Tax=Oscillatoriophycideae TaxI...  89.1    3e-21
+  UniRef50_A0A0P7GVK0 Halocyanin n=4 Tax=Halobacteria TaxID=18396...  89.5    3e-21
+  UniRef50_M0HPN3 Halocyanin-like protein n=5 Tax=Haloferacaceae ...  90.3    4e-21
+  UniRef50_A0A1N7F0Y2 Plastocyanin n=1 Tax=Haladaptatus litoreus ...  90.3    4e-21
+  UniRef50_UPI0009B5AF16 halocyanin domain-containing protein n=2...  90.3    4e-21
+  UniRef50_C7NY85 Halocyanin domain protein n=4 Tax=Halobacteria ...  93.4    5e-21
+  UniRef50_E7QVP9 Halocyanin hcpF n=4 Tax=Haladaptatus TaxID=3671...  90.3    6e-21
+  UniRef50_UPI000B8462B0 hypothetical protein n=1 Tax=Halopelagiu...  90.7    6e-21
+  UniRef50_E4NUX0 Halocyanin n=11 Tax=Halobacteria TaxID=183963 R...  89.9    6e-21
+  UniRef50_A0A1M5PNI1 Halocyanin domain-containing protein n=3 Ta...  91.5    8e-21
+  UniRef50_UPI000A046528 hypothetical protein n=3 Tax=Mesorhizobi...  88.4    9e-21
+  UniRef50_UPI000B85BD57 hypothetical protein n=1 Tax=Paracoccus ...  89.5    1e-20
+  UniRef50_UPI00071E8C6D hypothetical protein n=1 Tax=Haloparvum ...  89.1    1e-20
+  UniRef50_UPI0009E5891A hypothetical protein n=1 Tax=Halolamina ...  88.0    1e-20
+  UniRef50_M0N4Q1 Halocyanin domain protein n=4 Tax=Halococcus Ta...  92.2    1e-20
+  UniRef50_W0K2X6 Halocyanin n=2 Tax=Halobacterium sp. DL1 TaxID=...  92.6    2e-20
+  UniRef50_A0A0W1SVH4 Uncharacterized protein n=2 Tax=Haloferax s...  90.7    2e-20
+  UniRef50_M0MJ82 Halocyanin domain protein n=2 Tax=Halobacteria ...  89.1    2e-20
+  UniRef50_UPI00096AC568 halocyanin domain-containing protein n=1...  89.1    2e-20
+  UniRef50_A0A166TFG1 Uncharacterized protein n=2 Tax=Haladaptatu...  88.4    2e-20
+  UniRef50_UPI0008927325 plasmid stabilization protein n=2 Tax=Ha...  93.0    2e-20
+  UniRef50_A0A1V4C8C8 Halocyanin n=4 Tax=Haloferacales TaxID=1644...  89.5    2e-20
+  UniRef50_M0I661 Halocyanin-like protein n=1 Tax=Haloferax mucos...  88.0    3e-20
+  UniRef50_M0JG01 Halocyanin-like protein n=5 Tax=Halobacteria Ta...  89.9    4e-20
+  UniRef50_UPI00088C75EC halocyanin domain-containing protein n=1...  90.3    4e-20
+  UniRef50_UPI0008AC9D5A halocyanin domain-containing protein n=1...  92.2    4e-20
+  UniRef50_K9SU94 Plastocyanin n=8 Tax=Cyanobacteria TaxID=1117 R...  86.1    4e-20
+  UniRef50_A5GJR4 Plastocyanin n=83 Tax=root TaxID=1 RepID=A5GJR4...  86.1    5e-20
+  UniRef50_UPI00088E5BE4 hypothetical protein n=1 Tax=Halogranum ...  88.8    5e-20
+  UniRef50_A0A0M0FZJ9 Uncharacterized protein n=2 Tax=Azoarcus sp...  87.2    5e-20
+  UniRef50_Q5UXI4 Halocyanin-like n=27 Tax=Halobacteria TaxID=183...  88.4    6e-20
+  UniRef50_UPI0008E5BACA halocyanin n=2 Tax=Haloferacaceae TaxID=...  88.0    7e-20
+  UniRef50_A0A166RVT9 Halocyanin n=5 Tax=Halobacteriales TaxID=22...  88.4    8e-20
+  UniRef50_A0A1F3JZQ4 Uncharacterized protein n=1 Tax=Bacteroidet...  87.2    1e-19
+  UniRef50_P21697 Plastocyanin n=130 Tax=Terrabacteria group TaxI...  85.3    1e-19
+  UniRef50_I3R1X6 Copper-binding plastocyanin like protein n=3 Ta...  85.3    1e-19
+  UniRef50_A0A1D8U2V5 Plastocyanin n=2 Tax=Moorea TaxID=1155738 R...  86.8    1e-19
+  UniRef50_E7R000 Halocyanin hcpB n=3 Tax=Haladaptatus TaxID=3671...  88.8    1e-19
+  UniRef50_UPI0008E8833A hypothetical protein n=1 Tax=Halogranum ...  89.1    1e-19
+  UniRef50_UPI0009F206A1 hypothetical protein n=2 Tax=Proteobacte...  85.7    1e-19
+  UniRef50_E4NLD0 Plastocyanin n=19 Tax=Archaea TaxID=2157 RepID=...  87.6    2e-19
+  UniRef50_UPI0008F135D6 halocyanin domain-containing protein n=1...  89.5    2e-19
+  UniRef50_UPI00096A45E7 hypothetical protein n=1 Tax=Natronomona...  85.7    2e-19
+  UniRef50_Q5V295 Cytochrome-like protein n=18 Tax=Halobacteriale...  84.9    2e-19
+  UniRef50_R4W7Q1 Plastocyanin n=1 Tax=Salinarchaeum sp. Harcht-B...  85.7    2e-19
+  UniRef50_Q5V424 Halocyanin-like n=56 Tax=Archaea TaxID=2157 Rep...  86.4    3e-19
+  UniRef50_UPI000B7ED2E4 hypothetical protein n=1 Tax=Halogranum ...  87.2    3e-19
+  UniRef50_A0A0F9UCV1 Uncharacterized protein n=2 Tax=root TaxID=...  84.5    3e-19
+  UniRef50_UPI0008E830C9 halocyanin domain-containing protein n=2...  87.2    3e-19
+  UniRef50_M0MK99 Halocyanin n=3 Tax=Halobacteriales TaxID=2235 R...  82.6    4e-19
+  UniRef50_Q9HRQ9 Uncharacterized protein n=5 Tax=Halobacterium T...  86.4    4e-19
+  UniRef50_A0A1I5QVW7 Nitrite reductase (NO-forming) n=4 Tax=Halo...  89.1    5e-19
+  UniRef50_V4Y8W6 Halocyanin domain protein n=6 Tax=Archaea TaxID...  85.7    5e-19
+  UniRef50_A0A1H8USQ2 Halocyanin domain-containing protein n=4 Ta...  85.7    5e-19
+  UniRef50_UPI0008BCD950 halocyanin domain-containing protein n=1...  85.7    5e-19
+  UniRef50_G0LGP8 Halocyanin n=11 Tax=Archaea TaxID=2157 RepID=G0...  84.5    6e-19
+  UniRef50_UPI0008845F63 halocyanin domain-containing protein n=1...  85.3    7e-19
+  UniRef50_P11490 Plastocyanin minor isoform, chloroplastic n=9 T...  84.1    7e-19
+  UniRef50_H6BI62 Plastocyanin n=10 Tax=root TaxID=1 RepID=H6BI62...  82.6    8e-19
+  UniRef50_M0L2F5 Blue copper domain-containing protein n=2 Tax=H...  88.4    8e-19
+  UniRef50_Q18JX8 Halocyanin n=22 Tax=Archaea TaxID=2157 RepID=Q1...  85.7    8e-19
+  UniRef50_A0A1I5NHC2 Halocyanin domain-containing protein n=4 Ta...  88.0    9e-19
+  UniRef50_UPI000B9866E9 plastocyanin n=1 Tax=Synechococcus sp. 1...  82.6    9e-19
+  UniRef50_I3R3N3 Halocyanin n=5 Tax=Haloferacaceae TaxID=1644056...  83.8    1e-18
+  UniRef50_A0A1H8UQ74 Halocyanin domain-containing protein n=2 Ta...  83.4    1e-18
+  UniRef50_A0A0P7GAZ5 Halocyanin n=3 Tax=Haloferacales TaxID=1644...  83.8    1e-18
+  UniRef50_P18068 Plastocyanin, chloroplastic n=10 Tax=Viridiplan...  83.0    1e-18
+  UniRef50_UPI00089BC7CB halocyanin domain-containing protein n=1...  86.1    1e-18
+  UniRef50_A0A0D6JS41 Plastocyanin n=17 Tax=Haloferacales TaxID=1...  84.5    1e-18
+  UniRef50_A0A1Z1LWM3 Plastocyanin n=1 Tax=Synechococcus phage S-...  81.8    1e-18
+  UniRef50_C7NZM3 Halocyanin domain protein n=3 Tax=Halobacteria ...  86.1    1e-18
+  UniRef50_E3SJC0 Plastocyanin n=18 Tax=Caudovirales TaxID=28883 ...  81.8    1e-18
+  UniRef50_UPI000833AE26 copper-binding protein n=2 Tax=Haloferac...  82.6    2e-18
+  UniRef50_Q7U643 Type I copper blue protein: plastocyanin n=27 T...  81.8    2e-18
+  UniRef50_Q00GM1 Plastocyanin protein n=1 Tax=Karenia brevis Tax...  84.9    2e-18
+  UniRef50_Q5V4X3 Copper-binding plastocyanin like protein n=32 T...  83.0    2e-18
+  UniRef50_UPI0008844746 hypothetical protein n=1 Tax=Haloarchaeo...  82.6    3e-18
+  UniRef50_A0A0P7GZ90 Halocyanin n=1 Tax=Halolamina pelagica TaxI...  84.9    3e-18
+  UniRef50_C1EB66 Plastocyanin n=4 Tax=Viridiplantae TaxID=33090 ...  82.6    3e-18
+  UniRef50_A0A0J7HMN4 Halocyanin n=1 Tax=Chitinispirillum alkalip...  81.4    4e-18
+  UniRef50_UPI00070C898B hypothetical protein n=1 Tax=Bradyrhizob...  81.1    5e-18
+  UniRef50_M0CZ17 Halocyanin n=4 Tax=Haloferacales TaxID=1644055 ...  81.8    6e-18
+  UniRef50_P39442 Halocyanin n=9 Tax=Halobacteria TaxID=183963 Re...  81.8    6e-18
+  UniRef50_A0A1F3BN61 Uncharacterized protein n=2 Tax=Archaea Tax...  83.4    7e-18
+  UniRef50_B9LUR5 Halocyanin domain protein n=42 Tax=Archaea TaxI...  82.6    7e-18
+  UniRef50_H5SFA1 Blue (Type1) copper domain-containing protein n...  83.8    7e-18
+  UniRef50_UPI0008C7FDE5 hypothetical protein n=1 Tax=Halobacteri...  81.1    7e-18
+  UniRef50_P42699 Plastocyanin major isoform, chloroplastic n=97 ...  81.4    9e-18
+  UniRef50_I3R6L5 Halocyanin n=30 Tax=Halobacteria TaxID=183963 R...  81.4    1e-17
+  UniRef50_A0A075GCM2 NADH-quinone oxidoreductase subunit M (NuoM...  84.9    1e-17
+  UniRef50_A0A1Q3JJY1 Uncharacterized protein n=3 Tax=Proteobacte...  79.9    2e-17
+  UniRef50_A0A1F3BH41 Uncharacterized protein n=1 Tax=Bacteroidet...  81.4    2e-17
+  UniRef50_F4XNC8 Plastocyanin n=3 Tax=Moorea TaxID=1155738 RepID...  81.8    2e-17
+  UniRef50_Q9ST31 Plastocyanin n=8 Tax=Chlorophyta TaxID=3041 Rep...  80.3    2e-17
+  UniRef50_A0A0W1R9A7 Halocyanin n=5 Tax=Haloferacaceae TaxID=164...  79.9    2e-17
+  UniRef50_Q5V4M1 Halocyanin-like n=32 Tax=Halobacteria TaxID=183...  82.6    3e-17
+  UniRef50_V5A5U6 Halocyanin domain protein n=3 Tax=Archaea TaxID...  80.3    3e-17
+  UniRef50_M0EZU7 Halocyanin domain protein n=9 Tax=Halorubrum Ta...  79.1    4e-17
+  UniRef50_M0DRR5 Halocyanin hcpA n=8 Tax=Halorubraceae TaxID=196...  81.1    4e-17
+  UniRef50_A0A0W1RKF8 Halocyanin (Fragment) n=1 Tax=Haloferax sp....  79.1    4e-17
+  UniRef50_M0GW03 Halocyanin-like protein n=1 Tax=Haloferax larse...  79.5    4e-17
+  UniRef50_M0NHG1 Halocyanin n=3 Tax=Halobacteria TaxID=183963 Re...  80.7    4e-17
+  UniRef50_M0FRT8 Halocyanin domain protein n=9 Tax=Halobacteria ...  80.3    4e-17
+  UniRef50_UPI0008E5FB82 hypothetical protein n=1 Tax=Halogeometr...  83.0    4e-17
+  UniRef50_A7YXT4 Chloroplast plastocyanin n=5 Tax=Karlodinium ve...  81.1    4e-17
+  UniRef50_UPI0008F9CAC5 plastocyanin n=1 Tax=Geitlerinema sp. PC...  78.7    4e-17
+  UniRef50_L9YDW5 Blue (Type 1) copper domain-containing protein ...  81.1    4e-17
+  UniRef50_UPI00082EBF7B halocyanin domain-containing protein n=2...  80.7    5e-17
+  UniRef50_E3SKF1 Plastocyanin n=41 Tax=Viruses TaxID=10239 RepID...  78.0    5e-17
+  UniRef50_UPI0009E0894C plastocyanin n=1 Tax=Halobellus rufus Ta...  79.9    6e-17
+  UniRef50_M0IE83 Uncharacterized protein n=3 Tax=Haloferax TaxID...  82.2    6e-17
+  UniRef50_A0A166TXH2 Halocyanin n=1 Tax=Haladaptatus sp. R4 TaxI...  79.5    7e-17
+  UniRef50_R4VVU1 Halocyanin domain protein n=3 Tax=Halobacteria ...  78.7    7e-17
+  UniRef50_UPI00038B56E6 hypothetical protein n=1 Tax=Halopenitus...  78.7    7e-17
+  UniRef50_UPI0008A774F4 halocyanin n=3 Tax=Halopenitus TaxID=120...  78.4    8e-17
+  UniRef50_K9S3M3 Plastocyanin n=4 Tax=Cyanobacteria TaxID=1117 R...  78.4    8e-17
+  UniRef50_P56274 Plastocyanin n=5 Tax=Viridiplantae TaxID=33090 ...  76.8    9e-17
+  UniRef50_V5A7D8 Halocyanin domain protein n=6 Tax=Archaea TaxID...  79.9    1e-16
+  UniRef50_P17341 Plastocyanin A/B n=14 Tax=cellular organisms Ta...  76.4    1e-16
+  UniRef50_A0A0N0BPZ1 Halocyanin n=1 Tax=Haloarcula rubripromonto...  78.7    1e-16
+  UniRef50_M0LS65 Blue (Type 1) copper domain-containing protein ...  81.8    1e-16
+  UniRef50_C7P3R3 Blue (Type 1) copper domain protein n=2 Tax=Hal...  76.8    1e-16
+  UniRef50_Q5UWQ3 Halocyanin-like n=3 Tax=Haloarcula TaxID=2237 R...  78.4    1e-16
+  UniRef50_UPI000898AB2E halocyanin domain-containing protein n=1...  80.3    2e-16
+  UniRef50_UPI0008F62A56 plastocyanin n=1 Tax=Halobiforma haloter...  81.4    2e-16
+  UniRef50_M0D6M2 Blue (Type 1) copper domain-containing protein ...  81.4    2e-16
+  UniRef50_A0A0D3DQJ6 Plastocyanin n=2 Tax=Brassica oleracea var....  81.4    2e-16
+  UniRef50_A0A1Q3XCZ8 Uncharacterized protein n=1 Tax=Bacteroidet...  78.4    2e-16
+  UniRef50_A0A200QZS0 Plastocyanin n=1 Tax=Macleaya cordata TaxID...  80.7    2e-16
+  UniRef50_R4W3Q4 Plastocyanin n=3 Tax=Halobacteria TaxID=183963 ...  78.7    2e-16
+  UniRef50_Q5UXU5 Halocyanin-like n=17 Tax=Haloarculaceae TaxID=1...  78.4    2e-16
+  UniRef50_D4GW60 Halocyanin n=18 Tax=Halobacteria TaxID=183963 R...  78.0    2e-16
+  UniRef50_A0A238VD39 Halocyanin domain-containing protein n=2 Ta...  76.8    2e-16
+  UniRef50_P50057 Plastocyanin n=7 Tax=Synechococcales TaxID=1890...  76.8    2e-16
+  UniRef50_UPI0009DB869F hypothetical protein n=1 Tax=Halopiger d...  81.1    3e-16
+  UniRef50_A0A1Q1FJ21 Uncharacterized protein n=1 Tax=Haloriental...  80.7    3e-16
+  UniRef50_P00299 Plastocyanin A, chloroplastic n=60 Tax=cellular...  77.6    3e-16
+  UniRef50_E4NTS3 Plastocyanin n=4 Tax=Halobacteria TaxID=183963 ...  80.7    3e-16
+  UniRef50_Q2JHE1 Plastocyanin n=22 Tax=Cyanobacteria TaxID=1117 ...  76.8    3e-16
+  UniRef50_A0A1Q3XA32 Uncharacterized protein n=1 Tax=Bacteroidet...  78.4    3e-16
+  UniRef50_A0A1H8RRE2 Copper binding protein, plastocyanin/azurin...  80.3    3e-16
+  UniRef50_UPI000B80157B hypothetical protein n=1 Tax=Halogranum ...  78.4    3e-16
+  UniRef50_UPI0009E8F8F8 hypothetical protein n=1 Tax=Phenylobact...  76.0    4e-16
+  UniRef50_A0A1F2UNR8 Uncharacterized protein n=5 Tax=unclassifie...  78.0    4e-16
+  UniRef50_A0A1F5YGP9 Uncharacterized protein n=2 Tax=Candidatus ...  76.8    4e-16
+  UniRef50_D2RQR4 Blue (Type 1) copper domain protein n=22 Tax=Ha...  76.4    4e-16
+  UniRef50_UPI000B99C175 halocyanin domain-containing protein n=4...  77.2    5e-16
+  UniRef50_V4H9X4 Blue copper domain-containing protein n=1 Tax=C...  80.3    6e-16
+  UniRef50_U1P8K7 Halocyanin domain protein n=5 Tax=Halobacteria ...  77.6    6e-16
+  UniRef50_A0A1N7FMB9 Uncharacterized protein n=1 Tax=Natronorubr...  78.7    6e-16
+  UniRef50_I4EKJ1 Plastocyanin (Modular protein) n=2 Tax=Nitrolan...  77.2    6e-16
+  UniRef50_I3R2Q8 Halocyanin n=4 Tax=Archaea TaxID=2157 RepID=I3R...  77.2    7e-16
+  UniRef50_L9VPS3 Halocyanin-like protein n=1 Tax=Natronorubrum t...  76.0    9e-16
+  UniRef50_A0A1J5U7B4 Uncharacterized protein n=2 Tax=Marine Grou...  79.9    9e-16
+  UniRef50_U1R0M8 Plastocyanin n=1 Tax=halophilic archaeon J07HB6...  75.7    1e-15
+  UniRef50_UPI0009FF0AAF hypothetical protein n=1 Tax=Natronococc...  75.7    1e-15
+  UniRef50_A0A1Q8BPI7 Uncharacterized protein (Fragment) n=1 Tax=...  78.0    1e-15
+  UniRef50_M0MZ66 Blue (Type 1) copper domain-containing protein ...  76.8    1e-15
+  UniRef50_A0A1M3NE57 Uncharacterized protein n=1 Tax=Myxococcale...  74.5    1e-15
+  UniRef50_A0A1H6BAI9 Halocyanin domain-containing protein n=3 Ta...  77.6    2e-15
+  UniRef50_A0A1Y6BS19 Plastocyanin n=1 Tax=Tistlia consotensis US...  74.9    2e-15
+  UniRef50_G9A8U1 Uncharacterized protein n=10 Tax=Proteobacteria...  74.9    2e-15
+  UniRef50_A0A1U7EYW8 Halocyanin n=2 Tax=Natronomonas pharaonis T...  78.4    2e-15
+  UniRef50_V4GTX3 Halocyanin domain-containing protein n=2 Tax=Ha...  75.3    2e-15
+  UniRef50_R4W8A6 Plastocyanin n=4 Tax=Halobacteria TaxID=183963 ...  74.5    2e-15
+  UniRef50_UPI000B99B212 hypothetical protein n=1 Tax=Rubricoccus...  77.6    2e-15
+  UniRef50_L9W9H2 Uncharacterized protein n=2 Tax=Natronorubrum T...  76.4    3e-15
+  UniRef50_UPI0009DD8F59 halocyanin domain-containing protein n=4...  74.5    3e-15
+  UniRef50_A0A1I3ABH3 Halocyanin domain-containing protein n=1 Ta...  78.4    3e-15
+  UniRef50_K9YXI2 Plastocyanin n=2 Tax=Cyanobacteria TaxID=1117 R...  75.3    3e-15
+  UniRef50_L0JW32 Plastocyanin n=8 Tax=Natrialbaceae TaxID=164406...  75.3    4e-15
+  UniRef50_A0A0N8KPT6 Plastocyanin n=4 Tax=Phormidium TaxID=1198 ...  73.7    4e-15
+  UniRef50_UPI00098E5C11 plastocyanin-like n=1 Tax=Asparagus offi...  73.7    4e-15
+  UniRef50_D8J3X4 Halocyanin domain protein n=2 Tax=Halobacteria ...  74.1    5e-15
+  UniRef50_Q18HQ8 Halocyanin n=114 Tax=Archaea TaxID=2157 RepID=Q...  74.1    5e-15
+  UniRef50_L0JMX2 Halocyanin-like protein (Copper-containing prot...  74.9    5e-15
+  UniRef50_A0A1B2ZA94 Uncharacterized protein n=1 Tax=uncultured ...  78.0    5e-15
+  UniRef50_M0CV51 Halocyanin-like protein n=2 Tax=Halogeometricum...  74.1    6e-15
+  UniRef50_R4VZY1 Blue (Type 1) copper domain-containing protein ...  77.2    7e-15
+  UniRef50_A0A1Q1FFI3 Uncharacterized protein n=3 Tax=Haloriental...  74.1    7e-15
+  UniRef50_E7QQR0 Halocyanin hcpB n=4 Tax=Haladaptatus TaxID=3671...  75.7    7e-15
+  UniRef50_A0A0S3TJC3 Plastocyanin n=17 Tax=Nostocales TaxID=1161...  73.0    7e-15
+  UniRef50_A0A1Z8KUW4 Uncharacterized protein n=1 Tax=bacterium T...  76.8    9e-15
+  UniRef50_A0A0S4PMF9 Copper binding protein, plastocyanin/azurin...  73.4    1e-14
+  UniRef50_A0A1H8RQ27 Copper binding protein, plastocyanin/azurin...  75.7    1e-14
+  UniRef50_A0A0C1V1A3 Uncharacterized protein (Fragment) n=2 Tax=...  76.8    1e-14
+  UniRef50_UPI0008844C23 plastocyanin n=1 Tax=Natronorubrum texco...  76.4    1e-14
+  UniRef50_UPI000B81730E hypothetical protein n=1 Tax=Halopelagiu...  74.9    1e-14
+  UniRef50_R4WAD2 Halocyanin domain protein n=2 Tax=Halobacteria ...  74.9    1e-14
+  UniRef50_A0A1G3GXT7 Plastocyanin n=3 Tax=Rhodocyclales TaxID=20...  72.2    1e-14
+  UniRef50_A0A151ACV0 Halocyanin n=2 Tax=Halobacteriaceae TaxID=2...  73.4    1e-14
+  UniRef50_B9LTP3 Blue (Type 1) copper domain protein n=9 Tax=Hal...  72.6    1e-14
+  UniRef50_A0A1V3NM23 Plastocyanin n=2 Tax=Thioalkalivibrio TaxID...  71.8    1e-14
+
+
+
+Lambda      K        H        a         alpha
+   0.318    0.155    0.522    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0475    0.140     1.90     42.6     43.6 
+
+Effective search space used: 203629626130
+Results from round 3
+
+
+Query= 1pazA
+
+Length=123
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+Sequences used in model and found again:
+
+  UniRef50_C0RKL3 Pseudoazurin n=24 Tax=Brucella TaxID=234 RepID=...  169     8e-52
+  UniRef50_P04377 Pseudoazurin n=122 Tax=Proteobacteria TaxID=122...  164     2e-50
+  UniRef50_Q11GK5 Pseudoazurin n=2 Tax=Alphaproteobacteria TaxID=...  162     7e-50
+  UniRef50_Q52825 Putative pseudoazurin n=20 Tax=Rhizobiales TaxI...  161     1e-49
+  UniRef50_J3BL65 Pseudoazurin n=10 Tax=Rhizobium TaxID=379 RepID...  160     3e-49
+  UniRef50_A0A1W6KXP3 Pseudoazurin n=29 Tax=Alphaproteobacteria T...  159     9e-49
+  UniRef50_A0A085F4Q0 Blue copper protein n=15 Tax=Alphaproteobac...  159     1e-48
+  UniRef50_I3X953 Pseudoazurin n=135 Tax=Bacteria TaxID=2 RepID=I...  159     1e-48
+  UniRef50_A0A090MHC6 Blue copper protein n=7 Tax=Alphaproteobact...  159     2e-48
+  UniRef50_Q8YBD5 Pseudoazurin n=6 Tax=Brucella TaxID=234 RepID=Q...  158     2e-48
+  UniRef50_P80401 Pseudoazurin n=232 Tax=Bacteria TaxID=2 RepID=A...  158     4e-48
+  UniRef50_A7HRU8 Pseudoazurin n=31 Tax=Proteobacteria TaxID=1224...  157     6e-48
+  UniRef50_K2I739 Azu1 pseudoazurin (Blue copper protein) n=8 Tax...  156     8e-48
+  UniRef50_J5KG24 Pseudoazurin n=1 Tax=SAR86 cluster bacterium SA...  156     3e-47
+  UniRef50_I3X5L6 Pseudoazurin n=97 Tax=Alphaproteobacteria TaxID...  154     1e-46
+  UniRef50_S5SV32 Pseudoazurin 1 n=46 Tax=Alphaproteobacteria Tax...  153     3e-46
+  UniRef50_A0A0F5LQW7 Uncharacterized protein n=8 Tax=Alphaproteo...  152     6e-46
+  UniRef50_B1J6J4 Pseudoazurin n=47 Tax=Proteobacteria TaxID=1224...  151     2e-45
+  UniRef50_A0A1X6ZYZ1 Pseudoazurin n=1 Tax=Roseovarius albus TaxI...  150     3e-45
+  UniRef50_P04171 Pseudoazurin n=17 Tax=Methylobacterium TaxID=40...  150     4e-45
+  UniRef50_K2IV58 Blue (Type 1) copper subtype protein n=4 Tax=Rh...  149     6e-45
+  UniRef50_UPI000378E69E pseudoazurin n=1 Tax=Methylobacterium sp...  150     7e-45
+  UniRef50_A0A212KJE4 Pseudoazurin n=4 Tax=Alphaproteobacteria Ta...  149     8e-45
+  UniRef50_A0A0F5K165 Pseudoazurin n=18 Tax=Proteobacteria TaxID=...  149     9e-45
+  UniRef50_B1Z5M1 Pseudoazurin n=26 Tax=Proteobacteria TaxID=1224...  149     1e-44
+  UniRef50_A0A196QLK8 Pseudoazurin n=20 Tax=Alphaproteobacteria T...  147     7e-44
+  UniRef50_A0A1S7S1E7 Pseudoazurin n=101 Tax=Proteobacteria TaxID...  147     1e-43
+  UniRef50_A0A1Q4UMR0 Pseudoazurin n=3 Tax=Alphaproteobacteria Ta...  145     3e-43
+  UniRef50_A6UD26 Pseudoazurin n=24 Tax=Proteobacteria TaxID=1224...  144     8e-43
+  UniRef50_A0A175RQU1 Pseudoazurin n=8 Tax=Alphaproteobacteria Ta...  143     2e-42
+  UniRef50_A0A0Q7SFY1 Uncharacterized protein n=5 Tax=Caulobacter...  143     2e-42
+  UniRef50_J4KRR0 Pseudoazurin n=1 Tax=SAR86 cluster bacterium SA...  144     2e-42
+  UniRef50_A0A192ILG1 Pseudoazurin n=4 Tax=Rhizobiales TaxID=356 ...  143     3e-42
+  UniRef50_UPI0002638CE1 Pseudoazurin (Blue copper protein) n=2 T...  142     3e-42
+  UniRef50_A0A221K631 Pseudoazurin n=1 Tax=Sulfitobacter pseudoni...  143     4e-42
+  UniRef50_A0A089WNJ5 Blue copper protein n=33 Tax=Bacteria TaxID...  142     6e-42
+  UniRef50_UPI0009F9D11F pseudoazurin n=1 Tax=Pseudovibrio sp. Ab...  143     7e-42
+  UniRef50_UPI000B98A984 pseudoazurin n=1 Tax=Ochrobactrum thioph...  141     1e-41
+  UniRef50_UPI0008E92566 pseudoazurin n=2 Tax=Rhodobacteraceae Ta...  141     2e-41
+  UniRef50_M5QEY4 Pseudoazurin n=19 Tax=Proteobacteria TaxID=1224...  141     2e-41
+  UniRef50_A0A021WWS2 Pseudoazurin n=61 Tax=Proteobacteria TaxID=...  141     2e-41
+  UniRef50_UPI00055095DA pseudoazurin n=2 Tax=Gammaproteobacteria...  140     3e-41
+  UniRef50_A0A1E4ABS3 Pseudoazurin n=2 Tax=Devosia TaxID=46913 Re...  140     5e-41
+  UniRef50_H0HWZ4 Pseudoazurin n=13 Tax=Proteobacteria TaxID=1224...  139     8e-41
+  UniRef50_Q2RVA5 Blue (Type 1) copper subtype n=29 Tax=Proteobac...  139     9e-41
+  UniRef50_Q0AP32 Pseudoazurin n=5 Tax=Alphaproteobacteria TaxID=...  139     1e-40
+  UniRef50_A0A238J5R2 Pseudoazurin n=1 Tax=Boseongicola aestuarii...  138     2e-40
+  UniRef50_UPI000930F8CD pseudoazurin n=2 Tax=Hyphomicrobium TaxI...  137     3e-40
+  UniRef50_UPI000B97D523 pseudoazurin n=2 Tax=Wohlfahrtiimonas Ta...  137     4e-40
+  UniRef50_UPI000A014757 pseudoazurin n=1 Tax=Roseinatronobacter ...  137     1e-39
+  UniRef50_UPI0008B005E7 pseudoazurin n=3 Tax=Rhodobacteraceae Ta...  136     1e-39
+  UniRef50_A0A0P9B4M1 Uncharacterized protein n=1 Tax=Marinosulfo...  136     2e-39
+  UniRef50_A1B1R6 Pseudoazurin n=9 Tax=Proteobacteria TaxID=1224 ...  135     3e-39
+  UniRef50_A0A1M5WHG3 Pseudoazurin n=3 Tax=Rhodobacteraceae TaxID...  135     4e-39
+  UniRef50_A4G4D0 Pseudoazurin (Blue copper protein) n=18 Tax=roo...  134     5e-39
+  UniRef50_A0A0B5DQD1 Pseudoazurin n=2 Tax=Proteobacteria TaxID=1...  134     6e-39
+  UniRef50_UPI000B814880 pseudoazurin n=1 Tax=Aquamicrobium aerol...  134     7e-39
+  UniRef50_A0A0C1V2F7 Uncharacterized protein n=2 Tax=Bacteria Ta...  135     7e-39
+  UniRef50_A0A0P1ESX9 Blue copper protein n=2 Tax=Rhodobacteracea...  134     7e-39
+  UniRef50_A0A1E2VBE1 Pseudoazurin n=2 Tax=Terasakiispira papahan...  134     8e-39
+  UniRef50_A4GI45 Possible pseudoazurin n=1 Tax=uncultured marine...  134     9e-39
+  UniRef50_A0A0M6ZGI0 Blue copper protein n=8 Tax=Rhodobacteracea...  134     1e-38
+  UniRef50_UPI00048A80FB pseudoazurin n=1 Tax=Microvirgula aerode...  133     1e-38
+  UniRef50_A0A1C3ERK1 Pseudoazurin n=2 Tax=Gammaproteobacteria Ta...  133     2e-38
+  UniRef50_A0A060QA84 Pseudoazurin n=4 Tax=Rhodospirillales TaxID...  133     2e-38
+  UniRef50_A0A1U9RHB1 Pseudoazurin n=3 Tax=Proteobacteria TaxID=1...  133     3e-38
+  UniRef50_A0A154WG00 Uncharacterized protein n=3 Tax=Oceanibacul...  132     3e-38
+  UniRef50_UPI000883D9C7 pseudoazurin n=1 Tax=Albidiferax sp. OV4...  132     3e-38
+  UniRef50_A0A0Q5V8Z6 Uncharacterized protein n=3 Tax=Proteobacte...  132     4e-38
+  UniRef50_T0IZ37 Uncharacterized protein n=14 Tax=Sphingomonadac...  132     4e-38
+  UniRef50_A0A1I7BW00 Pseudoazurin n=4 Tax=Proteobacteria TaxID=1...  131     6e-38
+  UniRef50_UPI000A18D58C pseudoazurin n=1 Tax=Neisseria sp. 11472...  131     9e-38
+  UniRef50_A0A166BL49 Pseudoazurin n=5 Tax=Pseudovibrio TaxID=258...  132     9e-38
+  UniRef50_B4RF43 Plastocyanin n=6 Tax=root TaxID=1 RepID=B4RF43_...  131     9e-38
+  UniRef50_UPI000483E3A0 pseudoazurin n=1 Tax=Rhodovibrio salinar...  131     1e-37
+  UniRef50_UPI00092FF244 pseudoazurin n=2 Tax=Gammaproteobacteria...  131     2e-37
+  UniRef50_A0A0B3S6F8 Pseudoazurin n=11 Tax=Rhodobacteraceae TaxI...  131     2e-37
+  UniRef50_A6SV41 Pseudoazurin (Blue copper protein) n=10 Tax=Bac...  131     2e-37
+  UniRef50_A0A1C3JTV2 Pseudoazurin n=1 Tax=Marinomonas gallaica T...  130     2e-37
+  UniRef50_A0A1C3JNG5 Pseudoazurin n=12 Tax=Proteobacteria TaxID=...  130     2e-37
+  UniRef50_UPI0008321ED1 pseudoazurin n=1 Tax=Marinomonas gallaic...  130     3e-37
+  UniRef50_A0A099DQA9 Pseudoazurin n=7 Tax=Proteobacteria TaxID=1...  130     3e-37
+  UniRef50_A1B6C2 Pseudoazurin n=5 Tax=Alphaproteobacteria TaxID=...  129     5e-37
+  UniRef50_M9RDJ1 Putative cupredoxin n=5 Tax=Rhodobacteraceae Ta...  129     6e-37
+  UniRef50_H5SRH7 Blue-copper-protein n=1 Tax=Acetothermus autotr...  130     7e-37
+  UniRef50_UPI000B864670 pseudoazurin n=1 Tax=Rhodospirillales ba...  129     7e-37
+  UniRef50_A0A074MUI2 Uncharacterized protein n=3 Tax=Erythrobact...  129     1e-36
+  UniRef50_F2BBF5 Pseudoazurin n=8 Tax=Proteobacteria TaxID=1224 ...  128     2e-36
+  UniRef50_A3N392 Pseudoazurin n=22 Tax=Proteobacteria TaxID=1224...  128     2e-36
+  UniRef50_A0A120CY81 Pseudoazurin n=1 Tax=Hyphomicrobium sulfoni...  128     2e-36
+  UniRef50_UPI000B51DD7A pseudoazurin n=2 Tax=Proteobacteria TaxI...  128     2e-36
+  UniRef50_V5SFC1 Pseudoazurin n=2 Tax=Hyphomicrobium TaxID=81 Re...  128     3e-36
+  UniRef50_B4W968 Pseudoazurin n=3 Tax=Caulobacterales TaxID=2044...  127     3e-36
+  UniRef50_A0A0P7WIH6 Plastocyanin n=3 Tax=Erythrobacteraceae Tax...  129     3e-36
+  UniRef50_A0A1E2RV84 Pseudoazurin n=1 Tax=Methyloligella halotol...  127     4e-36
+  UniRef50_Q6SEV4 Blue copper protein n=3 Tax=Bacteria TaxID=2 Re...  127     4e-36
+  UniRef50_UPI0003608FD3 pseudoazurin n=1 Tax=Microbulbifer varia...  127     5e-36
+  UniRef50_A0A0F4R1Z1 Uncharacterized protein n=4 Tax=Gammaproteo...  126     6e-36
+  UniRef50_A0A1Y5E4M9 Uncharacterized protein n=2 Tax=Colwellia T...  127     7e-36
+  UniRef50_F0L246 Pseudoazurin / blue copper protein n=27 Tax=Rhi...  127     7e-36
+  UniRef50_V8C571 Pseudoazurin n=4 Tax=Proteobacteria TaxID=1224 ...  126     2e-35
+  UniRef50_UPI000B49C49B pseudoazurin n=2 Tax=Sphingobium sp. Z00...  125     2e-35
+  UniRef50_A0A1T1ASY2 Pseudoazurin n=1 Tax=Rhodoferax fermentans ...  125     2e-35
+  UniRef50_A0A1A8TD02 Pseudoazurin n=5 Tax=Marinomonas TaxID=2825...  125     3e-35
+  UniRef50_I2NQJ0 Putative pseudoazurin n=90 Tax=Proteobacteria T...  125     4e-35
+  UniRef50_A0A1Z8ZYN7 Uncharacterized protein n=1 Tax=Rhizobiales...  124     4e-35
+  UniRef50_S6H716 Pseudoazurin n=1 Tax=Osedax symbiont Rs1 TaxID=...  125     4e-35
+  UniRef50_A0A1Y5DUS0 Pseudoazurin n=4 Tax=Gammaproteobacteria Ta...  124     5e-35
+  UniRef50_M9RHK4 Putative amicyanin family protein n=2 Tax=Octad...  124     6e-35
+  UniRef50_N1MW42 Pseudoazurin n=3 Tax=Sphingobium TaxID=165695 R...  124     6e-35
+  UniRef50_A0A1Z9VPN8 Uncharacterized protein n=3 Tax=Bacteria Ta...  124     7e-35
+  UniRef50_E4PKM4 Pseudoazurin n=7 Tax=Alteromonadaceae TaxID=722...  124     7e-35
+  UniRef50_A0A1G3GY76 Pseudoazurin n=2 Tax=Proteobacteria TaxID=1...  124     1e-34
+  UniRef50_A0A099TPT8 Pseudoazurin n=1 Tax=Helicobacter sp. MIT 1...  123     1e-34
+  UniRef50_F5S8H2 Pseudoazurin n=6 Tax=Kingella kingae TaxID=504 ...  123     2e-34
+  UniRef50_A7VL37 Blue copper protein n=5 Tax=Hyphomicrobium TaxI...  122     5e-34
+  UniRef50_C7D6J7 Pseudoazurin n=3 Tax=Rhodobacteraceae TaxID=319...  122     6e-34
+  UniRef50_A0A090K7C6 Pseudoazurin n=4 Tax=Moritella TaxID=58050 ...  122     6e-34
+  UniRef50_A0A0P9CJS6 Pseudoazurin n=1 Tax=Thiohalorhabdus denitr...  122     8e-34
+  UniRef50_A0A0P7H0H7 Halocyanin n=2 Tax=Halolamina pelagica TaxI...  124     8e-34
+  UniRef50_A0A074MLX8 Uncharacterized protein n=2 Tax=Erythrobact...  123     1e-33
+  UniRef50_A0A0F4QTB7 Uncharacterized protein n=2 Tax=Gammaproteo...  121     2e-33
+  UniRef50_A0A109LVC4 Uncharacterized protein n=3 Tax=Erythrobact...  122     2e-33
+  UniRef50_A0A212L9V4 Pseudoazurin n=3 Tax=Alphaproteobacteria Ta...  120     3e-33
+  UniRef50_D5RQS2 Putative pseudoazurin n=1 Tax=Roseomonas cervic...  119     5e-33
+  UniRef50_K9YMC8 Plastocyanin n=2 Tax=Oscillatoriophycideae TaxI...  117     1e-32
+  UniRef50_A0A1E3GW43 Pseudoazurin n=10 Tax=root TaxID=1 RepID=A0...  118     1e-32
+  UniRef50_A0A074MAA2 Uncharacterized protein n=1 Tax=Erythrobact...  119     1e-32
+  UniRef50_UPI0007844927 pseudoazurin n=1 Tax=Caulobacter sp. CCH...  118     1e-32
+  UniRef50_UPI000B9603A7 hypothetical protein n=1 Tax=Rhodoferax ...  119     1e-32
+  UniRef50_Q3J3Z8 PpaZ n=7 Tax=Rhodobacter TaxID=1060 RepID=Q3J3Z...  118     2e-32
+  UniRef50_E1WY51 Putative exported pseudoazurin n=1 Tax=Halobact...  117     2e-32
+  UniRef50_E0XXI4 Plastocyanin n=1 Tax=uncultured alpha proteobac...  117     4e-32
+  UniRef50_Q6MK46 Pseudoazurin n=6 Tax=Bdellovibrio bacteriovorus...  116     4e-32
+  UniRef50_A0A1Q1FJ74 Uncharacterized protein n=16 Tax=Halobacter...  120     6e-32
+  UniRef50_L9XLY0 Blue (Type 1) copper domain-containing protein ...  121     9e-32
+  UniRef50_A0A0F9MM82 Uncharacterized protein n=1 Tax=marine sedi...  115     1e-31
+  UniRef50_C7NY85 Halocyanin domain protein n=4 Tax=Halobacteria ...  121     1e-31
+  UniRef50_Q9HQF3 Halocyanin-like n=2 Tax=Halobacterium salinarum...  117     1e-31
+  UniRef50_UPI0008B87906 hypothetical protein n=1 Tax=Haloriental...  118     2e-31
+  UniRef50_P55020 Plastocyanin n=12 Tax=Cyanobacteria TaxID=1117 ...  114     3e-31
+  UniRef50_B7VRR3 Azu1 pseudoazurin (Blue copper protein) n=24 Ta...  114     4e-31
+  UniRef50_A0A1X6YSK5 Pseudoazurin n=1 Tax=Roseivivax jejudonensi...  114     5e-31
+  UniRef50_A5GJR4 Plastocyanin n=83 Tax=root TaxID=1 RepID=A5GJR4...  113     7e-31
+  UniRef50_D3ENC9 Plastocyanin n=30 Tax=Cyanobacteria TaxID=1117 ...  113     9e-31
+  UniRef50_A0A1C0SSZ1 Pseudoazurin n=8 Tax=Alphaproteobacteria Ta...  113     9e-31
+  UniRef50_Q5V2E6 Halocyanin-like n=2 Tax=Haloarcula marismortui ...  116     1e-30
+  UniRef50_UPI0004A07608 copper-binding protein n=3 Tax=Halobacte...  116     1e-30
+  UniRef50_A0A1C3JQU5 Pseudoazurin n=3 Tax=Marinomonas TaxID=2825...  113     2e-30
+  UniRef50_V4HAH4 Halocyanin domain-containing protein n=2 Tax=Ca...  118     2e-30
+  UniRef50_UPI000889B873 halocyanin domain-containing protein n=1...  117     2e-30
+  UniRef50_A0A099KBM7 Blue (Type 1) copper domain protein n=6 Tax...  112     3e-30
+  UniRef50_I3R6L9 Halocyanin n=28 Tax=Halobacteria TaxID=183963 R...  117     5e-30
+  UniRef50_A0A1Q9GL34 Azurin n=1 Tax=Photobacterium proteolyticum...  112     6e-30
+  UniRef50_D5C3H3 Blue (Type 1) copper domain protein n=4 Tax=Nit...  111     7e-30
+  UniRef50_P00300 Plastocyanin n=5 Tax=Eukaryota TaxID=2759 RepID...  109     9e-30
+  UniRef50_W0K7H6 Halocyanin n=1 Tax=Halobacterium sp. DL1 TaxID=...  112     1e-29
+  UniRef50_A0A1E3GXI4 Pseudoazurin n=3 Tax=Methylophaga TaxID=402...  114     1e-29
+  UniRef50_A0A1E3GPL1 Pseudoazurin n=2 Tax=Methylophaga muralis T...  113     2e-29
+  UniRef50_K0RWK5 Uncharacterized protein n=3 Tax=cellular organi...  110     2e-29
+  UniRef50_B0R7A9 Halocyanin HcpB / cbaD domain protein n=5 Tax=H...  117     2e-29
+  UniRef50_A0A1M5PNI1 Halocyanin domain-containing protein n=3 Ta...  113     2e-29
+  UniRef50_M0KZF0 Halocyanin-like protein n=24 Tax=Halobacteria T...  111     3e-29
+  UniRef50_A0A1X6YXR0 Pseudoazurin n=1 Tax=Ruegeria meonggei TaxI...  111     3e-29
+  UniRef50_A0A1G0K2P5 Uncharacterized protein n=1 Tax=Gammaproteo...  109     4e-29
+  UniRef50_B9K2V1 Pseudoazurin n=8 Tax=Rhizobium/Agrobacterium gr...  109     5e-29
+  UniRef50_Q7U643 Type I copper blue protein: plastocyanin n=27 T...  108     5e-29
+  UniRef50_M0ML40 Plastocyanin n=3 Tax=Halococcus TaxID=2249 RepI...  114     7e-29
+  UniRef50_A0A0U5ACB0 Halocyanin n=10 Tax=Halobacteriales TaxID=2...  110     7e-29
+  UniRef50_UPI0009B5AF16 halocyanin domain-containing protein n=2...  109     7e-29
+  UniRef50_A0A087LS44 Uncharacterized protein n=24 Tax=Bacteria T...  110     7e-29
+  UniRef50_U2DN94 Halocyanin-like protein n=4 Tax=Haloarculaceae ...  109     9e-29
+  UniRef50_H0I1M5 Blue (Type1) copper domain-containing protein (...  108     9e-29
+  UniRef50_A0A1F5YDY6 Uncharacterized protein n=2 Tax=Candidatus ...  109     9e-29
+  UniRef50_Q9HN93 Halocyanin-like n=1 Tax=Halobacterium salinarum...  112     1e-28
+  UniRef50_C0N5E6 Copper binding protein, plastocyanin/azurin fam...  111     1e-28
+  UniRef50_A0A1I5MKH3 Plastocyanin n=1 Tax=Halolamina pelagica Ta...  109     1e-28
+  UniRef50_A0A1I5NN92 Halocyanin domain-containing protein n=1 Ta...  113     1e-28
+  UniRef50_Q5V2Z9 Halocyanin-like n=15 Tax=Halobacteria TaxID=183...  114     2e-28
+  UniRef50_Q9HRS0 Uncharacterized protein n=2 Tax=Halobacterium s...  110     2e-28
+  UniRef50_UPI00096AC568 halocyanin domain-containing protein n=1...  109     2e-28
+  UniRef50_A0A0U5H3X7 Halocyanin n=3 Tax=Halobacterium TaxID=2239...  107     2e-28
+  UniRef50_T0RML8 Putative pseudoazurin n=2 Tax=Bacteriovorax sp....  107     2e-28
+  UniRef50_M7P3Z4 Pseudoazurin n=1 Tax=Methylophaga lonarensis MP...  111     3e-28
+  UniRef50_M0DAN0 Halocyanin n=1 Tax=Halogeometricum pallidum JCM...  112     3e-28
+  UniRef50_A0A0U5H7D9 Halocyanin n=10 Tax=Halobacteria TaxID=1839...  110     3e-28
+  UniRef50_A0A0P7GAZ5 Halocyanin n=3 Tax=Haloferacales TaxID=1644...  108     3e-28
+  UniRef50_M0N4Q1 Halocyanin domain protein n=4 Tax=Halococcus Ta...  112     3e-28
+  UniRef50_M0MJ82 Halocyanin domain protein n=2 Tax=Halobacteria ...  108     4e-28
+  UniRef50_V4Y8W6 Halocyanin domain protein n=6 Tax=Archaea TaxID...  109     4e-28
+  UniRef50_UPI0008821F28 copper-binding protein n=1 Tax=Pseudovib...  107     5e-28
+  UniRef50_A0A1H8USQ2 Halocyanin domain-containing protein n=4 Ta...  109     5e-28
+  UniRef50_M0HPN3 Halocyanin-like protein n=5 Tax=Haloferacaceae ...  107     5e-28
+  UniRef50_M0I661 Halocyanin-like protein n=1 Tax=Haloferax mucos...  107     6e-28
+  UniRef50_A0A0Q7E7R0 Uncharacterized protein n=22 Tax=Alphaprote...  107     6e-28
+  UniRef50_E4NUX0 Halocyanin n=11 Tax=Halobacteria TaxID=183963 R...  107     7e-28
+  UniRef50_A4EZW6 Azu1 pseudoazurin (Blue copper protein) n=3 Tax...  107     9e-28
+  UniRef50_J3JCR1 Halocyanin domain-containing protein n=2 Tax=Ha...  105     9e-28
+  UniRef50_UPI0008845F63 halocyanin domain-containing protein n=1...  108     1e-27
+  UniRef50_A0A1D8U2V5 Plastocyanin n=2 Tax=Moorea TaxID=1155738 R...  107     1e-27
+  UniRef50_A0A1E4BYB6 Uncharacterized protein n=1 Tax=Kaistia sp....  106     1e-27
+  UniRef50_A3X3Q8 Probable pseudoazurin (Blue copper protein) n=3...  106     2e-27
+  UniRef50_P21697 Plastocyanin n=130 Tax=Terrabacteria group TaxI...  105     2e-27
+  UniRef50_D5BQF6 Pseudoazurin n=3 Tax=Alphaproteobacteria TaxID=...  105     2e-27
+  UniRef50_UPI000B7CF408 hypothetical protein n=1 Tax=Halomicrobi...  105     2e-27
+  UniRef50_A0A1I5QVW7 Nitrite reductase (NO-forming) n=4 Tax=Halo...  112     2e-27
+  UniRef50_C7P1C5 Blue (Type 1) copper domain protein n=3 Tax=Hal...  105     2e-27
+  UniRef50_UPI0008F135D6 halocyanin domain-containing protein n=1...  110     2e-27
+  UniRef50_D8TJU4 Plastocyanin n=2 Tax=Volvox carteri f. nagarien...  105     3e-27
+  UniRef50_A0A1I5NHC2 Halocyanin domain-containing protein n=4 Ta...  111     3e-27
+  UniRef50_UPI000B8462B0 hypothetical protein n=1 Tax=Halopelagiu...  106     3e-27
+  UniRef50_UPI0000112921 PLASTOCYANIN n=3 Tax=Cyanobacteria TaxID...  103     3e-27
+  UniRef50_UPI0008BB5E50 hypothetical protein n=1 Tax=Halobacteri...  106     4e-27
+  UniRef50_W0JXL0 Uncharacterized protein n=1 Tax=Halobacterium s...  105     6e-27
+  UniRef50_E4NU89 Plastocyanin n=11 Tax=Halobacteria TaxID=183963...  106     6e-27
+  UniRef50_P39442 Halocyanin n=9 Tax=Halobacteria TaxID=183963 Re...  104     6e-27
+  UniRef50_A0A1H3FC83 Pseudoazurin n=3 Tax=Ruegeria TaxID=97050 R...  104     7e-27
+  UniRef50_H5S899 Cell surface protein n=2 Tax=Candidatus Acetoth...  108     7e-27
+  UniRef50_UPI000B9866E9 plastocyanin n=1 Tax=Synechococcus sp. 1...  103     7e-27
+  UniRef50_E0XT15 Plastocyanin n=4 Tax=Proteobacteria TaxID=1224 ...  104     7e-27
+  UniRef50_Q5UXI4 Halocyanin-like n=27 Tax=Halobacteria TaxID=183...  106     8e-27
+  UniRef50_A0A0P7GZ90 Halocyanin n=1 Tax=Halolamina pelagica TaxI...  107     9e-27
+  UniRef50_I3R6L5 Halocyanin n=30 Tax=Halobacteria TaxID=183963 R...  104     1e-26
+  UniRef50_B6SSB9 Plastocyanin n=23 Tax=cellular organisms TaxID=...  104     1e-26
+  UniRef50_UPI0009E71046 hypothetical protein n=1 Tax=Haloferax s...  106     1e-26
+  UniRef50_UPI00096A97A9 halocyanin n=2 Tax=Halobacteria TaxID=18...  104     1e-26
+  UniRef50_M0D1T6 Blue (Type 1) copper domain-containing protein ...  102     1e-26
+  UniRef50_K2IZG9 Pseudoazurin n=2 Tax=Oceanibaculum TaxID=659693...  102     1e-26
+  UniRef50_A0A238X1Z0 Halocyanin domain-containing protein n=4 Ta...  103     2e-26
+  UniRef50_UPI00088E5BE4 hypothetical protein n=1 Tax=Halogranum ...  105     2e-26
+  UniRef50_A0A1G0FRB5 Uncharacterized protein n=1 Tax=Gammaproteo...  105     2e-26
+  UniRef50_A7YXT4 Chloroplast plastocyanin n=5 Tax=Karlodinium ve...  105     2e-26
+  UniRef50_UPI0008BCD950 halocyanin domain-containing protein n=1...  104     2e-26
+  UniRef50_A0A0D6JS41 Plastocyanin n=17 Tax=Haloferacales TaxID=1...  104     2e-26
+  UniRef50_A0A151A922 Halocyanin n=1 Tax=Halalkalicoccus paucihal...  102     3e-26
+  UniRef50_E7QSC9 Halocyanin hcpE n=6 Tax=Halobacteria TaxID=1839...  102     3e-26
+  UniRef50_M0MK99 Halocyanin n=3 Tax=Halobacteriales TaxID=2235 R...  100     3e-26
+  UniRef50_A0A0W1SVH4 Uncharacterized protein n=2 Tax=Haloferax s...  105     3e-26
+  UniRef50_U1QX69 Halocyanin domain protein n=2 Tax=halophilic ar...  102     3e-26
+  UniRef50_M0JG01 Halocyanin-like protein n=5 Tax=Halobacteria Ta...  105     3e-26
+  UniRef50_Q5V424 Halocyanin-like n=56 Tax=Archaea TaxID=2157 Rep...  104     3e-26
+  UniRef50_A0A1F6ZCG6 Uncharacterized protein n=2 Tax=Candidatus ...  102     3e-26
+  UniRef50_A0A0U5HTA3 Cox-type terminal oxidase subunit II / halo...  106     3e-26
+  UniRef50_E7QVP9 Halocyanin hcpF n=4 Tax=Haladaptatus TaxID=3671...  103     4e-26
+  UniRef50_A0A1V4C8C8 Halocyanin n=4 Tax=Haloferacales TaxID=1644...  104     4e-26
+  UniRef50_A0A0T6ZT06 Uncharacterized protein n=10 Tax=Rhizobiace...  101     4e-26
+  UniRef50_E4NT81 Plastocyanin n=8 Tax=Halobacteria TaxID=183963 ...  109     4e-26
+  UniRef50_A0A1H8UQ74 Halocyanin domain-containing protein n=2 Ta...  101     5e-26
+  UniRef50_M0DG90 Uncharacterized protein n=2 Tax=Halorubrum tebe...  109     5e-26
+  UniRef50_UPI00069819CE T9SS C-terminal target domain-containing...  107     5e-26
+  UniRef50_A0A0P7GVK0 Halocyanin n=4 Tax=Halobacteria TaxID=18396...  101     6e-26
+  UniRef50_B9LUR5 Halocyanin domain protein n=42 Tax=Archaea TaxI...  103     6e-26
+  UniRef50_A0A1W6XGH0 Uncharacterized protein n=2 Tax=Mesorhizobi...  101     6e-26
+  UniRef50_P18068 Plastocyanin, chloroplastic n=10 Tax=Viridiplan...  101     6e-26
+  UniRef50_A0A098S1J9 Uncharacterized protein n=2 Tax=Phaeodactyl...  108     7e-26
+  UniRef50_M0NHG1 Halocyanin n=3 Tax=Halobacteria TaxID=183963 Re...  102     8e-26
+  UniRef50_K9SU94 Plastocyanin n=8 Tax=Cyanobacteria TaxID=1117 R...  100     8e-26
+  UniRef50_Q9ST31 Plastocyanin n=8 Tax=Chlorophyta TaxID=3041 Rep...  101     8e-26
+  UniRef50_J3JGT1 Uncharacterized protein n=5 Tax=Haloferacaceae ...  106     8e-26
+  UniRef50_A0A0F9UCV1 Uncharacterized protein n=2 Tax=root TaxID=...  101     8e-26
+  UniRef50_M0EZU7 Halocyanin domain protein n=9 Tax=Halorubrum Ta...  101     8e-26
+  UniRef50_N0BLP5 Plastocyanin n=1 Tax=Archaeoglobus sulfaticalli...  99.9    1e-25
+  UniRef50_F5SYC6 Pseudoazurin n=2 Tax=Methylophaga TaxID=40222 R...  100     1e-25
+  UniRef50_UPI0008E830C9 halocyanin domain-containing protein n=2...  104     1e-25
+  UniRef50_A0A1F5YGP9 Uncharacterized protein n=2 Tax=Candidatus ...  101     1e-25
+  UniRef50_G2MM55 Blue (Type 1) copper domain protein n=5 Tax=Arc...  101     1e-25
+  UniRef50_UPI0009E3A2EF hypothetical protein n=1 Tax=Halolamina ...  101     1e-25
+  UniRef50_I3R1X6 Copper-binding plastocyanin like protein n=3 Ta...  100     1e-25
+  UniRef50_UPI0008E59FFD halocyanin n=1 Tax=Halomicrobium zhouii ...  102     1e-25
+  UniRef50_F4XNC8 Plastocyanin n=3 Tax=Moorea TaxID=1155738 RepID...  102     1e-25
+  UniRef50_A0A0W1RKF8 Halocyanin (Fragment) n=1 Tax=Haloferax sp....  100     2e-25
+  UniRef50_A0A1M3NE57 Uncharacterized protein n=1 Tax=Myxococcale...  99.9    2e-25
+  UniRef50_A0A1Q8BPI7 Uncharacterized protein (Fragment) n=1 Tax=...  104     2e-25
+  UniRef50_B0R463 Halocyanin HcpC n=7 Tax=Halobacteria TaxID=1839...  101     2e-25
+  UniRef50_I3R3N3 Halocyanin n=5 Tax=Haloferacaceae TaxID=1644056...  101     2e-25
+  UniRef50_A0A139CMI8 Blue (Type 1) copper domain-containing prot...  100     2e-25
+  UniRef50_R4W7Q1 Plastocyanin n=1 Tax=Salinarchaeum sp. Harcht-B...  101     2e-25
+  UniRef50_A0A0C1VXL8 Uncharacterized protein (Fragment) n=1 Tax=...  106     3e-25
+  UniRef50_A0A1F5V0V0 Uncharacterized protein n=1 Tax=Fraserbacte...  99.1    3e-25
+  UniRef50_UPI0009E5891A hypothetical protein n=1 Tax=Halolamina ...  99.5    3e-25
+  UniRef50_M0CZ17 Halocyanin n=4 Tax=Haloferacales TaxID=1644055 ...  100     3e-25
+  UniRef50_A0A023X0U6 Copper binding protein, plastocyanin/azurin...  100     4e-25
+  UniRef50_UPI00071E8C6D hypothetical protein n=1 Tax=Haloparvum ...  100     4e-25
+  UniRef50_V5A7D8 Halocyanin domain protein n=6 Tax=Archaea TaxID...  101     5e-25
+  UniRef50_A0A1S9CXK1 Pseudoazurin n=1 Tax=Chromatiales bacterium...  99.5    5e-25
+  UniRef50_UPI000898AB2E halocyanin domain-containing protein n=1...  102     6e-25
+  UniRef50_UPI000B99B212 hypothetical protein n=1 Tax=Rubricoccus...  103     6e-25
+  UniRef50_A0A075GCM2 NADH-quinone oxidoreductase subunit M (NuoM...  106     7e-25
+  UniRef50_UPI00088C75EC halocyanin domain-containing protein n=1...  102     7e-25
+  UniRef50_UPI0009E0894C plastocyanin n=1 Tax=Halobellus rufus Ta...  100     8e-25
+  UniRef50_A2Y886 Plastocyanin, chloroplastic n=11 Tax=Mesangiosp...  99.1    8e-25
+  UniRef50_D2S0F7 Blue (Type 1) copper domain protein n=4 Tax=Hal...  98.7    8e-25
+  UniRef50_A0A1P8F4I7 Cupredoxin-like domain-containing protein n...  97.9    8e-25
+  UniRef50_D2S171 Blue (Type 1) copper domain protein n=1 Tax=Hal...  101     9e-25
+  UniRef50_UPI0008AC9D5A halocyanin domain-containing protein n=1...  105     9e-25
+  UniRef50_A0A1F8LRP8 Uncharacterized protein n=1 Tax=Chloroflexi...  97.9    9e-25
+  UniRef50_Q00GM1 Plastocyanin protein n=1 Tax=Karenia brevis Tax...  101     1e-24
+  UniRef50_A0A1E7EM33 Plastocyanin n=2 Tax=Bacillariophyta TaxID=...  101     1e-24
+  UniRef50_A0A0W1R9Q0 Uncharacterized protein n=8 Tax=Halobacteri...  101     1e-24
+  UniRef50_G2MJ81 Blue (Type 1) copper domain protein n=2 Tax=Arc...  98.3    1e-24
+  UniRef50_A0A0U5CWJ0 Halocyanin n=10 Tax=Halobacteria TaxID=1839...  100     1e-24
+  UniRef50_UPI000A046528 hypothetical protein n=3 Tax=Mesorhizobi...  98.3    1e-24
+  UniRef50_C1EB66 Plastocyanin n=4 Tax=Viridiplantae TaxID=33090 ...  99.1    1e-24
+  UniRef50_A0A0W8FH55 Copper binding protein, plastocyanin/azurin...  98.7    1e-24
+  UniRef50_A0A0J7JEG4 Plastocyanin n=20 Tax=Proteobacteria TaxID=...  98.7    1e-24
+  UniRef50_Q5V725 Halocyanin-like n=9 Tax=Halobacteria TaxID=1839...  99.5    2e-24
+  UniRef50_A0A0M6YQM5 Pseudoazurin n=5 Tax=Rhodobacteraceae TaxID...  98.7    2e-24
+  UniRef50_A0A166BPE1 Pseudoazurin n=17 Tax=Rhodobacteraceae TaxI...  98.3    2e-24
+  UniRef50_F8D913 Blue (Type 1) copper domain protein n=3 Tax=Nat...  101     2e-24
+  UniRef50_A0A1F3JZQ4 Uncharacterized protein n=1 Tax=Bacteroidet...  99.5    2e-24
+  UniRef50_UPI0009B5D215 halocyanin n=1 Tax=Halorubrum sp. SAH-A6...  99.1    2e-24
+  UniRef50_G0FT06 Copper binding protein of plastocyanin/azurin f...  102     2e-24
+  UniRef50_U1P8K7 Halocyanin domain protein n=5 Tax=Halobacteria ...  99.5    2e-24
+  UniRef50_G2MIK7 Blue (Type 1) copper domain protein n=6 Tax=Arc...  97.9    3e-24
+  UniRef50_W0K2X6 Halocyanin n=2 Tax=Halobacterium sp. DL1 TaxID=...  102     3e-24
+  UniRef50_A0A1X4HAT4 Halocyanin n=11 Tax=Halorubrum TaxID=56688 ...  99.9    3e-24
+  UniRef50_A0A1Q3T7V9 Uncharacterized protein n=1 Tax=Chloroflexi...  96.4    3e-24
+  UniRef50_A0A1E3GNB1 Pseudoazurin n=14 Tax=root TaxID=1 RepID=A0...  97.2    4e-24
+  UniRef50_A0A1Z7WX27 Uncharacterized protein n=1 Tax=Methylophag...  102     4e-24
+  UniRef50_UPI000833AE26 copper-binding protein n=2 Tax=Haloferac...  96.8    4e-24
+  UniRef50_L9YDW5 Blue (Type 1) copper domain-containing protein ...  99.5    4e-24
+  UniRef50_UPI0008E5BACA halocyanin n=2 Tax=Haloferacaceae TaxID=...  99.1    4e-24
+  UniRef50_A0A1Z8KUW4 Uncharacterized protein n=1 Tax=bacterium T...  103     5e-24
+  UniRef50_D6TN01 Blue (Type 1) copper domain protein n=1 Tax=Kte...  96.8    6e-24
+  UniRef50_UPI00070C898B hypothetical protein n=1 Tax=Bradyrhizob...  96.4    6e-24
+  UniRef50_P11490 Plastocyanin minor isoform, chloroplastic n=9 T...  97.5    6e-24
+  UniRef50_Q5UWQ3 Halocyanin-like n=3 Tax=Haloarcula TaxID=2237 R...  97.5    6e-24
+  UniRef50_Q9HRQ9 Uncharacterized protein n=5 Tax=Halobacterium T...  98.7    6e-24
+  UniRef50_UPI00096A45E7 hypothetical protein n=1 Tax=Natronomona...  97.5    6e-24
+  UniRef50_V5A5U6 Halocyanin domain protein n=3 Tax=Archaea TaxID...  97.2    6e-24
+  UniRef50_G0LGP8 Halocyanin n=11 Tax=Archaea TaxID=2157 RepID=G0...  97.5    7e-24
+  UniRef50_A0A0M0FZJ9 Uncharacterized protein n=2 Tax=Azoarcus sp...  97.2    8e-24
+  UniRef50_A0A1V3NM23 Plastocyanin n=2 Tax=Thioalkalivibrio TaxID...  95.2    8e-24
+  UniRef50_A0A1Z1LWM3 Plastocyanin n=1 Tax=Synechococcus phage S-...  95.2    8e-24
+  UniRef50_UPI00089BC7CB halocyanin domain-containing protein n=1...  99.9    8e-24
+  UniRef50_I3R2Q8 Halocyanin n=4 Tax=Archaea TaxID=2157 RepID=I3R...  97.9    9e-24
+  UniRef50_A0A0D8B5P6 Plastocyanin n=3 Tax=Frankiaceae TaxID=7471...  99.5    9e-24
+  UniRef50_E3SJC0 Plastocyanin n=18 Tax=Caudovirales TaxID=28883 ...  94.9    9e-24
+  UniRef50_A0A1J5U7B4 Uncharacterized protein n=2 Tax=Marine Grou...  102     1e-23
+  UniRef50_Q5V295 Cytochrome-like protein n=18 Tax=Halobacteriale...  96.0    1e-23
+  UniRef50_UPI00069AA4D9 hypothetical protein n=1 Tax=Methylococc...  102     1e-23
+  UniRef50_E7R000 Halocyanin hcpB n=3 Tax=Haladaptatus TaxID=3671...  99.5    1e-23
+  UniRef50_A0A1H6BAI9 Halocyanin domain-containing protein n=3 Ta...  99.1    1e-23
+  UniRef50_A0A1F6EIM3 Uncharacterized protein n=1 Tax=Candidatus ...  102     1e-23
+  UniRef50_K9S3M3 Plastocyanin n=4 Tax=Cyanobacteria TaxID=1117 R...  95.6    1e-23
+  UniRef50_W5W7B9 Uncharacterized protein n=6 Tax=Pseudonocardiac...  97.2    1e-23
+  UniRef50_A0A1F6KI67 Uncharacterized protein n=1 Tax=Candidatus ...  94.5    2e-23
+  UniRef50_P42699 Plastocyanin major isoform, chloroplastic n=97 ...  96.0    2e-23
+  UniRef50_E4NTS3 Plastocyanin n=4 Tax=Halobacteria TaxID=183963 ...  99.9    2e-23
+  UniRef50_A0A1Q3JJY1 Uncharacterized protein n=3 Tax=Proteobacte...  94.9    2e-23
+  UniRef50_A0A0S3TJC3 Plastocyanin n=17 Tax=Nostocales TaxID=1161...  94.9    2e-23
+  UniRef50_E3SKF1 Plastocyanin n=41 Tax=Viruses TaxID=10239 RepID...  94.1    2e-23
+  UniRef50_UPI0009DD8F59 halocyanin domain-containing protein n=4...  95.2    2e-23
+  UniRef50_D7E936 Blue (Type 1) copper domain protein n=3 Tax=Met...  94.9    2e-23
+  UniRef50_A0A1Q1FFI3 Uncharacterized protein n=3 Tax=Haloriental...  96.0    2e-23
+  UniRef50_A0A1M5ELP1 Plastocyanin n=2 Tax=Balneolaceae TaxID=181...  95.2    2e-23
+  UniRef50_A0A1Z9S1V3 Uncharacterized protein n=1 Tax=Euryarchaeo...  97.2    2e-23
+  UniRef50_A0A1F3BH41 Uncharacterized protein n=1 Tax=Bacteroidet...  96.8    2e-23
+  UniRef50_A0A0W1R9A7 Halocyanin n=5 Tax=Haloferacaceae TaxID=164...  95.2    2e-23
+  UniRef50_I3RAN0 Halocyanin n=5 Tax=Halobacteria TaxID=183963 Re...  98.7    2e-23
+  UniRef50_Q47AX9 Blue (Type 1) copper domain n=13 Tax=Bacteria T...  94.1    3e-23
+  UniRef50_A0A1F8YH36 Uncharacterized protein n=2 Tax=Deltaproteo...  93.7    3e-23
+  UniRef50_A0A1N7F0Y2 Plastocyanin n=1 Tax=Haladaptatus litoreus ...  95.6    3e-23
+  UniRef50_R4VVU1 Halocyanin domain protein n=3 Tax=Halobacteria ...  94.9    3e-23
+  UniRef50_A0A1V4ZJM9 Halocyanin n=2 Tax=Methanoregula TaxID=3953...  94.5    3e-23
+  UniRef50_UPI000B506960 plastocyanin n=1 Tax=Thermoflexus hugenh...  95.2    4e-23
+  UniRef50_W0JVQ7 Halocyanin n=5 Tax=Halobacteriales TaxID=2235 R...  95.6    4e-23
+  UniRef50_A0A1Q1FJ21 Uncharacterized protein n=1 Tax=Haloriental...  99.1    4e-23
+  UniRef50_P00299 Plastocyanin A, chloroplastic n=60 Tax=cellular...  95.2    4e-23
+  UniRef50_R4WAD2 Halocyanin domain protein n=2 Tax=Halobacteria ...  96.8    4e-23
+  UniRef50_M0FRT8 Halocyanin domain protein n=9 Tax=Halobacteria ...  95.6    4e-23
+  UniRef50_H6BI62 Plastocyanin n=10 Tax=root TaxID=1 RepID=H6BI62...  93.3    4e-23
+  UniRef50_Q5V4X3 Copper-binding plastocyanin like protein n=32 T...  94.9    6e-23
+  UniRef50_UPI0008F9CAC5 plastocyanin n=1 Tax=Geitlerinema sp. PC...  94.1    6e-23
+  UniRef50_UPI0008927325 plasmid stabilization protein n=2 Tax=Ha...  100     6e-23
+  UniRef50_Q1IQR1 Plastocyanin-like protein n=2 Tax=Acidobacteria...  97.2    6e-23
+  UniRef50_A0A1F5UTY3 Uncharacterized protein n=2 Tax=Bacteria ca...  95.6    7e-23
+  UniRef50_A0A166TFG1 Uncharacterized protein n=2 Tax=Haladaptatu...  94.5    7e-23
+  UniRef50_Q18JX8 Halocyanin n=22 Tax=Archaea TaxID=2157 RepID=Q1...  96.0    7e-23
+  UniRef50_H5SFA1 Blue (Type1) copper domain-containing protein n...  96.8    7e-23
+  UniRef50_UPI00001104DE PLASTOCYANIN n=7 Tax=Pentapetalae TaxID=...  92.5    8e-23
+  UniRef50_UPI000A36494B hypothetical protein n=1 Tax=Lentzea ken...  97.2    8e-23
+  UniRef50_K0IHN9 Putative blue (Type 1) copper domain protein n=...  93.3    9e-23
+  UniRef50_UPI000A07BBA2 hypothetical protein n=1 Tax=Natronohydr...  92.5    1e-22
+  UniRef50_A0A1G0SVR6 Uncharacterized protein n=4 Tax=unclassifie...  92.9    1e-22
+  UniRef50_A9RT82 Plastocyanin n=2 Tax=Physcomitrella patens subs...  94.1    1e-22
+  UniRef50_A0A1V2IFC0 Plastocyanin n=9 Tax=Actinobacteria TaxID=2...  93.3    1e-22
+  UniRef50_A0A1F3DXT3 Uncharacterized protein n=1 Tax=Bacteroidet...  94.9    1e-22
+  UniRef50_M0PRJ8 Halocyanin domain protein n=14 Tax=Halobacteria...  97.9    1e-22
+  UniRef50_A0A231V1D1 Uncharacterized protein n=1 Tax=Notoacmeiba...  93.7    2e-22
+  UniRef50_A0A1Y5WZU5 Amicyanin n=4 Tax=Pseudonocardiaceae TaxID=...  96.8    2e-22
+  UniRef50_UPI0008E8833A hypothetical protein n=1 Tax=Halogranum ...  96.4    2e-22
+  UniRef50_UPI000561E1A2 hypothetical protein n=2 Tax=Streptacidi...  97.2    2e-22
+  UniRef50_A0A1Y6BS19 Plastocyanin n=1 Tax=Tistlia consotensis US...  92.5    2e-22
+  UniRef50_A0A1Z9S2G9 Uncharacterized protein n=1 Tax=Euryarchaeo...  93.7    2e-22
+  UniRef50_A0A1F5UP13 Uncharacterized protein n=1 Tax=Fraserbacte...  93.3    2e-22
+  UniRef50_P17341 Plastocyanin A/B n=14 Tax=cellular organisms Ta...  91.0    2e-22
+  UniRef50_A0A1F2WC63 Uncharacterized protein n=2 Tax=Bacteria Ta...  91.8    2e-22
+  UniRef50_UPI000677B054 hypothetical protein n=4 Tax=Halobacteri...  93.3    2e-22
+  UniRef50_UPI0008C633D3 halocyanin domain-containing protein n=1...  92.5    3e-22
+  UniRef50_B8EQU4 Blue (Type 1) copper domain protein n=28 Tax=Ba...  91.4    3e-22
+  UniRef50_A0A238VD39 Halocyanin domain-containing protein n=2 Ta...  92.2    3e-22
+  UniRef50_A0A1U7EUD4 Halocyanin n=1 Tax=Natronomonas pharaonis (...  92.5    3e-22
+  UniRef50_A0A1F8RV87 Uncharacterized protein n=1 Tax=Chloroflexi...  91.4    3e-22
+  UniRef50_UPI0008844746 hypothetical protein n=1 Tax=Haloarchaeo...  92.5    3e-22
+  UniRef50_U5QGP8 Blue (Type1) copper domain-containing protein n...  91.4    3e-22
+  UniRef50_C7PXJ0 Blue (Type 1) copper domain protein n=17 Tax=Ac...  93.3    3e-22
+  UniRef50_A0A0U1DQ87 Copper binding proteins, plastocyanin/azuri...  91.8    3e-22
+  UniRef50_A0A1Z8KT57 Uncharacterized protein n=1 Tax=bacterium T...  98.3    3e-22
+  UniRef50_I4EIQ9 Blue (Type 1) copper domain protein n=1 Tax=Nit...  91.8    3e-22
+  UniRef50_A0A1E3LI23 Uncharacterized protein n=76 Tax=Bacteria T...  91.4    4e-22
+  UniRef50_A0A0J7HMN4 Halocyanin n=1 Tax=Chitinispirillum alkalip...  91.8    4e-22
+  UniRef50_A0A239SH94 Plastocyanin n=2 Tax=Pandoraea sputorum Tax...  91.8    4e-22
+  UniRef50_UPI00036019B4 hypothetical protein n=1 Tax=Segetibacte...  91.4    4e-22
+  UniRef50_A0A1B2ZA94 Uncharacterized protein n=1 Tax=uncultured ...  97.9    4e-22
+  UniRef50_A0A0K6HUN8 Plastocyanin n=3 Tax=root TaxID=1 RepID=A0A...  90.6    4e-22
+  UniRef50_K9YXI2 Plastocyanin n=2 Tax=Cyanobacteria TaxID=1117 R...  92.9    4e-22
+  UniRef50_A0A0D5NST9 Uncharacterized protein n=3 Tax=Bacillales ...  89.8    5e-22
+  UniRef50_UPI00082EBF7B halocyanin domain-containing protein n=2...  93.3    5e-22
+  UniRef50_V4XBB5 Halocyanin domain protein n=1 Tax=uncultured ar...  93.7    5e-22
+  UniRef50_A0A151ACV0 Halocyanin n=2 Tax=Halobacteriaceae TaxID=2...  92.2    5e-22
+  UniRef50_A0A1G3GXT7 Plastocyanin n=3 Tax=Rhodocyclales TaxID=20...  91.0    5e-22
+  UniRef50_M1XRA7 Protein kinase domain protein / halocyanin doma...  97.5    5e-22
+  UniRef50_A0A1M4XL86 Por secretion system C-terminal sorting dom...  93.3    6e-22
+  UniRef50_UPI00038B56E6 hypothetical protein n=1 Tax=Halopenitus...  91.4    6e-22
+  UniRef50_R4W8A6 Plastocyanin n=4 Tax=Halobacteria TaxID=183963 ...  91.4    6e-22
+  UniRef50_UPI000B85BD57 hypothetical protein n=1 Tax=Paracoccus ...  92.2    7e-22
+  UniRef50_Q2JHE1 Plastocyanin n=22 Tax=Cyanobacteria TaxID=1117 ...  91.0    7e-22
+  UniRef50_UPI0008A774F4 halocyanin n=3 Tax=Halopenitus TaxID=120...  91.4    7e-22
+  UniRef50_A0A1A3EAA5 Amidase n=26 Tax=Actinobacteria TaxID=20117...  90.6    7e-22
+  UniRef50_UPI0009FF0AAF hypothetical protein n=1 Tax=Natronococc...  91.4    7e-22
+  UniRef50_A0A1Z9EUT8 Uncharacterized protein n=1 Tax=Euryarchaeo...  91.8    7e-22
+  UniRef50_A0A1J5TLN4 Uncharacterized protein n=3 Tax=Marine Grou...  97.2    7e-22
+  UniRef50_UPI0008C7FDE5 hypothetical protein n=1 Tax=Halobacteri...  91.4    8e-22
+  UniRef50_UPI0008813E9F halocyanin domain-containing protein n=1...  96.4    8e-22
+  UniRef50_A0A0D3DQJ6 Plastocyanin n=2 Tax=Brassica oleracea var....  96.0    8e-22
+  UniRef50_UPI000B80157B hypothetical protein n=1 Tax=Halogranum ...  92.9    8e-22
+  UniRef50_A0A0N8KPT6 Plastocyanin n=4 Tax=Phormidium TaxID=1198 ...  90.6    8e-22
+  UniRef50_UPI0006778DB1 hypothetical protein n=2 Tax=Halococcus ...  94.5    8e-22
+  UniRef50_UPI0009F206A1 hypothetical protein n=2 Tax=Proteobacte...  91.4    9e-22
+  UniRef50_A0A1I3ABH3 Halocyanin domain-containing protein n=1 Ta...  97.2    9e-22
+  UniRef50_A0A1F6F0N4 Uncharacterized protein n=3 Tax=Candidatus ...  96.8    9e-22
+  UniRef50_UPI000B7ED2E4 hypothetical protein n=1 Tax=Halogranum ...  93.7    9e-22
+  UniRef50_A0A0F9DNY1 Uncharacterized protein (Fragment) n=1 Tax=...  91.8    1e-21
+  UniRef50_A0A0C2VQL3 Amicyanin n=39 Tax=Actinobacteria TaxID=201...  90.2    1e-21
+  UniRef50_UPI00046CF31E hypothetical protein n=1 Tax=Ensifer adh...  90.2    1e-21
+  UniRef50_C7NZM3 Halocyanin domain protein n=3 Tax=Halobacteria ...  94.5    1e-21
+  UniRef50_A0A1F2W7R0 Uncharacterized protein n=1 Tax=Actinobacte...  90.6    1e-21
+  UniRef50_M1XYS1 Halocyanin n=7 Tax=Halobacteria TaxID=183963 Re...  93.3    1e-21
+  UniRef50_A0A166RVT9 Halocyanin n=5 Tax=Halobacteriales TaxID=22...  92.9    1e-21
+  UniRef50_A0A1Q3XA32 Uncharacterized protein n=1 Tax=Bacteroidet...  92.5    1e-21
+  UniRef50_Q5V4M1 Halocyanin-like n=32 Tax=Halobacteria TaxID=183...  94.5    1e-21
+  UniRef50_K2F611 Blue (Type1) copper protein n=2 Tax=root TaxID=...  92.9    1e-21
+  UniRef50_A0A1U9PCT5 Uncharacterized protein n=3 Tax=Mycobacteri...  91.4    1e-21
+  UniRef50_UPI0004BBDEAE hypothetical protein n=1 Tax=Tomitella b...  89.8    1e-21
+  UniRef50_A0A0G0H8A7 Blue (Type 1) copper domain protein n=1 Tax...  91.0    1e-21
+  UniRef50_I4EKJ1 Plastocyanin (Modular protein) n=2 Tax=Nitrolan...  91.8    2e-21
+  UniRef50_A0A1X0UK26 Copper-binding protein n=4 Tax=Rhodococcus ...  89.5    2e-21
+  UniRef50_A0A0X8HDN2 Plastocyanin n=5 Tax=Halomonas TaxID=2745 R...  90.2    2e-21
+  UniRef50_UPI00099F63DF hypothetical protein n=1 Tax=Streptomyce...  89.8    2e-21
+  UniRef50_A0A1F8RWU3 Uncharacterized protein n=3 Tax=unclassifie...  88.7    2e-21
+  UniRef50_A0A1G0L1Y9 Uncharacterized protein n=1 Tax=Gemmatimona...  90.2    2e-21
+  UniRef50_A0A1F6CYK5 Uncharacterized protein n=1 Tax=Candidatus ...  96.0    2e-21
+  UniRef50_A0A099T6C0 Plastocyanin n=1 Tax=Methanococcoides methy...  88.7    2e-21
+  UniRef50_A0A1Z9EJI3 Uncharacterized protein n=5 Tax=Euryarchaeo...  90.6    2e-21
+  UniRef50_Q9HPH3 Halocyanin-like n=2 Tax=Halobacterium salinarum...  93.7    2e-21
+  UniRef50_A0A0F0HVF9 Uncharacterized protein n=10 Tax=Actinobact...  89.8    2e-21
+  UniRef50_D5X6L8 Blue (Type 1) copper domain protein n=5 Tax=Thi...  88.7    2e-21
+
+Sequences not found previously or not previously below threshold:
+
+  UniRef50_A0A1G1YHF9 Uncharacterized protein n=1 Tax=Candidatus ...  94.5    4e-23
+  UniRef50_UPI0008F3F3EE hypothetical protein n=1 Tax=Crenotalea ...  92.9    1e-22
+  UniRef50_UPI000A06659E hypothetical protein n=1 Tax=Thermogemma...  91.4    1e-21
+
+
+
+Lambda      K        H        a         alpha
+   0.317    0.162    0.574    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0495    0.140     1.90     42.6     43.6 
+
+Effective search space used: 203629626130
+
+
+  Database: uniref50.fasta
+    Posted date:  Jun 11, 2020  11:28 AM
+  Number of letters in database: 8,120,947,734
+  Number of sequences in database:  26,169,982
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40

@@ -1,0 +1,11 @@
+fastaFile:
+  class: File
+  path: ../data/1pazA.fasta
+
+DBname: uniref50.fasta
+
+DBfolder: 
+  class: Directory
+  path: ../databases/uniref50
+
+CPUnum: 6
