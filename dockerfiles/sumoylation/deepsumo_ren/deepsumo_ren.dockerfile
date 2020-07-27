@@ -37,7 +37,7 @@ RUN mkdir /output
 WORKDIR /home/DeepSumo/
 
 # workaround for CWL
-COPY ./deepsumo.sh /home/
+COPY ./deepsumo_cwl.sh /home/
 
 
 ################################################################################

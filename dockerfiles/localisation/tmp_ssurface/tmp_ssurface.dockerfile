@@ -42,7 +42,7 @@ RUN mkdir /output
 WORKDIR /home/TMP-SSurface-2.0/TMP-SSurface-2.0
 
 # workaround for CWL
-COPY ./tmp_ssurface.sh /home/
+COPY ./tmp_ssurface_cwl.sh /home/
 
 
 ################################################################################

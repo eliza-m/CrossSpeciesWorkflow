@@ -2,7 +2,7 @@
 
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: [bash, /home/musitedeep2.sh ]
+baseCommand: [bash, /home/musitedeep2_cwl.sh ]
 hints:
   DockerRequirement:
     dockerImageId: musitedeep_keras2_tensorflow_cpu:latest

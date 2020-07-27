@@ -2,7 +2,7 @@
 
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: [bash, /home/deepsumo.sh ]
+baseCommand: [bash, /home/deepsumo_cwl.sh ]
 hints:
   DockerRequirement:
     dockerImageId: deepsumo_ren

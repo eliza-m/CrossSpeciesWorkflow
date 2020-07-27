@@ -2,7 +2,7 @@
 
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: [bash, /home/musitedeep1.sh ]
+baseCommand: [bash, /home/musitedeep1_cwl.sh ]
 hints:
   DockerRequirement:
     dockerImageId: musitedeep_keras1_theano_cpu:latest

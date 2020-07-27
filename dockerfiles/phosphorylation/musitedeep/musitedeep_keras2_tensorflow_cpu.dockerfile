@@ -48,7 +48,7 @@ RUN bash -c 'echo -e "{\n\x22image_dim_ordering\x22: \x22th\x22,\n\x22epsilon\x2
 WORKDIR /home/MusiteDeep/MusiteDeep_Keras2.0/MusiteDeep/
 
 # workaround for CWL that overides $HOME variable...
-COPY ./musitedeep2.sh /home/
+COPY ./musitedeep2_cwl.sh /home/
 
 
 # COMMENT: the standard version of tensorflow does not use all the common 

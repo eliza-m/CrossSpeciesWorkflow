@@ -2,7 +2,7 @@
 
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: [bash, /home/tmp_ssurface.sh ]
+baseCommand: [bash, /home/tmp_ssurface_cwl.sh ]
 hints:
   DockerRequirement:
     dockerImageId: tmp_ssurface
