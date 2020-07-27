@@ -1,0 +1,37 @@
+# Predictions for N-Glycosylation sites in 1 sequence
+SignalP-5.0. Starting fasta file reading...
+Total proteins read: 1.
+Organism: euk.
+Starting protein prediction...
+Temporary directory: /tmp/signalp5.544739331
+Protein prediction done!
+Generating output files...
+Completed.
+
+########################################################################################
+
+    Warning: This sequence may not contain a signal peptide!!
+
+    Proteins without signal peptides are unlikely to be exposed to
+    the N-glycosylation machinery and thus may not be glycosylated
+    (in vivo) even though they contain potential motifs.
+
+    SignalP-NN euk predictions are as follows:
+
+  # name                Cmax  pos ?  Ymax  pos ?  Smax  pos ?  Smean ?  D     ? 
+  1pazA	OTHER	0.001081	0.998919	
+
+    SignalP output is explained at http://www.cbs.dtu.dk/services/SignalP/output.html
+
+########################################################################################
+
+Name:  1pazA 	Length:  123
+ENIEVHMLNKGAEGAMVFEPAYIKANPGDTVTFIPVDKGHNVESIKDMIPEGAEKFKSKINENYVLTVTQPGAYLVKCTP      80
+HYAMGMIALIAVGDSPANLDQIVSAKKPKIVQERLEKVIASAK                                          160
+................................................................................      80
+...........................................                                          160
+
+(Threshold=0.5)
+
+No sites predicted in this sequence.
+

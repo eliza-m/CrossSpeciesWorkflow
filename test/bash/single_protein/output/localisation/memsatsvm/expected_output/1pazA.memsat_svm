@@ -1,0 +1,101 @@
+Processing 1 helix:
+Transmembrane helix 1 from  62 (in) to  77 (out) :	9.444
+Score = 0.067049
+
+Processing 1 helix:
+Transmembrane helix 1 from  48 (out) to  63 (in) :	-2.468
+Score = 0.056438
+
+Processing 6 helices:
+Transmembrane helix 1 from   4 (in) to  19 (out) :	0.0450002
+Transmembrane helix 2 from  28 (out) to  43 (in) :	0.736
+Transmembrane helix 3 from  47 (in) to  62 (out) :	1.379
+Transmembrane helix 4 from  66 (out) to  81 (in) :	-3.853
+Transmembrane helix 5 from  85 (in) to 100 (out) :	-5.011
+Transmembrane helix 6 from 104 (out) to 120 (in) :	9.569
+Score = -100000.000000
+
+Processing 5 helices:
+Transmembrane helix 1 from   4 (out) to  19 (in) :	-0.0450002
+Transmembrane helix 2 from  23 (in) to  38 (out) :	-1.08
+Transmembrane helix 3 from  42 (out) to  57 (in) :	1.831
+Transmembrane helix 4 from  61 (in) to  76 (out) :	9.004
+Transmembrane helix 5 from 104 (out) to 120 (in) :	9.569
+Score = -100000.000000
+
+Processing 4 helices:
+Transmembrane helix 1 from   4 (in) to  19 (out) :	0.0450002
+Transmembrane helix 2 from  32 (out) to  47 (in) :	0.682
+Transmembrane helix 3 from  51 (in) to  66 (out) :	5.531
+Transmembrane helix 4 from 104 (out) to 120 (in) :	9.569
+Score = -100000.000000
+
+Processing 3 helices:
+Transmembrane helix 1 from  32 (out) to  47 (in) :	0.682
+Transmembrane helix 2 from  51 (in) to  66 (out) :	5.531
+Transmembrane helix 3 from 104 (out) to 120 (in) :	9.569
+Score = -100000.000000
+
+Processing 2 helices:
+Transmembrane helix 1 from   4 (in) to  28 (out) :	7.445
+Transmembrane helix 2 from  89 (out) to 119 (in) :	14.129
+Score = -100000.000000
+
+Processing 6 helices:
+Transmembrane helix 1 from   4 (out) to  19 (in) :	-0.0450002
+Transmembrane helix 2 from  23 (in) to  38 (out) :	-1.08
+Transmembrane helix 3 from  42 (out) to  57 (in) :	1.831
+Transmembrane helix 4 from  61 (in) to  76 (out) :	9.004
+Transmembrane helix 5 from  85 (out) to 100 (in) :	5.011
+Transmembrane helix 6 from 104 (in) to 119 (out) :	-8.74
+Score = -100000.000000
+
+Processing 5 helices:
+Transmembrane helix 1 from   4 (in) to  19 (out) :	0.0450002
+Transmembrane helix 2 from  32 (out) to  47 (in) :	0.682
+Transmembrane helix 3 from  51 (in) to  66 (out) :	5.531
+Transmembrane helix 4 from  85 (out) to 100 (in) :	5.011
+Transmembrane helix 5 from 104 (in) to 119 (out) :	-8.74
+Score = -100000.000000
+
+Processing 4 helices:
+Transmembrane helix 1 from   4 (out) to  19 (in) :	-0.0450002
+Transmembrane helix 2 from  23 (in) to  38 (out) :	-1.08
+Transmembrane helix 3 from  85 (out) to 100 (in) :	5.011
+Transmembrane helix 4 from 104 (in) to 119 (out) :	-8.74
+Score = -100000.000000
+
+Processing 3 helices:
+Transmembrane helix 1 from   4 (in) to  24 (out) :	5.356
+Transmembrane helix 2 from  85 (out) to 100 (in) :	5.011
+Transmembrane helix 3 from 104 (in) to 119 (out) :	-8.74
+Score = -100000.000000
+
+Processing 2 helices:
+Transmembrane helix 1 from  32 (out) to  47 (in) :	0.682
+Transmembrane helix 2 from  51 (in) to  66 (out) :	5.531
+Score = -100000.000000
+
+Summary of topology analysis:
+ 1 helix   (+) : Score = 0.067049
+ 1 helix   (-) : Score = 0.056438
+ 2 helices (+) : Score = -100000
+ 2 helices (-) : Score = -100000
+ 3 helices (+) : Score = -100000
+ 3 helices (-) : Score = -100000
+ 4 helices (+) : Score = -100000
+ 4 helices (-) : Score = -100000
+ 5 helices (+) : Score = -100000
+ 5 helices (-) : Score = -100000
+ 6 helices (+) : Score = -100000
+ 6 helices (-) : Score = -100000
+
+Results:
+Signal peptide:		Not detected.
+Signal score:		0
+Topology:		62-77
+Re-entrant helices:	Not detected.
+Helix count:		1
+N-terminal:		in
+Score:			0.067049
+
