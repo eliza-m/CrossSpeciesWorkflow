@@ -3,6 +3,7 @@ from typing import *
 from dataclasses import dataclass, field
 from pathlib import Path
 import os, sys
+from structural import *
 from RaptorXData import *
 from Scratch1dData import *
 from PsiPredData import *

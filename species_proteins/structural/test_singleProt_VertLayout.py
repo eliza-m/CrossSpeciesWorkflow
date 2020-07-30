@@ -2,6 +2,7 @@ import sys, os
 from typing import *
 from dataclasses import dataclass, field
 from pathlib import Path
+from structural import *
 from StructuralPred import * 
 
 

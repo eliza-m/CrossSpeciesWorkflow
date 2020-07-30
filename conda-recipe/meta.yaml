@@ -1,0 +1,21 @@
+package:
+  name: species_proteins
+  version: 0.0.1
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+requirements:
+  build:
+    - python=3.8
+    - setuptools
+  run:
+    - python=3.8
+    - future>=0.18.2
+    - cwltool>=3.0
+test:
+  imports:
+  -  species_proteins
+
+source:
+  path: ../
