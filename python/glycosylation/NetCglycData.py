@@ -13,7 +13,7 @@ class NetCglycData:
     Attributes
     ----------
     predictedSites : Dictionary
-        predictedSites [ protein name ][ site ] [ entry dict ]
+        predictedSites [ protein name ][ start resid ] : array of entry dict
         entry dict has the following keys:
 
         # Common to all PTS predictors
@@ -23,7 +23,8 @@ class NetCglycData:
             isSignif : bool (is the method's specific scoring indicating a
                             potentially significant result)
             score : float (interpretation differs between methods)
-
+            type : string (C-glyc)
+            predictor : string (for cases where multiple predictors are available)
 
     Public Methods
     --------------
@@ -49,7 +50,7 @@ class NetCglycData:
                 if l[0][0] != "#" :
                     protname = l[0]
                     if protname not in data.predictedSites:
-                        data.predictedSites[ protname ] = []
+                        data.predictedSites[ protname ] = {}
 
                     # not provided, but the prediction only reffers to
                     # tryptophan (W), therefore for consistency we added
@@ -60,13 +61,20 @@ class NetCglycData:
                     score = round( float( l[5] ), 3)
                     isSignif = (l[7] == "W")
 
-                    data.predictedSites[ protname ].append( {
+                    resid = start
+
+                    if resid not in data.predictedSites[protname]:
+                        data.predictedSites[protname][resid] = []
+
+                    data.predictedSites[protname][resid].append({
                         "seq": aa,
                         "start": start,
                         "end": end,
                         "isSignif" : isSignif,
-                        "score" : score
-                    } )
+                        "score" : score,
+                        "type": "C-Glyc",
+                        "predictor": "netcglyc"
+                    })
 
 
         except OSError as e:
@@ -80,8 +88,3 @@ class NetCglycData:
         return data
 
 
-#
-# CSW_HOME = os.environ.get('CSW_HOME')
-# outputFile = CSW_HOME + "/test/cwl/modules/glycosylation/netcglyc/expected_output/ATL5_HUMAN.netcglyc.out"
-# test = NetCglycData.parse( outputFile )
-# print(test.predictedSites)

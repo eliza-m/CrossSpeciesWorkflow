@@ -1,12 +1,14 @@
+from __future__ import annotations
+
 import sys
-# import os
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import *
 
-class PsiPred:
+
+@dataclass
+class PsiPredData:
     """Class that parses PsiPred prediction output data.
-
-    Parameters
-    ----------
-
 
     Attributes
     ----------
@@ -35,60 +37,96 @@ class PsiPred:
 
     Public Methods
     --------------
-    parseResults( self, proteinName, folderName )
-        Parses the PsiPred prediction output files and add the data inside the
-        above attribute data structures.
-        Passed as arguments are the folder name folderName (according to
-        PsiPred provided output folder) and the protein name (ex "1pazA") that
-        is being used as root for each output file (that are composed of the
-        proteinName and a specific extension for each output file type
-        (example: "1pazA.ss2", "1pazA.horiz", etc).
+    parse ( folder : Path ) -> PsiPredData
+        Parses the prediction output files and add the data inside the above attribute data structures. Passed
+        as arguments are the folder name (the PsiPred output folder).
+
+    parsefiles(ss2: Path, horiz Path ) -> PsiPredData:
+        Parses the PsiPred prediction output files and add the data inside the above attribute data structures. Passed
+        as arguments are the files paths.
     """
 
 
-    def __init__(self):
+    sequence: list = field(default_factory = list)
 
-        self.sequence = []
-        self.SS3_classes = []
-        self.SS3_proba = []
-        self.SS3_conf = []
+    SS3_classes: list = field(default_factory = list)
+    SS3_proba: list = field(default_factory = list)
+    SS3_conf: list = field(default_factory = list)
 
 
-    def parseResults( self, proteinName : str, folderName : str ):
+    @staticmethod
+    def parsefiles(ss2: Path, horiz: Path ) -> PsiPredData:
         """
-        Parses the PsiPred prediction output files and add the data inside the
+        Parses the prediction output files and add the data inside the
         above attribute data structures.
 
         Parameters
         ----------
-        proteinName : str
-            protein name that is being used as root for each output file.
-            (example: "1paz.ss3", "1paz.ss3_simple", "1paz.ss8", etc).
+        ss2 : path to *.ss2 file
+        horiz : path to *.horiz file
 
-        folderName : str
-            folder name where PsiPred prediction output is being stored.
-            (example: "CrossSpeciesWorkflow/output/1pazA/PsiPred/")
+        Returns:
+        -------
+        RaptorXData: with parsed data
         """
 
-        fileNameRoot = folderName + '/' + proteinName
+        data = PsiPredData()
 
-        self.sequence, self.SS3_classes, self.SS3_proba = \
-            PsiPred.__readSS3( fileNameRoot + '.ss2' )
+        data.sequence, data.SS3_classes, data.SS3_proba = data.__readss2(ss2)
+        data.SS3_conf = data.__readconf(horiz)
 
-        self.SS3_conf = \
-            PsiPred.__readCONF( fileNameRoot + '.horiz')
-
+        return data
 
 
-    def __readSS3( fileName : str ) :
+    @staticmethod
+    def parse(folder: Path) -> PsiPredData :
+        """
+         Parses the PsiPred prediction output files and add the data inside the
+         above attribute data structures.
+
+         Parameters
+         ----------
+         folder : path to the folder where prediction data is generated
+
+         Returns:
+         -------
+         PsiPredData: with parsed data
+         """
+
+        data = PsiPredData()
+
+        paths = { 'ss2' : Path(), 'horiz' : Path() }
+
+        for key in paths :
+            try:
+                files = list(folder.rglob('*.' + key))
+                if len(files) > 1:
+                    print("Multiple options: ", list)
+                    raise
+                elif len(files) == 0:
+                    print("In the folder there is no file with suffix : ", key)
+                    raise
+                else:
+                    paths[key] = files[0]
+
+            except:
+                print("Unexpected error:", sys.exc_info()[0])
+                raise
+
+        data = data.parsefiles( paths['ss2'], paths['horiz'] )
+
+        return data
+
+
+    @staticmethod
+    def __readss2( file : Path ) -> Tuple[List[str], List[str], List[Dict[str, float]]] :
         """
         Parses "*.ss2" output files and add the data inside the
         above attribute data structures.
 
         Parameters
         ----------
-        fileName : str
-            Path to file
+        file : Path
 
         Raises
         ------
@@ -96,13 +134,13 @@ class PsiPred:
         Other errors
         """
 
-        # for cases when the method is called twice
+
         seq = []
         SS3_classes = []
         SS3_proba = []
 
         try:
-            f = open(fileName, 'r')
+            f = open(file, 'r')
             lines = f.readlines()
             for line in lines:
                 l = line.split()
@@ -130,15 +168,15 @@ class PsiPred:
         return seq, SS3_classes, SS3_proba
 
 
-    def __readCONF( fileName : str)  :
+    @staticmethod
+    def __readconf( file : Path ) -> List[int] :
         """
         Parses "*.horiz" output files and add the data inside the
         above attribute data structures.
 
         Parameters
         ----------
-        fileName : str
-            Path to file
+        file : Path
 
         Raises
         ------
@@ -146,11 +184,10 @@ class PsiPred:
         Other errors
         """
 
-        # for cases when the method is called twice
         SS3_conf = []
 
         try:
-            f = open(fileName, 'r')
+            f = open(file, 'r')
             lines = f.readlines()
             for line in lines:
                 l = line.split()
@@ -171,12 +208,3 @@ class PsiPred:
         return SS3_conf
 
 
-
-#
-#
-# CSW_HOME = os.environ.get('CSW_HOME')
-# predData = PsiPred()
-# proteinName = "1pazA"
-# folderName = CSW_HOME + "/output/1pazA/PsiPred/"
-#
-# predData.parseResults( proteinName, folderName )

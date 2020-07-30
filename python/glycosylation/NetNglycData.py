@@ -14,7 +14,7 @@ class NetNglycData:
     Attributes
     ----------
     predictedSites : Dictionary
-        predictedSites [ protein name ][ site ] [ entry dict ]
+        predictedSites [ protein name ][ start resid ] : array of entry dict
         entry dict has the following keys:
 
         # Common to all PTS predictors
@@ -24,7 +24,8 @@ class NetNglycData:
             isSignif : bool (is the method's specific scoring indicating a
                             potentially significant result)
             score : float (interpretation differs between methods)
-
+            type : string (N-glyc)
+            predictor : string (for cases where multiple predictors are available)
 
     Public Methods
     --------------
@@ -50,20 +51,25 @@ class NetNglycData:
                 if len(l) == 6 and l[0][0:6] != "Signal" :
                     protname = l[0]
                     if protname not in data.predictedSites:
-                        data.predictedSites[ protname ] = []
+                        data.predictedSites[ protname ] = {}
 
                     aa = l[2][0]
                     resid = int( l[1] )
                     score = round( float( l[3] ), 3)
                     isSignif = ("+" in l[5] )
 
-                    data.predictedSites[ protname ].append( {
+                    if resid not in data.predictedSites[protname]:
+                        data.predictedSites[protname][resid] = []
+
+                    data.predictedSites[protname][resid].append({
                         "seq": aa,
                         "start": resid,
                         "end": resid,
                         "isSignif" : isSignif,
-                        "score" : score
-                    } )
+                        "score" : score,
+                        "type": "N-Glyc",
+                        "predictor": "netnglyc"
+                    })
 
 
         except OSError as e:
@@ -77,8 +83,3 @@ class NetNglycData:
         return data
 
 
-
-# CSW_HOME = os.environ.get('CSW_HOME')
-# outputFile = CSW_HOME + "/test/cwl/modules/glycosylation/netnglyc/expected_output/twoprot.netnglyc.out"
-# test = NetNglycData.parse( outputFile )
-# print(test.predictedSites)

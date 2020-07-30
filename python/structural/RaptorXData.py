@@ -1,17 +1,21 @@
-import sys
-# import os
+from __future__ import annotations
+from typing import *
+from dataclasses import dataclass, field
+from pathlib import Path
+import os, sys
 
-class RaptorX:
+
+@dataclass
+class RaptorXData:
     """Class that parses RaptorX-property prediction output data.
 
-    Parameters
+    Attributes
     ----------
+
     DIS_threshold: float
         probability threshold for DisPRO disorder prediction class
         definition, default=0.50
 
-    Attributes
-    ----------
     sequence : array of str of size (n_aminoacis)
         Amino acid sequence
 
@@ -113,101 +117,134 @@ class RaptorX:
 
     Public Methods
     --------------
-    parseResults( self, proteinName, folderName )
-        Parses the RaptorX prediction output files and add the data inside the
-        above attribute data structures.
-        Passed as arguments are the folder name folderName (according to
-        raptorX provided output folder) and the protein name (ex "1pazA") that
-        is being used as root for each output file (that are composed of the
-        proteinName and a specific extension for each output file type
-        (example: "1pazA.ss3", "1pazA.ss3_simple", "1pazA.ss8", etc).
-        The proteinName string is actually the first word provided in the
-        initial FASTA file header that was subjected to prediction with RaptorX.
+    parse ( folder : Path, DIS_threshold: float ) -> RaptorXData
+        Parses the RaptorX prediction output files and add the data inside the above attribute data structures. Passed
+        as arguments are the folder name (according to raptorX provided output folder) and optionally a threshold for
+        disorder.
+
+    parsefiles(ss3: Path, ss8: Path, acc: Path, diso: Path, tgt2: Path, DIS_threshold=None) -> RaptorXData:
+        Parses the RaptorX prediction output files and add the data inside the above attribute data structures. Passed
+        as arguments are the files paths and optionally a threshold for disorder.
     """
 
+    DIS_threshold: float = 0.5
 
-    def __init__(self, DIS_threshold = None ):
-        """
-        Parameters
-        ----------
-        DIS_threshold : float with values between 0. and 1. (default=0.50)
-            Threshold used for disorder class definition.
-        """
+    sequence: list = field(default_factory = list)
 
-        self.DIS_threshold = DIS_threshold if ( DIS_threshold is not None and \
-                                    DIS_threshold > 0.0 and \
-                                    DIS_threshold < 1.0 ) \
-                                    else 0.50
+    SS3_classes: list = field(default_factory = list)
+    SS3_proba: list = field(default_factory = list)
+    SS3_conf: list = field(default_factory = list)
 
-        self.sequence = []
+    SS8_classes: list = field(default_factory = list)
+    SS8_proba: list = field(default_factory = list)
 
-        self.SS3_classes = []
-        self.SS3_proba = []
-        self.SS3_conf = []
+    ACC3_classes: list = field(default_factory = list)
+    ACC3_proba: list = field(default_factory = list)
+    ACC3_conf: list = field(default_factory = list)
 
-        self.SS8_classes = []
-        self.SS8_proba = []
+    DIS_classes: list = field(default_factory = list)
+    DIS_proba: list = field(default_factory = list)
 
-        self.ACC3_classes = []
-        self.ACC3_proba = []
-        self.ACC3_conf = []
-
-        self.DIS_classes = []
-        self.DIS_proba = []
-
-
-        # TODO
-        # self.TM2_classes = []
-        # self.TM2_proba = []
-        #
-        # self.TM8_classes = []
-        # self.TM8_proba = []
-
-
-    def parseResults( self, proteinName : str, folderName  : str):
+    @staticmethod
+    def parsefiles(ss3: Path, ss8: Path, acc: Path, diso: Path, tgt2: Path, DIS_threshold=None) -> RaptorXData:
         """
         Parses the RaptorX prediction output files and add the data inside the
         above attribute data structures.
 
         Parameters
         ----------
-        proteinName : str
-            protein name that is being used as root for each output file.
-            (example: "1paz.ss3", "1paz.ss3_simple", "1paz.ss8", etc).
+        ss3 : path to *.ss3 file
+        ss8 : path to *.ss8 file
+        acc : path to *.acc file
+        diso : path to *.diso file
+        tgt2 : path to *.tgt2 file
+        DIS_threshold : float with values between 0. and 1. (default=0.50)
+            Threshold used for disorder class definition.
 
-        folderName : str
-            folder name where RaptorX prediction output is being stored.
-            (example: "CrossSpeciesWorkflow/output/1pazA/RaptorX/1pazA_PROP/")
+        Returns:
+        -------
+        RaptorXData: with parsed data
         """
 
-        fileNameRoot = folderName + '/' + proteinName
+        data = RaptorXData()
+
+        data.DIS_threshold = DIS_threshold if (DIS_threshold is not None and 0.0 < DIS_threshold < 1.0) \
+            else 0.50
+
+        data.sequence, data.SS3_classes, data.SS3_proba = \
+            data.__readss3(ss3)
+        data.SS8_classes, data.SS8_proba = \
+            data.__readss8(ss8)
+        data.ACC3_classes, data.ACC3_proba = \
+            data.__readacc(acc)
+        data.DIS_classes, data.DIS_proba = \
+            data.__readdiso(diso, data.DIS_threshold)
+
+        data.SS3_conf, data.ACC3_conf = \
+            data.__readconf(tgt2)
+
+        return data
+
+    @staticmethod
+    def parse(folder: Path, DIS_threshold=None) -> RaptorXData :
+        """
+         Parses the RaptorX prediction output files and add the data inside the
+         above attribute data structures.
+
+         Parameters
+         ----------
+         folder : path to the folder where prediction data is generated
+
+         DIS_threshold : float with values between 0. and 1. (default=0.50)
+             Threshold used for disorder class definition.
+
+         Returns:
+         -------
+         RaptorXData: with parsed data
+         """
+
+        data = RaptorXData()
+
+        data.DIS_threshold = DIS_threshold if (DIS_threshold is not None and 0.0 < DIS_threshold < 1.0) \
+            else 0.50
+
+        paths = { 'ss3' : Path(),
+                    'ss8' : Path(),
+                    'diso' : Path(),
+                    'acc' : Path(),
+                    'tgt2' : Path(),
+                    }
+
+        for key in paths :
+            try:
+                files = list(folder.rglob('*.' + key))
+                if len(files) > 1:
+                    print("Multiple options: ", list)
+                    raise
+                elif len(files) == 0:
+                    print("In the folder there is no file with suffix : ", key)
+                    raise
+                else:
+                    paths[key] = files[0]
+
+            except:
+                print("Unexpected error:", sys.exc_info()[0])
+                raise
+
+        data = data.parsefiles( paths['ss3'], paths['ss8'], paths['acc'], paths['diso'], paths['tgt2'], data.DIS_threshold)
+
+        return data
 
 
-        self.sequence, self.SS3_classes, self.SS3_proba = \
-            RaptorX.__readSS3( fileNameRoot + '.ss3' )
-        self.SS8_classes, self.SS8_proba = \
-            RaptorX.__readSS8(  fileNameRoot + '.ss8' )
-        self.ACC3_classes, self.ACC3_proba = \
-            RaptorX.__readACC(  fileNameRoot + '.acc' )
-        self.DIS_classes, self.DIS_proba = \
-            RaptorX.__readDIS( fileNameRoot + '.diso', \
-                                        self.DIS_threshold )
-
-        self.SS3_conf, self.ACC3_conf = \
-            RaptorX.__readCONF( fileNameRoot + '.tgt2')
-
-
-
-    def __readDIS( fileName : str, DIS_threshold  : float):
+    @staticmethod
+    def __readdiso(file: Path, DIS_threshold: float) -> Tuple[List[str], List[float]]:
         """
         Parses "*.diso" output files and add the data inside the
         above attribute data structures.
 
         Parameters
         ----------
-        fileName : str
-            Path to file
-
+        file: Path
         DIS_threshold : float
             Threshold for disorder class definition
 
@@ -222,17 +259,17 @@ class RaptorX:
         DIS_proba = []
 
         try:
-            f = open(fileName, 'r')
+            f = open(file, 'r')
             lines = f.readlines()
             for line in lines:
                 l = line.split()
                 if l[0][0] != '#':
                     current = float(l[3])
-                    DIS_proba.append( current )
+                    DIS_proba.append(current)
                     if current >= DIS_threshold:
-                        DIS_classes.append( 'D' )
+                        DIS_classes.append('D')
                     else:
-                        DIS_classes.append( 'O' )
+                        DIS_classes.append('O')
 
         except OSError:
             print("File error:", sys.exc_info()[0])
@@ -242,18 +279,17 @@ class RaptorX:
             print("Unexpected error:", sys.exc_info()[0])
             raise
 
-
         return DIS_classes, DIS_proba
 
-
-    def __readSS3( fileName : str):
+    @staticmethod
+    def __readss3(file: Path) -> Tuple[List[str], List[str], List[Dict[str, float]]] :
         """
         Parses "*.ss3" output files and add the data inside the
         above attribute data structures.
 
         Parameters
         ----------
-        fileName : str
+        fileName : path
             Path to file
 
         Raises
@@ -268,21 +304,20 @@ class RaptorX:
         SS3_proba = []
 
         try:
-            f = open(fileName, 'r')
+            f = open(file, 'r')
             lines = f.readlines()
             for line in lines:
                 l = line.split()
                 if l[0][0] != '#':
-
                     Hproba = float(l[3])
                     Eproba = float(l[4])
                     Cproba = float(l[5])
                     ss = l[2]
 
                     seq.append(l[1])
-                    SS3_proba.append( { "H": Hproba,
-                                        "E": Eproba,
-                                        "C": Cproba } )
+                    SS3_proba.append({"H": Hproba,
+                                      "E": Eproba,
+                                      "C": Cproba})
                     SS3_classes.append(ss)
 
         except OSError as e:
@@ -293,18 +328,17 @@ class RaptorX:
             print("Unexpected error:", sys.exc_info()[0])
             raise
 
-
         return seq, SS3_classes, SS3_proba
 
-
-    def __readSS8( fileName : str ):
+    @staticmethod
+    def __readss8(file: Path) -> Tuple[List[str], List[Dict[str, float]]] :
         """
         Parses "*.ss8" output files and add the data inside the
         above attribute data structures.
 
         Parameters
         ----------
-        fileName : str
+        fileName : path
             Path to file
 
         Raises
@@ -318,7 +352,7 @@ class RaptorX:
         SS8_proba = []
 
         try:
-            f = open(fileName, 'r')
+            f = open(file, 'r')
             lines = f.readlines()
             for line in lines:
                 l = line.split()
@@ -334,15 +368,14 @@ class RaptorX:
 
                     ss = l[2]
 
-
-                    SS8_proba.append( { "H": Hproba,
-                                        "G": Gproba,
-                                        "I": Iproba,
-                                        "E": Eproba,
-                                        "B": Bproba,
-                                        "T": Tproba,
-                                        "S": Sproba,
-                                        "C": Cproba    } )
+                    SS8_proba.append({"H": Hproba,
+                                      "G": Gproba,
+                                      "I": Iproba,
+                                      "E": Eproba,
+                                      "B": Bproba,
+                                      "T": Tproba,
+                                      "S": Sproba,
+                                      "C": Cproba})
 
                     if ss == 'L':
                         ss = 'C'
@@ -357,20 +390,17 @@ class RaptorX:
             print("Unexpected error:", sys.exc_info()[0])
             raise
 
-
         return SS8_classes, SS8_proba
 
-
-
-    def __readACC( fileName : str ):
+    @staticmethod
+    def __readacc(file: Path) -> Tuple[List[str], List[Dict[str, float]]] :
         """
         Parses "*.acc" output files and add the data inside the
         above attribute data structures.
 
         Parameters
         ----------
-        fileName : str
-            Path to file
+        file : Path
 
         Raises
         ------
@@ -383,7 +413,7 @@ class RaptorX:
         ACC3_proba = []
 
         try:
-            f = open(fileName, 'r')
+            f = open(file, 'r')
             lines = f.readlines()
             for line in lines:
                 l = line.split()
@@ -394,10 +424,10 @@ class RaptorX:
 
                     acc = l[2]
 
-                    ACC3_proba.append( { "B": Bproba,
-                                        "M": Mproba,
-                                        "E": Eproba } )
-                    ACC3_classes.append( acc )
+                    ACC3_proba.append({"B": Bproba,
+                                       "M": Mproba,
+                                       "E": Eproba})
+                    ACC3_classes.append(acc)
 
         except OSError as e:
             print("File error:", sys.exc_info()[0])
@@ -409,16 +439,15 @@ class RaptorX:
 
         return ACC3_classes, ACC3_proba
 
-
-    def __readCONF( fileName : str ):
+    @staticmethod
+    def __readconf(file: Path) -> Tuple[List[int], List[int]]:
         """
         Parses "*.tgt2" output files and add the data inside the
         above attribute data structures.
 
         Parameters
         ----------
-        fileName : str
-            Path to file
+        file: Path
 
         Raises
         ------
@@ -431,7 +460,7 @@ class RaptorX:
         SS3_conf = []
 
         try:
-            f = open(fileName, 'r')
+            f = open(file, 'r')
             lines = f.readlines()
             for line in lines:
                 l = line.split()
@@ -441,8 +470,8 @@ class RaptorX:
                     ACCconf = l[2]
 
             for it in range(len(SS3conf)):
-                SS3_conf.append( int( SS3conf[ it ] ) )
-                ACC3_conf.append( int( ACCconf[ it ] ) )
+                SS3_conf.append(int(SS3conf[it]))
+                ACC3_conf.append(int(ACCconf[it]))
 
         except OSError as e:
             print("File error:", sys.exc_info()[0])
@@ -455,12 +484,3 @@ class RaptorX:
         return SS3_conf, ACC3_conf
 
 
-
-#
-#
-# CSW_HOME = os.environ.get('CSW_HOME')
-# predData = RaptorX()
-# proteinName = "1pazA"
-# folderName = CSW_HOME + "/output/1pazA/RaptorX/1pazA_PROP/"
-#
-# predData.parseResults( proteinName, folderName )

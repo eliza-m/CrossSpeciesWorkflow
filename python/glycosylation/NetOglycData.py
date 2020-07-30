@@ -14,7 +14,7 @@ class NetOglycData:
     Attributes
     ----------
     predictedSites : Dictionary
-        predictedSites [ protein name ][ site ] [ entry dict ]
+        predictedSites [ protein name ][ start resid ] : array of entry dict
         entry dict has the following keys:
 
         # Common to all PTS predictors
@@ -24,6 +24,8 @@ class NetOglycData:
             isSignif : bool (is the method's specific scoring indicating a
                             potentially significant result)
             score : float (interpretation differs between methods)
+            type : string (O-glyc)
+            predictor : string (for cases where multiple predictors are available)
 
         # Predictor specific
             iscore : float
@@ -57,7 +59,7 @@ class NetOglycData:
                     else:
                         protname = l[0]
                         if protname not in data.predictedSites:
-                            data.predictedSites[ protname ] = []
+                            data.predictedSites[ protname ] = {}
 
                         aa = l[1]
                         resid = int( l[2] )
@@ -66,13 +68,18 @@ class NetOglycData:
                         isSignif = (l[5] != ".")
                         comment = l[6]
 
-                        data.predictedSites[ protname ].append( {
+                        if resid not in data.predictedSites[protname]:
+                            data.predictedSites[protname][resid] = []
+
+                        data.predictedSites[protname][resid].append({
                             "seq": aa,
                             "start": resid,
                             "end": resid,
                             "isSignif" : isSignif,
                             "score" : gscore,
                             "iscore" : iscore,
+                            "type": "O-Glyc",
+                            "predictor": "netoglyc",
                             "comment" : comment
                         } )
 
@@ -87,8 +94,3 @@ class NetOglycData:
         return data
 
 
-
-# CSW_HOME = os.environ.get('CSW_HOME')
-# outputFile = CSW_HOME + "/test/cwl/modules/glycosylation/netoglyc/expected_output/twoprot.netoglyc.out"
-# test = NetOglycData.parse( outputFile )
-# print(test.predictedSites)

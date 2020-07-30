@@ -14,7 +14,7 @@ class IsoglypData:
     Attributes
     ----------
     predictedSites : Dictionary
-        predictedSites [ protein name ][ site ] [ entry dict ]
+        predictedSites [ protein name ][ start resid ] : array of entry dict
         entry dict has the following keys:
 
         # Common to all PTS predictors :
@@ -24,6 +24,8 @@ class IsoglypData:
             isSignif : bool (is the method's specific scoring indicating a
                             potentially significant result)
             score : maximum EVP from all isoforms
+            type : string (O-glyc)
+            predictor : string (for cases where multiple predictors are available)
 
         # Predictor specific :
             T1: EVP value for T1 isoform
@@ -59,19 +61,25 @@ class IsoglypData:
                     else:
                         protname = l[0].split()[0][1:]
                         if protname not in data.predictedSites:
-                            data.predictedSites[ protname ] = []
+                            data.predictedSites[ protname ] = {}
 
                         aa = l[1]
                         resid = int( l[2] )
                         max = round( float( l[-1] ), 3)
                         isSignif = (max >= 1)
 
-                        data.predictedSites[ protname ].append( {
-                            "aa": aa,
-                            "resid": resid,
+                        if resid not in data.predictedSites[protname]:
+                            data.predictedSites[protname][resid] = []
+
+                        data.predictedSites[protname][resid].append({
+                            "seq": aa,
+                            "start": resid,
+                            "end": resid,
                             "score" : max,
-                            "isSignif" : isSignif
-                        } )
+                            "isSignif" : isSignif,
+                            "type": "O-Glyc",
+                            "predictor": "isoglyp"
+                        })
 
                         # add EVP (enhancement value product) values for each
                         # of the predicted isoformes (T1...Tn). Read more about
@@ -80,7 +88,7 @@ class IsoglypData:
                             if header[it][0] == "T":
                                 key = header[it]
                                 value = round( float(l[it]), 4 )
-                                data.predictedSites[protname][-1][key] = value
+                                data.predictedSites[protname][resid][-1][key] = value
 
 
         except OSError as e:
@@ -94,8 +102,3 @@ class IsoglypData:
         return data
 
 
-
-# CSW_HOME = os.environ.get('CSW_HOME')
-# outputFile = CSW_HOME + "/test/bash/single_protein/output/glycosylation/isoglyp/expected_output/1pazA.isoglyp.out"
-# test = IsoglypData.parse( outputFile )
-# print(test.predictedSites)

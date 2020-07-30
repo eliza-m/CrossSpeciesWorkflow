@@ -5,7 +5,7 @@ from pathlib import Path
 import os, sys
 
 @dataclass
-class deepsumoYlData:
+class DeepsumoYlData:
     """Class that parses deepsumo_yl prediction output data.
 
     Parameters
@@ -14,7 +14,7 @@ class deepsumoYlData:
     Attributes
     ----------
     predictedSites : Dictionary
-        predictedSites [ protein name ][ site ] [ entry dict ]
+        predictedSites [ protein name ][ start resid ] : array of entry dict
         entry dict has the following keys:
 
         # Common to all PTS predictors :
@@ -23,11 +23,9 @@ class deepsumoYlData:
             end : ending residue id
             isSignif : bool (is the method's specific scoring indicating a
                             potentially significant result)
-            score : maximum EVP from all isoforms
-
-        # Predictor specific
-            type : SUMO/SIM site (only SUMO sites for this predictor)
-
+            score : float (probability)
+            type : string (only SUMO sites for this predictor)
+            predictor : string (for cases where multiple predictors are available)
 
 
     Public Methods
@@ -41,9 +39,9 @@ class deepsumoYlData:
     predictedSites : dict = field(default_factory=dict)
 
     @staticmethod
-    def parse(outputFile: Path) -> deepsumoYlData :
+    def parse(outputFile: Path) -> DeepsumoYlData :
 
-        data = deepsumoYlData()
+        data = DeepsumoYlData()
 
         try:
             f = open(outputFile, 'r')
@@ -58,17 +56,17 @@ class deepsumoYlData:
                     if len(temp) == 2:
                         protname = temp[0][1:]
                         aa = temp[1][0]
-                        pos = int( temp[1][1:])
+                        resid = int( temp[1][1:])
                     else :
                         temp = header.split('K')
                         protname = temp[0][1:]
                         aa = "K"
-                        pos = int( temp[1] )
+                        resid = int( temp[1] )
 
 
                     protname = l[0].split(' ')[0][1:]
                     if protname not in data.predictedSites:
-                        data.predictedSites[ protname ] = []
+                        data.predictedSites[ protname ] = {}
 
                     score = round( float( l[2] ), 3)
 
@@ -78,13 +76,17 @@ class deepsumoYlData:
                     # only SUMO sites are predicted
                     type = "SUMO"
 
-                    data.predictedSites[ protname ].append( {
+                    if resid not in data.predictedSites[protname]:
+                        data.predictedSites[protname][resid] = []
+
+                    data.predictedSites[protname][resid].append({
                         "seq": aa,
-                        "start": pos,
-                        "end": pos,
+                        "start": resid,
+                        "end": resid,
                         "isSignif" : isSignif,
                         "score" : score,
-                        "type": type
+                        "type": type,
+                        "predictor": "deepsumo_yl"
                     } )
 
 
@@ -99,6 +101,3 @@ class deepsumoYlData:
         return data
 
 
-# CSW_HOME = os.environ.get('CSW_HOME')
-# outputFile = CSW_HOME + "/test/cwl/modules/sumoylation/deepsumo_yl/expected_output/ex1.deepsumo_yl.out"
-# test = deepsumoYlData.parse( outputFile )
