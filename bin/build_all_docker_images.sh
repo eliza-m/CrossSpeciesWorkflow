@@ -6,28 +6,24 @@
 # Be sure you have set the CrossSpeciesWorkflow project home variable.
 # As this variable is often used, it can be added to bashrc profile.
 
-export CSW_HOME=/path/to/CSW/home
+# export CSW_HOME=/path/to/CSW/home
 
 
 # DTU predictors need registering before downloading the software !!!
 # Please provide the path to the folder where DTU predictors source packages are being stored.
 
 # Phosphorylation module
-export netphospan_SOURCE=/path/to/netphospan/source
-export netphos_SOURCE=/path/to/netphos/source
+# export netphospan_SOURCE=/path/to/netphospan/source
+# export netphos_SOURCE=/path/to/netphos/source
 
 # Glycosylation module
-export netcglyc_SOURCE=/path/to/netcglyc/source
-export netoglyc_SOURCE=/path/to/netoglyc/source
-export netnglyc_SOURCE=/path/to/netnglyc/source
-export sinalp_SOURCE=/path/to/sinalp/source
+# export netcglyc_SOURCE=/path/to/netcglyc/source
+# export netoglyc_SOURCE=/path/to/netoglyc/source
+# export netnglyc_SOURCE=/path/to/netnglyc/source
+# export sinalp_SOURCE=/path/to/sinalp/source
 
 # Localisation module
-export tmhmm_SOURCE=/path/to/tmhmm/source
-
-
-
-
+# export tmhmm_SOURCE=/path/to/tmhmm/source
 
 
 
