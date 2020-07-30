@@ -8,7 +8,7 @@ Content summary:
 * [References](#references)
 
 # General Info
-While there are a multitude of open source ML methods for prediction of various structural or biological related attributes, there are no open source pipelines or APIs which allow to performing a one command task for running multiple/equivalent methods and join the results in a way that facilitates comparisons and further dissemination. This limits any type of structural/comparative biology analyses, as one would need to install and run >50 software and put together all the results using in-house scripts.
+While there are a multitude of open source ML methods for prediction of various structural or biological related attributes, there are no open source pipelines or APIs which allow performing a one command task for running multiple/equivalent methods and join the results in a way that facilitates comparisons and further dissemination. This limits any type of structural/comparative biology analyses, as one would need to install and run >50 software and put together all the results using in-house scripts.
 
 This project aims at developing a scalable workflow that receives the protein FASTA file and runs a series of structural and phenotype related predictors, generating a knowledge dataset that will facilitate further exploration and comparisons according to the following categories of features: secondary structure, solvent accessibility, disordered regions, PTS modifications (phosphorylation, glycosylation, lipid modification, sumoylation, etc) or binding sites.
 
@@ -25,6 +25,9 @@ The project is currently under development :exclamation: :exclamation: :exclamat
 Some features might not won't work properly ::exclamation::
 
 The project was tested so far only on native Ubuntu 18 .
+=======
+Many features in this development branch are not yet implemented and won't work properly ::exclamation::
+
 
 Currently there are 3 main modules that deal with:
 * A. Structural related predictors (secondary structure, relative solvent accesibility and intrinsical disorder regions predictions)
@@ -36,8 +39,12 @@ Currently there are 3 main modules that deal with:
 * G. Lipid modification predictors (:exclamation: on progress)
 * H. Miscellaneous predictors (:exclamation: on progress)
 
+# Running CWL workflows #
 
-# Requirements before using CrossSpeciesWorkflow:
+# Requirements before using CrossSpeciesWorkflow: #
+To run CWL workflows you can use any CWL runner of your choice. By default (and also for the ease of debugging) we used CWLtool.
+Some of the docker images used in the pipeline have complex license, hence you have to build them yourself (the instructions are given)
+
 
 ## Install Prerequisites
 * Docker client: 
@@ -69,6 +76,12 @@ For these predictors it will be required to build your docker images using instr
 
 # CrossSpeciesWorkflow - Setup and Usage
 
+
+Conda environment that has cwltool and python is also provided.
+```bash
+conda env create -f environment.yaml
+```
+The python code in this project is published as a conda package.
 
 ## Clone repo
 ```

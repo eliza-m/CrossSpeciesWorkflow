@@ -1,0 +1,12 @@
+name: species_proteins
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - future>=0.18.2
+  - cwltool>=3.0
+  - anaconda-client>=1.7.2
+  - conda-build>=3.19.2
+  - mamba>=0.4.2
+prefix: /opt/miniconda3/envs/species_proteins
