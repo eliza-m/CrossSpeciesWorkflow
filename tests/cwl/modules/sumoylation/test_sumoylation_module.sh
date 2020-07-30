@@ -6,7 +6,7 @@ ARGS="--no-match-user --no-read-only"
 
 CWLSCRIPTS=${CWL_HOME}/cwl/sumoylation/
 
-TESTFOLDER=${CWL_HOME}/test/cwl/modules/sumoylation/
+TESTFOLDER=${CWL_HOME}/tests/cwl/modules/sumoylation/
 
 
 

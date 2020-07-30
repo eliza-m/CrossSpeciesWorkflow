@@ -6,7 +6,7 @@ ARGS=--no-read-only
 
 CWLSCRIPTS=${CWL_HOME}/cwl/glycosylation/
 
-TESTFOLDER=${CWL_HOME}/test/cwl/modules/glycosylation/
+TESTFOLDER=${CWL_HOME}/tests/cwl/modules/glycosylation/
 
 
 

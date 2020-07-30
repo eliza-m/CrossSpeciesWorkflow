@@ -1,17 +1,20 @@
+#!/usr/bin/env bash
+
 ########################################
 # Please set the following variables
 ########################################
 
+
 # Be sure you have previously set the ${CSW_HOME} variable.
 
 # input folder where FASTA file is located
-export inputFolder=${CSW_HOME}/test/bash/single_protein/input
+export inputFolder=${CSW_HOME}/tests/bash/single_protein/input
 
 # protein name root ( in our example the FASTA file is 1pazA.fasta )
 export prot="1pazA"
 
 # output folder
-export outputFolder=${CSW_HOME}/test/bash/single_protein/output
+export outputFolder=${CSW_HOME}/tests/bash/single_protein/output
 
 
 ############################################################

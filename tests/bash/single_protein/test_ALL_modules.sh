@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 ########################################
 # Please set the following variables
 ########################################
@@ -16,13 +18,13 @@ export DBname=uniref50.fasta
 
 
 # input folder where FASTA file is located
-export inputFolder=${CSW_HOME}/test/bash/single_protein/input
+export inputFolder=${CSW_HOME}/tests/bash/single_protein/input
 
 # protein name root ( in our example the FASTA file is 1pazA.fasta )
 export prot="1pazA"
 
 # output folder
-export outputFolder=${CSW_HOME}/test/bash/single_protein/output
+export outputFolder=${CSW_HOME}/tests/bash/single_protein/output
 
 # CPU threads and maximum RAM (GB) to be used
 export CPUnum=10

@@ -15,7 +15,7 @@ ARGS="--no-match-user --no-read-only"
 
 CWLSCRIPTS=${CWL_HOME}/cwl/structural/
 
-TESTFOLDER=${CWL_HOME}/test/cwl/modules/structural/
+TESTFOLDER=${CWL_HOME}/tests/cwl/modules/structural/
 
 
 
