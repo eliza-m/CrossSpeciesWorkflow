@@ -22,25 +22,53 @@ This repo intends to create an easy, user accesible and open-source tool for run
 
 # Project status 
 The project is currently under development :exclamation: :exclamation: :exclamation:. 
-Many features in this devevelopment branch are not yet implemented and won't work properly ::exclamation::
+Some features might not won't work properly ::exclamation::
+
+The project was tested so far only on native Ubuntu 18 .
 
 Currently there are 3 main modules that deal with:
 * A. Structural related predictors (secondary structure, relative solvent accesibility and intrinsical disorder regions predictions)
 * B. Phosphorylation preditors
 * C. Glycosylaytion predictors
+* D. Acetylation predictors (:exclamation: on progress)
+* E. Sumoylation predictors
+* F. Cellular localisation predictors
+* G. Lipid modification predictors (:exclamation: on progress)
+* H. Miscellaneous predictors (:exclamation: on progress)
 
 
+# Requirements before using CrossSpeciesWorkflow:
 
-# Prediction Modules - Installation and Usage
-
-
-## Install prerequisites:
-
+## Install Prerequisites
 * Docker client: 
     * Docker Desktop for Windows or MAC - [click](https://www.docker.com/products/docker-desktop)
     * docker-ce-cli for Linux - [click](docs.docker.com/install/linux/docker-ce/ubuntu/)
 * cwltool - [click](https://github.com/common-workflow-language/cwltool)
-* Python3
+* Python3.8 and above
+
+
+## Download some packages
+Some of the 3rd party predictors require registering on their website prior downloading the software.
+
+All DTU predictors are licensed only for for academic and non-profit usage and in order to download the software it is required to register on their website and accept the license agreement prior receiving via email a download link. Please register and download the bellow predictors (linux version as the dockerfile image is ubuntu based) from the [Download link](https://services.healthtech.dtu.dk/software.php)
+
+* Phosphorylation module:
+    * NetPhos
+    * NetPhosPan
+* Glycosylation module:
+    * NetNGlyc
+    * NetOGlyc
+    * NetCGlyc
+    * SignalP
+ * Localisation module:
+    * Tmhmm2
+
+For these predictors it will be required to build your docker images using instructions bellow before using the CWL pipeline.
+
+
+
+# CrossSpeciesWorkflow - Setup and Usage
+
 
 ## Clone repo
 ```
@@ -55,13 +83,67 @@ export CSW_HOME=/path/to/CrossSpeciesWorkflow/project/home
 
 Please note that some of the predictors require registering on their website in order to download the source code. Also make sure that you have enough disk space available at the location were the docker image is being stored. 
 
+```
+# DTU predictors need registering before downloading the software !!!
+# Please provide the path to the folder where DTU predictors source packages are being stored.
+
+# Phosphorylation module
+export netphospan_SOURCE=/path/to/netphospan/source
+export netphos_SOURCE=/path/to/netphos/source
+
+# Glycosylation module
+export netcglyc_SOURCE=/path/to/netcglyc/source
+export netoglyc_SOURCE=/path/to/netoglyc/source
+export netnglyc_SOURCE=/path/to/netnglyc/source
+export sinalp_SOURCE=/path/to/sinalp/source
+
+# Localisation module
+export tmhmm_SOURCE=/path/to/tmhmm/source
+```
+
 You can build only the docker images of the predictors you are interested in (please see bellow), or you can build all docker images by using the following bash script:
 ```
 bash ${CSW_HOME}/bin/build_all_docker_images.sh
 ```
-Some of the individual predictors require downloading and setting up different protein databases. Details of each predictors requirements and usage are shown in the sections bellow :
 
-## Prediction Modules 
+Some of the individual predictors require downloading and setting up different protein databases. Details of each predictors requirements and usage are shown in each predictors sections bellow :
+* [RaptorX](### A1)
+* [Psipred](### A2)
+* [Disopred](### A3)
+
+For testing that all the docker images work as expected, please set the following variables.
+
+```
+# input folder where FASTA file is located
+export inputFolder=${CSW_HOME}/test/bash/single_protein/input
+
+# protein name root ( in our example the FASTA file is 1pazA.fasta )
+export prot="1pazA"
+
+# output folder
+export outputFolder=${CSW_HOME}/test/bash/single_protein/output
+
+# CPU threads and maximum RAM (GB) to be used
+export CPUnum=10
+export maxRAM=16
+
+# location of the protein database to be use for generatig sequence profiles
+export RaptorxDBfolder=/path/to/uniprot20_2016_02
+
+# for Psipred & DisoPred the recommended db is Uniref90 or Uniref50
+export DBfolder=/path/to/uniref50
+export DBname=uniref50.fasta
+```
+
+Alter setting the variables, you cand run the all modules test :
+```
+bash ${CSW_HOME}/test/bash/single_protein/test_ALL_modules.sh
+```
+If you are interested in a particular module only, separate tests are provided in ${CSW_HOME}/test/bash/single_protein/
+In each predictor folder - `${outputFolder}/structural/scratch1d/expected_output/` samples of how the output should look are provided.
+
+
+## Prediction Modules -  details & building individual docker images
 
 ## A. Structural module  
 
@@ -81,7 +163,7 @@ Docker image contains:
 Build docker image
 ```
 cd ${CSW_HOME}/dockerfiles/structural/raptorx
-docker build -t raptorx_property_cpu -f raptorx_property_cpu.dockerfile .
+docker build -t raptorx -f raptorx_property_cpu.dockerfile .
 ```
 
 Get protein sequence database, according to the sequence profile generator sofware you want to use (installed in the docker image): 
@@ -105,41 +187,21 @@ Get protein sequence database, according to the sequence profile generator sofwa
     
 Usage example using bash :
 
+For RaptorX the recommended db is uniprot20_2016_02 or uniclust30. For now, only the usage of uniprot20_2016_02 and hhsuite3 was tested. A sample of what the expected output should consist of is located in `${outputFolder}/structural/raptorx/expected_output/`.
 ```
-# for RaptorX the recommended db is uniprot20_2016_02 or uniclust30. For now, only the usage of uniprot20_2016_02 and hhsuite3 was tested.
-export RaptorxProtDB_NAME=uniprot20_2016_02
-
 # location of the protein database to be use for generatig sequence profiles
-export RaptorxProtDB_PATH=/storage1/eliza/protDBs/uniprot20_2016_02
-
-
-# input folder where FASTA file is located
-export inputFolder=${CSW_HOME}/test/input
-
-# protein name root ( in our example the FASTA file is 1pazA.fasta )
-export prot="1pazA"
-
-# output folder
-export outputFolder=${CSW_HOME}/test/output
-
-# CPU threads and maximum RAM (GB) to be used
-export CPUnum=10
-export maxRAM=4
-
+export RaptorxDBfolder=/storage1/eliza/protDBs/uniprot20_2016_02
 
 docker run \
--v ${RaptorxProtDB_PATH}:/home/TGT_Package/databases/uniprot20_2016_02 \
--v ${outputFolder}:/output \
 -v ${inputFolder}:/input \
+-v ${outputFolder}/structural/raptorx:/output \
+-v ${RaptorxDBfolder}:/home/TGT_Package/databases/uniprot20_2016_02 \
 -e prot \
 -e CPUnum \
 -e maxRAM \
--it raptorx_property_cpu:latest bash -c '\
-mkdir -p /output/${prot}; \
-mkdir -p /output/${prot}/RaptorX; \
-TGT_Package/A3M_TGT_Gen.sh -i /input/${prot}.fasta -h hhsuite3 -d uniprot20_2016_02 -c ${CPUnum} -m ${maxRAM} -o /output/${prot}/RaptorX/${prot}_A3MTGT; \
-Predict_Property/Predict_Property.sh -i /output/${prot}/RaptorX/${prot}_A3MTGT/${prot}.tgt -o /output/${prot}/RaptorX/${prot}_PROP; '\
-
+-it raptorx:latest bash -c '\
+TGT_Package/A3M_TGT_Gen.sh -i /input/${prot}.fasta -h hhsuite3 -d uniprot20_2016_02 -c ${CPUnum} -m ${maxRAM} -o /output/; \
+Predict_Property/Predict_Property.sh -i /output/${prot}.tgt -o /output/; '
 ```
 
 <br /><br />
@@ -161,51 +223,37 @@ Docker image contains 2 packages:
 Build docker image
 ```
 cd ${CSW_HOME}/dockerfiles/structural/scratch1d
-docker build -t scratch1d_cpu -f scratch1d_cpu.dockerfile .
+docker build -t scratch1d -f scratch1d.dockerfile .
 ```
 
-Usage example using bash :
+Usage example using bash. A sample of what the expected output should consist of is located in `${outputFolder}/structural/scratch1d/expected_output/`.
 
 ```
-# input folder where FASTA file is located
-export inputFolder=${CSW_HOME}/test/input
-
-# protein name root ( in our example the FASTA file is 1pazA.fasta )
-export prot="1pazA"
-
-# output folder
-export outputFolder=${CSW_HOME}/test/output
-
-# CPU threads to be used
-export CPUnum=10
-
 docker run \
--v ${outputFolder}:/output \
 -v ${inputFolder}:/input \
+-v ${outputFolder}/structural/scratch1d:/output \
 -e prot \
 -e CPUnum \
--it scratch1d_cpu:latest bash -c '\
-mkdir -p output/${prot}; \
-mkdir -p output/${prot}/Scratch1D; \
-SCRATCH-1D_1.2/bin/run_SCRATCH-1D_predictors.sh /input/${prot}.fasta /output/${prot}/Scratch1D/${prot} ${CPUnum} ;' 
+-it scratch1d:latest bash -c '\
+SCRATCH-1D_1.2/bin/run_SCRATCH-1D_predictors.sh /input/${prot}.fasta /output/${prot} ${CPUnum} ;' 
 
 ```    
 
 
 <br /><br />
 
-### A3. [Psipred predictors](http://bioinf.cs.ucl.ac.uk/psipred/) - from UCL Bioinformatics group  
-Docker image contains 2 packages:
+### A3. [Psipred](http://bioinf.cs.ucl.ac.uk/psipred/) - from UCL Bioinformatics group  
+Docker image contains:
 * PSIPRED Protein Secondary Structure Predictor v4.0 ([github repo](https://github.com/psipred/psipred)) [\[BJ 2019\]](#bj-2019), [\[J 1999\]](#j-1999).
 * DISOPRED Disorder Predictor v3.1 ([github repo](https://github.com/psipred/disopred)) [\[JC 2014\]](#jc-2014)
 
 Build docker image:
 ```
-cd ${CSW_HOME}/dockerfiles/structural/psipred_disopred
-docker build -t psipred_disopred_cpu -f psipred_disopred_cpu.dockerfile .
+cd ${CSW_HOME}/dockerfiles/structural/psipred
+docker build -t psipred -f psipred.dockerfile .
 ```
 
-This docker image will use BLAST+ for building the sequence profile. Therefore we need to download and setup a sequence database. Psipred recomands the usage of UniRef90. For more details visit their documentation (link above). Download UniRef90 in fasta format from [uniprot.org/downloads](https://www.uniprot.org/downloads).
+This docker image will use BLAST+ for building the sequence profile. Therefore we need to download and setup a sequence database. Psipred recomands the usage of UniRef90. For more details visit their documentation (link above). Download UniRef50/UniRef90 in fasta format from [uniprot.org/downloads](https://www.uniprot.org/downloads).
 
 Afterwards a blast database needs to be created (this steps need to be done only once, afterwards the database can be used or moved anywhere):
 ```
@@ -217,7 +265,6 @@ cd /Place/where/UnirefX.fasta/file/is/stored
 	
 # create database (this might take a while from several minutes to one hour)
 makeblastdb -dbtype prot -in uniref90.fasta
-	
 ```
 
 After the BLAST+ database has been generated, from now on we can use the docker image anytime.
@@ -227,103 +274,61 @@ Let's set some custom variables:
 	
 The path to the folder where uniref is being stored (change it according to you case):
 ```
-export PsipredProtDB_PATH=/storage1/eliza/protDBs/uniref90
+export DBfolder=/path/to/protDBs/uniref50
+export DBname=uniref50.fasta	
 ```
 
-The name of the uniref fasta file (in case you wish to use uniref50 or other database)
-```
-export PsipredProtDB_NAME=uniref90
-```
-	
-The number of CPU threads to be used when using psiblast
-```
-export CPUnum=4
-```
-	
-Specify the folder where the input fasta files are. We will use the provided examples in this repo.
-```
-export inputFolder=${CSW_HOME}/test/input
-```
-
-Specify the protein root name (in our example the fasta file is "1pazA.fasta"):
-```
-export prot="1pazA"
-```
-
-Set an output folder there the results will be generated. We will use the test example from this repo.
-```
-export outputFolder=${CSW_HOME}/test/output
-```
-
-
-Let's run Psipred ( no need to change anything as the variables used are being set above - just copy paste the whole command bellow )
+Let's run Psipred ( no need to change anything as the variables used are being set above - just copy paste the whole command bellow ). Sample output for comparison is located in `${outputFolder}/structural/psipred/expected_output/`
 ```
 docker run \
--v ${PsipredProtDB_PATH}:/home/database/ \
--e ${PsipredProtDB_NAME}=${uniref_fastafile} \
--v ${outputFolder}:/output \
+-v ${outputFolder}/structural/psipred:/output \
 -v ${inputFolder}:/input \
--e prot=$prot \
--e RunNumOfThreads=$CPUnum \
--it psipred_disopred_cpu:latest \
+-v ${DBfolder}:/home/database \
+-e DBfolder=/home/database \
+-e DBname \
+-e prot \
+-e CPUnum \
+-it psipred:latest \
 bash -c '\
-mkdir -p ${prot}; \
-mkdir -p ${prot}/PsiPred; \
-cp /input/${prot}.fasta /output/${prot}/PsiPred/ && cd ${prot}/PsiPred/ ;\
-$psipredplus ${prot}.fasta;'
+cp /input/${prot}.fasta /output/ && cd /output/ ; \
+$psipredplus /output/${prot}.fasta;'
 ```
-Let's run now Disopred for this protein example:
-```
-docker run \
--v ${PsipredProtDB_PATH}:/home/database/ \
--e ${PsipredProtDB_NAME}=${uniref_fastafile} \
--v ${outputFolder}:/output \
--v ${inputFolder}:/input \
--e prot=$prot \
--e RunNumOfThreads=$CPUnum \
--it psipred_disopred_cpu:latest \
-bash -c '\
-mkdir -p ${prot}; \
-mkdir -p ${prot}/DisoPred; \
-cp /input/${prot}.fasta /output/${prot}/DisoPred/ && cd ${prot}/DisoPred/ ;\
-$disopredplus ${prot}.fasta;'
-```
-
-Now let's see the predictions. The output files must have been saved here:
-
-```
-../CrossSpeciesWorkflow$ ls -l test/output/1pazA/PsiPred/
-total 996
--rw-r--r-- 1 root root    131 Jun 11 14:36 1pazA.fasta
--rw-r--r-- 1 root root    612 Jun 11 14:37 1pazA.horiz
--rw-r--r-- 1 root root   3813 Jun 11 14:37 1pazA.ss
--rw-r--r-- 1 root root   3847 Jun 11 14:37 1pazA.ss2
--rw-r--r-- 1 root root 812138 Jun 11 14:37 psitmp1411ac0300.blast
--rw-r--r-- 1 root root 159201 Jun 11 14:37 psitmp1411ac0300.chk
--rw-r--r-- 1 root root    131 Jun 11 14:36 psitmp1411ac0300.fasta
--rw-r--r-- 1 root root  20983 Jun 11 14:37 psitmp1411ac0300.mtx
-
-../CrossSpeciesWorkflow$ ls -l test/output/1pazA/DisoPred/
-total 788
--rw-r--r-- 1 root root 124094 Jun 11 14:38 1pazA_9_11ac0300.blast
--rw-r--r-- 1 root root 159375 Jun 11 14:38 1pazA_9_11ac0300.chk
--rw-r--r-- 1 root root  21281 Jun 11 14:38 1pazA_9_11ac0300.mtx
--rw-r--r-- 1 root root     44 Jun 11 14:38 1pazA_9_11ac0300.pn
--rw-r--r-- 1 root root     35 Jun 11 14:38 1pazA_9_11ac0300.sn
--rw-r--r-- 1 root root   1987 Jun 11 14:39 1pazA.diso
--rw-r--r-- 1 root root   3507 Jun 11 14:38 1pazA.diso2
--rw-r--r-- 1 root root   2214 Jun 11 14:39 1pazA.dnb
--rw-r--r-- 1 root root    131 Jun 11 14:38 1pazA.fasta
--rw-r--r-- 1 root root    823 Jun 11 14:38 1pazA.horiz_d
--rw-r--r-- 1 root root 453217 Jun 11 14:39 1pazA.in_svm_dat
--rw-r--r-- 1 root root   1845 Jun 11 14:38 1pazA.nndiso
--rw-r--r-- 1 root root   2123 Jun 11 14:39 1pazA.out_svm_dat
--rw-r--r-- 1 root root   2156 Jun 11 14:39 1pazA.pbdat
-```
-
 <br /><br />
 
-### A4. [SPOT-1D predictors](https://sparks-lab.org/server/spot-1d/) - from Sparks Lab  
+
+### A4. [Disopred](http://bioinf.cs.ucl.ac.uk/psipred/) - from UCL Bioinformatics group  
+Docker image contains:
+* DISOPRED Disorder Predictor v3.1 ([github repo](https://github.com/psipred/disopred)) [\[JC 2014\]](#jc-2014)
+
+Build docker image:
+```
+cd ${CSW_HOME}/dockerfiles/structural/disopred 
+docker build -t disopred -f disopred .dockerfile .
+```
+
+This docker image will use BLAST+ for building the sequence profile. Therefore we need to download and setup a sequence database. 
+Please proceed as specified for Psipred (just above)
+
+Let's run disopred ( no need to change anything as the variables used are being set above - just copy paste the whole command bellow ). Sample output for comparison is located in `${outputFolder}/structural/disopred/expected_output/`
+```
+docker run \
+-v ${outputFolder}/structural/disopred:/output \
+-v ${inputFolder}:/input \
+-v ${DBfolder}:/home/database \
+-e DBfolder=/home/database \
+-e DBname \
+-e prot \
+-e CPUnum \
+-it disopred:latest \
+bash -c '\
+cp /input/${prot}.fasta /output/ && cd /output/ ; \
+$disopredplus /output/${prot}.fasta;'
+```
+<br /><br />
+
+
+
+### A5. [SPOT-1D predictors](https://sparks-lab.org/server/spot-1d/) - from Sparks Lab  
 SPOT-1D [\[HZ 2019\]](#hz-2019) is the updated version of Spider3 containing also additional features such as :
 ....
 
@@ -338,68 +343,66 @@ There are 2 available dokerfiles:
 
 ## B. Phosphorylation module :  
 
-### B1. Phosphorylation predictors - from DTU Health Tech 
+### B1. [NetPhos v3.1](https://services.healthtech.dtu.dk/service.php?NetPhos-3.1) predicts serine, threonine or tyrosine phosphorylation sites in eukaryotic proteins, either generic or kinase specific (17 kinases) [\[BGB 1999\]](#bgb-1999), [\[BB 2004\]](#bb-2004).
 
-The [DTUHealthTech_Phosphorylation_CPU Dockerfile](CrossSpeciesWorkflow/Dockerfiles/Phosphorylation/DTUHealthTech_Phosphorylation_CPU.Dockerfile) contains installation instructions for the following predictors from DTU Health Tech :
-* [NetPhos v3.1](https://services.healthtech.dtu.dk/service.php?NetPhos-3.1) predicts serine, threonine or tyrosine phosphorylation sites in eukaryotic proteins, either generic or kinase specific (17 kinases) [\[BGB 1999\]](#bgb-1999), [\[BB 2004\]](#bb-2004).
-* [NetPhospan v1.0](https://services.healthtech.dtu.dk/service.php?NetPhospan-1.0) predicts phophorylation sites from a set of 120 human kinase [\[FN 2018\]](#fn-2018).
-
-
-As all DTU predictors license is for academic and non-profit usage only, in order to download the software it is required to register on their website and accept the license agreement prior accessing the download page. 
-
-Please register and download the above predictors (linux version as the dockerfile image is ubuntu based) from the [Download link](https://services.healthtech.dtu.dk/software.php)
+As all DTU predictors license is for academic and non-profit usage only, in order to download the software it is required to register on their website and accept the license agreement prior accessing the download page. Please register and download the above predictors (linux version as the dockerfile image is ubuntu based) from the [Download link](https://services.healthtech.dtu.dk/software.php)
 
 After you complete the license agreement and download the software, you can proceed building the docker image:
 ```
-cd ${CSW_HOME}/dockerfiles/phosphorylation/dtu_predictors
-
-cp ${netphospan_SOURCE}/netphospan-1.0* ${CSW_HOME}/dockerfiles/phosphorylation/dtu_predictors/
-cp ${netphospan_SOURCE}/netphospan-1.0* ${CSW_HOME}/dockerfiles/phosphorylation/dtu_predictors/
-
-docker build -t dtu_phosphorylation_cpu -f dtu_phosphorylation_cpu.dockerfile .    
-```
-Let's see an usage example using bash and also test that everything works as expected :
-```
-# input folder
-export inputFolder=${CSW_HOME}/test/input
-
-# protein root name (in our example the fasta file is "1pazA.fasta"):
-export prot="1pazA"
-
-# output folder```
-export outputFolder=${CSW_HOME}/test/output
+cd ${CSW_HOME}/dockerfiles/phosphorylation/netphos-3.1
+cp ${netphos_SOURCE}/netphos-3.1* ${CSW_HOME}/dockerfiles/phosphorylation/netphos-3.1/
+docker build -t netphos-3.1 -f netphos-3.1.dockerfile .     
 ```
 
 Let's run NetPhos3.1 ( no need to change anything as the variables used are being set above - just copy paste the whole command bellow )
 ```
 docker run \
--v ${outputFolder}:/output \
 -v ${inputFolder}:/input \
--e prot=$prot \
--it dtu_phosphorylation_cpu:latest \
+-v ${outputFolder}/phosphorylation/netphos:/output \
+-e prot \
+-it netphos-3.1:latest \
 bash -c '\
-mkdir -p /output/${prot}/netphos-3.1; \
-/home/netphos-3.1/ape-1.0/ape /input/1pazA.fasta > /output/1pazA/netphos-3.1/netphos.txt ; '
+/home/netphos-3.1/ape-1.0/ape /input/${prot}.fasta > /output/${prot}.netphos.out; '
 ```
+
+### B2. [NetPhospan v1.0](https://services.healthtech.dtu.dk/service.php?NetPhospan-1.0) predicts phophorylation sites from a set of 120 human kinase [\[FN 2018\]](#fn-2018).
+
+As all DTU predictors license is for academic and non-profit usage only, in order to download the software it is required to register on their website and accept the license agreement prior accessing the download page. Please register and download the above predictors (linux version as the dockerfile image is ubuntu based) from the [Download link](https://services.healthtech.dtu.dk/software.php)
+
+After you complete the license agreement and download the software, you can proceed building the docker image:
+```
+cd ${CSW_HOME}/dockerfiles/phosphorylation/netphospan-1.0
+cp ${netphospan_SOURCE}/netphospan-1.0* ${CSW_HOME}/dockerfiles/phosphorylation/netphospan-1.0/
+docker build -t netphospan-1.0 -f netphospan-1.0.dockerfile .     
+```
+
 
 Let's run now NetPhospan for this protein example, using either the generic predictor (`-generic` flag), or a kinase specific model (`-a kinasename`). For a list of supported kinase models please see the documentation for this predictor :
 
 ```
-
+# General predictor :
 docker run \
--v ${outputFolder}:/output \
 -v ${inputFolder}:/input \
+-v ${outputFolder}/phosphorylation/netphospan:/output \
 -e prot=$prot \
--it dtu_phosphorylation_cpu:latest \
+-it netphospan-1.0:latest \
 bash -c '\
-mkdir -p /output/${prot}/netphospan; \
-netphospan-1.0.Linux/netphospan -f /input/${prot}.fasta -generic > /output/${prot}/netphospan/generic.txt; \
-netphospan-1.0.Linux/netphospan -f /input/${prot}.fasta -a PKACA > /output/${prot}/netphospan/PKACA.txt;'
+netphospan-1.0.Linux/netphospan -f /input/${prot}.fasta -generic > /output/${prot}.generic.netphospan.out;'
+
+# Kinase specific :
+docker run \
+-v ${inputFolder}:/input \
+-v ${outputFolder}/phosphorylation/netphospan:/output \
+-e prot=$prot \
+-it netphospan-1.0:latest \
+bash -c '\
+netphospan-1.0.Linux/netphospan -f /input/${prot}.fasta -a PKACA > /output/${prot}.PKACA.netphospan.out;'
 ```
 
 <br /><br />
 
-### B2. [MusiteDeep Phosphorylation predictors](https://www.musite.net/) 
+
+### B3. [MusiteDeep Phosphorylation predictors](https://www.musite.net/) 
 
 MusiteDeep Phosphorylation ([github repo](https://github.com/duolinwang/MusiteDeep)) predicts general and/or kinase specific phosphorylation sites [\[WX 2017\]](#wx-2017). 
 
@@ -415,12 +418,8 @@ docker build -t musitedeep_keras2_tensorflow_cpu -f musitedeep_keras2_tensorflow
 docker build -t musitedeep_keras1_theano_cpu -f musitedeep_keras1_theano_cpu.dockerfile .
 ```
 
-Let's see an usage example using bash and also test that everything works as expected. We will use the same example as above:
-```
-export inputFolder=${CSW_HOME}/test/input
-export prot="1pazA"
-export outputFolder=${CSW_HOME}/test/output
-```
+Let's see an usage example using bash and also test that everything works as expected. We will use the variables set above.
+
 MusiteDeep contains a generic phosphorylation predictor, as well as trained kinase specific models (only for 'CDK','PKA','CK2', 'MAPK', 'PKC' kinases). Additionally it provides some custom models and the possibility to train custom models based on users data. Please see their documentation for detailed usage info.
 
 Using MusiteDeep v1.0 (theano) : 
@@ -428,92 +427,304 @@ Using MusiteDeep v1.0 (theano) :
 Either the general predictor :
 ```
 docker run \
--v ${outputFolder}:/output \
 -v ${inputFolder}:/input \
--e prot=$prot \
+-v ${outputFolder}/phosphorylation/musitedeep_keras1_theano:/output \
+-e prot \
 -it musitedeep_keras1_theano_cpu:latest \
 bash -c '\
-mkdir -p /output/${prot}/musitedeep_keras1_theano; \
-python predict.py -input /input/${prot}.fasta \
--output /output/${prot}/musitedeep_keras1_theano/ \
+python predict.py -input /input/${prot}.fasta -output /output/ \
 -predict-type general -residue-types S,T,Y ;'
 ```
 
 Or kinase specific:
 ```
 docker run \
--v ${outputFolder}:/output \
 -v ${inputFolder}:/input \
--e prot=$prot \
+-v ${outputFolder}/phosphorylation/musitedeep_keras1_theano:/output \
+-e prot \
 -it musitedeep_keras1_theano_cpu:latest \
 bash -c '\
-mkdir -p /output/${prot}/musitedeep_keras1_theano; \
-python predict.py -input /input/${prot}.fasta \
--output /output/${prot}/musitedeep_keras1_theano/ \
+python predict.py -input /input/${prot}.fasta -output /output/ \
 -predict-type kinase -kinase CDK ;'
 ```
 
-Similarly for MusiteDeep v2.0 (tensorflow), only the image name needs to be change and the usage is equivalent : 
+Similarly for MusiteDeep v2.0 (tensorflow), only the image name needs to be change and the usage is almost equivalent : 
 
 For the general predictor :
 ```
 docker run \
--v ${outputFolder}:/output \
 -v ${inputFolder}:/input \
--e prot=$prot \
+-v ${outputFolder}/phosphorylation/musitedeep_keras2_tensorflow:/output \
+-e prot \
 -it musitedeep_keras2_tensorflow_cpu:latest \
 bash -c '\
-mkdir -p /output/${prot}/musitedeep_keras2_tensorflow; \
-python predict.py -input /input/${prot}.fasta \
--output /output/${prot}/musitedeep_keras2_tensorflow/ \
+python predict.py -input /input/${prot}.fasta -output /output/ \
 -predict-type general -residue-types S,T,Y ;'
 ```
 Or Kinase specific :
 ```
 docker run \
--v ${outputFolder}:/output \
 -v ${inputFolder}:/input \
--e prot=$prot \
+-v ${outputFolder}/phosphorylation/musitedeep_keras2_tensorflow:/output \
+-e prot \
 -it musitedeep_keras2_tensorflow_cpu:latest \
 bash -c '\
-mkdir -p /output/${prot}/musitedeep_keras2_tensorflow; \
-python predict.py -input /input/${prot}.fasta \
--output /output/${prot}/musitedeep_keras2_tensorflow/ \
+python predict_batch.py -input /input/${prot}.fasta -output /output/ \
 -predict-type kinase -kinase CDK ;'
 ```
 
+<br /><br />
 
     
 ## C. Glycosylation module
   
-### C1. Glycosylation predictors - from DTU Health Tech 
+### C1. [NetNGlyc v1.0](https://services.healthtech.dtu.dk/service.php?NetNGlyc-1.0) 
+Predicts N-Glycosylation sites in human proteins [\[GJB 2004\]](#gjb-2004). [CLI user guide](http://www.cbs.dtu.dk/cgi-bin/nph-runsafe?man=netNglyc)
 
-The [DTUHealthTech_Glycosylation_CPU Dockerfile](CrossSpeciesWorkflow/Dockerfiles/Glycosylation/DTUHealthTech_Glycosylation_CPU.Dockerfile) contains installation instructions for the following predictors from DTU Health Tech :
-* [NetNGlyc v1.0](https://services.healthtech.dtu.dk/service.php?NetNGlyc-1.0) predicts N-Glycosylation sites in human proteins [\[GJB 2004\]](#gjb-2004). [CLI user guide](http://www.cbs.dtu.dk/cgi-bin/nph-runsafe?man=netNglyc)
-    
-* [NetOGlyc v4.0](https://services.healthtech.dtu.dk/service.php?NetOGlyc-4.0) predicts O-GalNAc (mucin type) glycosylation sites in mammalian proteins. [\[SC 2013\]](#sc-2013):
-    
-* [YinOYang v1.2](https://services.healthtech.dtu.dk/service.php?YinOYang-1.2) predicts O-(beta)-GlcNAc glycosylation and Yin-Yang sites [\[GB 2002\]](#gb-2002), [\[G 2001\]](#g-2001). 
-Also includes SignalP and NetPhos v3.1 predictors (discussed in their corresponding module).
-    
-* [NetCGlyc v1.0](http://www.cbs.dtu.dk/services/NetCGlyc/) predicts C-mannosylation sites in mammalian proteins [\[J 2007\]](#j-2007).
-
-
-As all DTU predictors license is for academic and non-profit usage only, in order to download the software it is required to register on their website and accept the license agreement prior accessing the download page. 
-
-Please register and download the above predictors (linux version as the dockerfile image is ubuntu based) from the [Download link](https://services.healthtech.dtu.dk/software.php)
+As all DTU predictors license is for academic and non-profit usage only, in order to download the software it is required to register on their website and accept the license agreement prior accessing the download page. Please register and download the above predictors (linux version as the dockerfile image is ubuntu based) from the [Download link](https://services.healthtech.dtu.dk/software.php)
 
 After you complete the license agreement and download the software, you can proceed building the docker image:
+```
+cd ${CSW_HOME}/dockerfiles/phosphorylation/netnglyc-1.0d
+cp ${netnglyc_SOURCE}/netnglyc-1* ${CSW_HOME}/dockerfiles/phosphorylation/netnglyc-1.0d/
+cp ${signalp_SOURCE}/signalp* ${CSW_HOME}/dockerfiles/phosphorylation/netnglyc-1.0d/
+docker build -t netnglyc-1.0d -f netnglyc-1.0d.dockerfile . 
+```
+
+Let's run NetNglyc ( no need to change anything as the variables used are being set above - just copy paste the whole command bellow )
+```
+docker run \
+-v ${inputFolder}:/input \
+-v ${outputFolder}/glycosylation/netnglyc:/output \
+-e prot \
+-it netnglyc-1.0d:latest \
+bash -c '\
+netNglyc /input/${prot}.fasta > /output/${prot}.netnglyc.out; '
+```
+
+<br /><br />
+
+
+### C2. [NetOGlyc v4.0](https://services.healthtech.dtu.dk/service.php?NetOGlyc-4.0) 
+Predicts O-GalNAc (mucin type) glycosylation sites in mammalian proteins. [\[SC 2013\]](#sc-2013):
+
+As all DTU predictors license is for academic and non-profit usage only, in order to download the software it is required to register on their website and accept the license agreement prior accessing the download page. Please register and download the above predictors (linux version as the dockerfile image is ubuntu based) from the [Download link](https://services.healthtech.dtu.dk/software.php)
+
+After you complete the license agreement and download the software, you can proceed building the docker image:
+```
+cd ${CSW_HOME}/dockerfiles/phosphorylation/netoglyc-3.1
+cp ${netoglyc_SOURCE}/netoglyc-3.1* ${CSW_HOME}/dockerfiles/phosphorylation/netoglyc-3.1/
+cp ${signalp_SOURCE}/signalp* ${CSW_HOME}/dockerfiles/phosphorylation/netoglyc-3.1/
+docker build -t netoglyc-3.1 -f netoglyc-3.1.dockerfile .
+```
+
+Let's run NetOglyc ( no need to change anything as the variables used are being set above - just copy paste the whole command bellow )
+```
+docker run \
+-v ${inputFolder}:/input \
+-v ${outputFolder}/glycosylation/netoglyc:/output \
+-e prot \
+-it netoglyc-3.1:latest \
+bash -c '\
+netOglyc /input/${prot}.fasta > /output/${prot}.netoglyc.out; '
+```
+
+<br /><br />
+
+### C3. [NetCGlyc v1.0](http://www.cbs.dtu.dk/services/NetCGlyc/) 
+Predicts tryptophan C-mannosylation sites in mammalian proteins [\[J 2007\]](#j-2007).
+
+As all DTU predictors license is for academic and non-profit usage only, in order to download the software it is required to register on their website and accept the license agreement prior accessing the download page. Please register and download the above predictors (linux version as the dockerfile image is ubuntu based) from the [Download link](https://services.healthtech.dtu.dk/software.php)
+
+After you complete the license agreement and download the software, you can proceed building the docker image:
+```
+cd ${CSW_HOME}/dockerfiles/phosphorylation/netcglyc-1.0c
+cp ${netcglyc_SOURCE}/netcglyc-1* ${CSW_HOME}/dockerfiles/phosphorylation/netcglyc-1.0c/
+docker build -t netcglyc-1.0c -f netcglyc-1.0c.dockerfile . 
+```
+
+Let's run NetCglyc ( no need to change anything as the variables used are being set above - just copy paste the whole command bellow )
+```
+docker run \
+-v ${inputFolder}:/input \
+-v ${outputFolder}/glycosylation/netcglyc:/output \
+-e prot \
+-it netcglyc-1.0c:latest \
+bash -c '\
+netCglyc /input/${prot}.fasta > /output/${prot}.netcglyc.out; '
+```
+
+<br /><br />
+    
+### C4. [ISOGlyP](https://isoglyp.utep.edu/) 
+Predicts isoform specific mucin-type o-glycosylation sites [\[ML 2020\]](#\ml-2020).
+Github repo - https://github.com/jonmohl/ISOGlyP
+
+Building the docker image:
+```
+cd ${CSW_HOME}/dockerfiles/phosphorylation/isoglyp
+docker build -t isoglyp -f isoglyp.dockerfile . 
+```
+
+Let's run ISOGlyP ( no need to change anything as the variables used are being set above - just copy paste the whole command bellow )
+```
+docker run \
+-v ${inputFolder}:/input \
+-v ${outputFolder}/glycosylation/isoglyp:/output \
+-e prot \
+-it isoglyp \
+bash -c '\
+isoglypCL.py -p /home/ISOGlyP/isoPara.txt -f /input/${prot}.fasta ; \
+mv isoglyp-predictions.csv /output/${prot}.isoglyp.out; '
+```
+
+<br /><br />
+
+## D. Acetylation module :  
+:exclamation: On progress...
+
+
+<br /><br />
+
+## E. Sumoylation module :  
+
+### E1. [DeepSumo from Ren Lab](http://deepsumo.renlab.org/) 
+Predicts protein SUMOylation sites and SUMO-interaction motifs by deep learning [no refference found] 
+Github repo - https://github.com/zengyr49/DeepSumo
+
+Building the docker image:
+```
+cd ${CSW_HOME}/dockerfiles/sumoylation/deepsumo_ren
+docker build -t deepsumo_ren -f deepsumo_ren.dockerfile . 
+```
+
+Let's run DeepSumo ( no need to change anything as the variables used are being set above - just copy paste the whole command bellow )
+```
+docker run \
+-v ${inputFolder}:/input \
+-v ${outputFolder}/sumoylation/deepsumo_ren:/output \
+-e prot \
+-e thresh_sumo="low" \
+-e thresh_sim="low" \
+-it deepsumo_ren:latest \
+bash -c '\
+python3 predict_main.py --t1 $thresh_sumo --t2 $thresh_sim \
+-i /input/${prot}.fasta -o /output/ '
+```
+
+<br /><br />
+
+
+### E2. [DeepSUMO]
+Predicts lysine SUMOylation sites by conv nets [no refference found]
+Github repo - https://github.com/loneMT/DeepSUMO && https://github.com/yujialinncu/DeepSUMO
+
+Building the docker image:
+```
+cd ${CSW_HOME}/dockerfiles/sumoylation/deepsumo_yl
+docker build -t deepsumo_yl -f deepsumo_yl.dockerfile . 
+```
+
+Let's run DeepSUMO ( no need to change anything as the variables used are being set above - just copy paste the whole command bellow )
+```
+docker run \
+-v ${inputFolder}:/input \
+-v ${outputFolder}/sumoylation/deepsumo_yl:/output \
+-e prot \
+-it deepsumo_yl:latest \
+bash -c '\
+python3 /home/DeepSUMO/codes/predict.py -input /input/${prot}.fasta \
+-threshold 0.5 -output /output/${prot}.deepsumo_yl.out;'
+```
+<br /><br />
+
+
+## F. Cellular localisation module :  
+
+### F1. [TMP-SSurface](http://deepsumo.renlab.org/) 
+Predicts RSA for transmembrane proteins using deep learning [\[LW 2019\]](#lw-2019)
+Github repo - https://github.com/Liuzhe30/TMP-SSurface-2.0
+
+Building the docker image:
+```
+cd ${CSW_HOME}/dockerfiles/localisation/tmp_ssurface
+docker build -t tmp_ssurface -f tmp_ssurface.dockerfile . 
+```
+
+Let's run TMP-SSurface ( no need to change anything as the variables used are being set above - just copy paste the whole command bellow )
+```
+docker run \
+-v ${inputFolder}:/input \
+-v ${outputFolder}/localisation/tmp_ssurface:/output \
+-e prot \
+-it tmp_ssurface:latest \
+bash -c '\
+python3 run.py -f /input/${prot}.fasta -p /input/pssm/ -o /output/ ;'
+```
+<br /><br />
+
+
+### F2. [TMHMM v2.0](http://www.cbs.dtu.dk/services/TMHMM/) 
+Predicts transmembrane helices [\[KS 2001\]](#ks-2001)
+
+As all DTU predictors license is for academic and non-profit usage only, in order to download the software it is required to register on their website and accept the license agreement prior accessing the download page. Please register and download the above predictors (linux version as the dockerfile image is ubuntu based) from the [Download link](https://services.healthtech.dtu.dk/software.php)
+
+After you complete the license agreement and download the software, you can proceed building the docker image:
+```
+cd ${CSW_HOME}/dockerfiles/localisation/tmhmm2
+cp ${tmhmm_SOURCE}/tmhmm-2.0c* ${CSW_HOME}/dockerfiles/localisation/tmhmm2/
+docker build -t tmhmm2 -f tmhmm2.dockerfile . 
+```
+Let's run TMHMM ( no need to change anything as the variables used are being set above - just copy paste the whole command bellow )
+```
+docker run \
+-v ${inputFolder}:/input \
+-v ${outputFolder}/localisation/tmhmm2:/output \
+-e prot \
+-it tmhmm2:latest \
+bash -c '\
+tmhmm /input/${prot}.fasta > /output/${prot}.tmhmm2.out; \
+cp TMHMM_*/* /output/;'
+```
+<br /><br />
+
+
+### F3. [MEMSAT-SVM](http://bioinf.cs.ucl.ac.uk/psipred/) 
+Predicts transmembrane regions and cellular localisation [\[NJ 2009\]](#nj-2009)
+Github repo - https://github.com/psipred/MemSatSVM
+
+Building the docker image:
+```
+cd ${CSW_HOME}/dockerfiles/localisation/memsatsvm
+docker build -t memsatsvm -f memsatsvm.dockerfile . 
+```
+
+Let's run MEMSAT-SVM ( no need to change anything as the variables used are being set above - just copy paste the whole command bellow )
+```
+docker run \
+-v ${inputFolder}:/input \
+-v ${outputFolder}/localisation/memsatsvm:/output \
+-e prot \
+-it memsatsvm:latest \
+bash -c '\
+./run_memsat-svm.pl -p 1 -g 0 -mtx 1 /input/pssm_mtx/${prot}.mtx -j /output/'
+```
+<br /><br />
+
+
+## G. Miscellaneous module :  
+:exclamation: On progress...
+
+<br /><br />  
+
+
 
 
 # CWL pipelines
 :exclamation: On progress
 
-## Structural prediction only
 
-## PTS predictions
 
-## All available predictors
 
 
 
@@ -549,20 +760,6 @@ Jones DT. (1999) Protein secondary structure prediction based on position-specif
 ##### \[HZ 2019]
 Hanson, J., Paliwal, K., Litfin, T., Yang, Y., & Zhou, Y. (2019). Improving prediction of protein secondary structure, backbone angles, solvent accessibility and contact numbers by using predicted contact maps and an ensemble of recurrent and residual convolutional neural networks. Bioinformatics (Oxford, England), 35(14), 2403–2410. https://doi.org/10.1093/bioinformatics/bty1006  
 
-<br /><br />
-
-### Glycosylation predictors:
-
-##### \[GJB 2004]
-R. Gupta, E. Jung and S. Brunak. Prediction of N-glycosylation sites in human proteins. In preparation, 2004.
-##### \[SC 2013]
-Steentoft C, Vakhrushev SY, Joshi HJ, Kong Y, Vester-Christensen MB, Schjoldager KT, Lavrsen K, Dabelsteen S, Pedersen NB, Marcos-Silva L, Gupta R, Bennett EP, Mandel U, Brunak S, Wandall HH, Levery SB, Clausen H. Precision mapping of the human O-GalNAc glycoproteome through SimpleCell technology. EMBO J, 32(10):1478-88, 2013. doi: 10.1038/emboj.2013.79
-##### \[G 2001]
-R Gupta. Prediction of glycosylation sites in proteomes: from post-translational modifications to protein function. Ph.D. thesis at CBS, 2001.
-##### \[GB 2002]
-Gupta, R. and S. Brunak. Prediction of glycosylation across the human proteome and the correlation to protein function. Pacific Symposium on Biocomputing, 7:310-322, 2002.
-##### \[J 2007]
-Karin Julenius. NetCGlyc 1.0: Prediction of mammalian C-mannosylation sites. Glycobiology, 17:868-876, 2007.  
 
 <br /><br />
 
@@ -579,5 +776,45 @@ Bioinformatics (2018).
 Duolin Wang, Shuai Zeng, Chunhui Xu, Wangren Qiu, Yanchun Liang, Trupti Joshi, Dong Xu, MusiteDeep: a Deep-learning Framework for General and Kinase-specific Phosphorylation Site Prediction, Bioinformatics 2017.
 
 
+<br /><br />
+
+### Glycosylation predictors:
+
+##### \[GJB 2004]
+R. Gupta, E. Jung and S. Brunak. Prediction of N-glycosylation sites in human proteins. In preparation, 2004.
+##### \[SC 2013]
+Steentoft C, Vakhrushev SY, Joshi HJ, Kong Y, Vester-Christensen MB, Schjoldager KT, Lavrsen K, Dabelsteen S, Pedersen NB, Marcos-Silva L, Gupta R, Bennett EP, Mandel U, Brunak S, Wandall HH, Levery SB, Clausen H. Precision mapping of the human O-GalNAc glycoproteome through SimpleCell technology. EMBO J, 32(10):1478-88, 2013. doi: 10.1038/emboj.2013.79
+##### \[G 2001]
+R Gupta. Prediction of glycosylation sites in proteomes: from post-translational modifications to protein function. Ph.D. thesis at CBS, 2001.
+##### \[GB 2002]
+Gupta, R. and S. Brunak. Prediction of glycosylation across the human proteome and the correlation to protein function. Pacific Symposium on Biocomputing, 7:310-322, 2002.
+##### \[J 2007]
+Karin Julenius. NetCGlyc 1.0: Prediction of mammalian C-mannosylation sites. Glycobiology, 17:868-876, 2007.  
+##### \[ML 2020]
+Mohl JE, Gerken TA, Leung MY. ISOGlyP: de novo prediction of isoform specific mucin-type O-glycosylation [published online ahead of print, 2020 Jul 15]. Glycobiology. 2020;cwaa067. doi:10.1093/glycob/cwaa067
 
 
+<br /><br />
+
+### Acetylation predictors:
+
+<br /><br />
+
+### Sumoylation predictors:
+
+<br /><br />
+
+### Celullar localisation predictors:
+##### \[LW 2019]
+Lu, C.; Liu, Z.; Kan, B.; Gong, Y.; Ma, Z.; Wang, H. TMP-SSurface: A Deep Learning-Based Predictor for Surface Accessibility of Transmembrane Protein Residues. Crystals 2019, 9, 640.
+##### \[KS 2001]
+Krogh A, Larsson B, von Heijne G, Sonnhammer EL. Predicting transmembrane protein topology with a hidden Markov model: application to complete genomes. J Mol Biol. 2001;305(3):567-580. doi:10.1006/jmbi.2000.4315
+##### \[NJ 2009]
+Nugent, T. & Jones, D.T. (2009) Transmembrane protein topology prediction using support vector machines. BMC Bioinformatics. 10, 159. Epub
+
+
+<br /><br />
+
+### Miscellaneous predictors:
+
+<br /><br />
