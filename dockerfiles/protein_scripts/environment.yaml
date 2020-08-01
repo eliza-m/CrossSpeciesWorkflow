@@ -7,9 +7,7 @@ dependencies:
   - python=3.8
   - future>=0.18.2
   - cwltool>=3.0
-  - anaconda-client>=1.7.2
   - conda-build>=3.19.2
-  - mamba>=0.4.4
   - bioservices>=1.7.7
   - click>=7.1.2
 prefix: /opt/miniconda3/envs/species_proteins

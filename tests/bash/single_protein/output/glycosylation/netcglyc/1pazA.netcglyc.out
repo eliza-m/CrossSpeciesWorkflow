@@ -1,6 +1,6 @@
 ##gff-version 2
 ##source-version netCglyc-1.0c
-##date 2020-07-27
+##date 2020-07-30
 ##Type Protein
 # seqname                source         feature  start    end   score +/-  ?
 # ----------------------------------------------------------------------------
