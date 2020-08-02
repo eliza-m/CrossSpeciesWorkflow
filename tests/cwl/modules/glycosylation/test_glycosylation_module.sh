@@ -1,4 +1,5 @@
-#!/usr/bin/ bash
+#!/usr/bin/env bash
+export CSW_HOME=/data/sources/CrossSpeciesWorkflow/
 
 RUNNER=cwltool
 
