@@ -82,5 +82,7 @@ RUN mkdir /output
 # Setting working directory when docker image is running
 WORKDIR /home/
 
+COPY ./raptorx_profile_cwl.sh /home/
+
 ################################################################################
 
