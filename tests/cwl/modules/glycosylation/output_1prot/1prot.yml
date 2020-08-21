@@ -1,0 +1,3 @@
+fastaFile:
+  class: File
+  location: ../data/LEUK_RAT.fsa

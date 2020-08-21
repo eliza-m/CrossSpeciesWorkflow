@@ -1,18 +1,16 @@
 #!/usr/bin/env bash
-export CSW_HOME=/data/sources/CrossSpeciesWorkflow/
 
 RUNNER=cwltool
 
-ARGS=--no-read-only
+ARGS="--no-match-user --no-read-only"
 
-CWLSCRIPTS=${CWL_HOME}/cwl/glycosylation/
+CWLSCRIPTS=${CSW_HOME}/cwl/glycosylation/
 
-TESTFOLDER=${CWL_HOME}/tests/cwl/modules/glycosylation/
+TESTFOLDER=${CSW_HOME}/tests/cwl/modules/glycosylation/individual_containers/
 
 
 
 # For each predictor folder, expected prediction outputs are provided in epected_output folders.
-
 
 #########################################################
 # Test netnglyc-1.0d
@@ -20,14 +18,14 @@ TESTFOLDER=${CWL_HOME}/tests/cwl/modules/glycosylation/
 cd $TESTFOLDER/netnglyc/
 
 # given output name, single protein
-$RUNNER $ARGS $CWLSCRIPTS/netnglyc.cwl GLP.netnglyc.yml
-$RUNNER $ARGS $CWLSCRIPTS/netnglyc.cwl LEUK.netnglyc.yml
+$RUNNER $ARGS $CWLSCRIPTS/netnglyc_docker.cwl GLP.netnglyc.yml
+$RUNNER $ARGS $CWLSCRIPTS/netnglyc_docker.cwl LEUK.netnglyc.yml
 
 # generated output name, single protein
-$RUNNER $ARGS $CWLSCRIPTS/netnglyc.cwl CBG.netnglyc.yml
+$RUNNER $ARGS $CWLSCRIPTS/netnglyc_docker.cwl CBG.netnglyc.yml
 
 # generated output name, multiple proteins
-$RUNNER $ARGS $CWLSCRIPTS/netnglyc.cwl twoprot.netnglyc.yml
+$RUNNER $ARGS $CWLSCRIPTS/netnglyc_docker.cwl twoprot.netnglyc.yml
 
 
 #########################################################
@@ -36,14 +34,14 @@ $RUNNER $ARGS $CWLSCRIPTS/netnglyc.cwl twoprot.netnglyc.yml
 cd $TESTFOLDER/isoglyp/
 
 # generated output name, single protein
-$RUNNER $ARGS $CWLSCRIPTS/isoglyp.cwl CBG.isoglyp.yml
+$RUNNER $ARGS $CWLSCRIPTS/isoglyp_docker.cwl CBG.isoglyp.yml
 
 # given output name, single protein
-$RUNNER $ARGS $CWLSCRIPTS/isoglyp.cwl GLP.isoglyp.yml
-$RUNNER $ARGS $CWLSCRIPTS/isoglyp.cwl LEUK.isoglyp.yml
+$RUNNER $ARGS $CWLSCRIPTS/isoglyp_docker.cwl GLP.isoglyp.yml
+$RUNNER $ARGS $CWLSCRIPTS/isoglyp_docker.cwl LEUK.isoglyp.yml
 
 # generated output name, multiple proteins
-$RUNNER $ARGS $CWLSCRIPTS/isoglyp.cwl twoprot.isoglyp.yml
+$RUNNER $ARGS $CWLSCRIPTS/isoglyp_docker.cwl twoprot.isoglyp.yml
 
 
 #########################################################
@@ -52,14 +50,14 @@ $RUNNER $ARGS $CWLSCRIPTS/isoglyp.cwl twoprot.isoglyp.yml
 cd $TESTFOLDER/netoglyc/
 
 # generated output name, single protein
-$RUNNER $ARGS $CWLSCRIPTS/netoglyc.cwl CBG.netoglyc.yml
+$RUNNER $ARGS $CWLSCRIPTS/netoglyc_docker.cwl CBG.netoglyc.yml
 
 # given output name, single protein
-$RUNNER $ARGS $CWLSCRIPTS/netoglyc.cwl GLP.netoglyc.yml
-$RUNNER $ARGS $CWLSCRIPTS/netoglyc.cwl LEUK.netoglyc.yml
+$RUNNER $ARGS $CWLSCRIPTS/netoglyc_docker.cwl GLP.netoglyc.yml
+$RUNNER $ARGS $CWLSCRIPTS/netoglyc_docker.cwl LEUK.netoglyc.yml
 
 # generated output name, multiple proteins
-$RUNNER $ARGS $CWLSCRIPTS/netoglyc.cwl twoprot.netoglyc.yml
+$RUNNER $ARGS $CWLSCRIPTS/netoglyc_docker.cwl twoprot.netoglyc.yml
 
 
 #########################################################
@@ -68,7 +66,7 @@ $RUNNER $ARGS $CWLSCRIPTS/netoglyc.cwl twoprot.netoglyc.yml
 cd $TESTFOLDER/netcglyc/
 
 # generated output name, ONLY single protein fasta files are supported
-$RUNNER $ARGS $CWLSCRIPTS/netcglyc.cwl ATL5.netcglyc.yml
+$RUNNER $ARGS $CWLSCRIPTS/netcglyc_docker.cwl ATL5.netcglyc.yml
 
 
 

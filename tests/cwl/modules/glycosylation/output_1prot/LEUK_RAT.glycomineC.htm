@@ -1,0 +1,53 @@
+<head>
+	<style type="text/css" title="currentStyle"> 
+		@import "DataTables-1.7.6/media/css/demo_page.css";
+		@import "DataTables-1.7.6/media/css/demo_table_jui.css";
+		@import "DataTables-1.7.6/examples/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css";
+		@import "DataTables-1.7.6/extras/TableTools/media/css/TableTools.css";
+		@import "assets/css/bootstrap.min.css";
+	</style>
+	<link rel="shortcut icon" href="./assets/ico/favicon.png">
+	<script type="text/javascript" language="javascript" src="DataTables-1.7.6/media/js/jquery.js"></script>	
+	<script type="text/javascript" language="javascript" src="DataTables-1.7.6/media/js/jquery.dataTables.js"></script>	
+	<script type="text/javascript" language="javascript" src="DataTables-1.7.6/extras/TableTools/media/js/TableTools.js"></script>	
+	<script type="text/javascript" language="javascript" src="DataTables-1.7.6/extras/TableTools/media/js/ZeroClipboard.js"></script>	
+	<script type="text/javascript" charset="utf-8"> 
+		function buildTable(){
+				$('.dataTable').dataTable(
+						{
+							"bJQueryUI": true,
+							"iDisplayLength": 20,
+							"bAutoWidth": true,
+							"sPaginationType": "full_numbers",
+							"sDom": '<"H"Tfr>t<"F"ip>',
+							"oTableTools": {
+								"sRowSelect": "multi",
+								"aButtons": ["copy", "csv", "xls", "pdf",
+								{
+									"sExtends":    "collection",
+									"sButtonText": "Save",
+									"aButtons":    [ "csv", "xls", "pdf" ]
+																													
+								}]
+							}
+						}
+					);
+				}
+		function destoryTable()
+		{
+			$('.fg-toolbar').css("display","none");
+			$('table thead').css("display","none");
+			$('table tfoot').css("display","none");
+		}
+		function recoverTable()
+		{
+			$('.fg-toolbar').css("display","block");
+			$('table thead').css("display","table-header-group");
+      			$('table tfoot').css("display","table-footer-group");
+		}	
+		$(document).ready(buildTable);
+	</script> 
+</head><body><div id="container"></br><h2>>LEUK_RAT <a href="#" onClick="destoryTable()">Plain</a> <a href="#" onClick="recoverTable()">Rich</a> </h2><!--<p class="seq">WAQVVSQENLPNTMTMLPFTPNSESPSTSEALSTYSSIATVPVTEDPKESISPWGQTTAPASSIPLGTPELSSFFFTSAGASGNTPVPELTTSQEVSTEASLVLFPKSSGVASDPPVTITNPATSSAVASTSLETFKGTSAPPVTVTSSTMTSGPFVATTVSSETSGPPVTMATGSLGPSKETHGLSATIATSSGESSSVAGGTPVFSTKISTTSTPNPITTVPPRPGSSGMLLVSMLIALTVVLVLVALLLLWRQRQKRRTGALTLSRGGKRNGTVDAWAGPARVPDEEATTASGSGGNKSSGAPETDGSGQRPTLTTFFSRRKSRQGSVALEELKPGTGPNLKGEEEPLVGSEDEAVETPTSDGPQAKDGAAPQSL</p>--><table cellpadding="0" cellspacing="0" border="0" class="display dataTable"> 
+<thead><tr><th>Rank</th><th>Position</th><th>Site</th><th>Motif</th><th>Score</th><th>Type</th></tr></thead>
+<tfoot><tr><th>Rank</th><th>Position</th><th>Site</th><th>Motif</th><th>Score</th><th>Type</th></tr></tfoot><tbody>
+<tr class="gradeY"><td class="center">1</td><td class="center">54</td><td class="center">W</td><td class="center">PKESISPWGQTTAPA</td><td class="center">0.237</td><td class="center">C-linked</td><tr class="gradeY"><td class="center">2</td><td class="center">280</td><td class="center">W</td><td class="center">RNGTVDAWAGPARVP</td><td class="center">0.138</td><td class="center">C-linked</td><tr class="gradeX"><td class="center">3</td><td class="center">254</td><td class="center">W</td><td class="center">LVALLLLWRQRQKRR</td><td class="center">0.075</td><td class="center">C-linked</td><tr class="gradeX"><td class="center">4</td><td class="center">1</td><td class="center">W</td><td class="center">*******WAQVVSQE</td><td class="center">-0.512</td><td class="center">C-linked</td></tbody></table></div></body>
