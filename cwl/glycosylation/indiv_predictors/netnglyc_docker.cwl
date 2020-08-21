@@ -5,7 +5,7 @@ class: CommandLineTool
 baseCommand: [netNglyc]
 hints:
   DockerRequirement:
-    dockerImageId: netnglyc-1.0d
+    dockerImageId: netnglyc:1.0
 
 requirements:
   InlineJavascriptRequirement: {}

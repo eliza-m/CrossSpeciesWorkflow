@@ -13,8 +13,13 @@ SHELL ["conda", "run", "-n", "species_proteins", "/bin/bash", "-c"]
 RUN echo "environment is installed!"
 RUN python -c "from bioservices import *"
 
+
 # Copy source code
 COPY species_proteins/ /opt/species_proteins/
+
+
+COPY setup.py /opt/
+RUN python /opt/setup.py install
 
 WORKDIR /data
 

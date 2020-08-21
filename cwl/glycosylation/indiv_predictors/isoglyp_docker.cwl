@@ -5,7 +5,7 @@ class: CommandLineTool
 baseCommand: [isoglypCL.py, -p, /home/ISOGlyP/isoPara.txt]
 hints:
   DockerRequirement:
-    dockerImageId: isoglyp
+    dockerPull: quay.io/dbsb-ibar/isoglyp
 
 requirements:
   InlineJavascriptRequirement: {}
