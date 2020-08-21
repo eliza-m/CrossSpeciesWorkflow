@@ -6,11 +6,11 @@ import os, sys
 import requests
 import re
 from time import sleep
-
+from bs4 import BeautifulSoup as bs
 
 @dataclass
-class NetNglycData:
-    """Class that parses NetNglyc prediction output data.
+class NGlyDEData:
+    """Class that parses NGlyDE prediction output data.
 
     Parameters
     ----------
@@ -33,8 +33,8 @@ class NetNglycData:
 
     Public Methods
     --------------
-    parse( outputFile : path ) -> NetNglyc
-        Parses the NetNglyc prediction output file and add the data inside the
+    parse( outputFile : path ) -> NGlyDE
+        Parses the prediction output file and add the data inside the
         above attribute data structure.
 
     submitOnline (fastaFile : Path, outputFile: Path)
@@ -46,32 +46,41 @@ class NetNglycData:
     predictedSites : dict
 
     @staticmethod
-    def parse(outputFile: Path) -> NetNglycData :
+    def parse(outputFile: Path) -> NGlyDE :
 
         predictedSites = {}
 
         try:
             f = open(outputFile, 'r')
 
-            lines = f.readlines()
+            # unfortunatelyy the output does not contain the </*> closing markups to be
+            # easilly parsed...we found a simpler approach
 
-            if lines[0][0] == "<":
-                predictor = "netnglyc:1.0_online"
-            else : predictor = "netnglyc:1.0_local"
+            content = f.read()
 
-            for line in lines:
-                l = line.split()
-                if len(l) > 3 and l[0]== "Name:" :
-                    protname = l[1]
+            content = content.replace( "</tr><th>", "</tr><tr><th>" )
+            content = content.replace("</tr>", "</th></tr>")
+            content = re.sub('([\d])<th>', r'\1</th><th>', content)
+
+            soup = bs(content, "html.parser")
+            rows = soup.findAll('tr')
+
+            for r in range( 1, len(rows) ):
+                cols = rows[r].findAll('th')
+                i = 0;
+                if len(cols) == 4:
+                    # new proteinname
+                    i=1;
+                    protname = cols[0].text.split()[0]
                     if protname not in predictedSites:
-                        predictedSites[ protname ] = {}
+                        predictedSites[protname] = {}
 
-                if len(l) >= 6 and l[0] in predictedSites and l[2][0]=="N":
-                    protname = l[0]
-                    aa = l[2][0]
-                    resid = int( l[1] )
-                    score = round( float( l[3] ), 3)
-                    isSignif = ("+" in l[-1] )
+                if cols[i+1].content != '.':
+                    aa = ''  # not shown in input
+                    # because text variable is bogous due to missing tags
+                    resid = int(cols[i].text)
+                    score = round(float(cols[i+1].text), 3)
+                    isSignif = ("Yes" in cols[i+2].text)
 
                     if resid not in predictedSites[protname]:
                         predictedSites[protname][resid] = []
@@ -80,12 +89,11 @@ class NetNglycData:
                         "seq": aa,
                         "start": resid,
                         "end": resid,
-                        "isSignif" : isSignif,
-                        "score" : score,
+                        "isSignif": isSignif,
+                        "score": score,
                         "type": "N-linked",
-                        "predictor": predictor
+                        "predictor": "NGlyDE_online"
                     })
-
 
         except OSError as e:
             print("File error:", sys.exc_info()[0])
@@ -95,34 +103,37 @@ class NetNglycData:
             print("Unexpected error:", sys.exc_info()[0])
             raise
 
-        return NetNglycData(predictedSites)
+        return NGlyDEData(predictedSites)
 
 
     @staticmethod
     def submitOnline (fastaFile : Path, outputFile: Path) :
 
-        url = 'https://services.healthtech.dtu.dk/cgi-bin/webface2.cgi'
+        url1 = 'http://bioapp.iis.sinica.edu.tw/Nglyde/run.php'
+        url2 = 'http://bioapp.iis.sinica.edu.tw/GlycoPred/MakeSummary.php'
+        message = "All queries have been done!!"
 
         #launch job
-        files = {'SEQSUB': open(fastaFile, 'r')}
-        data = {'configfile':'/var/www/html/services/NetNGlyc-1.0/webface.cf'}
-        r1 = requests.post(url, data=data, files=files)
+        with open(fastaFile, 'r') as f :
+            seq = f.read()
+
+        data = {'sequence': seq}
+        r1 = requests.post(url1, data=data )
+
 
         #retrieve results
-        temp = re.search(r"jobid: .+ status", r1.text)
-        jobid = temp.group().split(' ')[1]
+        temp = re.search(r"job=.+\)", r1.text)
+        jobid = temp.group().split('=')[1][:-1]
 
         sleep(2)
-        r2 = requests.get(url, params={'jobid' : jobid })
+        r2 = requests.get(url2, params={'job' : jobid })
 
-        while jobid in r2.text:
+        while message not in r2.text:
             sleep(2)
-            r2 = requests.get(url, params={'jobid': jobid })
-
+            r2 = requests.get(url2, params={'job': jobid })
 
         r2.raise_for_status()
 
         file = open(outputFile, "w")
         file.write(r2.text)
-
 

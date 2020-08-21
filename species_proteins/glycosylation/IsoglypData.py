@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import *
 from dataclasses import dataclass, field
 from pathlib import Path
-import os, sys
+import sys
 
 @dataclass
 class IsoglypData:
@@ -46,8 +46,7 @@ class IsoglypData:
     @staticmethod
     def parse(outputFile: Path) -> IsoglypData :
 
-        data = IsoglypData()
-
+        predictedSites = {}
         try:
             f = open(outputFile, 'r')
 
@@ -60,25 +59,25 @@ class IsoglypData:
                         header = l
                     else:
                         protname = l[0].split()[0][1:]
-                        if protname not in data.predictedSites:
-                            data.predictedSites[ protname ] = {}
+                        if protname not in predictedSites:
+                            predictedSites[ protname ] = {}
 
                         aa = l[1]
                         resid = int( l[2] )
                         max = round( float( l[-1] ), 3)
                         isSignif = (max >= 1)
 
-                        if resid not in data.predictedSites[protname]:
-                            data.predictedSites[protname][resid] = []
+                        if resid not in predictedSites[protname]:
+                            predictedSites[protname][resid] = []
 
-                        data.predictedSites[protname][resid].append({
+                        predictedSites[protname][resid].append({
                             "seq": aa,
                             "start": resid,
                             "end": resid,
                             "score" : max,
                             "isSignif" : isSignif,
-                            "type": "O-Glyc",
-                            "predictor": "isoglyp"
+                            "type": "O-linked",
+                            "predictor": "isoglyp_local"
                         })
 
                         # add EVP (enhancement value product) values for each
@@ -88,7 +87,7 @@ class IsoglypData:
                             if header[it][0] == "T":
                                 key = header[it]
                                 value = round( float(l[it]), 4 )
-                                data.predictedSites[protname][resid][-1][key] = value
+                                predictedSites[protname][resid][-1][key] = value
 
 
         except OSError as e:
@@ -99,6 +98,4 @@ class IsoglypData:
             print("Unexpected error:", sys.exc_info()[0])
             raise
 
-        return data
-
-
+        return IsoglypData( predictedSites )
