@@ -75,8 +75,7 @@ class GlycomineData:
                     type = val
 
                     if resid not in predictedSites[protname]:
-                        predictedSites[protname][resid] = {}
-                        predictedSites[protname][resid][type] = []
+                        predictedSites[protname][resid] = []
 
                     predictedSites[protname][resid].append({
                         "seq": aa,
@@ -84,6 +83,7 @@ class GlycomineData:
                         "end": resid,
                         "isSignif" : isSignif,
                         "score" : score,
+                        "type" : type,
                         "predictor": "Glycomine_online"
                     })
 
