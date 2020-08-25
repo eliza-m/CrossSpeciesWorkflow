@@ -63,7 +63,7 @@ steps:
     out: [results]  
 
   formatOutput: 
-    run: ../formatoutput.cwl
+    run: ../format_output.cwl
     in:
       formattype: 
         default: "single"

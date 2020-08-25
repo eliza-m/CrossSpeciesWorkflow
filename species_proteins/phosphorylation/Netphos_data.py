@@ -2,14 +2,14 @@ from __future__ import annotations
 from typing import *
 from dataclasses import dataclass, field
 from pathlib import Path
-import os, sys
-import requests
+import sys
 import re
+import requests
 from time import sleep
 
 @dataclass
-class Netoglyc_data:
-    """Class that parses NetOglyc prediction output data.
+class Netphos_data:
+    """Class that parses Netphos prediction output data.
 
     Parameters
     ----------
@@ -26,33 +26,23 @@ class Netoglyc_data:
             end : ending residue id
             is_signif : bool (is the method's specific scoring indicating a
                             potentially significant result)
-            score : float (interpretation differs between methods)
-            type : string (O-glyc)
+            score : float (probability)
+            type : string (generic or a specific kinase)
             predictor : string (for cases where multiple predictors are available)
-
-        # Predictor specific
-            iscore : float
-            comment : string
-
 
     Public Methods
     --------------
-    parse( outputfile : path ) -> NetOglyc
-        Parses the NetOglyc prediction output file and add the data inside the
+    parse( outputfile : path ) -> Netphos
+        Parses the Netphos prediction output file and add the data inside the
         above attribute data structure.
-
-    submit_online (fastafile : Path, outputfile: Path)
-        Submits online job. Provided as arguments are the input fasta file and the
-        prediction output file paths
 
     """
 
-    predicted_sites : dict = field(default_factory=dict)
-
+    predicted_sites : dict
 
 
     @staticmethod
-    def parse(outputfile: Path) -> Netoglyc_data:
+    def parse(outputfile: Path) -> Netphos_data:
 
         try:
             f = open(outputfile, 'r')
@@ -61,11 +51,11 @@ class Netoglyc_data:
 
             if lines[0][0] == "<":
                 # online job output
-                predicted_sites = Netoglyc_data.__parse_html(lines)
+                predicted_sites = Netphos_data.__parse_html(lines)
 
             else :
                 # docker container output
-                predicted_sites = Netoglyc_data.__parse_localoutput(lines)
+                predicted_sites = Netphos_data.__parse_localoutput(lines)
 
 
         except OSError as e:
@@ -76,7 +66,8 @@ class Netoglyc_data:
             print("Unexpected error:", sys.exc_info()[0])
             raise
 
-        return Netoglyc_data(predicted_sites)
+        return Netphos_data(predicted_sites)
+
 
 
 
@@ -88,7 +79,7 @@ class Netoglyc_data:
 
         #launch job
         files = {'SEQSUB': open(fastafile, 'r')}
-        data = {'configfile':'/var/www/html/services/NetOGlyc-4.0/webface.cf'}
+        data = {'configfile':'/var/www/html/services/NetPhos-3.1/webface.cf'}
         r1 = requests.post(url, data=data, files=files)
 
         #retrieve results
@@ -102,7 +93,6 @@ class Netoglyc_data:
             sleep(2)
             r2 = requests.get(url, params={'jobid': jobid })
 
-
         r2.raise_for_status()
 
         file = open(outputfile, "w")
@@ -110,39 +100,37 @@ class Netoglyc_data:
 
 
 
+
+
     @staticmethod
     def __parse_localoutput(lines: list) -> dict :
-
         predicted_sites = {}
         for line in lines:
             l = line.split()
             if len(l) == 7:
-                if l[0] == 'Name':
-                    header = l
-                else:
-                    protname = l[0]
-                    if protname not in predicted_sites:
-                        predicted_sites[protname] = {}
+                protname = l[0]
+                if protname not in predicted_sites:
+                    predicted_sites[protname] = {}
 
-                    aa = l[1]
-                    resid = int(l[2])
-                    gscore = round(float(l[2]), 3)
-                    iscore = round(float(l[3]), 3)
-                    is_signif = (l[5] != ".")
+                aa = l[1]
+                resid = int(l[3])
+                score = round(float(l[4]), 3)
+                is_signif = (score >= 0.5)
+                enzyme = l[6]
 
-                    if resid not in predicted_sites[protname]:
-                        predicted_sites[protname][resid] = []
+                if resid not in predicted_sites[protname]:
+                    predicted_sites[protname][resid] = []
 
-                    predicted_sites[protname][resid].append({
-                        "seq": aa,
-                        "start": resid,
-                        "end": resid,
-                        "is_signif": is_signif,
-                        "score": gscore,
-                        "iscore": iscore,
-                        "type": "O-GalNAc",
-                        "predictor": "netoglyc:3.1_local",
-                    })
+                data.predicted_sites[protname][resid].append({
+                    "seq": aa,
+                    "start": resid,
+                    "end": resid,
+                    "is_signif": is_signif,
+                    "score": score,
+                    "type" : aa + "-phosph",
+                    "enzyme": enzyme,
+                    "predictor": "netphos:3.1_local"
+                })
 
         return predicted_sites
 
@@ -153,33 +141,33 @@ class Netoglyc_data:
         predicted_sites = {}
         for line in lines:
             l = line.split()
-            if len(l) in [8, 9] and l[0][0] not in [ "#", "<" ]:
-                protname = l[0]
+            if len(l) == 8 and l[0] == '#' and l[1] != 'Sequence':
+                protname = l[1]
                 if protname not in predicted_sites:
                     predicted_sites[protname] = {}
 
-                # not shown in v4 output
-                aa = ""
-                start = int(l[3])
-                end = int(l[4])
+                aa = l[3]
+                resid = int(l[2])
                 score = round(float(l[5]), 3)
-                is_signif = ( len(l) ==9 and l[8] == "#POSITIVE" )
+                enzyme = l[6]
+                is_signif = ( l[7] == "YES" )
 
-                resid = start
                 if resid not in predicted_sites[protname]:
                     predicted_sites[protname][resid] = []
 
                 predicted_sites[protname][resid].append({
                     "seq": aa,
-                    "start": start,
-                    "end": end,
+                    "start": resid,
+                    "end": resid,
                     "is_signif": is_signif,
                     "score": score,
-                    "type": "O-linked",
-                    "predictor": "netoglyc:4.0_online",
+                    "type": aa + "-phosph",
+                    "enzyme": enzyme,
+                    "predictor": "netphos:3.1_online",
                 })
 
-
         return predicted_sites
+
+
 
 

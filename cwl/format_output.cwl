@@ -11,7 +11,7 @@
 
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: [formatoutput]
+baseCommand: [format_output]
 hints:
   DockerRequirement:
     dockerImageId: quay.io/dbsb-ibar/species_proteins:latest
@@ -32,7 +32,7 @@ inputs:
           - single  # single protein format
           - multi   # multiple proteins aligned
     inputBinding:
-      prefix: --formattype
+      prefix: --format
 
   module:
   # Individual module or groupt of modules to be parsed and merged into the output file.   
@@ -41,14 +41,15 @@ inputs:
       - type: enum
         symbols:
           - all                  # all modules
-          - structural
-          - glycosylation     
-          - phosphorylation   
-          - acetylation
-          - lipidmodification     
-          - sumoylation
-          - localisation
-          - ptsmod               # Post translation modifications : glyco + acety + sumo + lipid        
+          - all_nonstruc         # all modules except structural, which is slow
+          - ptsmod               # Post translation modifications : glyco + acety + sumo + lipid
+          - struc                # Structural module only
+          - glyc                 # Glycosylation module only
+          - phos                 # Phosphorylation module only
+          - acet                 # Acetylation module only
+          - sumo                 # SUMOylation module only
+          - loc                  # Cellular Localisation module only
+
 
     inputBinding:
       prefix: --module
@@ -72,7 +73,7 @@ inputs:
       prefix: --signif
     default: False
 
-  outputfilename:
+  outputFilename:
   # output filename of the parsed data
     type: string?
     inputBinding:
@@ -103,8 +104,8 @@ outputs:
       glob: '*'
       outputEval: |
         ${
-          if ( inputs.outputfilename != "results.txt"){
-             self[0].basename =  inputs.outputfilename;
+          if ( inputs.outputFilename != "results.txt"){
+             self[0].basename =  inputs.outputFilename;
           }
           else if (inputs.protname != null) {
              self[0].basename = inputs.protname + "." + inputs.formattype + "." + inputs.module + ".out";

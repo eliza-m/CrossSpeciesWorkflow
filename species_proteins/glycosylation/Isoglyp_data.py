@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 
 @dataclass
-class IsoglypData:
+class Isoglyp_data:
     """Class that parses Isoglyp prediction output data.
 
     Parameters
@@ -13,15 +13,15 @@ class IsoglypData:
 
     Attributes
     ----------
-    predictedSites : Dictionary
-        predictedSites [ protein name ][ start resid ] : array of entry dict
+    predicted_sites : Dictionary
+        predicted_sites [ protein name ][ start resid ] : array of entry dict
         entry dict has the following keys:
 
         # Common to all PTS predictors :
             seq : string (stretch of the predicted sequence)
             start : starting residue id
             end : ending residue id
-            isSignif : bool (is the method's specific scoring indicating a
+            is_signif : bool (is the method's specific scoring indicating a
                             potentially significant result)
             score : maximum EVP from all isoforms
             type : string (O-glyc)
@@ -35,20 +35,20 @@ class IsoglypData:
 
     Public Methods
     --------------
-    parse( outputFile : path ) -> IsoglypData
+    parse( outputfile : path ) -> Isoglyp_data
         Parses the Isoglyp prediction output file and add the data inside the
         above attribute data structure.
 
     """
 
-    predictedSites : dict = field(default_factory=dict)
+    predicted_sites : dict
 
     @staticmethod
-    def parse(outputFile: Path) -> IsoglypData :
+    def parse(outputfile: Path) -> Isoglyp_data :
 
-        predictedSites = {}
+        predicted_sites = {}
         try:
-            f = open(outputFile, 'r')
+            f = open(outputfile, 'r')
 
             lines = f.readlines()
             for line in lines:
@@ -59,23 +59,23 @@ class IsoglypData:
                         header = l
                     else:
                         protname = l[0].split()[0][1:]
-                        if protname not in predictedSites:
-                            predictedSites[ protname ] = {}
+                        if protname not in predicted_sites:
+                            predicted_sites[ protname ] = {}
 
                         aa = l[1]
                         resid = int( l[2] )
                         max = round( float( l[-1] ), 3)
-                        isSignif = (max >= 1)
+                        is_signif = (max >= 1)
 
-                        if resid not in predictedSites[protname]:
-                            predictedSites[protname][resid] = []
+                        if resid not in predicted_sites[protname]:
+                            predicted_sites[protname][resid] = []
 
-                        predictedSites[protname][resid].append({
+                        predicted_sites[protname][resid].append({
                             "seq": aa,
                             "start": resid,
                             "end": resid,
                             "score" : max,
-                            "isSignif" : isSignif,
+                            "is_signif" : is_signif,
                             "type": "O-linked",
                             "predictor": "isoglyp_local"
                         })
@@ -87,7 +87,7 @@ class IsoglypData:
                             if header[it][0] == "T":
                                 key = header[it]
                                 value = round( float(l[it]), 4 )
-                                predictedSites[protname][resid][-1][key] = value
+                                predicted_sites[protname][resid][-1][key] = value
 
 
         except OSError as e:
@@ -98,4 +98,4 @@ class IsoglypData:
             print("Unexpected error:", sys.exc_info()[0])
             raise
 
-        return IsoglypData( predictedSites )
+        return Isoglyp_data(predicted_sites)

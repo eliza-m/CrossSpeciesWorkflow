@@ -1,22 +1,21 @@
 from __future__ import annotations
 from bioservices.apps import FASTA
-from typing import *
 from dataclasses import dataclass, field
 from pathlib import Path
 import sys
-from .NetNglycData import NetNglycData
-from .NetOglycData import NetOglycData
-from .NetCglycData import NetCglycData
-from .Glycomine_Data import GlycomineData
-from .Isoglyp_data import IsoglypData
-from .NGlyDEData import NGlyDEData
+from .Netnglyc_data import Netnglyc_data
+from .Netoglyc_data import Netoglyc_data
+from .Netcglyc_data import Netcglyc_data
+from .Glycomine_data import Glycomine_data
+from .Isoglyp_data import Isoglyp_data
+from .Nglyde_data import Nglyde_data
 
 # in the printing order
-AvailPredictors = ["netnglyc", "nglyde", "glycomineN","netoglyc", "isoglyp", "glycomineO", "netcglyc", "glycomineC"]
+avail_predictors = ["netnglyc", "nglyde", "glycomineN", "netoglyc", "isoglyp", "glycomineO", "netcglyc", "glycomineC"]
 
 
 @dataclass
-class Glycosylation_Pred :
+class Glycosylation_pred :
     """Class that organises Structural Predictions output for single protein
 
     Attributes
@@ -42,7 +41,7 @@ class Glycosylation_Pred :
     predictions: dict
 
     @staticmethod
-    def parse_all(paths: dict) -> Glycosylation_Pred:
+    def parse_all(paths: dict) -> Glycosylation_pred:
         """
         Parses all the prediction output files and add the data inside the
         above attribute data structures.
@@ -54,21 +53,21 @@ class Glycosylation_Pred :
             for predictor in paths[prot]:
 
                 if predictor == "netnglyc":
-                    data = NetNglycData.parse(paths[prot][predictor])
+                    data = Netnglyc_data.parse(paths[prot][predictor])
                 elif predictor == "netoglyc":
-                    data = NetOglycData.parse(paths[prot][predictor])
+                    data = Netoglyc_data.parse(paths[prot][predictor])
                 elif predictor == "netcglyc":
-                    data = NetCglycData.parse(paths[prot][predictor])
+                    data = Netcglyc_data.parse(paths[prot][predictor])
                 elif predictor == "isoglyp":
-                    data = IsoglypData.parse(paths[prot][predictor])
+                    data = Isoglyp_data.parse(paths[prot][predictor])
                 elif predictor == "nglyde":
-                    data = NGlyDEData.parse(paths[prot][predictor])
+                    data = Nglyde_data.parse(paths[prot][predictor])
                 elif predictor == "glycomineN":
-                    data = GlycomineData.parse(paths[prot][predictor])
+                    data = Glycomine_data.parse(paths[prot][predictor])
                 elif predictor == "glycomineO":
-                    data = GlycomineData.parse(paths[prot][predictor])
+                    data = Glycomine_data.parse(paths[prot][predictor])
                 elif predictor == "glycomineC":
-                    data = GlycomineData.parse(paths[prot][predictor])
+                    data = Glycomine_data.parse(paths[prot][predictor])
 
                 # adding the fasta file data
                 elif predictor in ["fasta", "fsa"]:
@@ -90,19 +89,19 @@ class Glycosylation_Pred :
                 if prot not in predictions:
                     predictions[prot] = {}
 
-                predictions[prot][predictor] = data.predictedSites[prot]
+                predictions[prot][predictor] = data.predicted_sites[prot]
             predictions[prot]['seq'] = seq
 
 
-        return Glycosylation_Pred(paths, predictions)
+        return Glycosylation_pred(paths, predictions)
 
 
 
-    def print1prot(self : Glycosylation_Pred, outputFile: Path, protname: str = None, addseq: bool = True, signif: bool = False):
+    def print_1prot(self : Glycosylation_pred, outputfile: Path, protname: str = None, addseq: bool = True, signif: bool = False):
 
         try:
 
-            output = open(outputFile, 'w')
+            output = open(outputfile, 'w')
 
             if protname is None:
                 keys = list( self.predictions.keys() )
@@ -135,7 +134,7 @@ class Glycosylation_Pred :
 
             # contains predictions in the desired format for printing
             values = {}
-            for p in AvailPredictors:
+            for p in avail_predictors:
 
                 if p not in data :
                     # if predictor's data is not available (i.e prediction was not performed)
@@ -159,7 +158,7 @@ class Glycosylation_Pred :
                                     continue
                                 else:
                                     if signif:
-                                        if entry['isSignif'] : values[p][resid] = score 
+                                        if entry['is_signif'] : values[p][resid] = score 
                                     else:
                                         values[p][resid] = score
 
@@ -168,7 +167,7 @@ class Glycosylation_Pred :
                 if addseq:
                     print('{:>6}{:>5}'.format(id+1, seq[id]), sep='\t', end='\t', file=output)
 
-                for p in AvailPredictors:
+                for p in avail_predictors:
                     print( '{:>12}'.format(values[p][id]), end='\t', file=output )
                 print(file=output)
 

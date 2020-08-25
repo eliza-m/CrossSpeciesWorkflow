@@ -8,7 +8,7 @@ import re
 from time import sleep
 
 @dataclass
-class NetCglycData:
+class Netcglyc_data:
     """Class that parses NetCglyc prediction output data.
 
     Parameters
@@ -16,15 +16,15 @@ class NetCglycData:
 
     Attributes
     ----------
-    predictedSites : Dictionary
-        predictedSites [ protein name ][ start resid ] : array of entry dict
+    predicted_sites : Dictionary
+        predicted_sites [ protein name ][ start resid ] : array of entry dict
         entry dict has the following keys:
 
         # Common to all PTS predictors
             seq : string (stretch of the predicted sequence)
             start : starting residue id
             end : ending residue id
-            isSignif : bool (is the method's specific scoring indicating a
+            is_signif : bool (is the method's specific scoring indicating a
                             potentially significant result)
             score : float (interpretation differs between methods)
             type : string (C-glyc)
@@ -32,35 +32,35 @@ class NetCglycData:
 
     Public Methods
     --------------
-    parse( outputFile : path ) -> NetCglyc
+    parse( outputfile : path ) -> NetCglyc
         Parses the NetCglyc prediction output file and add the data inside the
         above attribute data structure.
 
-    submitOnline (fastaFile : Path, outputFile: Path)
+    submit_online (fastafile : Path, outputfile: Path)
         Submits online job. Provided as arguments are the input fasta file and the
         prediction output file paths
 
     """
 
 
-    predictedSites : dict
+    predicted_sites : dict
 
 
     @staticmethod
-    def parse(outputFile: Path) -> NetCglycData:
+    def parse(outputfile: Path) -> Netcglyc_data:
 
         try:
-            f = open(outputFile, 'r')
+            f = open(outputfile, 'r')
 
             lines = f.readlines()
 
             if lines[0][0] == "<":
                 # online job output
-                predictedSites = NetCglycData.__parseHTML(lines)
+                predicted_sites = Netcglyc_data.__parse_html(lines)
 
             else :
                 # docker container output
-                predictedSites = NetCglycData.__parseLocaloutput( lines )
+                predicted_sites = Netcglyc_data.__parse_localoutput(lines)
 
 
         except OSError as e:
@@ -71,17 +71,17 @@ class NetCglycData:
             print("Unexpected error:", sys.exc_info()[0])
             raise
 
-        return NetCglycData(predictedSites)
+        return Netcglyc_data(predicted_sites)
 
 
     @staticmethod
-    def submitOnline (fastaFile : Path, outputFile: Path) :
+    def submit_online (fastafile : Path, outputfile: Path) :
         #  Only single protein fasta file !!!!!
 
         url = 'https://services.healthtech.dtu.dk/cgi-bin/webface2.cgi'
 
         #launch job
-        files = {'SEQSUB': open(fastaFile, 'r')}
+        files = {'SEQSUB': open(fastafile, 'r')}
         data = {'configfile':'/var/www/html/services/NetCGlyc-1.0/webface.cf', 'oformat':'short'}
         r1 = requests.post(url, data=data, files=files)
 
@@ -99,19 +99,19 @@ class NetCglycData:
 
         r2.raise_for_status()
 
-        file = open(outputFile, "w")
+        file = open(outputfile, "w")
         file.write(r2.text)
 
 
     @staticmethod
-    def __parseLocaloutput( lines : list ) -> dict :
-        predictedSites = {}
+    def __parse_localoutput(lines : list) -> dict :
+        predicted_sites = {}
         for line in lines:
             l = line.split()
             if l[0][0] != "#":
                 protname = l[0]
-                if protname not in predictedSites:
-                    predictedSites[protname] = {}
+                if protname not in predicted_sites:
+                    predicted_sites[protname] = {}
 
                 # not provided, but the prediction only reffers to
                 # tryptophan (W), therefore for consistency we added
@@ -120,35 +120,35 @@ class NetCglycData:
                 start = int(l[3])
                 end = int(l[4])
                 score = round(float(l[5]), 3)
-                isSignif = (l[7] == "W")
+                is_signif = (l[7] == "W")
 
                 resid = start
 
-                if resid not in predictedSites[protname]:
-                    predictedSites[protname][resid] = []
+                if resid not in predicted_sites[protname]:
+                    predicted_sites[protname][resid] = []
 
-                predictedSites[protname][resid].append({
+                predicted_sites[protname][resid].append({
                     "seq": aa,
                     "start": start,
                     "end": end,
-                    "isSignif": isSignif,
+                    "is_signif": is_signif,
                     "score": score,
                     "type": "C-linked",
                     "predictor": "netcglyc:1.0_local"
                 })
 
-        return predictedSites
+        return predicted_sites
 
 
     @staticmethod
-    def __parseHTML(lines: list) -> dict:
-        predictedSites = {}
+    def __parse_html(lines: list) -> dict:
+        predicted_sites = {}
         for line in lines:
             l = line.split()
             if len(l) == 4 and l[0] != "Name" and "\t" in line:
                 protname = l[0]
-                if protname not in predictedSites:
-                    predictedSites[protname] = {}
+                if protname not in predicted_sites:
+                    predicted_sites[protname] = {}
 
                 # not provided, but the prediction only reffers to
                 # tryptophan (W), therefore for consistency we added
@@ -157,22 +157,22 @@ class NetCglycData:
                 start = int(l[1])
                 end = int(l[1])
                 score = round(float(l[2]), 3)
-                isSignif = (l[3][0] == "W")
+                is_signif = (l[3][0] == "W")
 
                 resid = start
 
-                if resid not in predictedSites[protname]:
-                    predictedSites[protname][resid] = []
+                if resid not in predicted_sites[protname]:
+                    predicted_sites[protname][resid] = []
 
-                predictedSites[protname][resid].append({
+                predicted_sites[protname][resid].append({
                     "seq": aa,
                     "start": start,
                     "end": end,
-                    "isSignif": isSignif,
+                    "is_signif": is_signif,
                     "score": score,
                     "type": "C-linked",
                     "predictor": "netcglyc:1.0_online"
                 })
 
-        return predictedSites
+        return predicted_sites
 

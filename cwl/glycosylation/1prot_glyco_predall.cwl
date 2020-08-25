@@ -42,7 +42,7 @@ steps:
     out: [output]
 
   netcglyc:
-    run: ../submitonline.cwl
+    run: ../submit_online.cwl
     in:
       predictor: 
         default: "netcglyc"
@@ -50,7 +50,7 @@ steps:
     out: [output]
 
   netoglyc:
-    run: ../submitonline.cwl
+    run: ../submit_online.cwl
     in:
       predictor: 
         default: "netoglyc"
@@ -58,7 +58,7 @@ steps:
     out: [output]
 
   nglyde:
-    run: ../submitonline.cwl
+    run: ../submit_online.cwl
     in:
       predictor: 
         default: "nglyde"
@@ -66,7 +66,7 @@ steps:
     out: [output]
 
   glycomineN:
-    run: ../submitonline.cwl
+    run: ../submit_online.cwl
     in:
       predictor: 
         default: "glycomine"
@@ -76,7 +76,7 @@ steps:
     out: [output]
 
   glycomineO:
-    run: ../submitonline.cwl
+    run: ../submit_online.cwl
     in:
       predictor: 
         default: "glycomine"
@@ -86,7 +86,7 @@ steps:
     out: [output]
 
   glycomineC:
-    run: ../submitonline.cwl
+    run: ../submit_online.cwl
     in:
       predictor: 
         default: "glycomine"

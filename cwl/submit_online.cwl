@@ -23,7 +23,7 @@ inputs:
     inputBinding:
       prefix: --predictor
 
-  fastafile:
+  fastaFile:
     type: File
     label: Single protein FASTA file
     inputBinding:
@@ -36,7 +36,7 @@ inputs:
       prefix: --type
     default: null
 
-  outputfilename:
+  outputFilename:
     type: string?
     inputBinding:
       prefix: --output
@@ -50,14 +50,14 @@ outputs:
       glob: '*.*'
       outputEval: |
         ${
-          if ( inputs.outputfilename != "output.htm"){
-             self[0].basename =  inputs.outputfilename;
+          if ( inputs.outputFilename != "output.htm"){
+             self[0].basename =  inputs.outputFilename;
           }
           else if (inputs.predtype!=null) {
-             self[0].basename =  inputs.fastafile.nameroot + "." + inputs.predictor + inputs.predtype + ".htm";
+             self[0].basename =  inputs.fastaFile.nameroot + "." + inputs.predictor + inputs.predtype + ".htm";
           }
           else{
-             self[0].basename =  inputs.fastafile.nameroot + "." + inputs.predictor + ".htm";
+             self[0].basename =  inputs.fastaFile.nameroot + "." + inputs.predictor + ".htm";
           }
           return self[0]
         }
