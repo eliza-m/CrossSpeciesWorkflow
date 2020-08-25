@@ -8,7 +8,7 @@
 
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: [submitonline]
+baseCommand: [submit_online]
 hints:
   DockerRequirement:
     dockerImageId: quay.io/dbsb-ibar/species_proteins:latest
@@ -23,7 +23,7 @@ inputs:
     inputBinding:
       prefix: --predictor
 
-  fastaFile:
+  fastafile:
     type: File
     label: Single protein FASTA file
     inputBinding:
@@ -36,7 +36,7 @@ inputs:
       prefix: --type
     default: null
 
-  outputFilename:
+  outputfilename:
     type: string?
     inputBinding:
       prefix: --output
@@ -50,14 +50,14 @@ outputs:
       glob: '*.*'
       outputEval: |
         ${
-          if ( inputs.outputFilename != "output.htm"){
-             self[0].basename =  inputs.outputFilename;
+          if ( inputs.outputfilename != "output.htm"){
+             self[0].basename =  inputs.outputfilename;
           }
           else if (inputs.predtype!=null) {
-             self[0].basename =  inputs.fastaFile.nameroot + "." + inputs.predictor + inputs.predtype + ".htm";
+             self[0].basename =  inputs.fastafile.nameroot + "." + inputs.predictor + inputs.predtype + ".htm";
           }
           else{
-             self[0].basename =  inputs.fastaFile.nameroot + "." + inputs.predictor + ".htm";
+             self[0].basename =  inputs.fastafile.nameroot + "." + inputs.predictor + ".htm";
           }
           return self[0]
         }

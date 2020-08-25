@@ -72,7 +72,7 @@ inputs:
       prefix: --signif
     default: False
 
-  outputFilename:
+  outputfilename:
   # output filename of the parsed data
     type: string?
     inputBinding:
@@ -103,8 +103,8 @@ outputs:
       glob: '*'
       outputEval: |
         ${
-          if ( inputs.outputFilename != "results.txt"){
-             self[0].basename =  inputs.outputFilename;
+          if ( inputs.outputfilename != "results.txt"){
+             self[0].basename =  inputs.outputfilename;
           }
           else if (inputs.protname != null) {
              self[0].basename = inputs.protname + "." + inputs.formattype + "." + inputs.module + ".out";

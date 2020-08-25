@@ -7,8 +7,8 @@ import sys
 from .NetNglycData import NetNglycData
 from .NetOglycData import NetOglycData
 from .NetCglycData import NetCglycData
-from .GlycomineData import GlycomineData
-from .IsoglypData import IsoglypData
+from .Glycomine_Data import GlycomineData
+from .Isoglyp_data import IsoglypData
 from .NGlyDEData import NGlyDEData
 
 # in the printing order
@@ -16,7 +16,7 @@ AvailPredictors = ["netnglyc", "nglyde", "glycomineN","netoglyc", "isoglyp", "gl
 
 
 @dataclass
-class GlycosylationPred :
+class Glycosylation_Pred :
     """Class that organises Structural Predictions output for single protein
 
     Attributes
@@ -42,7 +42,7 @@ class GlycosylationPred :
     predictions: dict
 
     @staticmethod
-    def parseall(paths: dict) -> GlycosylationPred:
+    def parse_all(paths: dict) -> Glycosylation_Pred:
         """
         Parses all the prediction output files and add the data inside the
         above attribute data structures.
@@ -94,11 +94,11 @@ class GlycosylationPred :
             predictions[prot]['seq'] = seq
 
 
-        return GlycosylationPred(paths, predictions)
+        return Glycosylation_Pred(paths, predictions)
 
 
 
-    def print1prot( self : GlycosylationPred, outputFile: Path, protname: str = None, addseq: bool = True, signif: bool = False ):
+    def print1prot(self : Glycosylation_Pred, outputFile: Path, protname: str = None, addseq: bool = True, signif: bool = False):
 
         try:
 
