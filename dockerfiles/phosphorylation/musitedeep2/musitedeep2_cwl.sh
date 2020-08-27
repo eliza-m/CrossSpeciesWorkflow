@@ -14,7 +14,7 @@ cd /home/MusiteDeep/MusiteDeep_Keras2.0/MusiteDeep/
 # However, "predict.py" works fine with tyrosines, but does not support kinase-specific.
 # Therefore, we opted for the following workaround.
 
-if [[ $6 == "general" && $8 =~ "Y" ]]
+if [[ $6 == "general" ]]
 then 
 	python predict.py $1 $2 $3 $4 $5 $6 $7 $8;
 else
