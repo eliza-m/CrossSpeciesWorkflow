@@ -14,7 +14,7 @@ class: CommandLineTool
 baseCommand: [format-output]
 hints:
   DockerRequirement:
-    dockerImageId: quay.io/dbsb-ibar/species_proteins:latest
+    dockerPull: quay.io/dbsb-ibar/species_proteins:latest
 
 requirements:
   InlineJavascriptRequirement: {}
