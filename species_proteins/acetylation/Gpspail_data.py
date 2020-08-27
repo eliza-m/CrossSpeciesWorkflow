@@ -61,9 +61,9 @@ H
                     protname = cols[0].text.split()[0]
                     resid = int(cols[1].text)
                     aa = cols[2].text[8]
-                    enzyme = cols[3].text
-                    score = round(float(cols[4].text))
-                    cutoff = round(float(cols[5].text))
+                    enzyme = cols[3].text.split()[0]
+                    score = round(float(cols[4].text), 3)
+                    cutoff = round(float(cols[5].text), 3)
 
                     is_signif = score >= cutoff
 
@@ -137,6 +137,7 @@ H
             f.write(r2.text)
 
         # zip archive
-        zipfile = (outputfile.parent / outputfile.name).with_suffix('.zip')
-        with open(zipFile, 'wb') as f:
+        # zipfile = (outputfile.stem + '_raw').with_suffix('.zip')
+        zipfile = outputfile.split('.')[0] + 'gpspail_raw.zip'
+        with open(zipfile, 'wb') as f:
             f.write(r3.content)

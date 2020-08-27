@@ -76,7 +76,7 @@ class Isoglyp_data:
                             "end": resid,
                             "score" : max,
                             "is_signif" : is_signif,
-                            "type": "O-linked",
+                            "type": "O-glyc",
                             "predictor": "isoglyp_local"
                         })
 

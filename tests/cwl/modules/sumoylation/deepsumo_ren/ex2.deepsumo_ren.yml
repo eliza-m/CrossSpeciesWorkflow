@@ -1,5 +1,0 @@
-fastaFile:
-  class: File
-  location: ../data/ex2.fasta
-threshold_sumo: low
-threshold_sim: low

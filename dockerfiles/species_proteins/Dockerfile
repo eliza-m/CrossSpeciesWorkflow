@@ -15,13 +15,11 @@ RUN python -c "from bioservices import *"
 
 
 # Copy source code
-COPY species_proteins/ /opt/species_proteins/
+COPY ./species_proteins /opt/species_proteins/species_proteins
+COPY ./setup.py /opt/species_proteins/
+RUN python /opt/species_proteins/setup.py install
 
 
-COPY setup.py /opt/
-RUN python /opt/setup.py install
-
-WORKDIR /data
 
 # The code to run when container is started:
-ENTRYPOINT ["conda", "run", "-n", "species_proteins", "python", "/opt/species_proteins/workflow/run.py"]
+ENTRYPOINT ["conda", "run", "-n", "species_proteins", "python", "/opt/species_proteins/species_proteins/workflow/run.py"]

@@ -133,7 +133,7 @@ class Netcglyc_data:
                     "end": end,
                     "is_signif": is_signif,
                     "score": score,
-                    "type": "C-linked",
+                    "type": "C-glyc",
                     "predictor": "netcglyc:1.0_local"
                 })
 
@@ -170,7 +170,7 @@ class Netcglyc_data:
                     "end": end,
                     "is_signif": is_signif,
                     "score": score,
-                    "type": "C-linked",
+                    "type": "C-glyc",
                     "predictor": "netcglyc:1.0_online"
                 })
 

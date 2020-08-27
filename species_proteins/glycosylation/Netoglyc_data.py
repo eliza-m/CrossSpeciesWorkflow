@@ -140,7 +140,7 @@ class Netoglyc_data:
                         "is_signif": is_signif,
                         "score": gscore,
                         "iscore": iscore,
-                        "type": "O-GalNAc",
+                        "type": "O-glyc",
                         "predictor": "netoglyc:3.1_local",
                     })
 
@@ -175,7 +175,7 @@ class Netoglyc_data:
                     "end": end,
                     "is_signif": is_signif,
                     "score": score,
-                    "type": "O-linked",
+                    "type": "O-glyc",
                     "predictor": "netoglyc:4.0_online",
                 })
 

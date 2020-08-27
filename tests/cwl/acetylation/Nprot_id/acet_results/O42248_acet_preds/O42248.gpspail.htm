@@ -1,0 +1,682 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <!-- DW6 -->
+
+    <head>
+
+        <!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <title>GPS-PAIL 2.0 - Prediction of Acetylation on Internal Lysines</title>
+
+        <link   rel= "shortcut   icon "   href= "images/GPS.png "/>
+
+        <link rel="stylesheet" href="stylegreen.css" type="text/css" />
+
+        <link rel="stylesheet" href="js/lavalamp/lavalamp_test.css" type="text/css" media="screen"/>
+
+        <script type="text/javascript" src="js/lavalamp/jquery-1.2.3.min.js"></script>
+
+        <script type="text/javascript" src="js/lavalamp/jquery.easing.min.js"></script>
+
+        <script type="text/javascript" src="js/lavalamp/jquery.lavalamp.js"></script>
+
+        <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+
+        <script type="text/javascript">
+
+            $(function() {
+
+                $("#gbnav").lavaLamp({
+
+                    fx: "backout",
+
+                    speed: 700,
+
+                    click: function(event, menuItem) {
+
+                        return true;
+
+                    }
+
+                });
+
+            });
+
+        </script>
+
+        <link href="js/accordion-menu/styleacc.css" type="text/css" rel="stylesheet"/>
+
+        <script type="text/javascript">
+
+            /*$(document).ready(function()
+
+                {
+
+                        //slides the element with class "menu_body" when paragraph with class "menu_head" is clicked 
+
+                        $("#firstpane p.menu_head").click(function()
+
+                    {
+
+                                $(this).css({backgroundImage:"url(js/accordion-menu/down.png)"}).next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+
+                        $(this).siblings("p").css({backgroundImage:"url(js/accordion-menu/left.png)"});
+
+                        });
+
+	
+
+                });*/
+
+
+
+            $(document).ready(function()
+
+            {
+
+                //slides the element with class "menu_body" when paragraph with class "menu_head" is mouseover
+
+                $(".menu_body a").hover(function()
+
+                {
+
+                    $(".navintro").css({display:"none"});
+
+                    $(this).siblings(".navintro").css({display:"block"}).fadeIn("slow");
+
+       
+
+                });
+
+            });
+
+
+
+        </script>
+
+        <script src="js/jquery.treeview/jquery.treeview.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+
+            $(document).ready(function() {
+
+                $("#leftcontent img").click(function() {
+
+
+
+                    $(this).next().next().css("display","none");
+
+                });
+
+
+
+            })
+
+        </script>
+
+        <script type="text/javascript">
+
+            $(document).ready(function(){
+
+                $("#browser").treeview({
+
+                    toggle: function() {
+
+                        console.log("%s was toggled.", $(this).find(">span").text());
+
+                    }
+
+                });
+
+		
+
+                $("#add").click(function() {
+
+                    var branches = $("<li><span class='folder'>New Sublist</span><ul>" + 
+
+                        "<li><span class='file'>Item1</span></li>" + 
+
+                        "<li><span class='file'>Item2</span></li></ul></li>").appendTo("#browser");
+
+                    $("#browser").treeview({
+
+                        add: branches
+
+                    });
+
+                });
+
+            });
+
+        </script>
+
+        <script type="text/javascript">
+
+            function wsug(e, str){ 
+
+                var oThis = arguments.callee;
+
+                if(!str) {
+
+                    oThis.sug.style.visibility = 'hidden';
+
+                    document.onmousemove = null;
+
+                    return;
+
+                }  
+
+                if(!oThis.sug){
+
+                    var div = document.createElement('div'), css = 'top:0; left:0; position:absolute; z-index:100; visibility:hidden';
+
+                    div.style.cssText = css;
+
+                    div.setAttribute('style',css);
+
+                    var sug = document.createElement('div'), css= 'font:normal 12px/16px "å®ä½";font-family:Arial; white-space:nowrap; color:#666; padding:3px; position:absolute; left:0; top:0; z-index:10; background:#f9fdfd; border:1px solid #0aa';
+
+                    sug.style.cssText = css;
+
+                    sug.setAttribute('style',css);
+
+                    var dr = document.createElement('div'), css = 'position:absolute; top:3px; left:3px; background:#333; filter:alpha(opacity=50); opacity:0.5; z-index:9';
+
+                    dr.style.cssText = css;
+
+                    dr.setAttribute('style',css);
+
+                    var ifr = document.createElement('iframe'), css='position:absolute; left:0; top:0; z-index:8; filter:alpha(opacity=0); opacity:0';
+
+                    ifr.style.cssText = css;
+
+                    ifr.setAttribute('style',css);
+
+                    div.appendChild(ifr);
+
+                    div.appendChild(dr);
+
+                    div.appendChild(sug);
+
+                    div.sug = sug;
+
+                    document.body.appendChild(div);
+
+                    oThis.sug = div;
+
+                    oThis.dr = dr;
+
+                    oThis.ifr = ifr;
+
+                    div = dr = ifr = sug = null;
+
+                }
+
+                var e = e || window.event, obj = oThis.sug, dr = oThis.dr, ifr = oThis.ifr;
+
+                obj.sug.innerHTML = str;
+
+ 
+
+                var w = obj.sug.offsetWidth, h = obj.sug.offsetHeight, dw = document.documentElement.clientWidth||document.body.clientWidth; dh = document.documentElement.clientHeight || document.body.clientHeight;
+
+                var st = document.documentElement.scrollTop || document.body.scrollTop, sl = document.documentElement.scrollLeft || document.body.scrollLeft;
+
+                var left = e.clientX +sl +17 + w < dw + sl  &&  e.clientX + sl + 15 || e.clientX +sl-8 - w, top = e.clientY + st + 17;
+
+                obj.style.left = left+ 10 + 'px';
+
+                obj.style.top = top + 10 + 'px';
+
+                dr.style.width = w + 'px';
+
+                dr.style.height = h + 'px';
+
+                ifr.style.width = w + 3 + 'px';
+
+                ifr.style.height = h + 3 + 'px';
+
+                obj.style.visibility = 'visible';
+
+                document.onmousemove = function(e){
+
+                    var e = e || window.event, st = document.documentElement.scrollTop || document.body.scrollTop, sl = document.documentElement.scrollLeft || document.body.scrollLeft;
+
+                    var left = e.clientX +sl +17 + w < dw + sl  &&  e.clientX + sl + 15 || e.clientX +sl-8 - w, top = e.clientY + st +17 + h < dh + st  &&  e.clientY + st + 17 || e.clientY + st - 5 - h;
+
+                    obj.style.left = left + 'px';
+
+                    obj.style.top = top + 'px';
+
+                }
+
+            }
+
+        </script>
+
+        <link rel="stylesheet" href="js/jquery.treeview/jquery.treeview.css" />
+
+        <style type="text/css">
+
+            <!--
+
+            .STYLE1 {font-size: 12px}
+
+            .STYLE2 {color: #000000}            
+
+
+
+            
+
+            .lavaLampWithImage  li a:link{text-decoration:none ; color:#FF3300;}
+
+            .lavaLampWithImage  li    a:visited {text-decoration:none ; color:#FF3300;}
+
+            .lavaLampWithImage  li   a:hover {text-decoration:none ; color:#000000 ;}
+
+            .lavaLampWithImage  li    a:active {text-decoration:none ; color:#000000;} 
+
+			.STYLE5 {
+
+                color: #666666;
+
+                font-style: italic;
+
+            }
+
+            -->
+
+        </style>
+
+    </head>
+
+    <!-- The structure of this file is exactly the same as 2col_rightNav.html;
+
+             the only difference between the two is the stylesheet they use --><html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>showResult</title>
+		<script type='text/javascript' src='webcomp/js/jquery.min.js'></script>
+		<script type='text/javascript' src="webcomp/js/jcanvas.min.js"></script>
+		<script type='text/javascript' src="webcomp/js/simple.js"></script>
+        <script type="text/javascript">
+		$(document).ready(function(){
+			var tt = "./webcomp/comp_tmp/20200827-121317-713.txt";
+			
+			var file = tt;
+		
+		  htmlobj=$.ajax({url:file,async:false});
+
+		  var content = htmlobj.responseText;
+		  
+		  //pre define the vars
+		  var length = 0;
+			  
+		  var sites=new Array();
+		  
+		  var codes=new Array();
+		  
+		  var disorder=new Array();
+
+		  var disorderValue=new Array();
+		  
+		  var STYCount=new Array();
+		  
+		  var STY_GroupName = new Array("CREBBP","EP300","HAT1","KAT2A","KAT2B","KAT5","KAT8");
+
+		  var STY_GroupNumber = new Array();
+		  
+		  var STY_DisorderName = new Array("Disordered","Ordered");
+
+		  var STY_DisorderValue = new Array();
+		  		 
+		  //parse result file
+		  var lines = content.split("\n");
+
+		  for(var i = 0;i < lines.length; i++){
+
+			var str = lines[i];
+		  
+			if(str.indexOf("#") == 0){
+			
+				var newstr = str.replace(/#.*:/g,"");
+				
+				if(str.indexOf("#length:") == 0){
+				
+					length = str.replace(/#length:/g,"");
+				}					
+				if(str.indexOf("#site:") == 0){
+				
+					sites = newstr.split(",");					
+				}
+				if(str.indexOf("#CREBBP","EP300","HAT1","KAT2A","KAT2B","KAT5","KAT8:") == 0){
+				
+					STY_GroupNumber = newstr.split(",");
+				}
+				if(str.indexOf("#Disorder@K:") == 0){
+					
+					STY_DisorderValue.push(newstr.split(","));
+				}
+				if(str.indexOf("#Non-Disorder@K:") == 0){
+					
+					STY_DisorderValue.push(newstr.split(","));
+				}				
+			}else{
+				
+				var arrays = str.split("\t");
+
+				codes.push(arrays[0]);
+				
+				disorder.push(arrays[1]);
+
+				disorderValue.push(arrays[2]);
+
+			}
+		  }
+			// set canvas width
+			var axis = document.getElementById("axis");
+			axis.width = getwidth(codes);
+			axis.height = 300;
+			
+			//draw Axis
+			drawAxis(codes,sites);
+			
+			//draw Asa line
+			drawAsa(codes,disorderValue,'#7CB5EC','#B6E2F5','Disorder region',0);
+			
+			//draw Title
+			drawTitle();
+			
+			//set canvas width
+			var canvas = document.getElementById("mycanvas");
+			canvas.width = 900;
+			canvas.height = 580;
+			drawSite(870,length,sites);
+
+			//STY distribution in 8 kinase groups
+			drawPieChart2(STY_GroupName,STY_GroupNumber,"Site distribution for HATs",250);
+			
+			//STY disorder region distribution
+			drawTjAxis(STY_DisorderName,STY_DisorderValue,"Site distribution for disorder region",480);
+				
+		});
+			var count = 0;
+			function miit(){			
+				var v=document.getElementById("nexttime");
+				count++;
+				v.value=count;
+				setTimeout("miit()",1000);
+			}
+			function check(){			
+				miit();
+				return true;
+			}
+			function saveAsLocalImageA () {
+				var cnvs1 = document.getElementById("axis");
+            	var cs1 = new CanvasSaver('webcomp/savecanvas.php', cnvs1, 'FigureA')	
+								
+        	}	
+			function saveAsLocalImageB () {
+				var cnvs1 = document.getElementById("mycanvas");
+            	var cs1 = new CanvasSaver('webcomp/savecanvas.php', cnvs1, 'FigureB')	
+								
+        	}			
+			function CanvasSaver(url,cnvs, fname) {
+      
+				if(!cnvs || !url) return;
+				fname = fname || 'picture';
+					 
+				var data = cnvs.toDataURL("image/png");
+				data = data.substr(data.indexOf(',') + 1).toString();
+				 
+				var dataInput = document.createElement("input") ;
+				dataInput.setAttribute("name", 'imgdata') ;
+				dataInput.setAttribute("value", data);
+				dataInput.setAttribute("type", "hidden");
+				 
+				var nameInput = document.createElement("input") ;
+				nameInput.setAttribute("name", 'name') ;
+				nameInput.setAttribute("value", fname + '.png');
+				 
+				var myForm = document.createElement("form");
+				myForm.method = 'post';
+				myForm.action = url;
+				myForm.appendChild(dataInput);
+				myForm.appendChild(nameInput);
+				 
+				document.body.appendChild(myForm) ;
+				myForm.submit() ;
+				document.body.removeChild(myForm) ;
+			}
+        </script>
+
+    </head>
+    <body style="overflow-x: hidden" ><!--onload="initItem()"-->
+
+        <div id="header">
+            <div id="masthead">
+                <div class="logo">
+                    <a href="#"><img src="images/logo.png" width="157" height="147" border="0" /></a>
+                </div>
+                <div class="namebanner">
+                    <img src="images/title.jpg" border="0"  />
+                </div>
+                <div class="banner">
+                    <img src="images/index_3.gif"  width="625" border="0"  />
+                </div>
+
+                <div id="globalNav"> 
+                       <ul class="lavaLampWithImage" id="gbnav">                      
+                        <li><a href="index.php" style="width:130px">HOME</a></li>
+						<li class="current"><a href="online.php" style="width:130px">PREDICTION</a></li>
+                        <li><a href="down.php" style="width:130px">DOWNLOAD</a></li>
+						<li><a href="userguide.php" style="width:130px">USER GUIDE</a></li>
+						<li><a href="citedby.php" style="width:130px">CITED BY</a></li>
+						<li><a href="links.php" style="width:130px">LINK</a></li>
+						<li><a href="contact.php" style="width:130px">CONTACT</a></li>
+                    </ul>
+                    </div>
+            </div>
+        </div>
+<div id="mainContent">
+        <div id="sidebar" >
+                    <div id="sidebar"> <img src="images/ProductTitle.jpg" />
+                        <script type="text/javascript">
+                            $(document).ready(function()
+                            {
+                                //slides the element with class "menu_body" when paragraph with class "menu_head" is mouseover
+                                $(".menu_body a").hover(function()
+                                {
+                                    $(".navintro").css({display:"none"});
+                                    $(this).siblings(".navintro").css({display:"block"}).fadeIn("slow");
+       
+                                });
+	
+                                $(".filetree .greybg").hover(function()
+                                {
+                                    $(this).addClass('greenbg'); 
+                                },function(){
+                                    //é¼ æ ç¦»å¼æ¶ç§»é¤file_onæ ·å¼
+                                    $(this).removeClass('greenbg'); 
+	
+                                });
+	
+                            });
+
+                        </script>
+                        <div  id="firstpane" class="menu_list">
+                            <ul id="browser" class="filetree treeview-famfamfam ">
+<li id="predictor1"><span class="folder" style="color: #FFFFFF;font-weight: bold">PTMs Predictor</span>
+	<ul>
+		<li class="greybg"><span class="file"><a href="http://gps.biocuckoo.cn"  class="greenlink"  onmouseover="wsug(event, 'Kinase-specific Phosphorylation Site Prediction ')" onmouseout="wsug(event, 0)" target="_blank"><strong>GPS</strong> ( <span class="STYLE4 STYLE2">Phosphorylation </span>)</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://igps.biocuckoo.org"  class="greenlink"  onmouseover="wsug(event, 'GPS algorithm with PPI filter ')" onmouseout="wsug(event, 0)" target="_blank"><strong>iGPS</strong> ( <span class="STYLE4 STYLE2">Phosphorylation</span> )</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://pbs.biocuckoo.cn/" class="greenlink"  onmouseover="wsug(event, 'Prediction of PPBD-specific Binding p-sites')" onmouseout="wsug(event, 0)" target="_blank"><strong>GPS-PBS </strong>(<span class="STYLE4 STYLE2"> PPBD-binding </span>)</a></span></li>
+		
+		<li class="greybg"><span class="file"><a href="http://msp.biocuckoo.org" class="greenlink"  onmouseover="wsug(event, 'Calpain Cleavage Site Prediction ')" onmouseout="wsug(event, 0)" target="_blank"><strong>GPS-MSP </strong>(<span class="STYLE4 STYLE2"> Protein Methylation </span>)</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://gpspalm.biocuckoo.cn/" class="greenlink" onmouseover="wsug(event, 'Palmitoylation Site Prediction ')" onmouseout="wsug(event, 0)" target="_blank"><strong>GPS-Palm</strong> ( <span class="STYLE4 STYLE2">Palmitoylation </span>)</a></span></li>
+		<!--<li class="greybg"><span class="file"><a href="http://csspalm.biocuckoo.org" class="greenlink" onmouseover="wsug(event, 'Palmitoylation Site Prediction ')" onmouseout="wsug(event, 0)" target="_blank"><strong>CSS-Palm</strong> ( <span class="STYLE4 STYLE2">Palmitoylation </span>)</a></span></li>-->
+		<li class="greybg"><span class="file"><a href="http://sumosp.biocuckoo.org" class="greenlink"  onmouseover="wsug(event, 'Prediction of SUMO Modification')" onmouseout="wsug(event, 0)" target="_blank"><strong>GPS-SUMO</strong> ( <span class="STYLE4 STYLE2">Sumoylation </span>)</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://sno.biocuckoo.org" class="greenlink" onmouseover="wsug(event, 'S-nitrosylation Site Prediction ')" onmouseout="wsug(event, 0)" target="_blank"><strong>GPS-SNO </strong>(<span class="STYLE4 STYLE2"> <em>S</em>-nitrosylation </span>)</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://yno2.biocuckoo.org" class="greenlink"  onmouseover="wsug(event, 'Tyrosine Nitration Site Prediction ')" onmouseout="wsug(event, 0)" target="_blank"><strong>GPS-YNO2 </strong>(<span class="STYLE4 STYLE2"> Tyrosine Nitration</span> )</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://ccd.biocuckoo.org" class="greenlink"  onmouseover="wsug(event, 'Calpain Cleavage Site Prediction ')" onmouseout="wsug(event, 0)" target="_blank"><strong>GPS-CCD </strong>(<span class="STYLE4 STYLE2"> Calpain Cleavage </span>)</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://polo.biocuckoo.org" class="greenlink"  onmouseover="wsug(event, 'Prediction for Polo-like Kinases ')" onmouseout="wsug(event, 0)" target="_blank"><strong>GPS-Polo</strong> (<span class="STYLE4 STYLE2"> Polo-like Kinases </span>)</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://pup.biocuckoo.org" class="greenlink"  onmouseover="wsug(event, 'Pupylation Sites Prediction ')" onmouseout="wsug(event, 0)" target="_blank"><strong>GPS-PUP</strong> (<span class="STYLE4 STYLE2"> Pupylation </span>)</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://mba.biocuckoo.org" class="greenlink"  onmouseover="wsug(event, 'MHC-binding Site Prediction ')" onmouseout="wsug(event, 0)" target="_blank"><strong>GPS-MBA</strong> (<span class="STYLE4 STYLE2"> MHC-binding </span>)</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://arm.biocuckoo.org/" class="greenlink"  onmouseover="wsug(event, 'APC/C Recognition Motif Prediction ')" onmouseout="wsug(event, 0)" target="_blank"><strong>GPS-ARM</strong> (<span class="STYLE4 STYLE2"> APC/C </span>)</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://tsp.biocuckoo.org/" class="greenlink"  onmouseover="wsug(event, 'Prediction of Tyrosine Sulfation Sites ')" onmouseout="wsug(event, 0)" target="_blank"><strong>GPS-TSP</strong> (<span class="STYLE4 STYLE2"> Tyrosine sulfation </span>)</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://pail.biocuckoo.org" class="greenlink"  onmouseover="wsug(event, 'Calpain Cleavage Site Prediction ')" onmouseout="wsug(event, 0)" target="_blank"><strong>GPS-PAIL </strong>(<span class="STYLE4 STYLE2"> Lysine acetylation </span>)</a></span></li>
+		<!--   <li class="greybg"><span class="file"><a href="http://pps.biocuckoo.org" class="greenlink"  onmouseover="wsug(event, 'PTMs Peptide Scanner ')" onmouseout="wsug(event, 0)" target="_blank"><strong>DeepNitro</strong> (<span class="STYLE4 STYLE2"> PTMs Peptide Scanner</span> )</a></span></li> -->
+                                        <!--<li class="closed"><span class="file"><a href="solution.asp?pg_id=120">å¸åæ¡ä¾</a></span></li>
+                                        -->
+                                    </ul>
+                                </li>
+
+                                <li id="tools1"><span class="folder"  style="color: #FFFFFF;font-weight: bold">Tools</span>
+                                    <ul>
+									<li class="greybg" ><span class="file"><a href="http://ibs.biocuckoo.org/" class="greenlink"  onmouseover="wsug(event, 'Illustrator for Biological Sequences ')" onmouseout="wsug(event, 0)" target="_blank"><strong>IBS</strong> (<span class="STYLE4 STYLE2"> Illustrator for BioSequence</span> )</a></span></li>
+                                        <li class="greybg" ><span class="file"><a href="http://dog.biocuckoo.org/" class="greenlink"  onmouseover="wsug(event, 'Protein Domain Structure Visualization ')" onmouseout="wsug(event, 0)" target="_blank"><strong>DOG</strong> (<span class="STYLE4 STYLE2"> Domain Illustrator</span> )</a></span></li>
+										<li class="greybg" ><span class="file"><a href="http://hemi.biocuckoo.org/" class="greenlink"  onmouseover="wsug(event, 'Heatmap Illustrator ')" onmouseout="wsug(event, 0)" target="_blank"><strong>HemI</strong> (<span class="STYLE4 STYLE2"> Heatmap Illustrator</span> )</a></span></li>
+                                        <li class="greybg" ><span class="file"><a href="http://wocea.biocuckoo.org/" class="greenlink"  onmouseover="wsug(event, 'Enrichment Analysis ')" onmouseout="wsug(event, 0)" target="_blank"><strong>WocEA</strong> (<span class="STYLE4 STYLE2"> Enrichment Analysis</span> )</a></span></li>
+										<li class="greybg" ><span class="file"><a href="http://deepphagy.biocuckoo.org/" class="greenlink"  onmouseover="wsug(event, 'Deeplearning for autophagy')" onmouseout="wsug(event, 0)" target="_blank"><strong>DeepPhagy</strong> (<span class="STYLE4 STYLE2"> Autophagy images</span> )</a></span></li>
+                                    </ul>
+                                </li>
+
+
+<li id="databases1"><span class="folder"  style="color: #FFFFFF;font-weight: bold">Databases</span>
+	<ul>        
+		<li class="greybg"><span class="file"><a href="http://thanatos.biocuckoo.org/"  class="greenlink"  onmouseover="wsug(event, 'Database of Autophagy and Cell Death Related Protein')" onmouseout="wsug(event, 0)" target="_blank"><strong>THANATOS </strong>( <span class="STYLE4 STYLE2">Autophagy</span> )</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://microkit.biocuckoo.org/"  class="greenlink"  onmouseover="wsug(event, 'An Integrated Database of Midbody, Centrosome, Kinetochore, Telomere and Spindle')" onmouseout="wsug(event, 0)" target="_blank"><strong>MiCroKiTS </strong>(<span class="STYLE4 STYLE2"> Cell Cycle </span> )</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://cgdb.biocuckoo.org/"  class="greenlink"  onmouseover="wsug(event, 'An Integrated Database of Midbody, Centrosome, Kinetochore, Telomere and Spindle')" onmouseout="wsug(event, 0)" target="_blank"><strong>CGDB </strong>(<span class="STYLE4 STYLE2"> Circadian </span> )</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://llps.biocuckoo.cn/"  class="greenlink"  onmouseover="wsug(event, 'Data resource of liquid-liquid phase separation')" onmouseout="wsug(event, 0)" target="_blank"><strong>DrLLPS </strong>(<span class="STYLE4 STYLE2"> Phase Separation </span> )</a></span></li>
+		
+		<li class="greybg"><span class="file"><a href="http://iekpd.biocuckoo.org/"  class="greenlink"  onmouseover="wsug(event, 'Eukaryotic Kinase, Phosphatase and PPBD Containing Protein Database')" onmouseout="wsug(event, 0)" target="_blank"><strong>iEKPD </strong>(<span class="STYLE4 STYLE2"> PK, PP &amp; PPBD</span> )</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://iuucd.biocuckoo.org/"  class="greenlink"  onmouseover="wsug(event, 'Compendium of Enzymes for Ubiquitin and Ubiquitin-like Conjugation')" onmouseout="wsug(event, 0)" target="_blank"><strong>iUUCD </strong>(<span class="STYLE4 STYLE2"> Ubiquitin Regulators </span> )</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://weram.biocuckoo.org/"  class="greenlink"  onmouseover="wsug(event, 'Met.&amp;Ace. Regulators')" onmouseout="wsug(event, 0)" target="_blank"><strong>WERAM </strong>(<span class="STYLE4 STYLE2"> Me. & Ace. Regulator</span> )</a></span></li>
+		
+		
+		<li class="greybg"><span class="file"><a href="http://epsd.biocuckoo.cn/"  class="greenlink"  onmouseover="wsug(event, 'Eukaryotic Phosphorylation Site Database')" onmouseout="wsug(event, 0)" target="_blank"><strong>EPSD </strong>(<span class="STYLE4 STYLE2"> Eukaryotic Phospho </span> )</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://dbpsp.biocuckoo.cn/"  class="greenlink"  onmouseover="wsug(event, 'Prokaryotic Phosphorylation Sites Database')" onmouseout="wsug(event, 0)" target="_blank"><strong>dbPSP </strong>(<span class="STYLE4 STYLE2"> Prokaryotic Phospho </span> )</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://plmd.biocuckoo.org/"  class="greenlink"  onmouseover="wsug(event, 'Compendium of Protein Lysine Modification ')" onmouseout="wsug(event, 0)" target="_blank"><strong>PLMD </strong>(<span class="STYLE4 STYLE2"> Lysine Modification </span> )</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://ptmd.biocuckoo.org/"  class="greenlink"  onmouseover="wsug(event, 'PTM &amp; Disease')" onmouseout="wsug(event, 0)" target="_blank"><strong>PTMD </strong>(<span class="STYLE4 STYLE2"> PTM & Disease</span> )</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://phossnp.biocuckoo.org/"  class="greenlink"  onmouseover="wsug(event, 'Influence of protein phosphorylation by nsSNP ')" onmouseout="wsug(event, 0)" target="_blank"><strong>PhosSNP </strong>(<span class="STYLE4 STYLE2"> PTM &amp; Variation </span> )</a></span></li>
+		
+		
+		<li class="greybg"><span class="file"><a href="http://dbpaf.biocuckoo.org/"  class="greenlink"  onmouseover="wsug(event, 'Animal Phosphorylation Sites Database')" onmouseout="wsug(event, 0)" target="_blank"><strong>dbPAF </strong>(<span class="STYLE4 STYLE2"> Animal Phospho </span> )</a></span></li>
+		<li class="greybg"><span class="file"><a href="http://dbppt.biocuckoo.org/"  class="greenlink"  onmouseover="wsug(event, 'Plant Phosphorylation Sites Database')" onmouseout="wsug(event, 0)" target="_blank"><strong>dbPPT </strong>(<span class="STYLE4 STYLE2"> Plant Phospho </span> )</a></span></li>
+
+										<!-- li class="greybg"><span class="file"><a href="http://ptestis.biocuckoo.org/"  class="greenlink"  onmouseover="wsug(event, 'Database of phosphorylation sites in testis')" onmouseout="wsug(event, 0)" target="_blank"><strong>pTestis </strong>(<span class="STYLE4 STYLE2"> Testis Phospho </span> )</a></span></li-->
+										<!--<li class="greybg"><span class="file"><a href="http://lipid.biocuckoo.org/"  class="greenlink"  onmouseover="wsug(event, 'Database of Protein Lipid Modifications')" onmouseout="wsug(event, 0)" target="_blank"><strong>GPS-LipidDB </strong>(<span class="STYLE4 STYLE2"> Lipid Modification</span> )</a></span></li>-->
+	</ul>
+</li>
+
+                            </ul>
+                        </div>
+                        <script>
+//$("#browser").children().addClass("closed");
+$("#databases1").addClass("closed");
+$("#predictor1").addClass("closed");
+$("#tools1").addClass("closed");
+</script>         <div id="ipcount"> 
+                            <div align="center">
+                                <br>
+
+<br>
+
+                                
+
+                                ï»¿<img src='images/0.gif' width='15' height='20' /><img src='images/0.gif' width='15' height='20' /><img src='images/5.gif' width='15' height='20' /><img src='images/9.gif' width='15' height='20' /><img src='images/5.gif' width='15' height='20' /><img src='images/8.gif' width='15' height='20' /><img src='images/5.gif' width='15' height='20' />
+
+                            </div>
+                            <span>Last update: Dec. 23th, 2014</span></div>
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function()
+                        {
+                            //slides the element with class "menu_body" when paragraph with class "menu_head" is mouseover
+                            $(".menu_body a").hover(function()
+                            {
+                                $(".navintro").css({display:"none"});
+                                $(this).siblings(".navintro").css({display:"block"}).fadeIn("slow");
+       
+                            });	
+                        });
+
+                    </script>
+					
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-8965209-21', 'biocuckoo.org');
+  ga('send', 'pageview');
+
+</script>
+                </div>
+        <div id="content">
+            <div id="contentkk" class="story">
+                <br/>
+                <h2 id="pageName">&#8251; GPS-PAIL Web Service </h2>
+				<div id="result" style="width:100%;border:0px solid blue">
+					<form enctype="multipart/form-data" action="webcomp/download.php" method="post">						
+						<input type="submit" value="Download" style='font-family:Arial, Helvetica; font-weight: bold; width: 100px; height: 26px;'/>
+						<input type="button" value="Return" onclick="window.location.href='online.php'" style='font-family:Arial, Helvetica; font-weight: bold; width: 82px; height: 26px;'/>
+
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						The predicton result has <b>1</b> items!						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<!--
+						 <select id="items" onchange="changeItem(this.value)" >
+							<option value="10">10</option>
+							<option value="20">20</option>
+							<option value="50">50</option>
+							<option value="100">100</option>
+						</select>
+						items every page
+						-->
+					</form>				
+					<div>
+					
+			<div style='height:300px;overflow-y:auto;'>
+            <table width='98%' id='table' border='1' cellpadding='0' cellspacing='0' bordercolor='#999999' bgcolor='#CCCCCC'>
+         	<thead><tr class='top'>
+        	<th width='20%' bgcolor='#000000' scope='col'  style='cursor:pointer'> <font color='#FFFFFF'>ID</font> </th>
+        	<th width='10%' bgcolor='#000000' scope='col'  style='cursor:pointer'> <font color='#FFFFFF'>Position</font> </th>
+         	<th width='20%' bgcolor='#000000' scope='col'  style='cursor:pointer'> <font color='#FFFFFF'>Peptide</font> </th>
+         	<th width='10%' bgcolor='#000000' scope='col'  style='cursor:pointer'> <font color='#FFFFFF'>HAT</font> </th>
+         	<th width='20%' bgcolor='#000000' scope='col'  style='cursor:pointer'> <font color='#FFFFFF'>Score</font> </th>
+        	<th width='20%' bgcolor='#000000' scope='col'  style='cursor:pointer'> <font color='#FFFFFF'>Cutoff</font> </th>        	
+        	 </tr></thead>
+         	 <tbody align='center'><tr><td align=center> <font face=Courier New >O42248 </font> </td><td align=center> <font face=Courier New >12 </font> </td><td align=center> <font face=Courier New >MTVRGTL</font><font face=Courier New color=red>K</font><font face=Courier New>GHSGWVT</font></td><td align=center> <font face=Courier New >KAT8 </font> </td><td align=center> <font face=Courier New >8.3 </font> </td><td align=center> <font face=Courier New >7.222 </font> </td></tr></tbody></table></div>					</div>
+					<hr style="width:100%"/>
+					<div style="width:98%;text-align:right">
+						<input type="button" value="Export" onclick="saveAsLocalImageA()" style='font-family:Arial, Helvetica; font-weight: bold; width: 82px; height: 26px;'>
+					</div>
+					<div style="width:98%;height:320px;border:0px solid red;overflow-x:auto;overflow-y:hidden;">
+						<canvas id='axis' class="axis" style="border:0px solid grey;"></canvas>
+					</div>
+					<div style="width:98%;text-align:right">
+						<input type="button" value="Export" onclick="saveAsLocalImageB()" style='font-family:Arial, Helvetica; font-weight: bold; width: 82px; height: 26px;'>
+					</div>
+					<div style="width:98%;margin-left:auto;margin-right:auto;height:520px;border:0px solid red;overflow-x:auto;overflow-y:hidden;">
+						<canvas id='mycanvas' class="mycanvas" style="margin-left:40px;border:0px solid grey;"></canvas>
+					</div>					
+				</div>
+				<div id="nextloading" style="border:0px solid red;margin-left:auto:margin-right:auto;padding-top:200px;width:100%;height:300px;text-align:center;display: none">
+					<img src="images/jump.gif" width="200" height="20" id="img"    />
+					<br />
+					<input type="text" align="center" id="nexttime" readonly  style="border:0px #E8E6F3 solid; vertical-align:middle;text-align: center;background-color:#F1F0F8; border-style: solid;" />
+				</div>
+            </div>
+        </div>
+</div>
+<script type="text/javascript" src="js/resultsort.js"></script>        
+</body>
+</html>

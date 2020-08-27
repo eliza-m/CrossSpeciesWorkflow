@@ -1,6 +1,0 @@
-fastaFile:
-  class: File
-  location: ../data/ex1.fasta
-threshold: 0.5
-outputFilename: ex1.deepsumo_yl.out
-  

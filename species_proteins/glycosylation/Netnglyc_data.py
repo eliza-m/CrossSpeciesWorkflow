@@ -82,7 +82,7 @@ class Netnglyc_data:
                         "end": resid,
                         "is_signif" : is_signif,
                         "score" : score,
-                        "type": "N-linked",
+                        "type": "N-glyc",
                         "predictor": predictor
                     })
 

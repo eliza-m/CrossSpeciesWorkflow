@@ -58,7 +58,7 @@ class Musitedeep_data:
                 l = line.split('\t')
                 if len(l) == 4  :
 
-                    protname = l[0].split(' ')[0][2:]
+                    protname = l[0].split(' ')[0][2:-1]
                     if protname not in predicted_sites:
                         predicted_sites[protname] = {}
 

@@ -4,6 +4,7 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 from time import sleep
+from bioservices.apps import FASTA
 
 import requests
 
@@ -51,6 +52,9 @@ class Netacet_data:
     def parse(outputfile: Path) -> Netacet_data:
 
         predicted_sites = {}
+        name = outputfile.name
+        protname = name.split('.')[0]
+        predicted_sites[protname] = {}
 
         try:
             f = open(outputfile, 'r')
@@ -58,9 +62,6 @@ class Netacet_data:
             for line in lines:
                 l = line.split()
                 if len(l) == 6 and l[0][0] not in '<#' :
-                    protname = l[0]
-                    if protname not in predicted_sites:
-                        predicted_sites[protname] = {}
 
                     aa = l[2]
                     start = int(l[1])
@@ -91,6 +92,7 @@ class Netacet_data:
             print("Unexpected error:", sys.exc_info()[0])
             raise
 
+        print(predicted_sites)
         return Netacet_data(predicted_sites)
 
 
@@ -101,9 +103,13 @@ class Netacet_data:
         url = 'https://services.healthtech.dtu.dk/cgi-bin/webface2.cgi'
 
         #launch job
-        files = {'SEQSUB': open(fastafile, 'r')}
-        data = {'configfile':'/var/www/html/services/NetAcet-1.0/webface.cf'}
-        r1 = requests.post(url, data=data, files=files)
+        
+        f = FASTA()
+        f.read_fasta(fastafile)
+        seq = f.sequence
+
+        data = {'SEQPASTE': seq, 'configfile':'/var/www/html/services/NetAcet-1.0/webface.cf'}
+        r1 = requests.post(url, data=data)
 
         #retrieve results
         temp = re.search(r"jobid: .+ status", r1.text)

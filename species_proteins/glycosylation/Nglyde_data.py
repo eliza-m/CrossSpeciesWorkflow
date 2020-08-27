@@ -75,7 +75,7 @@ class Nglyde_data:
                     if protname not in predicted_sites:
                         predicted_sites[protname] = {}
 
-                if cols[i+1].content != '.':
+                if cols[i+1].content != '.' and 'N-X-S' not in cols[1].text :
                     aa = ''  # not shown in input
                     # because text variable is bogous due to missing tags
                     resid = int(cols[i].text)
@@ -91,7 +91,7 @@ class Nglyde_data:
                         "end": resid,
                         "is_signif": is_signif,
                         "score": score,
-                        "type": "N-linked",
+                        "type": "N-glyc",
                         "predictor": "NGlyDE_online"
                     })
 

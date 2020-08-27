@@ -65,7 +65,7 @@ class Netphospan_data:
                     peplen = len(peptide)
                     aa = peptide[ int(peplen/2) ]
 
-                    resid = int(l[0])
+                    resid = int(l[0]) + 10
                     score = round(float(l[4]), 3)
 
                     is_signif = (score >= 0.5)

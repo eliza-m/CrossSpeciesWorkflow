@@ -37,19 +37,19 @@ Build All docker images
 ############################
 
 cd ${CSW_HOME}/dockerfiles/structural/psipred
-docker build -t psipred -f psipred.dockerfile .
+docker build -t psipred -f Dockerfile .
 
 cd ${CSW_HOME}/dockerfiles/structural/disopred 
-docker build -t disopred -f disopred .dockerfile .
+docker build -t disopred -f Dockerfile .
 
 cd ${CSW_HOME}/dockerfiles/structural/raptorx
-docker build -t raptorx -f raptorx_property_cpu.dockerfile .
+docker build -t raptorx -f Dockerfile .
 
 cd ${CSW_HOME}/dockerfiles/structural/scratch1d
-docker build -t scratch1d -f scratch1d.dockerfile .
+docker build -t scratch1d -f Dockerfile .
 
 cd ${CSW_HOME}/dockerfiles/structural/spot1d
-docker build -t spot1d -f spot1d_cpu.dockerfile .
+docker build -t spot1d -f Dockerfile .
 
 
 
@@ -59,15 +59,19 @@ docker build -t spot1d -f spot1d_cpu.dockerfile .
 
 cd ${CSW_HOME}/dockerfiles/phosphorylation/netphospan-1.0
 cp ${netphospan_SOURCE}/netphospan-1.0* ${CSW_HOME}/dockerfiles/phosphorylation/netphospan-1.0/
-docker build -t netphospan-1.0 -f netphospan-1.0.dockerfile .    
+docker build -t netphospan:1.0 -f Dockerfile .    
 
 cd ${CSW_HOME}/dockerfiles/phosphorylation/netphos-3.1
 cp ${netphos_SOURCE}/netphos-3.1* ${CSW_HOME}/dockerfiles/phosphorylation/netphos-3.1/
-docker build -t netphos-3.1 -f netphos-3.1.dockerfile . 
+docker build -t netphos:3.1 -f Dockerfile . 
 
-cd ${CSW_HOME}/dockerfiles/phosphorylation/musitedeep
-docker build -t musitedeep_keras2_tensorflow_cpu -f musitedeep_keras2_tensorflow_cpu.dockerfile .
-docker build -t musitedeep_keras1_theano_cpu -f musitedeep_keras1_theano_cpu.dockerfile .
+cd ${CSW_HOME}/dockerfiles/phosphorylation/musitedeep1
+docker build -t musitedeep:keras1_theano -f Dockerfile .
+
+cd ${CSW_HOME}/dockerfiles/phosphorylation/musitedeep2
+docker build -t musitedeep:keras2_tensorflow -f musitedeep_keras2_tensorflow_cpu.dockerfile .
+docker build -t musitedeep:keras1_theano -f Dockerfile .
+
 
 
 
@@ -77,27 +81,27 @@ docker build -t musitedeep_keras1_theano_cpu -f musitedeep_keras1_theano_cpu.doc
 
 cd ${CSW_HOME}/dockerfiles/phosphorylation/netcglyc-1.0c
 cp ${netcglyc_SOURCE}/netcglyc-1* ${CSW_HOME}/dockerfiles/phosphorylation/netcglyc-1.0c/
-docker build -t netcglyc-1.0c -f netcglyc-1.0c.dockerfile . 
+docker build -t netcglyc:1.0 -f Dockerfile . 
 
 cd ${CSW_HOME}/dockerfiles/phosphorylation/netoglyc-3.1
 cp ${netoglyc_SOURCE}/netoglyc-3.1* ${CSW_HOME}/dockerfiles/phosphorylation/netoglyc-3.1/
 cp ${signalp_SOURCE}/signalp* ${CSW_HOME}/dockerfiles/phosphorylation/netoglyc-3.1/
-docker build -t netoglyc-3.1 -f netoglyc-3.1.dockerfile . 
+docker build -t netoglyc:3.1 -f Dockerfile . 
 
 cd ${CSW_HOME}/dockerfiles/phosphorylation/netnglyc-1.0d
 cp ${netnglyc_SOURCE}/netnglyc-1* ${CSW_HOME}/dockerfiles/phosphorylation/netnglyc-1.0d/
 cp ${signalp_SOURCE}/signalp* ${CSW_HOME}/dockerfiles/phosphorylation/netnglyc-1.0d/
-docker build -t netnglyc-1.0d -f netnglyc-1.0d.dockerfile . 
+docker build -t netnglyc:1.0 Dockerfile . 
 
 cd ${CSW_HOME}/dockerfiles/phosphorylation/isoglyp
-docker build -t isoglyp -f isoglyp.dockerfile . 
+docker build -t isoglyp -f Dockerfile . 
 
 
 ###############################
 # D. Acetylation predictors
 ###############################
 
-# On progress
+# Only Online Predictors
 
 
 ###############################
@@ -105,33 +109,28 @@ docker build -t isoglyp -f isoglyp.dockerfile .
 ###############################
 
 cd ${CSW_HOME}/dockerfiles/localisation/tmp_ssurface
-docker build -t tmp_ssurface -f tmp_ssurface.dockerfile . 
+docker build -t tmp_ssurface -f Dockerfile . 
 
 cd ${CSW_HOME}/dockerfiles/localisation/tmhmm2
 cp ${tmhmm_SOURCE}/tmhmm-2.0c* ${CSW_HOME}/dockerfiles/localisation/tmhmm2/
-docker build -t tmhmm2 -f tmhmm2.dockerfile . 
+docker build -t tmhmm2 -f Dockerfile . 
 
 cd ${CSW_HOME}/dockerfiles/localisation/memsatsvm
-docker build -t memsatsvm -f memsatsvm.dockerfile . 
-
-# Phobius on progress....
+docker build -t memsatsvm -Dockerfile . 
 
 
 ###############################
 # F. Sumoylation predictors
 ###############################
 
-cd ${CSW_HOME}/dockerfiles/sumoylation/deepsumo_ren
-docker build -t deepsumo_ren -f deepsumo_ren.dockerfile . 
+# On hold due to License incertainty
 
-cd ${CSW_HOME}/dockerfiles/sumoylation/deepsumo_yl
-docker build -t deepsumo_yl -f deepsumo_yl.dockerfile . 
+# cd ${CSW_HOME}/dockerfiles/sumoylation/deepsumo_ren
+# docker build -t deepsumo_ren -f Dockerfile . 
+
+# cd ${CSW_HOME}/dockerfiles/sumoylation/deepsumo_yl
+# docker build -t deepsumo_yl -f Dockerfile . 
 
 
-###############################
-# G. Multiple PTS predictors
-###############################
-
-# On progress
 
 

@@ -72,7 +72,7 @@ class Glycomine_data:
                     score = float(val)
                     is_signif = (score >= 0.5)
                 elif c % 6 == 5:
-                    type = val
+                    type = val[0] + '-glyc'
 
                     if resid not in predicted_sites[protname]:
                         predicted_sites[protname][resid] = []

@@ -100,8 +100,6 @@ class Netphos_data:
 
 
 
-
-
     @staticmethod
     def __parse_localoutput(lines: list) -> dict :
         predicted_sites = {}
@@ -121,7 +119,7 @@ class Netphos_data:
                 if resid not in predicted_sites[protname]:
                     predicted_sites[protname][resid] = []
 
-                data.predicted_sites[protname][resid].append({
+                predicted_sites[protname][resid].append({
                     "seq": aa,
                     "start": resid,
                     "end": resid,
