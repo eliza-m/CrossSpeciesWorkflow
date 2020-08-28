@@ -1,3 +1,4 @@
+import os
 import click
 from bioservices.apps import FASTA
 
@@ -206,6 +207,43 @@ def format_output(format: str, module: str, inputfolder: Path, output: Path, sig
             predictions.print_1prot(outputfile=output, addseq=True, signif=signif)
         else:
             predictions.print_Nprot(outputfile=output, addseq=True, signif=signif, alnfile=alnfile)
+
+
+
+
+@cli.command()
+@click.option('--cwlinput', required=True, help='YML or JSON input file with Uniprot IDs. See provided examples in /tests folder')
+@click.option('--mode', required=True, help='"single" or "multi" protein analysis')
+@click.option('--module', required=True, help="""\b
+                                Prediction module - accepted values: 
+                                - all            :  All modules 
+                                - all_nonstruct  :  All except structural module (which is slow) 
+                                - ptsmod         :  All Post Translation modifications ( glyc + acet + phos + sumo + lipid) 
+                                - struct         :  Structural module 
+                                - glyc           :  Glycosylation module
+                                - phos           :  Phosphorylation module
+                                - acet           :  Acetylation module
+                                - lipid          :  Lipid modification module
+                                - sumo           :  Sumoylation module
+                                - loc            :  Cellular localisation module """ )
+@click.option('--outdir', required=False, help='Output directory. Default: current directory.')
+@click.option('--args', required=False, default="--no-match-user --no-read-only", show_default=True, \
+                         help='Argumments to be passed to cwltool.')
+@click.option('--parallel', is_flag=True, default=False, show_default=True, required=False, help='Run in parallel')
+def pipeline(cwlinput: str, mode: str, module:str, outdir:str = "./", args: str = None, parallel: bool = False):
+    """Simple wrapper for choosing which CWL workflow to run. For more options uses directly cwltool or a different workflow runner."""
+
+    type = '1' if mode == 'single' else 'N'
+    paths = {
+        'glyc' : "${CSW_HOME}/cwl/glycosylation/" + type + 'prot_glyc_only_id.cwl',
+        'acet': "${CSW_HOME}/cwl/acetylation/" + type + 'prot_acet_only_id.cwl',
+        'phos': "${CSW_HOME}/cwl/phosphorylation/" + type + 'prot_phos_only_id.cwl',
+        'sumo': "${CSW_HOME}/cwl/sumoylation/" + type + 'prot_sumo_only_id.cwl',
+        'lipid': "${CSW_HOME}/cwl/lipid/" + type + 'prot_lipid_only_id.cwl'
+    }
+    useParallel = '--parallel' if parallel else ''
+    cmd = "cwltool " + args + " " + useParallel + " --outdir " + outdir + " " + paths[module] + " " + cwlinput
+    os.system(cmd)
 
 
 if __name__ == '__main__':
