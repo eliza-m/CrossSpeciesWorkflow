@@ -1,7 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
-from species_proteins.workflow.util import map_aln
+from species_proteins.util.util import map_aln
 import sys
 
 

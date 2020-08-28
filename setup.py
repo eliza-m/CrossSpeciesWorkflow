@@ -5,6 +5,6 @@ except ImportError:
 
 setup(name='species_proteins',
       version='0.0.2',
-      py_modules=['species_proteins','glycosylation', 'acetylation','phosphorylation', 'lipid','structural','sumoylation', 'workflow'],
+      py_modules=['species_proteins','glycosylation', 'acetylation','phosphorylation', 'lipid','structural','sumoylation', 'localisation', 'util', 'workflow'],
       packages=find_packages(),
       description='species_proteins')

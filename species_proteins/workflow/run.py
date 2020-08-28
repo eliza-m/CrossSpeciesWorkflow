@@ -1,7 +1,7 @@
 import click
 from bioservices.apps import FASTA
 
-from species_proteins.workflow.util import *
+from species_proteins.util.util import *
 from species_proteins.glycosylation.Glycosylation_pred import Glycosylation_pred
 from species_proteins.glycosylation.Netcglyc_data import Netcglyc_data
 from species_proteins.glycosylation.Netoglyc_data import Netoglyc_data
