@@ -33,7 +33,7 @@ def cli():
 
 @cli.command()
 @click.option('--uniprot', required=True, help='Uniprot ID to fetch')
-@click.option('--filename', required=False, help='filename to save. Default $id.fasta')
+@click.option('--filename', required=False, help='Filename to save. Default $id.fasta')
 @click.option('--trimheader', is_flag=True, default=False, show_default=True, required=False, help='Trimm header to contain only id')
 @click.option('--mode', default='w', show_default=True, required=False, help='Write("w") or append("a") mode')
 def get_fasta(uniprot: str, filename: str = None, trimheader: bool = False, mode: str = 'w'):
@@ -60,11 +60,18 @@ def get_fasta(uniprot: str, filename: str = None, trimheader: bool = False, mode
 
 
 @cli.command()
-@click.option('--predictor', required=True, help='Name of the predictor to use')
-@click.option('--input', required=True, help='Input fasta file path')
-@click.option('--output', required=True, help='Output file')
-@click.option('--type', required=False, help='Additional arguments to be passed; predictor specific')
-def submit_online(predictor: str, input: Path, output: Path, type: str = None):
+@click.option('--input', required=True, help='Input FASTA file ')
+@click.option('--output', required=True, help='Output filename')
+@click.option('--predictor', required=True, help="""\b
+                          Online predictor to submit sequence to. Predictors list per categories : 
+                          - Glycosilation: 'netcglyc', 'netnglyc', 'netoglyc', 'glycomine', 'nglyde'
+                          - Acetylation: 'netacet', 'gpspail'
+                          - Phosphorylation: 'netphos', 'netphospan'
+                          - Lipid modification: 'gpslipid'
+                          - Sumoylation: 'gpssumo', 'sumogo'
+                          - Cellular localisation: 'tmhmm'""")
+def submit_online(predictor: str, input: Path, output: Path):
+
     """Submit online jobs for a given predictor"""
 
     # Predictors that can be run online
@@ -127,30 +134,30 @@ def submit_online(predictor: str, input: Path, output: Path, type: str = None):
 
 @cli.command()
 @click.option('--format', required=True, help='"single" or "multi" protein layout')
-@click.option('--module', required=False, help='prediction module; accepted values: \n\
-                                all            :  All modules \n\
-                                all_nonstruct  :  All except structural module (which is slow) \n\
-                                ptsmod         :  All Post Translation modifications ( glyc + acet + phos + sumo) \n\
-                                struct         :  Structural module \n\
-                                glyc           :  Glycosylation module\n\
-                                phos           :  Phosphorylation module\n\
-                                acet           :  Acetylation module\n\
-                                lipid          :  Lipid modification module\n\
-                                sumo           :  Sumoylation module\n\
-                                loc            :  Cellular localisation module' )
+@click.option('--module', required=True, help="""\b
+                                Prediction module - accepted values: 
+                                - all            :  All modules 
+                                - all_nonstruct  :  All except structural module (which is slow) 
+                                - ptsmod         :  All Post Translation modifications ( glyc + acet + phos + sumo + lipid) 
+                                - struct         :  Structural module 
+                                - glyc           :  Glycosylation module
+                                - phos           :  Phosphorylation module
+                                - acet           :  Acetylation module
+                                - lipid          :  Lipid modification module
+                                - sumo           :  Sumoylation module
+                                - loc            :  Cellular localisation module """ )
 @click.option('--inputfolder', required=True, help='Input folder where all prediction results are stored')
 @click.option('--output', required=True, help='Output formatted file')
-@click.option('--signif', is_flag=True, default=False, required=False, help='Print only significant predictions. Default: false')
-@click.option('--protname', required=False, help='Only for single protein format, when within the specified input \
-                folder there are multiple files with the same extension, a basename of the protein should be provided. \
-                Example: protname.predictor.out; Default: null')
-@click.option('--alnfile', required=False, help='Required for "multi" protein layout. Default: false')
+@click.option('--signif', is_flag=True, default=False, required=False, show_default=True, help='Print only significant predicted sites. It applies only for PTS predictors (significance thresholds are method specific.)')
+@click.option('--protname', required=False, help="""\b
+                Only for single protein format, when within the specified input
+                folder there are multiple files with the same extension, a basename of the protein should be provided.
+                Example: protname.predictor.out; Default: null""")
+@click.option('--alnfile', required=False, help='Required for "multi" protein layout.')
 def format_output(format: str, module: str, inputfolder: Path, output: Path, signif: bool = False,
                  protname: str = None, alnfile: Path = None):
     """
-        Format output according to their module
-        For the moment it assumes that all prediction files are within the same file.
-        Not all available options are yet implemented
+        Generates a vertical formatted layout of all predicted outputs. If 'multi' protein format is selected, sequences are shown aligned.
     """
 
     keys = {
