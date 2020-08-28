@@ -1,0 +1,8 @@
+# Do not count sample outputs from tests folder :
+tests/cwl/acetylation/* linguist-vendored
+tests/cwl/glycosylation/* linguist-vendored
+tests/cwl/phosphorylation/* linguist-vendored
+tests/cwl/lipid/* linguist-vendored
+tests/cwl/sumoylation/* linguist-vendored
+tests/cwl/localisation/* linguist-vendored
+tests/cwl/structural/* linguist-vendored
