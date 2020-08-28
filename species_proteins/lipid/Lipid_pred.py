@@ -1,16 +1,12 @@
 from __future__ import annotations
 from bioservices.apps import FASTA
 from dataclasses import dataclass
-from pathlib import Path
-import sys
-from species_proteins.acetylation.Gpspail_data import Gpspail_data
-from species_proteins.acetylation.Netacet_data import Netacet_data
-
+from species_proteins.lipid.Gpslipid_data import Gpslipid_data
 from species_proteins.workflow.Module_pred import Module_pred
 
 @dataclass
-class Acetylation_pred (Module_pred):
-    """Class that organises Acetylation module output for single protein
+class Lipid_pred (Module_pred):
+    """Class that organises Lipid modification module output for single protein
 
     Attributes
     ----------
@@ -33,22 +29,19 @@ class Acetylation_pred (Module_pred):
 
     paths: dict
     predictions: dict
-    module = 'Acetylation'
-    availPredictors = ["netacet", "gpspail"]
+    module = 'Lipid Modification'
+    availPredictors = ["gpslipid"]
     header = [
-        ["netacet", "Nter-acet", "N/A"],
-        ["gpspail", "K-acet", "CREBBP"],
-        ["gpspail", "K-acet", "EP300"],
-        ["gpspail", "K-acet", "HAT1"],
-        ["gpspail", "K-acet", "KAT2A"],
-        ["gpspail", "K-acet", "KAT2B"],
-        ["gpspail", "K-acet", "KAT5"],
-        ["gpspail", "K-acet", "KAT8"],
+        ["gpslipid", "N-Myr", "N/A"],
+        ["gpslipid", "S-Pal", "N/A"],
+        ["gpslipid", "S-Ger", "N/A"],
+        ["gpslipid", "S-Far", "N/A"]
     ]
 
 
+
     @staticmethod
-    def parse_all(paths: dict) -> Acetylation_pred:
+    def parse_all(paths: dict) -> Lipid_pred:
         """
         Parses all the prediction output files and add the data inside the
         above attribute data structures.
@@ -59,10 +52,8 @@ class Acetylation_pred (Module_pred):
         for prot in paths:
             for predictor in paths[prot]:
 
-                if predictor == "netacet":
-                    data = Netacet_data.parse(paths[prot][predictor])
-                elif predictor == "gpspail":
-                    data = Gpspail_data.parse(paths[prot][predictor])
+                if predictor == "gpslipid":
+                    data = Gpslipid_data.parse(paths[prot][predictor])
 
                 # adding the fasta file data
                 elif predictor in ["fasta", "fsa"]:
@@ -87,5 +78,5 @@ class Acetylation_pred (Module_pred):
                     predictions[prot][predictor] = data.predicted_sites[prot] if prot in data.predicted_sites else {}
             predictions[prot]['seq'] = seq
 
-        return Acetylation_pred(paths=paths, predictions=predictions)
+        return Lipid_pred(paths=paths, predictions=predictions)
 

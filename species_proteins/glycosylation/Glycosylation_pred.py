@@ -104,8 +104,7 @@ class Glycosylation_pred (Module_pred):
                 if predictor not in ["fasta", "fsa"]:
                     if predictor not in predictions[prot]:
                         predictions[prot][predictor] = {}
-                    predictions[prot][predictor] = data.predicted_sites[prot]
-
+                    predictions[prot][predictor] = data.predicted_sites[prot] if prot in data.predicted_sites else {}
             predictions[prot]['seq'] = seq
 
         return Glycosylation_pred(paths, predictions)

@@ -29,6 +29,17 @@ $RUNNER $ARGS --outdir phosphorylation/1prot_id $CWLSCRIPTS/phosphorylation/1pro
 $RUNNER $ARGS --outdir phosphorylation/Nprot_id $CWLSCRIPTS/phosphorylation/Nprot_phos_only_id.cwl Nprot_id.yml
 
 
+# Test Lipid Module
+
+$RUNNER $ARGS --outdir lipid/1prot_fasta $CWLSCRIPTS/lipid/1prot_lipid_only_fasta.cwl 1prot_fasta_lipid.yml
+$RUNNER $ARGS --outdir lipid/1prot_id $CWLSCRIPTS/lipid/1prot_lipid_only_id.cwl 1prot_id.yml
+$RUNNER $ARGS --outdir lipid/Nprot_id $CWLSCRIPTS/lipid/Nprot_lipid_only_id.cwl Nprot_id_lipid.yml
+
+# Test Sumo Module
+
+$RUNNER $ARGS --outdir sumoylation/1prot_fasta $CWLSCRIPTS/sumoylation/1prot_sumo_only_fasta.cwl 1prot_fasta.yml
+$RUNNER $ARGS --outdir sumoylation/1prot_id $CWLSCRIPTS/sumoylation/1prot_sumo_only_id.cwl 1prot_id.yml
+$RUNNER $ARGS --outdir sumoylation/Nprot_id $CWLSCRIPTS/sumoylation/Nprot_sumo_only_id.cwl Nprot_id.yml
 
 
 

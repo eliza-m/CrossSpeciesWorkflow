@@ -1,16 +1,14 @@
 from __future__ import annotations
 from bioservices.apps import FASTA
 from dataclasses import dataclass
-from pathlib import Path
-import sys
-from species_proteins.acetylation.Gpspail_data import Gpspail_data
-from species_proteins.acetylation.Netacet_data import Netacet_data
-
+from species_proteins.sumoylation.Gpssumo_data import Gpssumo_data
+from species_proteins.sumoylation.Sumogo_data import Sumogo_data
 from species_proteins.workflow.Module_pred import Module_pred
 
+
 @dataclass
-class Acetylation_pred (Module_pred):
-    """Class that organises Acetylation module output for single protein
+class Sumoylation_pred (Module_pred):
+    """Class that organises Sumoylation modification module output for single protein
 
     Attributes
     ----------
@@ -33,22 +31,18 @@ class Acetylation_pred (Module_pred):
 
     paths: dict
     predictions: dict
-    module = 'Acetylation'
-    availPredictors = ["netacet", "gpspail"]
+    module = 'Sumoylation'
+    availPredictors = ["sumogo", "gpssumo"]
     header = [
-        ["netacet", "Nter-acet", "N/A"],
-        ["gpspail", "K-acet", "CREBBP"],
-        ["gpspail", "K-acet", "EP300"],
-        ["gpspail", "K-acet", "HAT1"],
-        ["gpspail", "K-acet", "KAT2A"],
-        ["gpspail", "K-acet", "KAT2B"],
-        ["gpspail", "K-acet", "KAT5"],
-        ["gpspail", "K-acet", "KAT8"],
+        ["sumogo", "SUMO", "N/A"],
+        ["gpssumo", "SUMO", "N/A"],
+        ["gpssumo", "SIM", "N/A"]
     ]
 
 
+
     @staticmethod
-    def parse_all(paths: dict) -> Acetylation_pred:
+    def parse_all(paths: dict) -> Sumoylation_pred:
         """
         Parses all the prediction output files and add the data inside the
         above attribute data structures.
@@ -59,10 +53,10 @@ class Acetylation_pred (Module_pred):
         for prot in paths:
             for predictor in paths[prot]:
 
-                if predictor == "netacet":
-                    data = Netacet_data.parse(paths[prot][predictor])
-                elif predictor == "gpspail":
-                    data = Gpspail_data.parse(paths[prot][predictor])
+                if predictor == "sumogo":
+                    data = Sumogo_data.parse(paths[prot][predictor])
+                elif predictor == "gpssumo":
+                    data = Gpssumo_data.parse(paths[prot][predictor])
 
                 # adding the fasta file data
                 elif predictor in ["fasta", "fsa"]:
@@ -87,5 +81,5 @@ class Acetylation_pred (Module_pred):
                     predictions[prot][predictor] = data.predicted_sites[prot] if prot in data.predicted_sites else {}
             predictions[prot]['seq'] = seq
 
-        return Acetylation_pred(paths=paths, predictions=predictions)
+        return Sumoylation_pred(paths=paths, predictions=predictions)
 

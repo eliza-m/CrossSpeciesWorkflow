@@ -83,7 +83,7 @@ class Phosphorylation_pred (Module_pred):
                 if predictor not in ["fasta", "fsa"] and 'musitedeep' not in predictor:
                     if predictor not in predictions[prot]:
                         predictions[prot][predictor] = {}
-                    predictions[prot][predictor] = data.predicted_sites[prot]
+                    predictions[prot][predictor] = data.predicted_sites[prot] if prot in data.predicted_sites else {}
 
             predictions[prot]['seq'] = seq
             # they have different aa types, so they can be merged

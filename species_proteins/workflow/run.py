@@ -17,6 +17,13 @@ from species_proteins.phosphorylation.Phosphorylation_pred import Phosphorylatio
 from species_proteins.phosphorylation.Netphos_data import Netphos_data
 from species_proteins.phosphorylation.Netphospan_data import Netphospan_data
 
+from species_proteins.lipid.Lipid_pred import Lipid_pred
+from species_proteins.lipid.Gpslipid_data import Gpslipid_data
+
+from species_proteins.sumoylation.Sumoylation_pred import Sumoylation_pred
+from species_proteins.sumoylation.Sumogo_data import Sumogo_data
+from species_proteins.sumoylation.Gpssumo_data import Gpssumo_data
+
 
 
 @click.group(chain=True, invoke_without_command=True)
@@ -67,7 +74,11 @@ def submit_online(predictor: str, input: Path, output: Path, type: str = None):
         # acetylation
         'netacet', 'gpspail',
         # phosphorylation
-        'netphos', 'netphospan'
+        'netphos', 'netphospan',
+        # lipid
+        'gpslipid',
+        # Sumoylation
+        'gpssumo', 'sumogo'
     ]
 
     if predictor not in predictors:
@@ -102,6 +113,16 @@ def submit_online(predictor: str, input: Path, output: Path, type: str = None):
     elif predictor == 'netphospan':
         Netphospan_data.submit_online(input, output)
 
+    # LIPID MODIFICATION
+    elif predictor == 'gpslipid':
+        Gpslipid_data.submit_online(input, output)
+
+    # SUMOYLATION
+    elif predictor == 'sumogo':
+        Sumogo_data.submit_online(input, output)
+    elif predictor == 'gpssumo':
+        Gpssumo_data.submit_online(input, output)
+
 
 
 @cli.command()
@@ -114,6 +135,7 @@ def submit_online(predictor: str, input: Path, output: Path, type: str = None):
                                 glyc           :  Glycosylation module\n\
                                 phos           :  Phosphorylation module\n\
                                 acet           :  Acetylation module\n\
+                                lipid          :  Lipid modification module\n\
                                 sumo           :  Sumoylation module\n\
                                 loc            :  Cellular localisation module' )
 @click.option('--inputfolder', required=True, help='Input folder where all prediction results are stored')
@@ -135,53 +157,48 @@ def format_output(format: str, module: str, inputfolder: Path, output: Path, sig
         'glyc' : ["netnglyc", "nglyde", "glycomineN", "netoglyc", "isoglyp", "glycomineO", "netcglyc",
             "glycomineC", "fasta", "fsa"],
         'acet': ["netacet", "gpspail", "fasta", "fsa"],
-        'phos': ["netphos", "netphospan", "musitedeepY", "musitedeepST", "fasta", "fsa"]
+        'phos': ["netphos", "netphospan", "musitedeepY", "musitedeepST", "fasta", "fsa"],
+        'lipid': ["gpslipid", "fasta", "fsa"],
+        'sumo': ["sumogo", "gpssumo", "fasta", "fsa"]
     }
 
+    inputfolder = Path(inputfolder);
+
+    if module not in keys:
+        print("Unknown module or ...Not yet implemented...")
+        raise
+
     if format == 'single':
-
-        if module in keys:
-            inputfolder=Path(inputfolder);
-            paths = get_paths_1prot(inputfolder, output, keys[module], protname);
-
-            print("The following files will be parsed: ")
-            for prot in paths:
-                for f in paths[prot]:
-                    print(paths[prot][f])
-
-            if     module == 'glyc': predictions = Glycosylation_pred.parse_all(paths)
-            elif   module == 'acet': predictions = Acetylation_pred.parse_all(paths)
-            elif   module == 'phos': predictions = Phosphorylation_pred.parse_all(paths)
-
-            predictions.print_1prot(outputfile=output, addseq=True, signif=signif)
-
-
-        else:
-            print("Not yet implemented...")
+        paths = get_paths_1prot(inputfolder, output, keys[module], protname);
 
     elif format == 'multi':
         if alnfile is None:
             print('Please provide alignment file for multi protrein layout')
         if module in keys:
-            inputfolder=Path(inputfolder);
             paths = get_paths_Nprot(inputfolder, output, keys[module]);
 
-            print("The following files will be parsed: ")
-            for prot in paths:
-                for f in paths[prot]:
-                    print(paths[prot][f])
-
-            if     module == 'glyc': predictions = Glycosylation_pred.parse_all(paths)
-            elif   module == 'acet': predictions = Acetylation_pred.parse_all(paths)
-            elif   module == 'phos': predictions = Phosphorylation_pred.parse_all(paths)
-
-            predictions.print_Nprot(outputfile=output, addseq=True, signif=signif, alnfile=alnfile)
-
-        else:
-            print("Not yet implemented...")
-
     else:
-        print("Not yet implemented...")
+        print("Unknown format...")
+        raise
+
+    print("The following files will be parsed: ")
+    for prot in paths:
+        for f in paths[prot]:
+            print(paths[prot][f])
+
+        if     module == 'glyc': predictions = Glycosylation_pred.parse_all(paths)
+        elif   module == 'acet': predictions = Acetylation_pred.parse_all(paths)
+        elif   module == 'phos': predictions = Phosphorylation_pred.parse_all(paths)
+        elif   module == 'lipid': predictions = Lipid_pred.parse_all(paths)
+        elif   module == 'sumo': predictions = Sumoylation_pred.parse_all(paths)
+        # elif   module == 'loc':  predictions = Localisation_pred.parse_all(paths)
+
+
+
+        if format == 'single':
+            predictions.print_1prot(outputfile=output, addseq=True, signif=signif)
+        else:
+            predictions.print_Nprot(outputfile=output, addseq=True, signif=signif, alnfile=alnfile)
 
 
 if __name__ == '__main__':
