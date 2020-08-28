@@ -6,4 +6,4 @@ tests/cwl/lipid/* linguist-generated
 tests/cwl/sumoylation/* linguist-generated
 tests/cwl/localisation/* linguist-generated
 tests/cwl/structural/* linguist-generated
-tests/bash/docker_tests/output linguist-generated
+tests/bash/docker_tests/output/* linguist-generated
