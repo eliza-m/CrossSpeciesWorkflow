@@ -120,19 +120,24 @@ Example YML input files are provided within ${CSW_HOME}/tests/cwl , alongside wi
 Usage example for a specific module only:
 ```
 # Acetylation
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/acetylation/Nprot_acet_only_id.cwl /tests/cwl/Nprot_id.yml
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/acetylation/Nprot_acet_only_id.cwl 
+/tests/cwl/Nprot_id.yml
 
 # Glycosylation
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/glycosylation/Nprot_glyc_only_id.cwl /tests/cwl/Nprot_id.yml
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/glycosylation/Nprot_glyc_only_id.cwl 
+/tests/cwl/Nprot_id.yml
 
 # Phosphorylation
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/phosphorylation/Nprot_phos_only_id.cwl /tests/cwl/Nprot_id.yml
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/phosphorylation/Nprot_phos_only_id.cwl 
+/tests/cwl/Nprot_id.yml
 
 # Lipid modification
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/lipid/Nprot_lipid_only_id.cwl /tests/cwl/Nprot_id.yml
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/lipid/Nprot_lipid_only_id.cwl 
+/tests/cwl/Nprot_id.yml
 
 # Sumoylation 
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/sumoylation/Nprot_sumo_only_id.cwl /tests/cwl/Nprot_id.yml
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/sumoylation/Nprot_sumo_only_id.cwl 
+/tests/cwl/Nprot_id.yml
 
 ...
 ```
@@ -141,17 +146,19 @@ cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/su
 
 ## Command-line options
 
-### Quick&dirty pipeline run 
+### Quick & dirty pipeline run 
 
 A simplist selection of the cwl tool can be performed directly from Python API. However it offers a very limited number of options, therefore we recommend using directly CWLtool or other workflow runner
 
 ```bash
 # Full pipeline & one protein example
-$ python species_proteins/workflow/run.py pipeline --cwlinput tests/cwl/1prot_id.yml --mode single --module all --outdir [path/to/dir]  
+$ python species_proteins/workflow/run.py pipeline --cwlinput tests/cwl/1prot_id.yml --mode single 
+--module all --outdir [path/to/dir]  
 
 # Acetylation module & multi protein example
-$ python species_proteins/workflow/run.py pipeline --cwlinput tests/cwl/Nprot_id.yml --mode multi --module acet --outdir [path/to/dir]             ``` 
-
+$ python species_proteins/workflow/run.py pipeline --cwlinput tests/cwl/Nprot_id.yml --mode multi 
+--module acet --outdir [path/to/dir]             ``` 
+```
 For other options, see help menu:
 ```
 $ python species_proteins/workflow/run.py pipeline --help
@@ -190,9 +197,11 @@ Options:
 Let's assume that you have already performed an "all" module prediction pipeline for your proteins and you want to generate a formatted output only for a specific sequence and only for glycosylation related predictors.
 
 ```
-$ python species_proteins/workflow/run.py format-output --format single --module glyc --inputfolder [path/to/predictions/dir] --protname YourID   ```
-As a input folder you can provide directly the overall prediction folder (that containes multiple proteins predictions) and the provided ID will be searched for (prediction output naming is $protID.predictor.*), but if you provide directly the folder of the desired protein and 'protname' argument is no longer needed.
+$ python species_proteins/workflow/run.py format-output --format single --module glyc 
+--inputfolder [path/to/predictions/dir] --protname YourID
 ```
+As a input folder you can provide directly the overall prediction folder (that containes multiple proteins predictions) and the provided ID will be searched for (prediction output naming is $protID.predictor.*), but if you provide directly the folder of the desired protein the `--protname` argument is no longer needed.
+
 
 For other options, see help menu:
 ```
@@ -239,7 +248,7 @@ Usage example:
 ```
 $ python species_proteins/workflow/run.py submit-online --input MyPROT.fasta --predictor gpslipid --output MyPROT.gpslipid.html 
 ```
-Some predictors accept multiFASTA input, some do not.
+Some online predictors accept multiFASTA input, some do not...
 
 Other options:
 ```
