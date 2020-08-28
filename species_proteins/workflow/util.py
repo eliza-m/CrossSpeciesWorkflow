@@ -1,11 +1,14 @@
-from bioservices.apps import MultiFASTA
+from bioservices.apps import FASTA, MultiFASTA
 from pathlib import Path
 import sys
 
 def map_aln( alnfile : Path ) -> dict:
-    mapping = {}
 
-    aln = MultiFASTA()
+    # Temporary fix for bioservices MultiFASTA read_fasta funtion
+    # that recognises only particular headers such as Swissprot(sp) but not Trembl (tr) part of Uniprot...
+    # by overriding the read_fasta function -> see bellow (at the end)
+    aln = MultiFASTA_extra()
+    mapping = {}
 
     try:
         aln.read_fasta(alnfile)
@@ -111,4 +114,67 @@ def get_paths_Nprot(inputfolder: Path, output: Path, keys: list) -> dict:
 
     return paths
 
+
+
+
+
+###############################################################################
+
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
+#
+#  This file is part of bioservices software
+#
+#  Copyright (c) 2013-2014 - EMBL-EBI
+#
+#  File author(s):
+#      Sven-Maurice Althoff, Christian Knauth
+#
+#
+#  Distributed under the GPLv3 License.
+#  See accompanying file LICENSE.txt or copy at
+#      http://www.gnu.org/licenses/gpl-3.0.html
+#
+#  website: https://github.com/cokelaer/bioservices
+#  documentation: http://packages.python.org/bioservices
+#
+##############################################################################
+
+
+# Temporary fix for bioservices MultiFASTA read_fasta funtion
+# that recognises only particular headers such as Swissprot(sp) but not Trembl (tr) part of Uniprot...
+# by overriding the read_fasta function
+
+class MultiFASTA_extra(MultiFASTA):
+
+    def read_fasta(self, filename):
+        """Load several FASTA from a filename"""
+        fh = open(filename, "r")
+        data = fh.read()
+        fh.close()
+
+        # we split according to ">2 character
+        for thisfasta in data.split(">")[1:]:
+            f = FASTA()
+            f._fasta = f._interpret(thisfasta)
+
+            # temporary fix for header recognition
+            if f.accession == None :
+                if thisfasta[0:3] == 'tr|':
+                    thisfasta = 'sp|' + thisfasta[3:]
+                if '|' not in thisfasta:
+                    temp = thisfasta.split('\n')
+                    newheader = 'sp|' + temp[0].split()[0] + '|blabla\n'
+                    seq = ''
+                    for l in range( 1, len(temp) ):
+                        seq = seq + temp[l]
+                    thisfasta = newheader + seq
+                f._fasta = f._interpret(thisfasta)
+
+
+            if f.accession != None and f.accession not in self.ids:
+                self._fasta[f.accession] = f
+            else:
+                print("Accession %s is already in the ids list or could not be interpreted. skipped" % str(
+                    f.accession))
 
