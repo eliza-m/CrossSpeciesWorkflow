@@ -1,8 +1,9 @@
 # Do not count sample outputs from tests folder :
-tests/cwl/acetylation/* linguist-vendored
-tests/cwl/glycosylation/* linguist-vendored
-tests/cwl/phosphorylation/* linguist-vendored
-tests/cwl/lipid/* linguist-vendored
-tests/cwl/sumoylation/* linguist-vendored
-tests/cwl/localisation/* linguist-vendored
-tests/cwl/structural/* linguist-vendored
+tests/cwl/acetylation/* linguist-generated
+tests/cwl/glycosylation/* linguist-generated
+tests/cwl/phosphorylation/* linguist-generated
+tests/cwl/lipid/* linguist-generated
+tests/cwl/sumoylation/* linguist-generated
+tests/cwl/localisation/* linguist-generated
+tests/cwl/structural/* linguist-generated
+tests/bash/docker_tests/output linguist-generated
