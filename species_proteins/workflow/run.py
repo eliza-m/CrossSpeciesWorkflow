@@ -27,6 +27,10 @@ from species_proteins.sumoylation.Sumoylation_pred import Sumoylation_pred
 from species_proteins.sumoylation.Sumogo_data import Sumogo_data
 from species_proteins.sumoylation.Gpssumo_data import Gpssumo_data
 
+from species_proteins.localisation.Localisation_pred import Localisation_pred
+from species_proteins.localisation.Tmpred_data import Tmpred_data
+from species_proteins.localisation.Tmhmm_data import Tmhmm_data
+
 
 
 @click.group(chain=True, invoke_without_command=True)
@@ -72,7 +76,7 @@ def get_fasta(uniprot: str, filename: str = None, trimheader: bool = False, mode
                           - Phosphorylation: 'netphos', 'netphospan'
                           - Lipid modification: 'gpslipid'
                           - Sumoylation: 'gpssumo', 'sumogo'
-                          - Cellular localisation: 'tmhmm'""")
+                          - Cellular localisation: 'tmhmm', 'tmpred' """)
 def submit_online(predictor: str, input: Path, output: Path):
 
     """Submit online jobs for a given predictor"""
@@ -88,7 +92,9 @@ def submit_online(predictor: str, input: Path, output: Path):
         # lipid
         'gpslipid',
         # Sumoylation
-        'gpssumo', 'sumogo'
+        'gpssumo', 'sumogo',
+        # Localisation
+        'tmpred', 'tmhmm'
     ]
 
     if predictor not in predictors:
@@ -133,6 +139,16 @@ def submit_online(predictor: str, input: Path, output: Path):
     elif predictor == 'gpssumo':
         Gpssumo_data.submit_online(input, output)
 
+    # LOCALISATION
+    elif predictor == 'tmpred':
+        Tmpred_data.submit_online(input, output)
+    elif predictor == 'tmhmm':
+        Tmhmm_data.submit_online(input, output)
+
+    else:
+        print("It should never get here :)... predictors list not updates... ")
+
+
 
 
 @cli.command()
@@ -140,7 +156,6 @@ def submit_online(predictor: str, input: Path, output: Path):
 @click.option('--module', required=True, help="""\b
                                 Prediction module - accepted values: 
                                 - all            :  All modules 
-                                - all_nonstruct  :  All except structural module (which is slow) 
                                 - ptsmod         :  All Post Translation modifications ( glyc + acet + phos + sumo + lipid) 
                                 - struct         :  Structural module 
                                 - glyc           :  Glycosylation module
@@ -170,9 +185,14 @@ def format_output(format: str, module: str, inputfolder: Path, output: Path, sig
         'phos': ["netphos", "netphospan", "musitedeepY", "musitedeepST", "fasta", "fsa"],
         'lipid': ["gpslipid", "fasta", "fsa"],
         'sumo': ["sumogo", "gpssumo", "fasta", "fsa"],
-
+        'loc': ["tmpred", "tmhmm", "fasta", "fsa"],
         'struct': ["raptorx", "psipred", "disopred", "scratch1d"]
     }
+
+    keys['ptsmod'] = keys['glyc'][:-2] + keys['phos'][:-2] + keys['acet'][:-2] + keys['sumo'][:-2] + keys['lipid'][:-2] + ["fasta", "fsa"] 
+
+    keys['all'] = keys['ptsmod'][:-2] + keys['loc'][:-2] + keys['sumo'][:-2] + ["fasta", "fsa"] 
+
 
     inputfolder = Path(inputfolder);
 
@@ -198,22 +218,24 @@ def format_output(format: str, module: str, inputfolder: Path, output: Path, sig
         for f in paths[prot]:
             print(paths[prot][f])
 
-        if     module == 'glyc': predictions = Glycosylation_pred.parse_all(paths)
-        elif   module == 'acet': predictions = Acetylation_pred.parse_all(paths)
-        elif   module == 'phos': predictions = Phosphorylation_pred.parse_all(paths)
-        elif   module == 'lipid': predictions = Lipid_pred.parse_all(paths)
-        elif   module == 'sumo': predictions = Sumoylation_pred.parse_all(paths)
-        # elif   module == 'loc':  predictions = Localisation_pred.parse_all(paths)
-        elif   module == 'struct': predictions = Structural_pred.parse_all(paths)
+    predictions = []
 
+    if     module in ['glyc', 'ptsmod', 'all']  : predictions.append( Glycosylation_pred.parse_all(paths) )
+    elif   module in ['acet', 'ptsmod', 'all']  : predictions.append( Acetylation_pred.parse_all(paths) )
+    elif   module in ['phos', 'ptsmod', 'all']  : predictions.append( Phosphorylation_pred.parse_all(paths) )
+    elif   module in ['lipid', 'ptsmod', 'all'] : predictions.append( Lipid_pred.parse_all(paths) )
+    elif   module in ['sumo', 'ptsmod', 'all']  : predictions.append( Sumoylation_pred.parse_all(paths) )
+    elif   module in ['loc', 'all']             : predictions.append( Localisation_pred.parse_all(paths) )
+    elif   module in ['struct', 'all']          : predictions.append( Structural_pred.parse_all(paths) )
+    else : 
+        print("Modules list is not updated !!")
 
-
-        if format == 'single':
-            predictions.print_1prot(outputfile=output, addseq=True, signif=signif)
-        else:
-            predictions.print_Nprot(outputfile=output, addseq=True, signif=signif, alnfile=alnfile)
-
-
+    if format == 'single':
+        for p in predictions:
+            p.print_1prot(outputfile=output, addseq=True, signif=signif)
+    else:
+        for p in predictions:
+            p.print_Nprot(outputfile=output, addseq=True, signif=signif, alnfile=alnfile)
 
 
 @cli.command()
@@ -222,7 +244,6 @@ def format_output(format: str, module: str, inputfolder: Path, output: Path, sig
 @click.option('--module', required=True, help="""\b
                                 Prediction module - accepted values: 
                                 - all            :  All modules 
-                                - all_nonstruct  :  All except structural module (which is slow) 
                                 - ptsmod         :  All Post Translation modifications ( glyc + acet + phos + sumo + lipid) 
                                 - struct         :  Structural module 
                                 - glyc           :  Glycosylation module
@@ -245,6 +266,7 @@ def pipeline(cwlinput: str, mode: str, module:str, outdir:str = "./", args: str 
         'phos': "${CSW_HOME}/cwl/phosphorylation/" + type + 'prot_phos_only_id.cwl',
         'sumo': "${CSW_HOME}/cwl/sumoylation/" + type + 'prot_sumo_only_id.cwl',
         'lipid': "${CSW_HOME}/cwl/lipid/" + type + 'prot_lipid_only_id.cwl',
+        'loc': "${CSW_HOME}/cwl/localisation/" + type + 'prot_loc_only_id.cwl',
         'struct': "${CSW_HOME}/cwl/structural/" + type + 'prot_struct_only_id.cwl'
     }
     useParallel = '--parallel' if parallel else ''

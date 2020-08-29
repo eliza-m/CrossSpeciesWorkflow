@@ -167,9 +167,15 @@ class Module_pred :
             raise
 
 
+
+
+
     def parse_all(paths: dict) -> Module_pred:
         """Virtual"""
         raise NotImplementedError()
+
+
+
 
 
     def get_layout_1prot(self: Module_pred, protname: str, signif: bool = False) -> dict:
@@ -182,8 +188,8 @@ class Module_pred :
         for entry in self.header:
             pred = entry[0]
             type = entry[1]
-            enzyme = entry[2]
-            key = pred + "_" + type + "_" + enzyme
+            details = entry[2]
+            key = pred + "_" + type + "_" + details
             layout[key] = ['X' if pred not in data else '-' for resid in range(protsize)]
 
         for pred in self.availPredictors:
@@ -195,13 +201,16 @@ class Module_pred :
                     type = entry['type']
 
                     if pred == 'gpspail':
-                        enzyme = entry['enzyme']
+                        details = entry['enzyme']
                     elif self.module == "Phosphorylation":
                         type = 'STY-phos'
-                        enzyme = 'generic'
-                    else: enzyme='N/A'
+                        details = 'generic'
+                    elif self.module == "Localisation":
+                        type = 'TM'
+                        details = '3-class'
+                    else: details='N/A'
 
-                    key = pred + "_" + type + "_" + enzyme
+                    key = pred + "_" + type + "_" + details
 
                     for id in range(start, end + 1):
                         if signif:
@@ -209,6 +218,8 @@ class Module_pred :
                         elif pred == 'netphos' and entry['enzyme'] == 'unsp':
                             # we print only generic predictions as there are too many kinases
                             layout[key][id] = score
+                        elif pred in ['tmpred', 'tmhmm'] :
+                            layout[key][id] = entry['loc']
                         else:
                             layout[key][id] = score
         return layout
