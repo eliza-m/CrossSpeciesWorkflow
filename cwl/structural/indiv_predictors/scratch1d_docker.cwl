@@ -2,19 +2,14 @@
 
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: [/home/SCRATCH-1D_1.2/bin/run_SCRATCH-1D_predictors.sh]
+baseCommand: [bash, /home/scratch1d_cwl.sh]
 hints:
   DockerRequirement:
-    dockerImageId: scratch1d:latest
+    dockerPull: 193.231.158.8:5000/scratch1d:latest   # internal use
+    # dockerImageId: scratch1d:latest                 # if built from Dockerfile
 
 requirements:
   InlineJavascriptRequirement: {}
-  InitialWorkDirRequirement:
-    listing:
-      - entry: $(runtime.outdir)
-        writable: true
-      - entry: $(runtime.tmpdir)
-        writable: true
 
 
 inputs:
@@ -34,15 +29,15 @@ inputs:
     type: int?
     inputBinding:
       position: 3
+    default: 4
     
-
 outputs:
   output:
     type:
       type: array
       items: File
     outputBinding:
-      glob: '*.*'
+      glob: "*.*"
 
 
 

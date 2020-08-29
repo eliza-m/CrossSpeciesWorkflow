@@ -3,6 +3,8 @@ import click
 from bioservices.apps import FASTA
 
 from species_proteins.util.util import *
+from species_proteins.structural.Structural_pred import Structural_pred
+
 from species_proteins.glycosylation.Glycosylation_pred import Glycosylation_pred
 from species_proteins.glycosylation.Netcglyc_data import Netcglyc_data
 from species_proteins.glycosylation.Netoglyc_data import Netoglyc_data
@@ -167,7 +169,9 @@ def format_output(format: str, module: str, inputfolder: Path, output: Path, sig
         'acet': ["netacet", "gpspail", "fasta", "fsa"],
         'phos': ["netphos", "netphospan", "musitedeepY", "musitedeepST", "fasta", "fsa"],
         'lipid': ["gpslipid", "fasta", "fsa"],
-        'sumo': ["sumogo", "gpssumo", "fasta", "fsa"]
+        'sumo': ["sumogo", "gpssumo", "fasta", "fsa"],
+
+        'struct': ["raptorx", "psipred", "disopred", "scratch1d"]
     }
 
     inputfolder = Path(inputfolder);
@@ -200,6 +204,7 @@ def format_output(format: str, module: str, inputfolder: Path, output: Path, sig
         elif   module == 'lipid': predictions = Lipid_pred.parse_all(paths)
         elif   module == 'sumo': predictions = Sumoylation_pred.parse_all(paths)
         # elif   module == 'loc':  predictions = Localisation_pred.parse_all(paths)
+        elif   module == 'struct': predictions = Structural_pred.parse_all(paths)
 
 
 
@@ -239,7 +244,8 @@ def pipeline(cwlinput: str, mode: str, module:str, outdir:str = "./", args: str 
         'acet': "${CSW_HOME}/cwl/acetylation/" + type + 'prot_acet_only_id.cwl',
         'phos': "${CSW_HOME}/cwl/phosphorylation/" + type + 'prot_phos_only_id.cwl',
         'sumo': "${CSW_HOME}/cwl/sumoylation/" + type + 'prot_sumo_only_id.cwl',
-        'lipid': "${CSW_HOME}/cwl/lipid/" + type + 'prot_lipid_only_id.cwl'
+        'lipid': "${CSW_HOME}/cwl/lipid/" + type + 'prot_lipid_only_id.cwl',
+        'struct': "${CSW_HOME}/cwl/structural/" + type + 'prot_struct_only_id.cwl'
     }
     useParallel = '--parallel' if parallel else ''
     cmd = "cwltool " + args + " " + useParallel + " --outdir " + outdir + " " + paths[module] + " " + cwlinput

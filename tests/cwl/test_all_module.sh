@@ -42,6 +42,17 @@ $RUNNER $ARGS --outdir sumoylation/1prot_id $CWLSCRIPTS/sumoylation/1prot_sumo_o
 $RUNNER $ARGS --outdir sumoylation/Nprot_id $CWLSCRIPTS/sumoylation/Nprot_sumo_only_id.cwl Nprot_id.yml
 
 
+# Test Structural Module
+
+$RUNNER $ARGS --outdir structural/1prot_fasta $CWLSCRIPTS/structural/1prot_struct_only_fasta.cwl 1prot_fasta.yml
+$RUNNER $ARGS --outdir structural/1prot_id $CWLSCRIPTS/structural/1prot_struct_only_id.cwl 1prot_id.yml
+
+
+$RUNNER $ARGS --outdir structural/Nprot_id $CWLSCRIPTS/structural/Nprot_struct_only_id.cwl Nprot_id.yml
+
+
+
+
 
 
 

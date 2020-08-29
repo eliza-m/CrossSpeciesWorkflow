@@ -5,7 +5,7 @@ class: CommandLineTool
 baseCommand: [bash, /home/disopred/disopredplus_cwl.sh]
 hints:
   DockerRequirement:
-    dockerImageId: disopred:latest
+    dockerPull: quay.io/dbsb-ibar/disopred:latest
 
 requirements:
   EnvVarRequirement:
@@ -29,7 +29,8 @@ inputs:
     type: Directory
 
   CPUnum:
-    type: int
+    type: int? 
+    default: 4 # not sure if it works as expected
     
 
 outputs:
@@ -37,8 +38,7 @@ outputs:
     type:
       type: array
       items: File
-    outputBinding:
-      glob: '*.*'
+    outputBinding: {glob: $(inputs.fastaFile.nameroot)*}
 
 
 

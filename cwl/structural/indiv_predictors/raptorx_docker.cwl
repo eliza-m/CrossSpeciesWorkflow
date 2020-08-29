@@ -2,10 +2,10 @@
 
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: [bash, /home/raptorx_profile_cwl.sh]
+baseCommand: [bash, /home/raptorx_cwl.sh]
 hints:
   DockerRequirement:
-    dockerImageId: raptorx:latest
+    dockerPull: quay.io/dbsb-ibar/raptorx:latest
 
 requirements:
   EnvVarRequirement:
@@ -38,7 +38,7 @@ inputs:
     type: string?
     inputBinding:
       position: 3
-    default: "hhblits3"
+    default: "hhsuite3"
 
   CPUthreads:
     type: int?
@@ -58,8 +58,7 @@ outputs:
     type:
       type: array
       items: File
-    outputBinding:
-      glob: '*.*'
+    outputBinding: {glob: "*"}
 
 
 $namespaces:

@@ -1,6 +1,5 @@
 from pathlib import Path
 import sys
-
 from species_proteins.util.MultiFASTA_extra import MultiFASTA_extra
 
 

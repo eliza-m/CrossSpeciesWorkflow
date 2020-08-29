@@ -5,9 +5,11 @@ class: CommandLineTool
 baseCommand: [tcsh, /home/psipred/BLAST+/runpsipredplus]
 hints:
   DockerRequirement:
-    dockerImageId: psipred:latest
+    dockerPull: quay.io/dbsb-ibar/psipred:latest
+
 
 requirements:
+  InlineJavascriptRequirement: {}
   EnvVarRequirement:
     envDef:
       DBname: $(inputs.DBname)
@@ -29,17 +31,16 @@ inputs:
     type: Directory
 
   CPUnum:
-    type: int
-    
+    type: int?
+    default: 4    # This arg of psipred does not seem to directly work ?! I will look into it    
+
 
 outputs:
   output:
     type:
       type: array
       items: File
-    outputBinding:
-      glob: '*.*'
-
+    outputBinding: {glob: $(inputs.fastaFile.nameroot)*}
 
 
 $namespaces:

@@ -65,6 +65,8 @@ RUN rm blast-2.2.26-x64-linux.tar.gz
 RUN mkdir /input
 RUN mkdir /output
 
+COPY ./scratch1d_cwl.sh /home/
+
 # Setting working directory when docker image is running
 WORKDIR /home/
 
