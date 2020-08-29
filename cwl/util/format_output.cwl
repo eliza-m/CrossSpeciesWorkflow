@@ -15,6 +15,8 @@ baseCommand: [format-output]
 hints:
   DockerRequirement:
     dockerPull: quay.io/dbsb-ibar/species_proteins:latest
+    #dockerImageId: quay.io/dbsb-ibar/species_proteins:latest
+
 
 requirements:
   InlineJavascriptRequirement: {}
@@ -43,10 +45,11 @@ inputs:
           - all                  # all modules
           - all_nonstruc         # all modules except structural, which is slow
           - ptsmod               # Post translation modifications : glyco + acety + sumo + lipid
-          - struc                # Structural module only
+          - struct                # Structural module only
           - glyc                 # Glycosylation module only
           - phos                 # Phosphorylation module only
           - acet                 # Acetylation module only
+          - lipid                # Lipid module only
           - sumo                 # SUMOylation module only
           - loc                  # Cellular Localisation module only
     inputBinding:
