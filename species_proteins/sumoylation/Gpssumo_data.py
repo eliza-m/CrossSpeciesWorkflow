@@ -10,9 +10,6 @@ from bs4 import BeautifulSoup as bs
 class Gpssumo_data:
     """Class that parses GpsSUMO prediction output data.
 
-    Parameters
-    ----------
-
     Attributes
     ----------
     predicted_sites : Dictionary
@@ -26,13 +23,13 @@ class Gpssumo_data:
             is_signif : bool (is the method's specific scoring indicating a
                             potentially significant result)
             score : float (interpretation differs between methods)
-            type : string (C-glyc)
+            type : string
             predictor : string (for cases where multiple predictors are available)
 
     Public Methods
     --------------
-    parse( outputfile : path ) -> Gpspail_data
-        Parses the GpsPail prediction output file and add the data inside the
+    parse( outputfile : path ) -> Gpssumo_data
+        Parses the prediction output file and add the data inside the
         above attribute data structure.
 
     submit_online (fastafile : Path, outputfile: Path)
@@ -45,12 +42,19 @@ H
 
     @staticmethod
     def parse(outputfile: Path) -> Gpssumo_data:
+        """Parses predictor's output"""
 
+        protname = (outputfile.name).split('.')[0]
         predicted_sites = {}
+        predicted_sites[protname] = {}
 
         try:
             with open(outputfile, 'r', encoding='utf-8') as f:
                 content = f.read()
+
+                if "Failed: Online job submission failed" in content:
+                    return Gpssumo_data(predicted_sites)
+
                 soup = bs(content, "html.parser")
                 table = soup.find('table')
                 rows = table.findAll('tr')
@@ -58,7 +62,7 @@ H
                 for r in rows:
                     cols = r.findAll('td')
                     if len(cols) > 0 and cols[0].text :
-                        protname = cols[0].text.split()[0]
+                        # protname = cols[0].text.split()[0]
                         longtype = cols[6].text
                         type = 'SIM' if 'Interaction' in longtype else 'SUMO' if 'Sumoylation' in longtype else 'unk'
 
@@ -77,8 +81,8 @@ H
 
                         resid = start
 
-                        if protname not in predicted_sites:
-                            predicted_sites[protname] = {}
+                        # if protname not in predicted_sites:
+                        #     predicted_sites[protname] = {}
 
                         if resid not in predicted_sites[protname]:
                             predicted_sites[protname][resid] = []
@@ -105,8 +109,12 @@ H
 
         return Gpssumo_data(predicted_sites)
 
+
+
     @staticmethod
     def submit_online(fastafile: Path, outputfile: Path):
+        """Submits online job. Provided as arguments are the input fasta file and the
+                        prediction output filename"""
 
         try:
             url1 = 'http://sumosp.biocuckoo.org/transfer.php'

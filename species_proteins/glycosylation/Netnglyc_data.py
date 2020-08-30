@@ -12,9 +12,6 @@ from time import sleep
 class Netnglyc_data:
     """Class that parses NetNglyc prediction output data.
 
-    Parameters
-    ----------
-
     Attributes
     ----------
     predicted_sites : Dictionary
@@ -33,7 +30,7 @@ class Netnglyc_data:
 
     Public Methods
     --------------
-    parse( outputfile : path ) -> NetNglyc
+    parse( outputfile : path ) -> NetNglyc_data
         Parses the NetNglyc prediction output file and add the data inside the
         above attribute data structure.
 
@@ -47,6 +44,7 @@ class Netnglyc_data:
 
     @staticmethod
     def parse(outputfile: Path) -> Netnglyc_data :
+        """Parses predictor's output"""
 
         predicted_sites = {}
 
@@ -54,6 +52,10 @@ class Netnglyc_data:
             f = open(outputfile, 'r')
 
             lines = f.readlines()
+            if "Failed: Online job submission failed" in lines[0]:
+                protname = (outputfile.name).split('.')[0]
+                predicted_sites[protname] = {}
+                return Netnglyc_data(predicted_sites)
 
             if lines[0][0] == "<":
                 predictor = "netnglyc:1.0_online"
@@ -100,6 +102,8 @@ class Netnglyc_data:
 
     @staticmethod
     def submit_online (fastafile : Path, outputfile: Path) :
+        """Submits online job. Provided as arguments are the input fasta file and the
+                prediction output filename"""
 
         try:
             url = 'https://services.healthtech.dtu.dk/cgi-bin/webface2.cgi'
@@ -116,10 +120,11 @@ class Netnglyc_data:
             sleep(2)
             r2 = requests.get(url, params={'jobid' : jobid })
 
-            while jobid in r2.text:
+            count = 0; maxtime = 300
+            while jobid in r2.text and count < maxtime/2:
                 sleep(2)
                 r2 = requests.get(url, params={'jobid': jobid })
-
+                count +=1
 
             r2.raise_for_status()
 

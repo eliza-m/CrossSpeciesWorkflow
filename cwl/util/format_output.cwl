@@ -44,7 +44,7 @@ inputs:
         symbols:
           - all                  # all modules
           - all_nonstruc         # all modules except structural, which is slow
-          - ptsmod               # Post translation modifications : glyco + acety + sumo + lipid
+          - ptm               # Post translation modifications : glyco + acety + sumo + lipid
           - struct                # Structural module only
           - glyc                 # Glycosylation module only
           - phos                 # Phosphorylation module only

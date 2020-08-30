@@ -13,9 +13,6 @@ import requests
 class Tmhmm_data:
     """Class that parses TMHMM v2.0 prediction output data.
 
-    Parameters
-    ----------
-
     Attributes
     ----------
     predicted_sites : Dictionary
@@ -29,13 +26,13 @@ class Tmhmm_data:
             is_signif : bool (is the method's specific scoring indicating a
                             potentially significant result)
             score : float (interpretation differs between methods)
-            type : string (C-glyc)
+            type : string
             predictor : string (for cases where multiple predictors are available)
 
     Public Methods
     --------------
-    parse( outputfile : path ) -> Deeploc_data
-        Parses the NetAcet prediction output file and add the data inside the
+    parse( outputfile : path ) -> Tmhmm_data
+        Parses the prediction output file and add the data inside the
         above attribute data structure.
 
     submit_online (fastafile : Path, outputfile: Path)
@@ -50,6 +47,7 @@ class Tmhmm_data:
 
     @staticmethod
     def parse(outputfile: Path) ->Tmhmm_data:
+        """Parses predictor's output"""
 
         predicted_sites = {}
         name = outputfile.name
@@ -59,6 +57,9 @@ class Tmhmm_data:
         try:
             f = open(outputfile, 'r')
             lines = f.readlines()
+            if "Failed: Online job submission failed" in lines[0]:
+                return Tmhmm_data(predicted_sites)
+
             for line in lines:
                 l = line.split()
                 if len(l) == 5 and l[0][0] not in '<#' :
@@ -103,6 +104,8 @@ class Tmhmm_data:
 
     @staticmethod
     def submit_online (fastafile : Path, outputfile: Path) :
+        """Submits online job. Provided as arguments are the input fasta file and the
+                        prediction output filename"""
 
         try:
 
@@ -123,10 +126,11 @@ class Tmhmm_data:
             sleep(2)
             r2 = requests.get(url, params={'jobid' : jobid })
 
-            while jobid in r2.text:
+            count = 0; maxtime = 300
+            while jobid in r2.text and count < maxtime/2:
                 sleep(2)
                 r2 = requests.get(url, params={'jobid': jobid })
-
+                count +=1
 
             r2.raise_for_status()
 

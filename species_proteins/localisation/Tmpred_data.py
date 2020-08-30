@@ -13,9 +13,6 @@ import requests
 class Tmpred_data:
     """Class that parses Tmpred prediction output data.
 
-    Parameters
-    ----------
-
     Attributes
     ----------
     predicted_sites : Dictionary
@@ -29,13 +26,13 @@ class Tmpred_data:
             is_signif : bool (is the method's specific scoring indicating a
                             potentially significant result)
             score : float (interpretation differs between methods)
-            type : string (C-glyc)
+            type : string
             predictor : string (for cases where multiple predictors are available)
 
     Public Methods
     --------------
-    parse( outputfile : path ) -> Deeploc_data
-        Parses the NetAcet prediction output file and add the data inside the
+    parse( outputfile : path ) -> Tmpred_data
+        Parses the prediction output file and add the data inside the
         above attribute data structure.
 
     submit_online (fastafile : Path, outputfile: Path)
@@ -48,6 +45,7 @@ class Tmpred_data:
 
     @staticmethod
     def parse(outputfile: Path) -> Tmpred_data:
+        """Parses predictor's output"""
 
         predicted_sites = {}
         name = outputfile.name
@@ -57,6 +55,9 @@ class Tmpred_data:
         try:
             f = open(outputfile, 'r')
             lines = f.readlines()
+            if "Failed: Online job submission failed" in lines[0]:
+                return Tmpred_data(predicted_sites)
+
             is_section = False
             found = False
             lastaa = 1
@@ -142,7 +143,8 @@ class Tmpred_data:
 
     @staticmethod
     def submit_online(fastafile: Path, outputfile: Path):
-        #  Only single protein fasta file !!!!!
+        """Submits online job. Provided as arguments are the input fasta file and the
+                        prediction output filename"""
 
         try:
             # launch job

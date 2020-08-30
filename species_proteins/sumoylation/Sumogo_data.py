@@ -11,9 +11,6 @@ from bs4 import BeautifulSoup as bs
 class Sumogo_data:
     """Class that parses SUMOgo prediction output data.
 
-    Parameters
-    ----------
-
     Attributes
     ----------
     predicted_sites : Dictionary
@@ -27,36 +24,42 @@ class Sumogo_data:
             is_signif : bool (is the method's specific scoring indicating a
                             potentially significant result)
             score : float (interpretation differs between methods)
-            type : string (C-glyc)
+            type : string
             predictor : string (for cases where multiple predictors are available)
 
     Public Methods
     --------------
-    parse( outputfile : path ) -> Gpspail_data
-        Parses the GpsPail prediction output file and add the data inside the
+    parse( outputfile : path ) -> Sumogo_data
+        Parses the prediction output file and add the data inside the
         above attribute data structure.
 
     submit_online (fastafile : Path, outputfile: Path)
-        Submits online job. Provided as arguments are the input fasta file and the
-        prediction output file paths
-H
+       Submits online job. Provided as arguments are the input fasta file and the
+       prediction output filename
+
     """
 
     predicted_sites: dict
 
     @staticmethod
     def parse(outputfile: Path) -> Sumogo_data:
+        """Parses predictor's output"""
 
+        protname = (outputfile.name).split('.')[0]
         predicted_sites = {}
+        predicted_sites[protname] = {}
 
         try:
             with open(outputfile, 'r', encoding='utf-8') as f:
                 content = f.read()
+
+                if "Failed: Online job submission failed" in content:
+                    return Sumogo_data(predicted_sites)
+
                 soup = bs(content, "html.parser")
                 table = soup.find('table')
                 rows = table.findAll('tr')
 
-                protname = (outputfile.name).split('.')[0]
                 type = 'SUMO'
 
                 for r in rows:
@@ -68,8 +71,6 @@ H
                         score = round(float(cols[1].text), 3)
                         is_signif = score >= 0.5
 
-                        if protname not in predicted_sites:
-                            predicted_sites[protname] = {}
                         if resid not in predicted_sites[protname]:
                             predicted_sites[protname][resid] = []
 
@@ -93,12 +94,18 @@ H
 
         return Sumogo_data(predicted_sites)
 
+
+
+
     @staticmethod
     def submit_online(fastafile: Path, outputfile: Path):
+        """Submits online job. Provided as arguments are the input fasta file and the
+                        prediction output filename"""
 
         try:
             # launch job
             url = 'http://predictor.nchu.edu.tw/SUMOgo/result.php'
+            maxtime = 300
 
             with open(fastafile, 'r') as f:
                 seq = f.read()
@@ -113,9 +120,12 @@ H
 
             sleep(2)
             r2 = s.post(url, data={'jid': jobid })
-            while "is being processed" in r2.text:
+
+            count = 0
+            while "is being processed" in r2.text and count < maxtime/2:
                 sleep(2)
                 r2 = s.post(url, data={'jid': jobid })
+                count +=1
 
             r2.raise_for_status()
 

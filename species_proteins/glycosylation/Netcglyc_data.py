@@ -11,9 +11,6 @@ from time import sleep
 class Netcglyc_data:
     """Class that parses NetCglyc prediction output data.
 
-    Parameters
-    ----------
-
     Attributes
     ----------
     predicted_sites : Dictionary
@@ -27,12 +24,12 @@ class Netcglyc_data:
             is_signif : bool (is the method's specific scoring indicating a
                             potentially significant result)
             score : float (interpretation differs between methods)
-            type : string (C-glyc)
+            type : string
             predictor : string (for cases where multiple predictors are available)
 
     Public Methods
     --------------
-    parse( outputfile : path ) -> NetCglyc
+    parse( outputfile : path ) -> Netcglyc_data
         Parses the NetCglyc prediction output file and add the data inside the
         above attribute data structure.
 
@@ -48,11 +45,17 @@ class Netcglyc_data:
 
     @staticmethod
     def parse(outputfile: Path) -> Netcglyc_data:
+        """Parses predictor's output"""
 
         try:
             f = open(outputfile, 'r')
 
             lines = f.readlines()
+            if "Failed: Online job submission failed" in lines[0]:
+                protname = (outputfile.name).split('.')[0]
+                predicted_sites = {}
+                predicted_sites[protname] = {}
+                return Netcglyc_data(predicted_sites)
 
             if lines[0][0] == "<":
                 # online job output
@@ -76,7 +79,8 @@ class Netcglyc_data:
 
     @staticmethod
     def submit_online (fastafile : Path, outputfile: Path) :
-        #  Only single protein fasta file !!!!!
+        """Submits online job. Provided as arguments are the input fasta file and the
+                prediction output filename"""
 
         url = 'https://services.healthtech.dtu.dk/cgi-bin/webface2.cgi'
 
@@ -94,10 +98,11 @@ class Netcglyc_data:
             sleep(2)
             r2 = requests.get(url, params={'jobid' : jobid })
 
-            while jobid in r2.text:
+            count = 0; maxtime = 300
+            while jobid in r2.text and count < maxtime/2:
                 sleep(2)
                 r2 = requests.get(url, params={'jobid': jobid })
-
+                count +=1
 
             r2.raise_for_status()
 

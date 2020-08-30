@@ -11,9 +11,6 @@ from time import sleep
 class Netphospan_data:
     """Class that parses Netphospan prediction output data.
 
-    Parameters
-    ----------
-
     Attributes
     ----------
     predicted_sites : Dictionary
@@ -32,9 +29,13 @@ class Netphospan_data:
 
     Public Methods
     --------------
-    parse( outputfile : path ) -> Netphospan
-        Parses the Netphos prediction output file and add the data inside the
+    parse( outputfile : path ) -> Netphospan_data
+        Parses the prediction output file and add the data inside the
         above attribute data structure.
+
+    submit_online (fastafile : Path, outputfile: Path)
+        Submits online job. Provided as arguments are the input fasta file and the
+        prediction output file paths
 
     """
 
@@ -42,6 +43,7 @@ class Netphospan_data:
 
     @staticmethod
     def parse(outputfile: Path) -> Netphospan_data :
+        """Parses predictor's output"""
 
         predicted_sites = {}
 
@@ -49,6 +51,11 @@ class Netphospan_data:
             f = open(outputfile, 'r')
 
             lines = f.readlines()
+            if "Failed: Online job submission failed" in lines[0]:
+                protname = (outputfile.name).split('.')[0]
+                predicted_sites[protname] = {}
+                return Netphospan_data(predicted_sites)
+
             if lines[0][0] == "<":
                 predictor = "netphospan:1.0_online"
             else : predictor = "netphospan:1.0_local"
@@ -122,9 +129,11 @@ class Netphospan_data:
             sleep(2)
             r2 = requests.get(url, params={'jobid' : jobid })
 
-            while jobid in r2.text:
+            count = 0; maxtime = 300
+            while jobid in r2.text and count < maxtime/2:
                 sleep(2)
                 r2 = requests.get(url, params={'jobid': jobid })
+                count +=1
 
             r2.raise_for_status()
 

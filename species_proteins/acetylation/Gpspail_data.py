@@ -10,34 +10,34 @@ from bs4 import BeautifulSoup as bs
 class Gpspail_data:
     """Class that parses GpsPail prediction output data.
 
-    Parameters
-    ----------
-
     Attributes
     ----------
     predicted_sites : Dictionary
         predicted_sites [ protein name ][ start resid ] : array of entry dict
         entry dict has the following keys:
 
-        # Common to all PTS predictors
+        # Common to all PTM predictors
             seq : string (stretch of the predicted sequence)
             start : starting residue id
             end : ending residue id
             is_signif : bool (is the method's specific scoring indicating a
                             potentially significant result)
             score : float (interpretation differs between methods)
-            type : string (C-glyc)
+            type : string
             predictor : string (for cases where multiple predictors are available)
+
+        # Predictor specific:
+            enzyme
+            cutoff
 
     Public Methods
     --------------
     parse( outputfile : path ) -> Gpspail_data
-        Parses the GpsPail prediction output file and add the data inside the
-        above attribute data structure.
+        Parses the GpsPail prediction output file
 
     submit_online (fastafile : Path, outputfile: Path)
         Submits online job. Provided as arguments are the input fasta file and the
-        prediction output file paths
+        prediction output filename
 H
     """
 
@@ -46,12 +46,19 @@ H
 
     @staticmethod
     def parse(outputfile: Path) -> Gpspail_data:
+        """Parses predictor's output"""
 
         predicted_sites = {}
 
         try:
             with open(outputfile, 'r', encoding='utf-8') as f:
                 content = f.read()
+                if "Failed: Online job submission failed" in content:
+                    protname = (outputfile.name).split('.')[0]
+                    predicted_sites = {}
+                    predicted_sites[protname] = {}
+                    return Gpspail_data(predicted_sites)
+
                 soup = bs(content, "html.parser")
                 table = soup.find('tbody')
                 rows = table.findAll('tr')
@@ -95,8 +102,12 @@ H
 
         return Gpspail_data(predicted_sites)
 
+
+
     @staticmethod
     def submit_online(fastafile: Path, outputfile: Path):
+        """Submits online job. Provided as arguments are the input fasta file and the
+        prediction output filename"""
 
         try:
             url1 = 'http://pail.biocuckoo.org/webcomp/convert.php'

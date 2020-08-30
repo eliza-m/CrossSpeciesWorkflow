@@ -12,9 +12,6 @@ from bs4 import BeautifulSoup as bs
 class Nglyde_data:
     """Class that parses NGlyDE prediction output data.
 
-    Parameters
-    ----------
-
     Attributes
     ----------
     predicted_sites : Dictionary
@@ -33,7 +30,7 @@ class Nglyde_data:
 
     Public Methods
     --------------
-    parse( outputfile : path ) -> NGlyDE
+    parse( outputfile : path ) -> Nglyde_data
         Parses the prediction output file and add the data inside the
         above attribute data structure.
 
@@ -47,6 +44,7 @@ class Nglyde_data:
 
     @staticmethod
     def parse(outputfile: Path) -> Nglyde_data :
+        """Parses predictor's output"""
 
         predicted_sites = {}
 
@@ -57,6 +55,10 @@ class Nglyde_data:
             # easilly parsed...we found a simpler approach
 
             content = f.read()
+            if "Failed: Online job submission failed" in content:
+                protname = (outputfile.name).split('.')[0]
+                predicted_sites[protname] = {}
+                return Nglyde_data(predicted_sites)
 
             content = content.replace( "</tr><th>", "</tr><tr><th>" )
             content = content.replace("</tr>", "</th></tr>")
@@ -108,6 +110,8 @@ class Nglyde_data:
 
     @staticmethod
     def submit_online (fastafile : Path, outputfile: Path) :
+        """Submits online job. Provided as arguments are the input fasta file and the
+                        prediction output filename"""
 
         try:
 
@@ -130,9 +134,11 @@ class Nglyde_data:
             sleep(2)
             r2 = requests.get(url2, params={'job' : jobid })
 
-            while message not in r2.text:
+            count = 0; maxtime = 300
+            while message not in r2.texta and count < maxtime/2 :
                 sleep(2)
                 r2 = requests.get(url2, params={'job': jobid })
+                count += 1
 
             r2.raise_for_status()
 

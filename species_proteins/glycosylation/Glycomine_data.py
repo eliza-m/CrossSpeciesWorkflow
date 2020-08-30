@@ -10,9 +10,6 @@ from bs4 import BeautifulSoup as bs
 class Glycomine_data:
     """Class that parses Glycomine prediction output data.
 
-    Parameters
-    ----------
-
     Attributes
     ----------
     predicted_sites : Dictionary
@@ -46,11 +43,19 @@ class Glycomine_data:
 
     @staticmethod
     def parse(outputfile: Path) -> Glycomine_data :
+        """Parses predictor's output"""
 
         predicted_sites = {}
 
         try:
             f = open(outputfile, 'r')
+
+            if "Failed: Online job submission failed" in f.read():
+                protname = (outputfile.name).split('.')[0]
+                predicted_sites = {}
+                predicted_sites[protname] = {}
+                return Glycomine_data(predicted_sites)
+
             soup = bs(f, "html.parser")
 
             h = soup.find('h2')
@@ -101,6 +106,8 @@ class Glycomine_data:
 
     @staticmethod
     def submit_online (fastafile : Path, outputfile: Path, type: str) :
+        """Submits online job. Provided as arguments are the input fasta file and the
+                prediction output filename"""
 
         try:
             if type not in "NOC":

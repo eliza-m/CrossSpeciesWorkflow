@@ -11,9 +11,6 @@ from time import sleep
 class Netoglyc_data:
     """Class that parses NetOglyc prediction output data.
 
-    Parameters
-    ----------
-
     Attributes
     ----------
     predicted_sites : Dictionary
@@ -37,7 +34,7 @@ class Netoglyc_data:
 
     Public Methods
     --------------
-    parse( outputfile : path ) -> NetOglyc
+    parse( outputfile : path ) -> Netoglyc_data
         Parses the NetOglyc prediction output file and add the data inside the
         above attribute data structure.
 
@@ -53,11 +50,17 @@ class Netoglyc_data:
 
     @staticmethod
     def parse(outputfile: Path) -> Netoglyc_data:
+        """Parses predictor's output"""
 
         try:
             f = open(outputfile, 'r')
 
             lines = f.readlines()
+            if "Failed: Online job submission failed" in lines[0]:
+                protname = (outputfile.name).split('.')[0]
+                predicted_sites = {}
+                predicted_sites[protname] = {}
+                return Netoglyc_data(predicted_sites)
 
             if lines[0][0] == "<":
                 # online job output
@@ -82,7 +85,8 @@ class Netoglyc_data:
 
     @staticmethod
     def submit_online (fastafile : Path, outputfile: Path) :
-        #  Only single protein fasta file !!!!!
+        """Submits online job. Provided as arguments are the input fasta file and the
+                prediction output filename"""
 
         try:
             url = 'https://services.healthtech.dtu.dk/cgi-bin/webface2.cgi'
@@ -99,10 +103,12 @@ class Netoglyc_data:
             sleep(2)
             r2 = requests.get(url, params={'jobid' : jobid })
 
-            while jobid in r2.text:
+
+            count = 0; maxtime = 300
+            while jobid in r2.text and count < maxtime/2:
                 sleep(2)
                 r2 = requests.get(url, params={'jobid': jobid })
-
+                count +=1
 
             r2.raise_for_status()
 

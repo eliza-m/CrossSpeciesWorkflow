@@ -157,7 +157,7 @@ def submit_online(predictor: str, input: Path, output: Path, type: str = None):
 @click.option('--module', required=True, help="""\b
                                 Prediction module - accepted values: 
                                 - all            :  All modules 
-                                - ptm         :  All Post Translation modifications ( glyc + acet + phos + sumo + lipid) 
+                                - ptm            :  All Post Translation modifications ( glyc + acet + phos + sumo + lipid) 
                                 - struct         :  Structural module 
                                 - glyc           :  Glycosylation module
                                 - phos           :  Phosphorylation module
@@ -221,13 +221,13 @@ def format_output(format: str, module: str, inputfolder: Path, output: Path, sig
 
     predictions = []
 
-    if     module in ['glyc', 'ptsmod', 'all']  : predictions.append( Glycosylation_pred.parse_all(paths) )
-    elif   module in ['acet', 'ptsmod', 'all']  : predictions.append( Acetylation_pred.parse_all(paths) )
-    elif   module in ['phos', 'ptsmod', 'all']  : predictions.append( Phosphorylation_pred.parse_all(paths) )
-    elif   module in ['lipid', 'ptsmod', 'all'] : predictions.append( Lipid_pred.parse_all(paths) )
-    elif   module in ['sumo', 'ptsmod', 'all']  : predictions.append( Sumoylation_pred.parse_all(paths) )
-    elif   module in ['loc', 'all']             : predictions.append( Localisation_pred.parse_all(paths) )
-    elif   module in ['struct', 'all']          : predictions.append( Structural_pred.parse_all(paths) )
+    if     module in ['glyc', 'ptm', 'all']  : predictions.append( Glycosylation_pred.parse_all(paths) )
+    elif   module in ['acet', 'ptm', 'all']  : predictions.append( Acetylation_pred.parse_all(paths) )
+    elif   module in ['phos', 'ptm', 'all']  : predictions.append( Phosphorylation_pred.parse_all(paths) )
+    elif   module in ['lipid', 'ptm', 'all'] : predictions.append( Lipid_pred.parse_all(paths) )
+    elif   module in ['sumo', 'ptm', 'all']  : predictions.append( Sumoylation_pred.parse_all(paths) )
+    elif   module in ['loc', 'all']          : predictions.append( Localisation_pred.parse_all(paths) )
+    elif   module in ['struct', 'all']       : predictions.append( Structural_pred.parse_all(paths) )
     else : 
         print("Modules list is not updated !!")
 
@@ -245,7 +245,7 @@ def format_output(format: str, module: str, inputfolder: Path, output: Path, sig
 @click.option('--module', required=True, help="""\b
                                 Prediction module - accepted values: 
                                 - all            :  All modules 
-                                - ptm         :  All Post Translation modifications ( glyc + acet + phos + sumo + lipid) 
+                                - ptm            :  All Post Translation modifications ( glyc + acet + phos + sumo + lipid) 
                                 - struct         :  Structural module 
                                 - glyc           :  Glycosylation module
                                 - phos           :  Phosphorylation module

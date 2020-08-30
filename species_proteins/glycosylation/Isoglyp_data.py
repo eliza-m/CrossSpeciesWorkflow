@@ -8,9 +8,6 @@ import sys
 class Isoglyp_data:
     """Class that parses Isoglyp prediction output data.
 
-    Parameters
-    ----------
-
     Attributes
     ----------
     predicted_sites : Dictionary
@@ -45,6 +42,7 @@ class Isoglyp_data:
 
     @staticmethod
     def parse(outputfile: Path) -> Isoglyp_data :
+        """Parses predictor's output"""
 
         predicted_sites = {}
         try:

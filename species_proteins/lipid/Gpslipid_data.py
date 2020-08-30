@@ -10,9 +10,6 @@ from bs4 import BeautifulSoup as bs
 class Gpslipid_data:
     """Class that parses GpsLipid prediction output data.
 
-    Parameters
-    ----------
-
     Attributes
     ----------
     predicted_sites : Dictionary
@@ -26,13 +23,13 @@ class Gpslipid_data:
             is_signif : bool (is the method's specific scoring indicating a
                             potentially significant result)
             score : float (interpretation differs between methods)
-            type : string (C-glyc)
+            type : string
             predictor : string (for cases where multiple predictors are available)
 
     Public Methods
     --------------
-    parse( outputfile : path ) -> Gpspail_data
-        Parses the GpsPail prediction output file and add the data inside the
+    parse( outputfile : path ) -> Gpslipid_data
+        Parses the prediction output file and add the data inside the
         above attribute data structure.
 
     submit_online (fastafile : Path, outputfile: Path)
@@ -45,12 +42,18 @@ H
 
     @staticmethod
     def parse(outputfile: Path) -> Gpslipid_data:
+        """Parses predictor's output"""
 
         predicted_sites = {}
 
         try:
             with open(outputfile, 'r', encoding='utf-8') as f:
                 content = f.read()
+                if "Failed: Online job submission failed" in content:
+                    protname = (outputfile.name).split('.')[0]
+                    predicted_sites[protname] = {}
+                    return Gpslipid_data(predicted_sites)
+
                 soup = bs(content, "html.parser")
                 table = soup.find('tbody')
                 rows = table.findAll('tr')
@@ -95,6 +98,8 @@ H
 
     @staticmethod
     def submit_online(fastafile: Path, outputfile: Path):
+        """Submits online job. Provided as arguments are the input fasta file and the
+                        prediction output filename"""
 
         url1 = 'http://lipid.biocuckoo.org/coreExecute/convert.php'
         url2 = 'http://lipid.biocuckoo.org/presult.php'
