@@ -157,7 +157,7 @@ def submit_online(predictor: str, input: Path, output: Path, type: str = None):
 @click.option('--module', required=True, help="""\b
                                 Prediction module - accepted values: 
                                 - all            :  All modules 
-                                - ptsmod         :  All Post Translation modifications ( glyc + acet + phos + sumo + lipid) 
+                                - ptm         :  All Post Translation modifications ( glyc + acet + phos + sumo + lipid) 
                                 - struct         :  Structural module 
                                 - glyc           :  Glycosylation module
                                 - phos           :  Phosphorylation module
@@ -176,7 +176,8 @@ def submit_online(predictor: str, input: Path, output: Path, type: str = None):
 def format_output(format: str, module: str, inputfolder: Path, output: Path, signif: bool = False,
                  protname: str = None, alnfile: Path = None):
     """
-        Generates a vertical formatted layout of all predicted outputs. If 'multi' protein format is selected, sequences are shown aligned.
+        Generates a vertical formatted layout of all predicted outputs. If 'multi' protein format is selected,
+        sequences are shown aligned.
     """
 
     keys = {
@@ -189,10 +190,9 @@ def format_output(format: str, module: str, inputfolder: Path, output: Path, sig
         'loc': ["tmpred", "tmhmm", "fasta", "fsa"],
         'struct': ["raptorx", "psipred", "disopred", "scratch1d"]
     }
-
-    keys['ptsmod'] = keys['glyc'][:-2] + keys['phos'][:-2] + keys['acet'][:-2] + keys['sumo'][:-2] + keys['lipid'][:-2] + ["fasta", "fsa"] 
-
-    keys['all'] = keys['ptsmod'][:-2] + keys['loc'][:-2] + keys['sumo'][:-2] + ["fasta", "fsa"] 
+    keys['ptm'] = keys['glyc'][:-2] + keys['phos'][:-2] + keys['acet'][:-2] + keys['sumo'][:-2] + keys['lipid'][:-2] \
+                  + ["fasta", "fsa"]
+    keys['all'] = keys['ptm'][:-2] + keys['loc'][:-2] + keys['sumo'][:-2] + ["fasta", "fsa"]
 
 
     inputfolder = Path(inputfolder);
@@ -245,7 +245,7 @@ def format_output(format: str, module: str, inputfolder: Path, output: Path, sig
 @click.option('--module', required=True, help="""\b
                                 Prediction module - accepted values: 
                                 - all            :  All modules 
-                                - ptsmod         :  All Post Translation modifications ( glyc + acet + phos + sumo + lipid) 
+                                - ptm         :  All Post Translation modifications ( glyc + acet + phos + sumo + lipid) 
                                 - struct         :  Structural module 
                                 - glyc           :  Glycosylation module
                                 - phos           :  Phosphorylation module
@@ -256,7 +256,7 @@ def format_output(format: str, module: str, inputfolder: Path, output: Path, sig
 @click.option('--outdir', required=False, help='Output directory. Default: current directory.')
 @click.option('--args', required=False, default="--no-match-user --no-read-only", show_default=True, \
                          help='Argumments to be passed to cwltool.')
-@click.option('--parallel', is_flag=True, default=False, show_default=True, required=False, help='Run in parallel')
+@click.option('--parallel', is_flag=True, default=False, show_default=True, required=False, help='Run in parallel. NOT recommended due to HTTP response errors !!!')
 def pipeline(cwlinput: str, mode: str, module:str, outdir:str = "./", args: str = None, parallel: bool = False):
     """Simple wrapper for choosing which CWL workflow to run. For more options uses directly cwltool or a different workflow runner."""
 
@@ -268,7 +268,9 @@ def pipeline(cwlinput: str, mode: str, module:str, outdir:str = "./", args: str 
         'sumo': "${CSW_HOME}/cwl/sumoylation/" + type + 'prot_sumo_only_id.cwl',
         'lipid': "${CSW_HOME}/cwl/lipid/" + type + 'prot_lipid_only_id.cwl',
         'loc': "${CSW_HOME}/cwl/localisation/" + type + 'prot_loc_only_id.cwl',
-        'struct': "${CSW_HOME}/cwl/structural/" + type + 'prot_struct_only_id.cwl'
+        'struct': "${CSW_HOME}/cwl/structural/" + type + 'prot_struct_only_id.cwl',
+        'ptm': "${CSW_HOME}/cwl/" + type + 'prot_ptm_id.cwl',
+        'all': "${CSW_HOME}/cwl/" + type + 'prot_all_id.cwl'
     }
     useParallel = '--parallel' if parallel else ''
     cmd = "cwltool " + args + " " + useParallel + " --outdir " + outdir + " " + paths[module] + " " + cwlinput
