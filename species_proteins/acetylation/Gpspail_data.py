@@ -98,46 +98,53 @@ H
     @staticmethod
     def submit_online(fastafile: Path, outputfile: Path):
 
-        url1 = 'http://pail.biocuckoo.org/webcomp/convert.php'
-        url2 = 'http://pail.biocuckoo.org/wsresult.php'
-        url3 = 'http://pail.biocuckoo.org/webcomp/download.php'
+        try:
+            url1 = 'http://pail.biocuckoo.org/webcomp/convert.php'
+            url2 = 'http://pail.biocuckoo.org/wsresult.php'
+            url3 = 'http://pail.biocuckoo.org/webcomp/download.php'
 
-        # launch job
+            # launch job
 
-        with open(fastafile, 'r') as f:
-            seq = f.read()
-            if "\r\n" not in seq:
-                seq = seq.replace("\n", "\r\n")
+            with open(fastafile, 'r') as f:
+                seq = f.read()
+                if "\r\n" not in seq:
+                    seq = seq.replace("\n", "\r\n")
 
-        data = {'tag': 'on', 'MAX_FILE_SIZE': '20M',
-                'Fasta_Input': seq,
-                'threhold': 'Medium',
-                'All': 'CREBBP;EP300;HAT1;KAT2A;KAT2B;KAT5;KAT8',
-                'CREBBP': 'CREBBP',
-                'EP300': 'EP300',
-                'HAT1': 'HAT1',
-                'KAT2A': 'KAT2A',
-                'KAT2B': 'KAT2B',
-                'KAT5': 'KAT5',
-                'KAT8': 'KAT8'
-                }
+            data = {'tag': 'on', 'MAX_FILE_SIZE': '20M',
+                    'Fasta_Input': seq,
+                    'threhold': 'Medium',
+                    'All': 'CREBBP;EP300;HAT1;KAT2A;KAT2B;KAT5;KAT8',
+                    'CREBBP': 'CREBBP',
+                    'EP300': 'EP300',
+                    'HAT1': 'HAT1',
+                    'KAT2A': 'KAT2A',
+                    'KAT2B': 'KAT2B',
+                    'KAT5': 'KAT5',
+                    'KAT8': 'KAT8'
+                    }
 
-        s = requests.Session()
-        r1 = s.post(url1, data=data)
+            s = requests.Session()
+            r1 = s.post(url1, data=data)
 
-        # retrieve results
-        r2 = s.get(url2)
-        r2.raise_for_status()
+            # retrieve results
+            r2 = s.get(url2)
+            r2.raise_for_status()
 
-        r3 = s.post(url3)
-        r3.raise_for_status()
+            r3 = s.post(url3)
+            r3.raise_for_status()
 
-        # html archive
-        with open(outputfile, 'w', encoding='utf-8') as f:
-            f.write(r2.text)
+            # html archive
+            with open(outputfile, 'w', encoding='utf-8') as f:
+                f.write(r2.text)
 
-        # zip archive
-        # zipfile = (outputfile.stem + '_raw').with_suffix('.zip')
-        zipfile = outputfile.split('.')[0] + 'gpspail_raw.zip'
-        with open(zipfile, 'wb') as f:
-            f.write(r3.content)
+            # # zip archive
+            # # zipfile = (outputfile.stem + '_raw').with_suffix('.zip')
+            # zipfile = outputfile.split('.')[0] + 'gpspail_raw.zip'
+            # with open(zipfile, 'wb') as f:
+            #     f.write(r3.content)
+
+        except Exception as e:
+            print("Failed: Online job submission failed !!!!")
+            if hasattr(e, 'message'): print(e.message)
+            else: print(e)
+            pass

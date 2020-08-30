@@ -96,30 +96,37 @@ H
     @staticmethod
     def submit_online(fastafile: Path, outputfile: Path):
 
-        # launch job
-        url = 'http://predictor.nchu.edu.tw/SUMOgo/result.php'
+        try:
+            # launch job
+            url = 'http://predictor.nchu.edu.tw/SUMOgo/result.php'
 
-        with open(fastafile, 'r') as f:
-            seq = f.read()
+            with open(fastafile, 'r') as f:
+                seq = f.read()
 
-        data = { 'seq': seq }
-        s = requests.Session()
-        r1 = s.post(url, data=data)
+            data = { 'seq': seq }
+            s = requests.Session()
+            r1 = s.post(url, data=data)
 
-        #retrieve results
-        temp = re.search(r"JOBID:.+is", r1.text)
-        jobid = temp.group().split(':')[1].split(' ')[0][0:-1]
+            #retrieve results
+            temp = re.search(r"JOBID:.+is", r1.text)
+            jobid = temp.group().split(':')[1].split(' ')[0][0:-1]
 
-        sleep(2)
-        r2 = s.post(url, data={'jid': jobid })
-        while "is being processed" in r2.text:
             sleep(2)
             r2 = s.post(url, data={'jid': jobid })
+            while "is being processed" in r2.text:
+                sleep(2)
+                r2 = s.post(url, data={'jid': jobid })
 
-        r2.raise_for_status()
+            r2.raise_for_status()
 
-        # html archive
-        with open(outputfile, 'w', encoding='utf-8') as f:
-            f.write(r2.text)
+            # html archive
+            with open(outputfile, 'w', encoding='utf-8') as f:
+                f.write(r2.text)
+
+        except Exception as e:
+            print("Failed: Online job submission failed !!!!")
+            if hasattr(e, 'message'): print(e.message)
+            else: print(e)
+            pass
 
 

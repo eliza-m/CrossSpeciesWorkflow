@@ -102,20 +102,26 @@ class Glycomine_data:
     @staticmethod
     def submit_online (fastafile : Path, outputfile: Path, type: str) :
 
-        if type not in "NOC":
-            print("Type should be one of the following: 'N', 'C' or 'O'")
-            raise
+        try:
+            if type not in "NOC":
+                print("Type should be one of the following: 'N', 'C' or 'O'")
+                raise
 
-        url = 'http://glycomine.erc.monash.edu/Lab/GlycoMine/GlycoMine.pl'
+            url = 'http://glycomine.erc.monash.edu/Lab/GlycoMine/GlycoMine.pl'
 
-        #launch job & retrieve results
-        with open(fastafile, 'r') as f :
-            seq = f.read()
+            #launch job & retrieve results
+            with open(fastafile, 'r') as f :
+                seq = f.read()
 
-        data = {'txtInput':seq, 'specie':type }
-        r = requests.post(url, data=data)
+            data = {'txtInput':seq, 'specie':type }
+            r = requests.post(url, data=data)
 
-        r.raise_for_status()
-        file = open(outputfile, "w")
-        file.write(r.text)
+            r.raise_for_status()
+            file = open(outputfile, "w")
+            file.write(r.text)
 
+        except Exception as e:
+            print("Failed: Online job submission failed !!!!")
+            if hasattr(e, 'message'): print(e.message)
+            else: print(e)
+            pass

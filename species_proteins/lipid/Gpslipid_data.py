@@ -112,16 +112,23 @@ H
                 'ger': 'ger',
                 'thresold': 'm'
                 }
+        try:
+            s = requests.Session()
+            r1 = s.post(url1, data=data)
 
-        s = requests.Session()
-        r1 = s.post(url1, data=data)
+            # retrieve results
+            r2 = s.get(url2)
+            r2.raise_for_status()
 
-        # retrieve results
-        r2 = s.get(url2)
-        r2.raise_for_status()
+            # html archive
+            with open(outputfile, 'w', encoding='utf-8') as f:
+                f.write(r2.text)
 
-        # html archive
-        with open(outputfile, 'w', encoding='utf-8') as f:
-            f.write(r2.text)
+        except Exception as e:
+            print("Failed: Online job submission failed !!!!")
+            if hasattr(e, 'message'): print(e.message)
+            else: print(e)
+            pass
+
 
 

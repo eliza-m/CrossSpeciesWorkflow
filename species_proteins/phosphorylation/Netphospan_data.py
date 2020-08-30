@@ -102,30 +102,39 @@ class Netphospan_data:
     def submit_online (fastafile : Path, outputfile: Path) :
     #  Only generic prediction is implemented yet
 
-        url = 'https://services.healthtech.dtu.dk/cgi-bin/webface2.cgi'
+        try:
 
-        #launch job
-        files = {'SEQSUB': open(fastafile, 'r')}
-        data = {
-                'configfile':'/var/www/html/services/NetPhospan-1.0/webface.cf',
-                'generic_web':'1',
-                'master':'1'
-                }
-        r1 = requests.post(url, data=data, files=files)
+            url = 'https://services.healthtech.dtu.dk/cgi-bin/webface2.cgi'
 
-        #retrieve results
-        temp = re.search(r"jobid: .+ status", r1.text)
-        jobid = temp.group().split(' ')[1]
+            #launch job
+            files = {'SEQSUB': open(fastafile, 'r')}
+            data = {
+                    'configfile':'/var/www/html/services/NetPhospan-1.0/webface.cf',
+                    'generic_web':'1',
+                    'master':'1'
+                    }
+            r1 = requests.post(url, data=data, files=files)
 
-        sleep(2)
-        r2 = requests.get(url, params={'jobid' : jobid })
+            #retrieve results
+            temp = re.search(r"jobid: .+ status", r1.text)
+            jobid = temp.group().split(' ')[1]
 
-        while jobid in r2.text:
             sleep(2)
-            r2 = requests.get(url, params={'jobid': jobid })
+            r2 = requests.get(url, params={'jobid' : jobid })
 
-        r2.raise_for_status()
+            while jobid in r2.text:
+                sleep(2)
+                r2 = requests.get(url, params={'jobid': jobid })
 
-        file = open(outputfile, "w")
-        file.write(r2.text)
+            r2.raise_for_status()
+
+            file = open(outputfile, "w")
+            file.write(r2.text)
+
+        except Exception as e:
+            print("Failed: Online job submission failed !!!!")
+            if hasattr(e, 'message'): print(e.message)
+            else: print(e)
+            pass
+
 

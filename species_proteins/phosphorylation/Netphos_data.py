@@ -75,28 +75,36 @@ class Netphos_data:
     def submit_online (fastafile : Path, outputfile: Path) :
         #  Only single protein fasta file !!!!!
 
-        url = 'https://services.healthtech.dtu.dk/cgi-bin/webface2.cgi'
+        try:
+            url = 'https://services.healthtech.dtu.dk/cgi-bin/webface2.cgi'
 
-        #launch job
-        files = {'SEQSUB': open(fastafile, 'r')}
-        data = {'configfile':'/var/www/html/services/NetPhos-3.1/webface.cf'}
-        r1 = requests.post(url, data=data, files=files)
+            #launch job
+            files = {'SEQSUB': open(fastafile, 'r')}
+            data = {'configfile':'/var/www/html/services/NetPhos-3.1/webface.cf'}
+            r1 = requests.post(url, data=data, files=files)
 
-        #retrieve results
-        temp = re.search(r"jobid: .+ status", r1.text)
-        jobid = temp.group().split(' ')[1]
+            #retrieve results
+            temp = re.search(r"jobid: .+ status", r1.text)
+            jobid = temp.group().split(' ')[1]
 
-        sleep(2)
-        r2 = requests.get(url, params={'jobid' : jobid })
-
-        while jobid in r2.text:
             sleep(2)
-            r2 = requests.get(url, params={'jobid': jobid })
+            r2 = requests.get(url, params={'jobid' : jobid })
 
-        r2.raise_for_status()
+            while jobid in r2.text:
+                sleep(2)
+                r2 = requests.get(url, params={'jobid': jobid })
 
-        file = open(outputfile, "w")
-        file.write(r2.text)
+            r2.raise_for_status()
+
+            file = open(outputfile, "w")
+            file.write(r2.text)
+
+        except Exception as e:
+            print("Failed: Online job submission failed !!!!")
+            if hasattr(e, 'message'): print(e.message)
+            else: print(e)
+            pass
+
 
 
 

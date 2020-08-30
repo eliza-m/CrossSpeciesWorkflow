@@ -108,29 +108,35 @@ H
     @staticmethod
     def submit_online(fastafile: Path, outputfile: Path):
 
-        url1 = 'http://sumosp.biocuckoo.org/transfer.php'
-        url2 = 'http://sumosp.biocuckoo.org/showResult.php'
+        try:
+            url1 = 'http://sumosp.biocuckoo.org/transfer.php'
+            url2 = 'http://sumosp.biocuckoo.org/showResult.php'
 
-        # launch job
+            # launch job
+            with open(fastafile, 'r') as f:
+                seq = f.read()
 
-        with open(fastafile, 'r') as f:
-            seq = f.read()
+            data = {
+                    'text': seq,
+                    'sum': 'Medium',
+                    'bin': 'Medium',
+                    'bool': 'on'
+                    }
 
-        data = {
-                'text': seq,
-                'sum': 'Medium',
-                'bin': 'Medium',
-                'bool': 'on'
-                }
+            s = requests.Session()
+            r1 = s.post(url1, data=data)
 
-        s = requests.Session()
-        r1 = s.post(url1, data=data)
+            # retrieve results
+            r2 = s.get(url2)
+            r2.raise_for_status()
 
-        # retrieve results
-        r2 = s.get(url2)
-        r2.raise_for_status()
+            # html archive
+            with open(outputfile, 'w', encoding='utf-8') as f:
+                f.write(r2.text)
 
-        # html archive
-        with open(outputfile, 'w', encoding='utf-8') as f:
-            f.write(r2.text)
+        except Exception as e:
+            print("Failed: Online job submission failed !!!!")
+            if hasattr(e, 'message'): print(e.message)
+            else: print(e)
+            pass
 

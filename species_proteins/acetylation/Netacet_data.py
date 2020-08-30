@@ -103,29 +103,34 @@ class Netacet_data:
         url = 'https://services.healthtech.dtu.dk/cgi-bin/webface2.cgi'
 
         #launch job
-        
+
         f = FASTA()
         f.read_fasta(fastafile)
         seq = f.sequence
 
         data = {'SEQPASTE': seq, 'configfile':'/var/www/html/services/NetAcet-1.0/webface.cf'}
-        r1 = requests.post(url, data=data)
 
-        #retrieve results
-        temp = re.search(r"jobid: .+ status", r1.text)
-        jobid = temp.group().split(' ')[1]
+        try:
+            r1 = requests.post(url, data=data)
 
-        sleep(2)
-        r2 = requests.get(url, params={'jobid' : jobid })
+            #retrieve results
+            temp = re.search(r"jobid: .+ status", r1.text)
+            jobid = temp.group().split(' ')[1]
 
-        while jobid in r2.text:
             sleep(2)
-            r2 = requests.get(url, params={'jobid': jobid })
+            r2 = requests.get(url, params={'jobid' : jobid })
 
+            while jobid in r2.text:
+                sleep(2)
+                r2 = requests.get(url, params={'jobid': jobid })
 
-        r2.raise_for_status()
+            r2.raise_for_status()
 
-        file = open(outputfile, "w")
-        file.write(r2.text)
+            file = open(outputfile, "w")
+            file.write(r2.text)
 
-
+        except Exception as e:
+            print("Failed: Online job submission failed !!!!")
+            if hasattr(e, 'message'): print(e.message)
+            else: print(e)
+            pass

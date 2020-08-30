@@ -144,26 +144,31 @@ class Tmpred_data:
     def submit_online(fastafile: Path, outputfile: Path):
         #  Only single protein fasta file !!!!!
 
-        url = 'https://embnet.vital-it.ch/cgi-bin/TMPRED_form_parser'
+        try:
+            # launch job
+            url = 'https://embnet.vital-it.ch/cgi-bin/TMPRED_form_parser'
+            f = FASTA()
+            f.read_fasta(fastafile)
+            seq = f.sequence
 
-        # launch job
+            data = {
+                    'outmode':'html',
+                    'min': '17',
+                    'max': '33',
+                    'comm': '',
+                    'format' : 'plain_text',
+                    'seq': seq
+                    }
+            s = requests.session()
+            r1 = s.post(url, data=data)
+            r1.raise_for_status()
 
-        f = FASTA()
-        f.read_fasta(fastafile)
-        seq = f.sequence
+            # write results
+            file = open(outputfile, "w")
+            file.write(r1.text)
 
-        data = {
-                'outmode':'html',
-                'min': '17',
-                'max': '33',
-                'comm': '',
-                'format' : 'plain_text',
-                'seq': seq
-                }
-        s = requests.session()
-        r1 = s.post(url, data=data)
-        r1.raise_for_status()
-
-        file = open(outputfile, "w")
-        file.write(r1.text)
-
+        except Exception as e:
+            print("Failed: Online job submission failed !!!!")
+            if hasattr(e, 'message'): print(e.message)
+            else: print(e)
+            pass

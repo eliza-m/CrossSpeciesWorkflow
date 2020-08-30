@@ -109,31 +109,38 @@ class Nglyde_data:
     @staticmethod
     def submit_online (fastafile : Path, outputfile: Path) :
 
-        url1 = 'http://bioapp.iis.sinica.edu.tw/Nglyde/run.php'
-        url2 = 'http://bioapp.iis.sinica.edu.tw/GlycoPred/MakeSummary.php'
-        message = "All queries have been done!!"
+        try:
 
-        #launch job
-        with open(fastafile, 'r') as f :
-            seq = f.read()
+            url1 = 'http://bioapp.iis.sinica.edu.tw/Nglyde/run.php'
+            url2 = 'http://bioapp.iis.sinica.edu.tw/GlycoPred/MakeSummary.php'
+            message = "All queries have been done!!"
 
-        data = {'sequence': seq}
-        r1 = requests.post(url1, data=data )
+            #launch job
+            with open(fastafile, 'r') as f :
+                seq = f.read()
+
+            data = {'sequence': seq}
+            r1 = requests.post(url1, data=data )
 
 
-        #retrieve results
-        temp = re.search(r"job=.+\)", r1.text)
-        jobid = temp.group().split('=')[1][:-1]
+            #retrieve results
+            temp = re.search(r"job=.+\)", r1.text)
+            jobid = temp.group().split('=')[1][:-1]
 
-        sleep(2)
-        r2 = requests.get(url2, params={'job' : jobid })
-
-        while message not in r2.text:
             sleep(2)
-            r2 = requests.get(url2, params={'job': jobid })
+            r2 = requests.get(url2, params={'job' : jobid })
 
-        r2.raise_for_status()
+            while message not in r2.text:
+                sleep(2)
+                r2 = requests.get(url2, params={'job': jobid })
 
-        file = open(outputfile, "w")
-        file.write(r2.text)
+            r2.raise_for_status()
 
+            file = open(outputfile, "w")
+            file.write(r2.text)
+
+        except Exception as e:
+            print("Failed: Online job submission failed !!!!")
+            if hasattr(e, 'message'): print(e.message)
+            else: print(e)
+            pass
