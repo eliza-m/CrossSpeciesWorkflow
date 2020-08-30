@@ -28,7 +28,7 @@ inputs:
 
    outputFolder:
      type: string?
-     default: "lipid_results"
+     default: "lipid_preds"
      doc: |
        Raw prediction data folder name
 
@@ -43,7 +43,7 @@ outputs:
 
   lipidylationPredictions:
     type: Directory
-    outputSource: organize/folder
+    outputSource: wrap/folder
     doc: |
       A folder containing all predicted raw data
 
@@ -83,32 +83,15 @@ steps:
     doc: |
       Run all predictors
 
-  organize:
+  wrap:
+    run: ../util/dirarray_to_dir.cwl
     in:
-      results: predictAll/results
-      outputFolder: outputFolder
+      inputFolder: predictAll/results
+      outputFolder: outputFolder 
     out: [folder]
-    run:
-      class: ExpressionTool
-      id: "organize"
-      inputs:
-        results: Directory[]
-        outputFolder :
-          type: string?
-          default: "lipid_results"
-      outputs:
-        folder: Directory
-      expression: |
-        ${
-          var folder = {
-            "class": "Directory",
-            "basename": inputs.outputFolder,
-            "listing": inputs.results
-          };
-          return { "folder": folder };
-        }
     doc: |
       Organize all prediction output as a single folder, that will become next step's input
+
 
   getMultiFasta:
     run: ../util/get_fasta_for_aln.cwl
@@ -136,7 +119,7 @@ steps:
       outputFilename: outputFilename
       signif: signif
       alnFile: align/alnFile
-      inputFolder: organize/folder
+      inputFolder: wrap/folder
     out: [output]
     doc: |
       Format final output

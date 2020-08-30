@@ -14,8 +14,8 @@ class: CommandLineTool
 baseCommand: [format-output]
 hints:
   DockerRequirement:
-    dockerPull: quay.io/dbsb-ibar/species_proteins:latest
-    #dockerImageId: quay.io/dbsb-ibar/species_proteins:latest
+    #dockerPull: quay.io/dbsb-ibar/species_proteins:latest
+    dockerImageId: quay.io/dbsb-ibar/species_proteins:latest
 
 
 requirements:
@@ -43,9 +43,8 @@ inputs:
       - type: enum
         symbols:
           - all                  # all modules
-          - all_nonstruc         # all modules except structural, which is slow
-          - ptm               # Post translation modifications : glyco + acety + sumo + lipid
-          - struct                # Structural module only
+          - ptm                  # Post translation modifications : glyco + acety + sumo + lipid
+          - struct               # Structural module only
           - glyc                 # Glycosylation module only
           - phos                 # Phosphorylation module only
           - acet                 # Acetylation module only
@@ -118,7 +117,7 @@ outputs:
              self[0].basename = inputs.protname + "." + inputs.formattype + "." + inputs.module + ".out";
           }
           else{
-             self[0].basename = inputs.inputFolder.basename + "." + inputs.formattype + "." + inputs.module + ".out";
+             self[0].basename = inputs.module + "_results.txt";
           }
           return self[0]
         }

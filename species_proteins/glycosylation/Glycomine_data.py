@@ -49,14 +49,16 @@ class Glycomine_data:
 
         try:
             f = open(outputfile, 'r')
+            content = f.read()
 
-            if "Failed: Online job submission failed" in f.read():
+            if "Failed: Online job submission failed" in content :
                 protname = (outputfile.name).split('.')[0]
                 predicted_sites = {}
                 predicted_sites[protname] = {}
                 return Glycomine_data(predicted_sites)
 
-            soup = bs(f, "html.parser")
+
+            soup = bs(content, "html.parser")
 
             h = soup.find('h2')
             protname = h.contents[0].split()[0][1:]
