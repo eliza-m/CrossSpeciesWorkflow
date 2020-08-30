@@ -143,4 +143,6 @@ class Nglyde_data:
             print("Failed: Online job submission failed !!!!")
             if hasattr(e, 'message'): print(e.message)
             else: print(e)
+            with open(outputfile, 'w', encoding='utf-8') as f:
+                print("#Failed: Online job submission failed !!!! Error: ", e, file=f)
             pass

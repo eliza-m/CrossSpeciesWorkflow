@@ -144,7 +144,9 @@ H
             #     f.write(r3.content)
 
         except Exception as e:
-            print("Failed: Online job submission failed !!!!")
+            print("#Failed: Online job submission failed !!!!")
             if hasattr(e, 'message'): print(e.message)
             else: print(e)
+            with open(outputfile, 'w', encoding='utf-8') as f:
+                print("#Failed: Online job submission failed !!!! Error: ", e, file=f)
             pass
