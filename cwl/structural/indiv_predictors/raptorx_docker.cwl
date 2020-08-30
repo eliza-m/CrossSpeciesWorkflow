@@ -44,7 +44,7 @@ inputs:
     type: int?
     inputBinding:
       position: 4
-    default: 4
+    default: 4              
 
   RAMmax:                    # in GB
     type: int?

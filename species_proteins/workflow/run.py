@@ -77,7 +77,8 @@ def get_fasta(uniprot: str, filename: str = None, trimheader: bool = False, mode
                           - Lipid modification: 'gpslipid'
                           - Sumoylation: 'gpssumo', 'sumogo'
                           - Cellular localisation: 'tmhmm', 'tmpred' """)
-def submit_online(predictor: str, input: Path, output: Path):
+@click.option('--type', required=False, help='Additional arguments to be passed; predictor specific (glycomine: "N" or "C" or "O" glicosylation)')
+def submit_online(predictor: str, input: Path, output: Path, type: str = None):
 
     """Submit online jobs for a given predictor"""
 

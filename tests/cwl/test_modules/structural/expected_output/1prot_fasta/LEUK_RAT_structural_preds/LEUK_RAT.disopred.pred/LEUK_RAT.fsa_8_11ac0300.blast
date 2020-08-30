@@ -1,0 +1,329 @@
+PSIBLAST 2.6.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for compositional score matrix adjustment: Stephen F.
+Altschul, John C. Wootton, E. Michael Gertz, Richa Agarwala,
+Aleksandr Morgulis, Alejandro A. Schaffer, and Yi-Kuo Yu (2005)
+"Protein database searches using compositionally adjusted
+substitution matrices", FEBS J. 272:5101-5109.
+
+
+Reference for composition-based statistics starting in round 2:
+Alejandro A. Schaffer, L. Aravind, Thomas L. Madden, Sergei
+Shavirin, John L. Spouge, Yuri I. Wolf, Eugene V. Koonin, and
+Stephen F. Altschul (2001), "Improving the accuracy of PSI-BLAST
+protein database searches with composition-based statistics and
+other refinements", Nucleic Acids Res. 29:2994-3005.
+
+
+
+Database: uniref50.fasta
+           26,169,982 sequences; 8,120,947,734 total letters
+
+Results from round 1
+
+
+Query= LEUK_RAT
+
+Length=378
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+  UniRef50_P13838 Leukosialin (Fragment) n=4 Tax=Rodentia TaxID=9...  724     0.0   
+  UniRef50_P15702 Leukosialin n=11 Tax=Boreoeutheria TaxID=143701...  422     2e-144
+  UniRef50_UPI000A313088 leukosialin n=1 Tax=Mus pahari TaxID=100...  418     4e-143
+  UniRef50_G3I4J7 Leukosialin n=5 Tax=Muroidea TaxID=337687 RepID...  382     6e-129
+  UniRef50_UPI000B4F6629 leukosialin n=1 Tax=Meriones unguiculatu...  367     8e-122
+  UniRef50_Q6AXV5 Similar to Leukosialin (Leucocyte sialoglycopro...  350     6e-117
+  UniRef50_UPI00067DA9F8 leukosialin n=4 Tax=Myomorpha TaxID=1963...  348     4e-115
+  UniRef50_A0A061IGR9 Leukosialin-like protein n=2 Tax=Cricetulus...  345     1e-110
+  UniRef50_UPI000813377C LOW QUALITY PROTEIN: leukosialin n=1 Tax...  238     2e-72 
+  UniRef50_UPI0009810650 leukosialin n=1 Tax=Castor canadensis Ta...  238     8e-72 
+  UniRef50_A0A0U1RNN5 Leukosialin (Fragment) n=1 Tax=Mus musculus...  224     2e-70 
+  UniRef50_P16150 Leukosialin n=9 Tax=Simiiformes TaxID=314293 Re...  225     2e-67 
+  UniRef50_H2NQM2 Sialophorin n=17 Tax=Euarchontoglires TaxID=314...  223     2e-66 
+  UniRef50_W5P6T0 Sialophorin n=1 Tax=Ovis aries TaxID=9940 RepID...  213     4e-63 
+  UniRef50_L5MJC4 Leukosialin n=2 Tax=Myotis davidii TaxID=225400...  218     1e-62 
+  UniRef50_L9KYX0 Leukosialin n=1 Tax=Tupaia chinensis TaxID=2464...  218     2e-61 
+  UniRef50_G3T516 Sialophorin n=4 Tax=Eutheria TaxID=9347 RepID=G...  208     6e-61 
+  UniRef50_F7FTV3 Sialophorin n=5 Tax=Primates TaxID=9443 RepID=F...  207     2e-60 
+  UniRef50_G5BYM2 Leukosialin n=2 Tax=Heterocephalus glaber TaxID...  206     4e-60 
+  UniRef50_G1Q956 Sialophorin n=22 Tax=Eutheria TaxID=9347 RepID=...  207     5e-60 
+  UniRef50_A0A1A6GC60 Uncharacterized protein n=1 Tax=Neotoma lep...  198     1e-59 
+  UniRef50_UPI00093888E5 leukosialin n=1 Tax=Hipposideros armiger...  203     5e-59 
+  UniRef50_G1U9M3 Sialophorin n=1 Tax=Oryctolagus cuniculus TaxID...  196     4e-55 
+  UniRef50_H0W1Q9 Sialophorin n=6 Tax=Eutheria TaxID=9347 RepID=H...  189     9e-55 
+  UniRef50_UPI00064C1DEF leukosialin n=1 Tax=Ochotona princeps Ta...  183     2e-52 
+  UniRef50_UPI000904EACD leukosialin isoform X1 n=5 Tax=Felidae T...  178     2e-48 
+  UniRef50_M3X9A2 Sialophorin n=2 Tax=Felis catus TaxID=9685 RepI...  174     2e-47 
+  UniRef50_UPI0004E01757 leukosialin n=1 Tax=Ursus maritimus TaxI...  172     2e-47 
+  UniRef50_A0A0G2JUW1 Sialophorin-like n=1 Tax=Rattus norvegicus ...  167     2e-47 
+  UniRef50_F1Q2Z3 Sialophorin n=4 Tax=Eutheria TaxID=9347 RepID=F...  168     3e-47 
+  UniRef50_UPI0007A6E0F5 uncharacterized protein LOC107541491 iso...  176     3e-46 
+  UniRef50_J9P7F6 Sialophorin n=3 Tax=Caniformia TaxID=379584 Rep...  170     1e-45 
+  UniRef50_UPI00064395AC leukosialin n=1 Tax=Condylura cristata T...  168     3e-45 
+  UniRef50_A6QQP5 SPN protein n=13 Tax=Laurasiatheria TaxID=31414...  166     6e-44 
+  UniRef50_T0M6A4 Leukosialin n=6 Tax=Cetartiodactyla TaxID=91561...  161     3e-43 
+  UniRef50_A0A1S3AJM1 leukosialin n=1 Tax=Erinaceus europaeus Tax...  161     4e-43 
+  UniRef50_UPI0009478BA6 LOW QUALITY PROTEIN: leukosialin n=2 Tax...  161     8e-43 
+  UniRef50_G1LN17 Sialophorin n=5 Tax=Laurasiatheria TaxID=314145...  155     9e-41 
+  UniRef50_UPI0006497B09 leukosialin n=1 Tax=Sorex araneus TaxID=...  152     2e-39 
+  UniRef50_F6SFQ5 Uncharacterized protein n=2 Tax=Monodelphis dom...  119     5e-27 
+  UniRef50_UPI00062B48AC leukosialin n=1 Tax=Sarcophilus harrisii...  111     1e-24 
+  UniRef50_UPI000A282E7A leukosialin n=1 Tax=Phascolarctos cinere...  111     1e-24 
+  UniRef50_UPI0003F0E497 uncharacterized protein LOC102860029 n=1...  112     3e-24 
+  UniRef50_UPI00070416F8 leukosialin isoform X1 n=2 Tax=Microchir...  107     5e-23 
+  UniRef50_UPI0004541418 leukosialin n=1 Tax=Ornithorhynchus anat...  88.2    3e-17 
+  UniRef50_K7EAQ5 Uncharacterized protein n=1 Tax=Ornithorhynchus...  70.9    1e-10 
+  UniRef50_UPI00032886E4 leukosialin n=1 Tax=Dasypus novemcinctus...  68.2    9e-10 
+  UniRef50_R4GBF1 Uncharacterized protein n=1 Tax=Anolis caroline...  67.4    2e-09 
+  UniRef50_UPI000388CB8D leukosialin n=1 Tax=Chrysemys picta bell...  57.8    2e-06 
+  UniRef50_M3XJD4 Uncharacterized protein n=2 Tax=Latimeria chalu...  57.4    3e-06 
+  UniRef50_UPI00074FEBC1 leukosialin n=1 Tax=Gekko japonicus TaxI...  55.8    1e-05 
+  UniRef50_UPI00066193A9 leukosialin isoform X1 n=2 Tax=Esox luci...  43.5    0.093 
+  UniRef50_V8PFB4 Muc1 (Fragment) n=5 Tax=Colubroidea TaxID=34989...  38.1    5.0   
+
+
+
+Lambda      K        H        a         alpha
+   0.304    0.121    0.336    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 1018478056284
+Warning: [psiblast] lcl|Query_1 LEUK_RAT: Warning: Composition-based score adjustment conditioned on sequence properties and unconditional composition-based score adjustment is not supported with PSSMs, resetting to default value of standard composition-based statistics 
+Results from round 2
+
+
+Query= LEUK_RAT
+
+Length=378
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+Sequences used in model and found again:
+
+  UniRef50_A0A061IGR9 Leukosialin-like protein n=2 Tax=Cricetulus...  340     1e-108
+  UniRef50_P13838 Leukosialin (Fragment) n=4 Tax=Rodentia TaxID=9...  298     7e-96 
+  UniRef50_Q6AXV5 Similar to Leukosialin (Leucocyte sialoglycopro...  290     3e-93 
+  UniRef50_UPI000A313088 leukosialin n=1 Tax=Mus pahari TaxID=100...  283     4e-90 
+  UniRef50_L9KYX0 Leukosialin n=1 Tax=Tupaia chinensis TaxID=2464...  289     2e-88 
+  UniRef50_G3I4J7 Leukosialin n=5 Tax=Muroidea TaxID=337687 RepID...  274     1e-86 
+  UniRef50_UPI000813377C LOW QUALITY PROTEIN: leukosialin n=1 Tax...  266     3e-83 
+  UniRef50_P15702 Leukosialin n=11 Tax=Boreoeutheria TaxID=143701...  256     3e-79 
+  UniRef50_UPI00067DA9F8 leukosialin n=4 Tax=Myomorpha TaxID=1963...  256     4e-79 
+  UniRef50_UPI000B4F6629 leukosialin n=1 Tax=Meriones unguiculatu...  256     3e-78 
+  UniRef50_L5MJC4 Leukosialin n=2 Tax=Myotis davidii TaxID=225400...  236     1e-69 
+  UniRef50_UPI000904EACD leukosialin isoform X1 n=5 Tax=Felidae T...  234     2e-69 
+  UniRef50_UPI0007A6E0F5 uncharacterized protein LOC107541491 iso...  233     1e-66 
+  UniRef50_W5P6T0 Sialophorin n=1 Tax=Ovis aries TaxID=9940 RepID...  202     1e-58 
+  UniRef50_UPI00093888E5 leukosialin n=1 Tax=Hipposideros armiger...  200     1e-57 
+  UniRef50_UPI0009810650 leukosialin n=1 Tax=Castor canadensis Ta...  199     8e-57 
+  UniRef50_G5BYM2 Leukosialin n=2 Tax=Heterocephalus glaber TaxID...  193     4e-55 
+  UniRef50_P16150 Leukosialin n=9 Tax=Simiiformes TaxID=314293 Re...  189     2e-53 
+  UniRef50_UPI0004E01757 leukosialin n=1 Tax=Ursus maritimus TaxI...  187     6e-53 
+  UniRef50_A0A0U1RNN5 Leukosialin (Fragment) n=1 Tax=Mus musculus...  176     1e-51 
+  UniRef50_H2NQM2 Sialophorin n=17 Tax=Euarchontoglires TaxID=314...  183     4e-51 
+  UniRef50_F7FTV3 Sialophorin n=5 Tax=Primates TaxID=9443 RepID=F...  182     9e-51 
+  UniRef50_T0M6A4 Leukosialin n=6 Tax=Cetartiodactyla TaxID=91561...  180     2e-50 
+  UniRef50_G1Q956 Sialophorin n=22 Tax=Eutheria TaxID=9347 RepID=...  179     1e-49 
+  UniRef50_G1LN17 Sialophorin n=5 Tax=Laurasiatheria TaxID=314145...  178     2e-49 
+  UniRef50_G3T516 Sialophorin n=4 Tax=Eutheria TaxID=9347 RepID=G...  175     2e-48 
+  UniRef50_F1Q2Z3 Sialophorin n=4 Tax=Eutheria TaxID=9347 RepID=F...  163     3e-45 
+  UniRef50_UPI0009478BA6 LOW QUALITY PROTEIN: leukosialin n=2 Tax...  167     5e-45 
+  UniRef50_UPI00064395AC leukosialin n=1 Tax=Condylura cristata T...  166     1e-44 
+  UniRef50_UPI0003F0E497 uncharacterized protein LOC102860029 n=1...  172     1e-44 
+  UniRef50_M3X9A2 Sialophorin n=2 Tax=Felis catus TaxID=9685 RepI...  165     3e-44 
+  UniRef50_G1U9M3 Sialophorin n=1 Tax=Oryctolagus cuniculus TaxID...  166     5e-44 
+  UniRef50_A0A1A6GC60 Uncharacterized protein n=1 Tax=Neotoma lep...  155     1e-42 
+  UniRef50_J9P7F6 Sialophorin n=3 Tax=Caniformia TaxID=379584 Rep...  159     1e-41 
+  UniRef50_UPI0006497B09 leukosialin n=1 Tax=Sorex araneus TaxID=...  157     3e-41 
+  UniRef50_A0A1S3AJM1 leukosialin n=1 Tax=Erinaceus europaeus Tax...  155     8e-41 
+  UniRef50_H0W1Q9 Sialophorin n=6 Tax=Eutheria TaxID=9347 RepID=H...  151     2e-40 
+  UniRef50_UPI00064C1DEF leukosialin n=1 Tax=Ochotona princeps Ta...  150     7e-40 
+  UniRef50_A0A0G2JUW1 Sialophorin-like n=1 Tax=Rattus norvegicus ...  139     2e-36 
+  UniRef50_UPI00070416F8 leukosialin isoform X1 n=2 Tax=Microchir...  137     1e-33 
+  UniRef50_A6QQP5 SPN protein n=13 Tax=Laurasiatheria TaxID=31414...  135     2e-32 
+  UniRef50_F6SFQ5 Uncharacterized protein n=2 Tax=Monodelphis dom...  129     2e-30 
+  UniRef50_UPI00062B48AC leukosialin n=1 Tax=Sarcophilus harrisii...  122     1e-28 
+  UniRef50_UPI000A282E7A leukosialin n=1 Tax=Phascolarctos cinere...  108     1e-23 
+  UniRef50_UPI0004541418 leukosialin n=1 Tax=Ornithorhynchus anat...  100     1e-21 
+  UniRef50_R4GBF1 Uncharacterized protein n=1 Tax=Anolis caroline...  96.2    3e-19 
+  UniRef50_UPI00032886E4 leukosialin n=1 Tax=Dasypus novemcinctus...  90.8    2e-17 
+  UniRef50_UPI00074FEBC1 leukosialin n=1 Tax=Gekko japonicus TaxI...  84.2    6e-15 
+  UniRef50_M3XJD4 Uncharacterized protein n=2 Tax=Latimeria chalu...  81.1    5e-14 
+  UniRef50_K7EAQ5 Uncharacterized protein n=1 Tax=Ornithorhynchus...  58.8    1e-06 
+  UniRef50_UPI000388CB8D leukosialin n=1 Tax=Chrysemys picta bell...  58.8    1e-06 
+
+Sequences not found previously or not previously below threshold:
+
+  UniRef50_UPI0009E4E62C leukosialin n=1 Tax=Pogona vitticeps Tax...  86.2    1e-15
+  UniRef50_B8C4R8 Uncharacterized protein n=1 Tax=Thalassiosira p...  86.5    2e-15
+  UniRef50_A0A151ZE99 Uncharacterized protein (Fragment) n=1 Tax=...  79.6    4e-13
+  UniRef50_A0A152A9Y3 Uncharacterized protein n=2 Tax=Dictyosteli...  68.1    2e-09
+  UniRef50_UPI000947DA39 mucin-5AC-like n=1 Tax=Branchiostoma bel...  66.5    7e-09
+  UniRef50_UPI000BB06F05 mucin-2-like isoform X1 n=8 Tax=Crassost...  66.5    8e-09
+  UniRef50_V8PFB4 Muc1 (Fragment) n=5 Tax=Colubroidea TaxID=34989...  64.2    2e-08
+  UniRef50_UPI00066193A9 leukosialin isoform X1 n=2 Tax=Esox luci...  63.0    5e-08
+  UniRef50_UPI00084712A8 mucin-5AC n=1 Tax=Capra hircus TaxID=992...  61.9    3e-07
+  UniRef50_Q7Z884 Putative cell wall protein FLO11p n=1 Tax=Candi...  54.2    6e-05
+  UniRef50_A0A226EAH4 Polycystic kidney disease protein 1-like 3 ...  52.3    2e-04
+  UniRef50_A0A0D2WQ13 Uncharacterized protein n=2 Tax=Capsaspora ...  52.3    2e-04
+  UniRef50_H3FFN3 Uncharacterized protein n=5 Tax=cellular organi...  50.7    3e-04
+  UniRef50_UPI000A1C1C6A adhesion G-protein coupled receptor G2-l...  51.9    3e-04
+  UniRef50_A0A1S3R5W3 uncharacterized protein LOC106600711 n=1 Ta...  51.1    3e-04
+  UniRef50_C4YKM2 Uncharacterized protein n=1 Tax=Candida albican...  51.1    6e-04
+  UniRef50_UPI0005EFF24A SCO-spondin-like n=1 Tax=Strongylocentro...  50.3    0.001
+  UniRef50_A9WC61 Autotransporter-associated beta strand repeat p...  49.9    0.001
+  UniRef50_A0A1L0BMT3 CIC11C00000000654 n=1 Tax=[Candida] interme...  49.9    0.001
+  UniRef50_A0A1X7TKT9 Uncharacterized protein n=2 Tax=Amphimedon ...  49.6    0.001
+  UniRef50_UPI00063F9BC6 mucin-5B-like n=1 Tax=Propithecus coquer...  49.2    0.003
+  UniRef50_A0A151ZDN9 Uncharacterized protein n=1 Tax=Dictyosteli...  48.8    0.003
+  UniRef50_UPI0005EE952F mucin-2-like n=1 Tax=Strongylocentrotus ...  48.4    0.003
+  UniRef50_UPI0004D0927F mucin-5B-like n=2 Tax=Galeopterus varieg...  48.4    0.005
+  UniRef50_UPI000B913381 mucin-4-like isoform X1 n=10 Tax=Acantha...  48.0    0.006
+  UniRef50_UPI00063F30FA mucin-2-like n=2 Tax=Monomorium pharaoni...  47.2    0.007
+  UniRef50_A0A1L0DFL1 CIC11C00000002180 n=1 Tax=[Candida] interme...  47.2    0.008
+  UniRef50_A0A151ZI16 Uncharacterized protein (Fragment) n=1 Tax=...  47.2    0.008
+  UniRef50_A0A151ZD93 Uncharacterized protein (Fragment) n=1 Tax=...  46.9    0.008
+  UniRef50_UPI000BAFBC01 mucin-16-like n=1 Tax=Crassostrea virgin...  47.2    0.010
+  UniRef50_W5LTW5 Si:ch73-248e21.7 n=1 Tax=Astyanax mexicanus Tax...  46.5    0.012
+  UniRef50_A0A1D2NFK8 Paternally-expressed protein n=1 Tax=Orches...  46.9    0.013
+  UniRef50_A0A0G4NXW4 Viral attachment protein, fibre shaft n=3 T...  46.5    0.014
+  UniRef50_UPI0009716807 LOW QUALITY PROTEIN: rhoGEF domain-conta...  46.1    0.017
+  UniRef50_F1PJG9 Uncharacterized protein n=1 Tax=Canis lupus fam...  45.7    0.027
+  UniRef50_A0A0D2C1C3 Uncharacterized protein n=3 Tax=Exophiala o...  45.7    0.028
+  UniRef50_A0A212EHX9 Flocculation protein FLO1 (Fragment) n=1 Ta...  45.3    0.032
+  UniRef50_A0A0B7K3E8 Uncharacterized protein n=1 Tax=Bionectria ...  45.3    0.036
+  UniRef50_A0A0P6JQ46 Putative Unconventional myosin-XVI n=5 Tax=...  44.2    0.051
+  UniRef50_UPI0006B30786 putative GPI-anchored protein PB15E9.01c...  43.0    0.059
+  UniRef50_A0A1L8H383 Uncharacterized protein n=1 Tax=Xenopus lae...  44.2    0.078
+
+
+
+Lambda      K        H        a         alpha
+   0.318    0.111    0.265    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0338    0.140     1.90     42.6     43.6 
+
+Effective search space used: 1018478056284
+Results from round 3
+
+
+Query= LEUK_RAT
+
+Length=378
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+Sequences used in model and found again:
+
+  UniRef50_P13838 Leukosialin (Fragment) n=4 Tax=Rodentia TaxID=9...  257     4e-80
+  UniRef50_A0A061IGR9 Leukosialin-like protein n=2 Tax=Cricetulus...  250     3e-74
+  UniRef50_P15702 Leukosialin n=11 Tax=Boreoeutheria TaxID=143701...  226     6e-68
+  UniRef50_UPI000A313088 leukosialin n=1 Tax=Mus pahari TaxID=100...  220     6e-66
+  UniRef50_G3I4J7 Leukosialin n=5 Tax=Muroidea TaxID=337687 RepID...  220     8e-66
+  UniRef50_L9KYX0 Leukosialin n=1 Tax=Tupaia chinensis TaxID=2464...  220     4e-62
+  UniRef50_UPI00067DA9F8 leukosialin n=4 Tax=Myomorpha TaxID=1963...  206     4e-60
+  UniRef50_UPI000B4F6629 leukosialin n=1 Tax=Meriones unguiculatu...  204     2e-58
+  UniRef50_Q6AXV5 Similar to Leukosialin (Leucocyte sialoglycopro...  186     4e-53
+  UniRef50_P16150 Leukosialin n=9 Tax=Simiiformes TaxID=314293 Re...  182     1e-50
+  UniRef50_G1Q956 Sialophorin n=22 Tax=Eutheria TaxID=9347 RepID=...  178     4e-49
+  UniRef50_UPI0007A6E0F5 uncharacterized protein LOC107541491 iso...  184     5e-49
+  UniRef50_H2NQM2 Sialophorin n=17 Tax=Euarchontoglires TaxID=314...  177     7e-49
+  UniRef50_UPI000813377C LOW QUALITY PROTEIN: leukosialin n=1 Tax...  176     1e-48
+  UniRef50_G3T516 Sialophorin n=4 Tax=Eutheria TaxID=9347 RepID=G...  174     7e-48
+  UniRef50_L5MJC4 Leukosialin n=2 Tax=Myotis davidii TaxID=225400...  177     2e-47
+  UniRef50_G1U9M3 Sialophorin n=1 Tax=Oryctolagus cuniculus TaxID...  174     5e-47
+  UniRef50_UPI000904EACD leukosialin isoform X1 n=5 Tax=Felidae T...  174     8e-47
+  UniRef50_G5BYM2 Leukosialin n=2 Tax=Heterocephalus glaber TaxID...  171     1e-46
+  UniRef50_M3X9A2 Sialophorin n=2 Tax=Felis catus TaxID=9685 RepI...  167     9e-45
+  UniRef50_W5P6T0 Sialophorin n=1 Tax=Ovis aries TaxID=9940 RepID...  162     2e-43
+  UniRef50_F7FTV3 Sialophorin n=5 Tax=Primates TaxID=9443 RepID=F...  160     2e-42
+  UniRef50_UPI00093888E5 leukosialin n=1 Tax=Hipposideros armiger...  159     4e-42
+  UniRef50_UPI0009810650 leukosialin n=1 Tax=Castor canadensis Ta...  157     3e-41
+  UniRef50_A0A0U1RNN5 Leukosialin (Fragment) n=1 Tax=Mus musculus...  147     1e-40
+  UniRef50_UPI0003F0E497 uncharacterized protein LOC102860029 n=1...  160     2e-40
+  UniRef50_G1LN17 Sialophorin n=5 Tax=Laurasiatheria TaxID=314145...  152     2e-39
+  UniRef50_J9P7F6 Sialophorin n=3 Tax=Caniformia TaxID=379584 Rep...  152     8e-39
+  UniRef50_H0W1Q9 Sialophorin n=6 Tax=Eutheria TaxID=9347 RepID=H...  145     4e-38
+  UniRef50_UPI00064395AC leukosialin n=1 Tax=Condylura cristata T...  148     7e-38
+  UniRef50_A0A1S3AJM1 leukosialin n=1 Tax=Erinaceus europaeus Tax...  145     5e-37
+  UniRef50_T0M6A4 Leukosialin n=6 Tax=Cetartiodactyla TaxID=91561...  144     9e-37
+  UniRef50_UPI00064C1DEF leukosialin n=1 Tax=Ochotona princeps Ta...  140     4e-36
+  UniRef50_UPI0009478BA6 LOW QUALITY PROTEIN: leukosialin n=2 Tax...  142     2e-35
+  UniRef50_A6QQP5 SPN protein n=13 Tax=Laurasiatheria TaxID=31414...  140     2e-34
+  UniRef50_UPI0006497B09 leukosialin n=1 Tax=Sorex araneus TaxID=...  135     2e-33
+  UniRef50_B8C4R8 Uncharacterized protein n=1 Tax=Thalassiosira p...  140     2e-33
+  UniRef50_F1Q2Z3 Sialophorin n=4 Tax=Eutheria TaxID=9347 RepID=F...  129     3e-32
+  UniRef50_UPI0009E4E62C leukosialin n=1 Tax=Pogona vitticeps Tax...  130     3e-31
+  UniRef50_F6SFQ5 Uncharacterized protein n=2 Tax=Monodelphis dom...  130     7e-31
+  UniRef50_UPI0004E01757 leukosialin n=1 Tax=Ursus maritimus TaxI...  127     2e-30
+  UniRef50_R4GBF1 Uncharacterized protein n=1 Tax=Anolis caroline...  125     9e-30
+  UniRef50_UPI000A282E7A leukosialin n=1 Tax=Phascolarctos cinere...  119     1e-27
+  UniRef50_UPI00070416F8 leukosialin isoform X1 n=2 Tax=Microchir...  118     5e-27
+  UniRef50_A0A1A6GC60 Uncharacterized protein n=1 Tax=Neotoma lep...  112     1e-26
+  UniRef50_UPI00066193A9 leukosialin isoform X1 n=2 Tax=Esox luci...  115     8e-26
+  UniRef50_UPI00062B48AC leukosialin n=1 Tax=Sarcophilus harrisii...  110     2e-24
+  UniRef50_A0A151ZE99 Uncharacterized protein (Fragment) n=1 Tax=...  112     5e-24
+  UniRef50_UPI0004541418 leukosialin n=1 Tax=Ornithorhynchus anat...  99.6    2e-21
+  UniRef50_UPI00032886E4 leukosialin n=1 Tax=Dasypus novemcinctus...  101     3e-21
+  UniRef50_Q7Z884 Putative cell wall protein FLO11p n=1 Tax=Candi...  95.4    2e-18
+  UniRef50_A0A0G2JUW1 Sialophorin-like n=1 Tax=Rattus norvegicus ...  89.2    7e-18
+  UniRef50_UPI00074FEBC1 leukosialin n=1 Tax=Gekko japonicus TaxI...  93.1    7e-18
+  UniRef50_V8PFB4 Muc1 (Fragment) n=5 Tax=Colubroidea TaxID=34989...  92.3    9e-18
+  UniRef50_A0A1S3R5W3 uncharacterized protein LOC106600711 n=1 Ta...  90.4    6e-17
+  UniRef50_C4YKM2 Uncharacterized protein n=1 Tax=Candida albican...  86.2    3e-15
+  UniRef50_UPI00084712A8 mucin-5AC n=1 Tax=Capra hircus TaxID=992...  83.5    2e-14
+  UniRef50_UPI000947DA39 mucin-5AC-like n=1 Tax=Branchiostoma bel...  83.1    3e-14
+  UniRef50_M3XJD4 Uncharacterized protein n=2 Tax=Latimeria chalu...  75.8    3e-12
+  UniRef50_K7EAQ5 Uncharacterized protein n=1 Tax=Ornithorhynchus...  70.0    2e-10
+  UniRef50_A0A0D2WQ13 Uncharacterized protein n=2 Tax=Capsaspora ...  70.4    4e-10
+
+Sequences not found previously or not previously below threshold:
+
+  UniRef50_A9WC61 Autotransporter-associated beta strand repeat p...  79.6    4e-13
+  UniRef50_M1VC03 Similar to syntaxin binding protein n=1 Tax=Cya...  78.1    1e-12
+  UniRef50_H3GVS3 Uncharacterized protein n=1 Tax=Phytophthora ra...  77.3    2e-12
+  UniRef50_L8GQC6 Serineaspartate repeat-containing protein I, pu...  71.1    2e-10
+  UniRef50_UPI0006153EE4 mucin-2-like n=1 Tax=Megachile rotundata...  70.8    3e-10
+  UniRef50_UPI000BAF828F uncharacterized protein LOC111120118 iso...  69.6    7e-10
+  UniRef50_A0A1S3P914 mucin-2-like n=5 Tax=Salmoninae TaxID=50456...  68.4    8e-10
+  UniRef50_A2AW96 Mucin, multiple PTS and SEA group, member 1 n=1...  68.1    2e-09
+  UniRef50_C3ZUH4 Uncharacterized protein n=1 Tax=Branchiostoma f...  67.7    3e-09
+  UniRef50_A0A1I7U0A5 Uncharacterized protein n=2 Tax=Caenorhabdi...  65.7    1e-08
+  UniRef50_UPI00063F30FA mucin-2-like n=2 Tax=Monomorium pharaoni...  63.8    4e-08
+  UniRef50_A0A0P6JQ46 Putative Unconventional myosin-XVI n=5 Tax=...  62.3    7e-08
+  UniRef50_M3XEH7 Uncharacterized protein n=1 Tax=Felis catus Tax...  61.5    3e-07
+
+
+
+Lambda      K        H        a         alpha
+   0.317    0.111    0.253    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0339    0.140     1.90     42.6     43.6 
+
+Effective search space used: 1018478056284
+
+
+  Database: uniref50.fasta
+    Posted date:  Jun 11, 2020  11:28 AM
+  Number of letters in database: 8,120,947,734
+  Number of sequences in database:  26,169,982
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40

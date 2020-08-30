@@ -1,0 +1,10 @@
+fastaFile:
+  class: File
+  path: ../data/1pazA.fasta
+
+DBname: uniprot20_2016_02
+
+DBfolder: 
+  class: Directory
+  path: ../../../../../databases/uniprot20_2016_02
+

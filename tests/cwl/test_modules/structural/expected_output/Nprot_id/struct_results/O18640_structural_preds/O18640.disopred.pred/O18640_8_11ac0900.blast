@@ -1,0 +1,804 @@
+PSIBLAST 2.6.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for compositional score matrix adjustment: Stephen F.
+Altschul, John C. Wootton, E. Michael Gertz, Richa Agarwala,
+Aleksandr Morgulis, Alejandro A. Schaffer, and Yi-Kuo Yu (2005)
+"Protein database searches using compositionally adjusted
+substitution matrices", FEBS J. 272:5101-5109.
+
+
+Reference for composition-based statistics starting in round 2:
+Alejandro A. Schaffer, L. Aravind, Thomas L. Madden, Sergei
+Shavirin, John L. Spouge, Yuri I. Wolf, Eugene V. Koonin, and
+Stephen F. Altschul (2001), "Improving the accuracy of PSI-BLAST
+protein database searches with composition-based statistics and
+other refinements", Nucleic Acids Res. 29:2994-3005.
+
+
+
+Database: uniref50.fasta
+           26,169,982 sequences; 8,120,947,734 total letters
+
+Results from round 1
+
+
+Query= O18640
+
+Length=318
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+  UniRef50_O18640 Guanine nucleotide-binding protein subunit beta...  657     0.0   
+  UniRef50_P63244 Receptor of activated protein C kinase 1 n=67 T...  515     0.0   
+  UniRef50_O42248 Guanine nucleotide-binding protein subunit beta...  513     0.0   
+  UniRef50_UPI0007043F8F LOW QUALITY PROTEIN: uncharacterized pro...  516     4e-175
+  UniRef50_A0A212D000 Uncharacterized protein n=4 Tax=Bilateria T...  484     3e-170
+  UniRef50_A0A151W721 Guanine nucleotide-binding protein subunit ...  461     2e-162
+  UniRef50_A0A165ZMT2 Guanine nucleotide binding protein beta sub...  453     4e-159
+  UniRef50_A0A163MDA3 Uncharacterized protein n=5 Tax=Absidia Tax...  444     1e-155
+  UniRef50_A0A0R3NY53 Uncharacterized protein, isoform C n=8 Tax=...  440     6e-155
+  UniRef50_A0A1B9I6G3 Guanine nucleotide-binding protein subunit ...  441     2e-154
+  UniRef50_A0A1J7IPG0 WD40 repeat-like protein n=1 Tax=Coniochaet...  454     1e-153
+  UniRef50_A0A0S7DY99 Succinate dehydrogenase assembly factor 2, ...  458     4e-153
+  UniRef50_C0NN62 Succinate dehydrogenase assembly factor 2, mito...  456     9e-152
+  UniRef50_A0A1L9TE03 Succinate dehydrogenase assembly factor 2, ...  447     2e-150
+  UniRef50_A0A0K0DH24 Uncharacterized protein n=3 Tax=Strongylida...  439     4e-149
+  UniRef50_H3EC27 Uncharacterized protein n=1 Tax=Pristionchus pa...  440     5e-149
+  UniRef50_A0A0F4YUQ0 Acetolactate synthase n=1 Tax=Rasamsonia em...  449     8e-148
+  UniRef50_A0A1M3TZM0 Succinate dehydrogenase assembly factor 2, ...  441     1e-147
+  UniRef50_O24456 Receptor for activated C kinase 1A n=136 Tax=Eu...  417     2e-144
+  UniRef50_Q9C4Z6 Receptor for activated C kinase 1B n=29 Tax=Euk...  414     1e-143
+  UniRef50_A0A100I4Z8 Succinate dehydrogenase assembly factor 2, ...  426     4e-143
+  UniRef50_A0A1E3PZQ7 Uncharacterized protein n=1 Tax=Lipomyces s...  420     9e-139
+  UniRef50_A0A1I8CXH3 Uncharacterized protein n=1 Tax=Rhabditopha...  418     9e-139
+  UniRef50_P49026 Guanine nucleotide-binding protein subunit beta...  402     1e-138
+  UniRef50_A0A182GHD7 Uncharacterized protein n=4 Tax=Eukaryota T...  379     2e-131
+  UniRef50_A0A068TQ56 Uncharacterized protein n=1 Tax=Coffea cane...  410     4e-130
+  UniRef50_D6R9Z1 Receptor of-activated protein C kinase 1 (Fragm...  367     2e-126
+  UniRef50_UPI0002C56898 WD repeat-containing protein 5-like n=1 ...  368     3e-123
+  UniRef50_D6RHH4 Receptor of-activated protein C kinase 1 n=101 ...  358     1e-122
+  UniRef50_A0A0P5K4W8 Putative Guanine nucleotide-binding protein...  351     2e-120
+  UniRef50_L9KVX2 Guanine nucleotide-binding protein subunit beta...  366     4e-120
+  UniRef50_A0A1U7U5T3 LOW QUALITY PROTEIN: guanine nucleotide-bin...  359     6e-120
+  UniRef50_A0A0L0DKN0 Uncharacterized protein n=1 Tax=Thecamonas ...  359     3e-118
+  UniRef50_A0A0N8PZ87 Guanine nucleotide binding protein beta sub...  349     6e-118
+  UniRef50_A0A0P6FNB0 Guanine nucleotide-binding protein subunit ...  347     1e-117
+  UniRef50_A0A222AJ45 Kinase of N-terminally Guanine activated Re...  333     9e-114
+  UniRef50_A0A1X0NQI7 Activated protein kinase C receptor n=3 Tax...  338     1e-113
+  UniRef50_A0A1R2BBF8 Uncharacterized protein n=4 Tax=Stentor coe...  338     2e-113
+  UniRef50_U6JN42 Receptor for activated C kinase, RACK protein, ...  339     4e-113
+  UniRef50_A0A0P6A2Z3 Guanine nucleotide-binding protein subunit ...  343     5e-113
+  UniRef50_D6RAC2 Receptor of-activated protein C kinase 1 n=3 Ta...  333     1e-112
+  UniRef50_A0A0C9R001 Rack1_1 protein n=2 Tax=Pancrustacea TaxID=...  328     3e-111
+  UniRef50_A0A1X1BKT9 Guanine nucleotide-binding protein subunit ...  326     1e-108
+  UniRef50_N1QTR7 Uncharacterized protein n=1 Tax=Aegilops tausch...  335     1e-108
+  UniRef50_J7RZ78 Uncharacterized protein n=3 Tax=saccharomyceta ...  324     6e-108
+  UniRef50_M0S7Z9 Uncharacterized protein n=5 Tax=Eukaryota TaxID...  320     1e-106
+  UniRef50_O24456-2 Isoform 2 of Receptor for activated C kinase ...  316     2e-105
+  UniRef50_A0A196SA28 Guanine nucleotide-binding protein subunit ...  332     3e-105
+  UniRef50_A0A218U8Q4 Guanine nucleotide-binding protein subunit ...  310     4e-104
+  UniRef50_A0A196SIT0 Guanine nucleotide-binding protein subunit ...  324     3e-103
+  UniRef50_B7FJT0 Uncharacterized protein n=2 Tax=Papilionoideae ...  307     6e-103
+  UniRef50_A0A146ZFP1 Guanine nucleotide-binding subunit beta-2 1...  312     1e-102
+  UniRef50_J7G683 Guanine nucleotide-binding protein beta SU like...  310     2e-102
+  UniRef50_P62884 Guanine nucleotide-binding protein subunit beta...  307     1e-101
+  UniRef50_B4NMB5 Uncharacterized protein n=1 Tax=Drosophila will...  302     1e-99 
+  UniRef50_A0A1I8A374 Uncharacterized protein n=3 Tax=Opisthokont...  301     7e-99 
+  UniRef50_A0A078A0H0 Guanine nucleotide-binding protein subunit ...  301     8e-99 
+  UniRef50_UPI0008FA42DE guanine nucleotide-binding protein subun...  285     2e-94 
+  UniRef50_A0A1Y2F073 WD40-repeat-containing domain protein n=1 T...  291     9e-94 
+  UniRef50_A0A023B7G7 Guanine nucleotide-binding subunit beta-lik...  284     6e-92 
+  UniRef50_W5PR06 Receptor for activated C kinase 1 n=20 Tax=cell...  278     1e-90 
+  UniRef50_F2HI42 Guanine nucleotide-binding protein beta SU like...  276     2e-89 
+  UniRef50_G0R119 Receptor of activated protein kinase c componen...  276     5e-89 
+  UniRef50_B0EIS0 Receptor for activated protein kinase C, putati...  276     6e-89 
+  UniRef50_A0A093HCU0 Guanine nucleotide-binding protein subunit ...  270     6e-89 
+  UniRef50_A0A0C2MKQ2 Guanine nucleotide-binding protein subunit ...  267     1e-85 
+  UniRef50_A0A0C7BZY7 Putative Guanine nucleotide-binding protein...  265     2e-85 
+  UniRef50_A0A0N8AZJ4 Putative Guanine nucleotide-binding protein...  262     2e-85 
+  UniRef50_A0A1B7TJ73 WD40 repeat-like protein n=4 Tax=Hanseniasp...  266     2e-85 
+  UniRef50_A0A1P8YVI7 Guanine nucleotide-binding protein subunit ...  259     7e-85 
+  UniRef50_X6M1N1 Receptor for activated c kinase 1 C n=1 Tax=Ret...  266     5e-84 
+  UniRef50_UPI0008FAC8CD guanine nucleotide-binding protein subun...  261     2e-83 
+  UniRef50_W2SX60 Uncharacterized protein n=2 Tax=Strongylida Tax...  266     2e-83 
+  UniRef50_B7QGY4 Guanine nucleotide-binding protein, putative (F...  254     7e-82 
+  UniRef50_Q179P0 AAEL005562-PA n=12 Tax=Eukaryota TaxID=2759 Rep...  253     9e-82 
+  UniRef50_A0A146UKW8 Guanine nucleotide-binding subunit beta-2 1...  254     1e-81 
+  UniRef50_F7AWX3 Uncharacterized protein n=17 Tax=Bilateria TaxI...  250     2e-81 
+  UniRef50_A0A146UKH8 Guanine nucleotide-binding subunit beta-2 1...  258     3e-81 
+  UniRef50_Q6XA01 G-beta-like protein (Fragment) n=3 Tax=Amniota ...  249     7e-81 
+  UniRef50_B7QB10 Guanine nucleotide-binding protein subunit beta...  251     2e-80 
+  UniRef50_A0A177AV69 Guanine nucleotide-binding protein subunit ...  253     5e-80 
+  UniRef50_A0A0B2SK07 Guanine nucleotide-binding protein subunit ...  252     5e-80 
+  UniRef50_Q9AVW0 Guanine nucleotide-binding protein beta SU like...  249     6e-79 
+  UniRef50_E3KXR7 Guanine nucleotide-binding protein subunit beta...  248     1e-78 
+  UniRef50_A0A0E9NJ13 Uncharacterized protein n=2 Tax=Saitoella c...  263     5e-77 
+  UniRef50_UPI00080A07F6 guanine nucleotide-binding protein subun...  243     2e-76 
+  UniRef50_UPI00080A07F8 guanine nucleotide-binding protein subun...  246     4e-76 
+  UniRef50_M0WTQ9 Predicted protein; Uncharacterized protein n=4 ...  239     7e-76 
+  UniRef50_D6RAU2 Receptor of-activated protein C kinase 1 n=15 T...  236     8e-76 
+  UniRef50_A0A1S3TLL1 receptor for activated C kinase 1C-like n=2...  241     2e-75 
+  UniRef50_D6RFZ9 Receptor of-activated protein C kinase 1 (Fragm...  237     2e-75 
+  UniRef50_A0A1V4K4R0 Guanine nucleotide-binding protein subunit ...  238     5e-75 
+  UniRef50_A0A1J5WPH7 Guanine nucleotide-binding protein (G prote...  240     5e-75 
+  UniRef50_Q6PRD4 G-protein beta subunit n=2 Tax=Paramecium tetra...  239     2e-74 
+  UniRef50_A0A0L0CUB4 Guanine nucleotide-binding protein (Fragmen...  231     3e-73 
+  UniRef50_G1L9L0 Uncharacterized protein n=3 Tax=Bilateria TaxID...  227     2e-71 
+  UniRef50_M9PB67 Receptor of activated protein kinase C 1, isofo...  223     4e-71 
+  UniRef50_A0A1J3CY30 Guanine nucleotide-binding protein subunit ...  223     8e-71 
+  UniRef50_A0A1Y1L0G3 Uncharacterized protein (Fragment) n=2 Tax=...  222     1e-70 
+  UniRef50_A0A0L0NS57 Uncharacterized protein n=20 Tax=Eukaryota ...  225     2e-70 
+  UniRef50_A0A0K8S3N4 Uncharacterized protein (Fragment) n=2 Tax=...  219     2e-69 
+  UniRef50_H0Y8R5 Receptor of-activated protein C kinase 1 (Fragm...  218     9e-69 
+  UniRef50_A0A1J4L1H8 Guanine nucleotide-binding protein beta sub...  222     2e-67 
+  UniRef50_A2ELV7 Guanine nucleotide-binding protein beta subunit...  221     2e-67 
+  UniRef50_C5M010 Receptor for activated protein kinase C, putati...  214     5e-67 
+  UniRef50_A0A146UGC7 Guanine nucleotide binding protein (G prote...  220     7e-67 
+  UniRef50_X6NAN9 Uncharacterized protein n=1 Tax=Reticulomyxa fi...  213     3e-63 
+  UniRef50_UPI0006AA756A receptor for activated C kinase 1C-like ...  204     1e-61 
+  UniRef50_A0A078K1X1 BnaCnng75080D protein n=5 Tax=Brassica napu...  202     2e-61 
+  UniRef50_A0A0P5YEJ9 Guanine nucleotide-binding subunit beta-2 1...  197     2e-59 
+  UniRef50_A0A1W4WV98 guanine nucleotide-binding protein subunit ...  189     8e-58 
+  UniRef50_H8ZWR7 Guanine nucleotide-binding protein subunit beta...  189     9e-58 
+  UniRef50_A0A0C2FD17 WD domain, G-beta repeat protein n=2 Tax=Ch...  193     2e-57 
+  UniRef50_UPI0004406C92 guanine nucleotide-binding protein subun...  191     4e-57 
+  UniRef50_G8BW44 Uncharacterized protein n=2 Tax=Saccharomycetal...  189     5e-57 
+  UniRef50_B0XK49 Receptor for activated protein kinase C n=3 Tax...  191     7e-57 
+  UniRef50_A0A0A9XRS2 Guanine nucleotide-binding protein subunit ...  188     2e-56 
+  UniRef50_L0PI24 Uncharacterized protein n=5 Tax=Opisthokonta Ta...  186     2e-56 
+  UniRef50_UPI0004403AF5 guanine nucleotide-binding protein subun...  191     3e-56 
+  UniRef50_E2L6W9 Uncharacterized protein (Fragment) n=3 Tax=Dika...  182     5e-55 
+  UniRef50_A0A226EE38 Guanine nucleotide-binding protein subunit ...  181     1e-54 
+  UniRef50_A0A078I890 BnaC01g35030D protein n=1 Tax=Brassica napu...  196     1e-53 
+  UniRef50_G2YCL9 Similar to prolyl oligopeptidase n=6 Tax=leotio...  187     4e-53 
+  UniRef50_A0A1Z4HEG3 WD-40 repeat-containing protein n=1 Tax=Cal...  189     5e-53 
+  UniRef50_B0W7W5 WD repeat protein 51B n=3 Tax=Neoptera TaxID=33...  176     6e-53 
+  UniRef50_D1FQF8 Receptor of activated protein kinase C 1 (Fragm...  175     7e-53 
+  UniRef50_G2YHM6 Similar to HET-E n=4 Tax=cellular organisms Tax...  186     7e-52 
+  UniRef50_A0A231LY46 Uncharacterized protein (Fragment) n=1 Tax=...  180     6e-51 
+  UniRef50_B0WWW6 Receptor for activated protein kinase C n=1 Tax...  179     8e-51 
+  UniRef50_E4TH64 WD40 repeat, subgroup n=4 Tax=Bacteria TaxID=2 ...  187     2e-50 
+  UniRef50_A5V0G7 NB-ARC domain protein n=2 Tax=Chloroflexales Ta...  187     2e-50 
+  UniRef50_B5VVI6 WD-40 repeat protein n=4 Tax=Oscillatoriales Ta...  185     5e-50 
+  UniRef50_I4H2K6 Uncharacterized protein n=5 Tax=root TaxID=1 Re...  176     7e-50 
+  UniRef50_A0A1D8TS09 Uncharacterized protein n=3 Tax=Moorea prod...  185     9e-50 
+  UniRef50_A0A1G3HT11 Uncharacterized protein n=1 Tax=Rhodocyclal...  184     2e-49 
+  UniRef50_A0A1Q9F7B7 Guanine nucleotide-binding protein subunit ...  176     2e-49 
+  UniRef50_E0UC38 Serine/threonine-protein kinase-like domain pro...  182     2e-49 
+  UniRef50_O15627 GTP-binding protein beta chain (Fragment) n=2 T...  169     3e-49 
+  UniRef50_UPI00098D0625 hypothetical protein n=1 Tax=Spirosoma s...  184     3e-49 
+  UniRef50_A0A146UKP5 Guanine nucleotide-binding subunit beta-2 1...  170     9e-49 
+  UniRef50_A0A017S901 WD40 repeat-like protein n=1 Tax=Aspergillu...  182     9e-49 
+  UniRef50_B8LTB2 Pfs, NACHT and WD domain protein n=1 Tax=Talaro...  181     2e-48 
+  UniRef50_UPI000907DA0F hypothetical protein n=1 Tax=Arthrospira...  180     5e-48 
+  UniRef50_A0A0L6WNT5 Uncharacterized protein n=2 Tax=Agaricomyce...  178     6e-48 
+  UniRef50_A0A1Z4QJ55 WD-40 repeat-containing protein n=1 Tax=Cyl...  180     7e-48 
+  UniRef50_K9VZF6 WD-40 repeat-containing protein n=2 Tax=Cyanoba...  172     7e-48 
+  UniRef50_B0XEN8 Activated protein kinase C receptor n=2 Tax=Cul...  167     9e-48 
+  UniRef50_UPI00042A8193 WD40 repeat domain-containing protein n=...  177     1e-47 
+  UniRef50_A0A0N7ZP17 Guanine nucleotide-binding subunit beta-2 1...  163     1e-47 
+  UniRef50_G6FWG7 Serine/threonine protein kinase with WD40 repea...  176     2e-47 
+  UniRef50_A0A1Z4QED7 WD-40 repeat protein n=1 Tax=Cylindrospermu...  179     2e-47 
+  UniRef50_F4KU47 (Myosin heavy-chain) kinase., Histone acetyltra...  178     2e-47 
+  UniRef50_A0A1Z4VB13 WD-40 repeat-containing protein n=1 Tax=Dol...  174     3e-47 
+  UniRef50_UPI00034586CB WD40 repeat domain-containing protein n=...  169     3e-47 
+  UniRef50_A5URP9 Ribosome assembly protein 4 (RSA4) n=1 Tax=Rose...  176     4e-47 
+  UniRef50_A0A0D6KFJ3 WD domain, G-beta repeat protein n=2 Tax=To...  176     4e-47 
+  UniRef50_A0A161WNS9 Beta transducin-like protein het-e2c n=1 Ta...  177     4e-47 
+  UniRef50_X6LDC5 NB-ARC domain-containing protein (Fragment) n=1...  177     4e-47 
+  UniRef50_A0A218QRB8 Serine/threonine protein kinase n=1 Tax=Tol...  172     5e-47 
+  UniRef50_B2AKL8 Podospora anserina S mat+ genomic DNA chromosom...  167     6e-47 
+  UniRef50_A0A1U7N3X0 Uncharacterized protein n=1 Tax=Moorea boui...  177     7e-47 
+  UniRef50_X6LM86 Uncharacterized protein (Fragment) n=2 Tax=Reti...  164     8e-47 
+  UniRef50_UPI0009D6690F ribosome assembly protein 4 n=2 Tax=Nost...  177     9e-47 
+  UniRef50_A7ERN6 Uncharacterized protein n=4 Tax=leotiomyceta Ta...  173     1e-46 
+  UniRef50_X6LVJ5 Receptor for activated C kinase 1 n=1 Tax=Retic...  164     1e-46 
+  UniRef50_A0A1Z4V0R3 Serine/threonine protein kinase with WD-40 ...  166     1e-46 
+  UniRef50_A8ZQX9 WD repeat protein n=1 Tax=Acaryochloris marina ...  176     2e-46 
+  UniRef50_B8LXS9 G-protein beta WD-40 repeats containing protein...  176     2e-46 
+  UniRef50_D5G203 HET-E (Fragment) n=10 Tax=Eukaryota TaxID=2759 ...  171     2e-46 
+  UniRef50_A0A0F3GQ50 Repeat-containing protein n=1 Tax=Candidatu...  176     2e-46 
+  UniRef50_G2Y989 Similar to transcription factor Zn, C2H2 n=1 Ta...  175     2e-46 
+  UniRef50_A0A1Z4NA70 WD-40 repeat-containing protein n=2 Tax=Nos...  175     3e-46 
+  UniRef50_A0A1Z4V8K9 WD-40 repeat-containing protein n=5 Tax=Nos...  171     4e-46 
+  UniRef50_UPI0005C2444D hypothetical protein n=1 Tax=Desulfovibr...  175     5e-46 
+  UniRef50_A0A0L6WL39 Uncharacterized protein n=3 Tax=Agaricomyce...  173     6e-46 
+  UniRef50_A0A1L7XXC8 Uncharacterized protein n=1 Tax=Phialocepha...  174     9e-46 
+  UniRef50_A0A150U156 Uncharacterized protein n=1 Tax=Sorangium c...  169     9e-46 
+  UniRef50_A0A1D9QID5 Uncharacterized protein n=3 Tax=Sclerotinia...  174     9e-46 
+  UniRef50_A0A0C3ETM4 Uncharacterized protein n=3 Tax=Piloderma c...  174     1e-45 
+  UniRef50_A9GSK2 WD-repeat protein n=2 Tax=Sorangium cellulosum ...  174     1e-45 
+  UniRef50_A7EJN8 Uncharacterized protein n=2 Tax=Sclerotinia scl...  173     1e-45 
+  UniRef50_UPI00034CCD50 hypothetical protein n=1 Tax=Fortiea con...  174     1e-45 
+  UniRef50_A0A093W2D8 Vegetative incompatibility protein HET-E-1 ...  171     1e-45 
+  UniRef50_Q2GV04 Uncharacterized protein n=2 Tax=Sordariales Tax...  173     1e-45 
+  UniRef50_A3IK50 Peptidase C14, caspase catalytic subunit p20 n=...  173     1e-45 
+  UniRef50_K9TJ23 WD40 repeat-containing protein n=4 Tax=Cyanobac...  173     1e-45 
+  UniRef50_K9QDZ2 Serine/threonine protein kinase with WD40 repea...  171     2e-45 
+  UniRef50_A0A1W9X5M2 Uncharacterized protein n=1 Tax=Beggiatoa s...  173     2e-45 
+  UniRef50_K9UX17 (Myosin heavy-chain) kinase n=2 Tax=Cyanobacter...  171     2e-45 
+  UniRef50_A0A0N8GRH0 Uncharacterized protein n=1 Tax=Ardenticate...  173     2e-45 
+  UniRef50_D6RF23 Receptor of-activated protein C kinase 1 n=6 Ta...  156     2e-45 
+  UniRef50_A0A1D9Q631 Uncharacterized protein n=1 Tax=Sclerotinia...  172     3e-45 
+  UniRef50_A0A1U7ICJ8 Myosin kinase (Fragment) n=3 Tax=cellular o...  164     3e-45 
+  UniRef50_A0A1B8E9L3 Uncharacterized protein n=3 Tax=Pseudogymno...  172     3e-45 
+  UniRef50_A0A0U5FWH9 Uncharacterized protein n=3 Tax=Aspergillus...  172     5e-45 
+  UniRef50_UPI000A036BFC WD40 repeat domain-containing protein n=...  162     5e-45 
+  UniRef50_F4L7Y3 WD40 repeat-containing protein n=1 Tax=Haliscom...  169     5e-45 
+  UniRef50_A0A0A9XPM9 Guanine nucleotide-binding protein subunit ...  157     5e-45 
+  UniRef50_D5G225 NWD1 (Fragment) n=2 Tax=cellular organisms TaxI...  165     6e-45 
+  UniRef50_A0A093YDS5 Uncharacterized protein n=1 Tax=Pseudogymno...  171     6e-45 
+  UniRef50_UPI000B3F7CF9 WD40 repeat domain-containing protein n=...  163     6e-45 
+  UniRef50_K9QPZ0 WD40 repeat-containing protein n=6 Tax=Nostocal...  169     7e-45 
+  UniRef50_B8MUZ3 WD repeat-containing protein, putative n=1 Tax=...  171     7e-45 
+  UniRef50_K9V395 (Myosin heavy-chain) kinase n=5 Tax=Nostocales ...  171     7e-45 
+  UniRef50_K7W4U6 WD-40 repeat-containing protein n=2 Tax=Anabaen...  171     8e-45 
+  UniRef50_A0A094GL08 Uncharacterized protein n=8 Tax=Leotiomycet...  171     8e-45 
+  UniRef50_A0A1J5DTL0 Uncharacterized protein n=1 Tax=Candidatus ...  168     8e-45 
+  UniRef50_D5G204 HET-E (Fragment) n=2 Tax=leotiomyceta TaxID=716...  165     9e-45 
+  UniRef50_UPI00034538C5 hypothetical protein n=1 Tax=Oscillatori...  171     1e-44 
+  UniRef50_B0BZW8 WD-repeat protein n=1 Tax=Acaryochloris marina ...  171     1e-44 
+  UniRef50_X6NGL6 G-protein beta WD-40 repeats containing protein...  163     1e-44 
+  UniRef50_K9WAN1 WD40 repeat-containing protein n=1 Tax=Microcol...  169     1e-44 
+  UniRef50_A0A0F7U5E0 Uncharacterized protein n=1 Tax=Penicillium...  170     1e-44 
+  UniRef50_A0A0S8H3S3 Uncharacterized protein n=1 Tax=Gemmatimona...  169     1e-44 
+  UniRef50_D5G215 HET-R (Fragment) n=5 Tax=cellular organisms Tax...  163     1e-44 
+  UniRef50_X6M2M1 Uncharacterized protein (Fragment) n=3 Tax=Reti...  160     1e-44 
+  UniRef50_F5UH85 (Myosin heavy-chain) kinase n=6 Tax=Cyanobacter...  169     2e-44 
+  UniRef50_B8MFB6 WD-repeat protein, putative n=5 Tax=Talaromyces...  170     2e-44 
+  UniRef50_A0A0D0BM72 Unplaced genomic scaffold GYMLUscaffold_152...  166     2e-44 
+  UniRef50_A0A094F3L8 Uncharacterized protein (Fragment) n=1 Tax=...  170     2e-44 
+  UniRef50_Q8YRI1 Uncharacterized WD repeat-containing protein al...  170     2e-44 
+  UniRef50_UPI00034C6A7D hypothetical protein n=1 Tax=Oscillatori...  169     2e-44 
+  UniRef50_UPI0002EB9D71 hypothetical protein n=1 Tax=Fischerella...  169     2e-44 
+  UniRef50_K9ZML4 (Myosin heavy-chain) kinase n=4 Tax=Nostocaceae...  167     3e-44 
+  UniRef50_A0A1Y2BH64 WD40 repeat-like protein (Fragment) n=2 Tax...  166     3e-44 
+  UniRef50_K9SIB4 (Myosin heavy-chain) kinase n=5 Tax=Cyanobacter...  163     4e-44 
+  UniRef50_A0A0K1RZU1 TolB protein periplasmic protein n=21 Tax=M...  167     4e-44 
+  UniRef50_A0A094HM90 Uncharacterized protein n=5 Tax=Leotiomycet...  169     4e-44 
+  UniRef50_A0A137QJY2 Vegetative incompatibility protein HET-E-1 ...  169     4e-44 
+  UniRef50_A0A0C9U5G5 Unplaced genomic scaffold SPHSTscaffold_425...  164     5e-44 
+  UniRef50_B0WGP2 Receptor of activated protein kinase C 1 n=2 Ta...  156     7e-44 
+  UniRef50_A0A1Q8S2C4 Vegetative incompatibility protein HET-E-1-...  168     7e-44 
+  UniRef50_A0A1Z4ULY9 Serine/threonine protein kinase with WD-40 ...  168     7e-44 
+  UniRef50_A0A0C9U559 Unplaced genomic scaffold SPHSTscaffold_209...  168     7e-44 
+  UniRef50_UPI0003FE1266 hypothetical protein n=1 Tax=Sorangium c...  168     9e-44 
+  UniRef50_L7E4Y5 WD domain, G-beta repeat family protein n=3 Tax...  168     9e-44 
+  UniRef50_A0A0C1T5P2 Uncharacterized protein (Fragment) n=2 Tax=...  163     1e-43 
+  UniRef50_A0A1Z4T7F8 WD-40 repeat protein n=5 Tax=Nostocales Tax...  168     1e-43 
+  UniRef50_A0A1V6PEU5 Uncharacterized protein n=1 Tax=Penicillium...  167     1e-43 
+  UniRef50_X6ML19 G-protein beta WD-40 repeats containing protein...  167     1e-43 
+  UniRef50_B2IZJ6 WD-40 repeat protein n=6 Tax=Nostocales TaxID=1...  167     1e-43 
+  UniRef50_A0A1L8HHR6 Uncharacterized protein n=1 Tax=Xenopus lae...  154     1e-43 
+  UniRef50_B0WKD8 Receptor for activated protein kinase C n=1 Tax...  159     1e-43 
+  UniRef50_K9W457 WD-40 repeat-containing protein n=1 Tax=Crinali...  167     2e-43 
+  UniRef50_X6LHI7 NB-ARC domain-containing protein n=4 Tax=Reticu...  167     2e-43 
+  UniRef50_A0A094IDI7 Uncharacterized protein n=1 Tax=Pseudogymno...  167     2e-43 
+  UniRef50_A0A099P0H9 Guanine nucleotide-binding protein subunit ...  152     2e-43 
+  UniRef50_A0A0C1RPE7 Uncharacterized protein n=1 Tax=Tolypothrix...  167     2e-43 
+  UniRef50_A0A1C0VQR5 Uncharacterized protein n=3 Tax=Cyanobacter...  166     2e-43 
+  UniRef50_A0A0C3GP31 Uncharacterized protein n=2 Tax=sordariomyc...  167     2e-43 
+  UniRef50_A0A0C3I384 Uncharacterized protein n=4 Tax=Leotiomycet...  161     2e-43 
+  UniRef50_A0CR02 Uncharacterized protein (Fragment) n=1 Tax=Para...  167     2e-43 
+  UniRef50_A0A0T7BNP5 Uncharacterized protein n=4 Tax=Calothrix T...  166     2e-43 
+  UniRef50_A0A0C9XZW7 Unplaced genomic scaffold scaffold_996, who...  162     2e-43 
+  UniRef50_UPI000BA8A06E hypothetical protein n=1 Tax=Thermogutta...  167     3e-43 
+  UniRef50_UPI0009E3DC78 WD40 repeat domain-containing protein n=...  160     3e-43 
+  UniRef50_D5G210 HET-R (Fragment) n=6 Tax=leotiomyceta TaxID=716...  164     3e-43 
+  UniRef50_E0UJ20 WD40 repeat, subgroup n=5 Tax=Oscillatoriophyci...  166     3e-43 
+  UniRef50_UPI0006C87B31 hypothetical protein n=3 Tax=Planktothri...  166     3e-43 
+  UniRef50_A0A094EHD3 Uncharacterized protein n=1 Tax=Pseudogymno...  166     3e-43 
+  UniRef50_UPI000A384F62 WD40 repeat domain-containing protein n=...  160     4e-43 
+  UniRef50_A0A0L8PDX6 Uncharacterized protein n=13 Tax=Streptomyc...  166     4e-43 
+  UniRef50_A0A0V7ZVY0 Uncharacterized protein n=1 Tax=Mastigocole...  159     4e-43 
+  UniRef50_A0A084B1Y1 Uncharacterized protein n=1 Tax=Stachybotry...  166     4e-43 
+  UniRef50_A0A0C9WU29 Unplaced genomic scaffold K443scaffold_54, ...  162     5e-43 
+  UniRef50_UPI00034A218A hypothetical protein n=2 Tax=Oscillatori...  164     5e-43 
+  UniRef50_C7RS72 WD-40 repeat protein n=1 Tax=Accumulibacter pho...  166     5e-43 
+  UniRef50_A0A0M0SIA6 Uncharacterized protein n=10 Tax=Cyanobacte...  158     6e-43 
+  UniRef50_A0A1Q4RPU6 Uncharacterized protein n=3 Tax=Scytonema T...  166     6e-43 
+  UniRef50_A0A0C9WVW0 Unplaced genomic scaffold K443scaffold_1267...  157     6e-43 
+  UniRef50_A0A1F2QCK0 Uncharacterized protein n=1 Tax=Acidobacter...  157     7e-43 
+  UniRef50_X6MEE5 G-protein beta WD-40 repeats containing protein...  165     7e-43 
+  UniRef50_A0A0F5YDG7 Uncharacterized protein n=2 Tax=Oscillatori...  164     7e-43 
+  UniRef50_A0A1Z4MY07 Pentapeptide repeat-containing protein n=3 ...  165     8e-43 
+  UniRef50_L8MZP2 WD-40 repeat-containing protein n=3 Tax=Pseudan...  165     9e-43 
+  UniRef50_A0A0L6WQE3 Uncharacterized protein n=3 Tax=Termitomyce...  165     1e-42 
+  UniRef50_B5VVI2 WD-40 repeat protein n=3 Tax=Arthrospira TaxID=...  160     1e-42 
+  UniRef50_A7EPC1 Uncharacterized protein n=8 Tax=Eukaryota TaxID...  157     1e-42 
+  UniRef50_A0A218QCM9 WD-40 repeat-containing protein n=1 Tax=Tol...  165     1e-42 
+  UniRef50_A0A0A2JYT3 NACHT nucleoside triphosphatase n=3 Tax=Pen...  164     1e-42 
+  UniRef50_A0A150P3I2 Uncharacterized protein n=1 Tax=Sorangium c...  162     2e-42 
+  UniRef50_B0E4G5 Predicted protein (Fragment) n=3 Tax=Agaricomyc...  164     2e-42 
+  UniRef50_X6LMA0 Uncharacterized protein (Fragment) n=2 Tax=Reti...  162     2e-42 
+  UniRef50_A0A161W3B9 Vegetative incompatibility protein het-e-1 ...  164     2e-42 
+  UniRef50_A0A0F9L2J2 Uncharacterized protein n=1 Tax=marine sedi...  164     2e-42 
+  UniRef50_A7EAT8 Uncharacterized protein n=1 Tax=Sclerotinia scl...  164     2e-42 
+  UniRef50_A0A0C9UBU6 Unplaced genomic scaffold SPHSTscaffold_808...  164     2e-42 
+  UniRef50_K9VVN2 WD40 repeat-containing protein n=3 Tax=Cyanobac...  159     2e-42 
+  UniRef50_A0A1Q4S8S1 Uncharacterized protein (Fragment) n=2 Tax=...  156     2e-42 
+  UniRef50_UPI00030642FD WD40 repeat domain-containing protein n=...  163     2e-42 
+  UniRef50_A0A0F2M629 Wd-repeat protein n=1 Tax=Sporothrix schenc...  164     2e-42 
+  UniRef50_A2V883 G protein beta-subunit-like protein (Fragment) ...  150     3e-42 
+  UniRef50_A0A0C3BI41 Uncharacterized protein n=1 Tax=Serendipita...  164     3e-42 
+  UniRef50_UPI00034667BF hypothetical protein n=1 Tax=Oscillatori...  164     3e-42 
+  UniRef50_M7V0N6 Putative vegetative incompatibility protein het...  164     3e-42 
+  UniRef50_A0A1J1K1G2 WD-40 repeat protein n=8 Tax=Cyanobacteria ...  163     3e-42 
+  UniRef50_A0A094D038 Uncharacterized protein (Fragment) n=1 Tax=...  164     3e-42 
+  UniRef50_S7RPC6 WD40 repeat-like protein (Fragment) n=1 Tax=Glo...  163     3e-42 
+  UniRef50_A0D039 Uncharacterized protein n=1 Tax=Paramecium tetr...  164     3e-42 
+  UniRef50_UPI000346FB34 hypothetical protein n=1 Tax=Glomeribact...  163     4e-42 
+  UniRef50_Q7ND05 WD-repeat protein n=1 Tax=Gloeobacter violaceus...  163     4e-42 
+  UniRef50_A0A094B2P2 Uncharacterized protein (Fragment) n=1 Tax=...  158     4e-42 
+  UniRef50_UPI0009A33AE5 peptidase C14 n=1 Tax=Cylindrospermopsis...  163     4e-42 
+  UniRef50_B1WNU5 WD-40 repeat-containing serine/threonine protei...  162     4e-42 
+  UniRef50_UPI000831A8A6 hypothetical protein n=2 Tax=Anabaena Ta...  163     4e-42 
+  UniRef50_A0A1G1FGM6 Uncharacterized protein n=5 Tax=Bacteria Ta...  163     4e-42 
+  UniRef50_A0A1Q4S674 Uncharacterized protein n=9 Tax=Nostocales ...  163     4e-42 
+  UniRef50_K9QMH3 WD40 repeat-containing protein n=6 Tax=Cyanobac...  163     4e-42 
+  UniRef50_A0A1U8QT21 Uncharacterized protein n=2 Tax=Emericella ...  158     4e-42 
+  UniRef50_I4HZ25 Vegetative incompatibility protein HET-E-1 n=5 ...  157     4e-42 
+  UniRef50_H5SRM7 Hypothetical conserved protein n=1 Tax=Acetothe...  163     4e-42 
+  UniRef50_A0A0A1VVL1 High-affnity carbon uptake protein Hat/HatR...  163     5e-42 
+  UniRef50_UPI0006534051 WD40 repeat domain-containing protein n=...  160     5e-42 
+  UniRef50_A0A1F5L760 Uncharacterized protein n=1 Tax=Penicillium...  163     5e-42 
+  UniRef50_A0A1V6WJB2 Uncharacterized protein n=1 Tax=Penicillium...  163     5e-42 
+  UniRef50_A0A1S9D462 WD-40 repeat-containing protein n=1 Tax=Asp...  163     5e-42 
+  UniRef50_A0A1Z4G7R1 WD-40 repeat-containing protein n=3 Tax=Nos...  163     5e-42 
+  UniRef50_A0A1D8TQR6 Uncharacterized protein n=3 Tax=Oscillatori...  163     5e-42 
+  UniRef50_A0A0V7ZI58 Uncharacterized protein n=1 Tax=Mastigocole...  163     5e-42 
+  UniRef50_A0A1R2B897 Uncharacterized protein n=2 Tax=cellular or...  159     6e-42 
+  UniRef50_D5G217 HET-D (Fragment) n=6 Tax=Eukaryota TaxID=2759 R...  159     6e-42 
+  UniRef50_Q00808 Vegetative incompatibility protein HET-E-1 n=9 ...  162     6e-42 
+  UniRef50_UPI00084A03CD hypothetical protein n=1 Tax=Candidatus ...  161     6e-42 
+  UniRef50_R7RXE7 WD40 repeat-like protein n=1 Tax=Stereum hirsut...  162     7e-42 
+  UniRef50_A0A0D6KSI4 Tetratricopeptide repeat protein n=6 Tax=No...  162     7e-42 
+  UniRef50_K9V4W4 (Myosin heavy-chain) kinase n=1 Tax=Calothrix s...  162     7e-42 
+  UniRef50_B0E0S5 Mycorrhiza-induced WD40-repeat domain protein n...  162     7e-42 
+  UniRef50_UPI000440C128 WD40 repeat-like protein n=1 Tax=Stereum...  162     7e-42 
+  UniRef50_G6G030 (Myosin heavy-chain) kinase n=9 Tax=Cyanobacter...  162     7e-42 
+  UniRef50_A0A0G0A8T3 Uncharacterized protein n=2 Tax=Trichoderma...  162     7e-42 
+  UniRef50_A0A0C3BTM9 Uncharacterized protein n=2 Tax=Agaricales ...  156     7e-42 
+  UniRef50_A0A235HYU1 Ribosome assembly protein 4 n=1 Tax=Nostoc ...  162     8e-42 
+  UniRef50_A0A0C9Y4M7 Unplaced genomic scaffold K443scaffold_28, ...  162     8e-42 
+  UniRef50_A0A0V7ZL49 Uncharacterized protein n=10 Tax=Cyanobacte...  155     9e-42 
+  UniRef50_A0DA29 Uncharacterized protein n=1 Tax=Paramecium tetr...  162     9e-42 
+  UniRef50_A0A1Z4SFZ9 WD-40 repeat-containing protein n=14 Tax=No...  162     9e-42 
+  UniRef50_A0A179FAT5 G-protein beta wd-40 repeats containing n=1...  162     1e-41 
+  UniRef50_G7WNM7 WD repeat protein n=10 Tax=cellular organisms T...  162     1e-41 
+  UniRef50_K9Q946 WD-40 repeat-containing protein n=2 Tax=Nostoca...  162     1e-41 
+  UniRef50_A0A1Y0RF46 Uncharacterized protein n=4 Tax=Nostocales ...  162     1e-41 
+  UniRef50_F5YNI8 NB-ARC domain protein n=2 Tax=Treponema primiti...  162     1e-41 
+  UniRef50_A0A0U1M2I7 Putative WD repeat-containing protein all21...  162     1e-41 
+  UniRef50_A0A1Z4L0I0 WD-40 repeat-containing protein n=6 Tax=Cya...  162     1e-41 
+  UniRef50_A0A1G1DM95 Uncharacterized protein n=3 Tax=unclassifie...  161     1e-41 
+  UniRef50_A0A0G4GWN5 Uncharacterized protein n=1 Tax=Chromera ve...  162     2e-41 
+  UniRef50_A0A0C2LGX3 Uncharacterized protein (Fragment) n=1 Tax=...  152     2e-41 
+  UniRef50_UPI000B5984A3 hypothetical protein n=1 Tax=Leptolyngby...  161     2e-41 
+  UniRef50_A0A1Z4K9I5 WD-40 repeat-containing protein n=3 Tax=Nos...  161     2e-41 
+  UniRef50_B8MUB1 WD-repeat protein, putative n=1 Tax=Talaromyces...  161     2e-41 
+  UniRef50_A0A150RJP8 Uncharacterized protein n=1 Tax=Sorangium c...  161     2e-41 
+  UniRef50_UPI0009F8B188 hypothetical protein n=1 Tax=Phormidesmi...  161     2e-41 
+  UniRef50_A0A0P8A5B1 WD40 repeat protein n=2 Tax=Oscillatoriacea...  161     2e-41 
+  UniRef50_UPI0009D7046B hypothetical protein n=1 Tax=Anabaena sp...  158     2e-41 
+  UniRef50_G2YHL1 Similar to prolyl oligopeptidase n=1 Tax=Botryo...  160     2e-41 
+  UniRef50_A0A0M0SUA6 Uncharacterized protein n=7 Tax=Hapalosipho...  161     2e-41 
+  UniRef50_K9W127 (Myosin heavy-chain) kinase n=2 Tax=Oscillatori...  153     2e-41 
+  UniRef50_A0A1Y1YQA6 HET-E protein n=1 Tax=Clohesyomyces aquatic...  156     3e-41 
+  UniRef50_X6LFT7 Uncharacterized protein (Fragment) n=1 Tax=Reti...  156     3e-41 
+  UniRef50_F4L2X1 WD40 repeat-containing protein n=1 Tax=Haliscom...  160     3e-41 
+  UniRef50_A0A0C9XX84 Unplaced genomic scaffold scaffold_154, who...  155     3e-41 
+  UniRef50_A0A094IRB2 Uncharacterized protein n=3 Tax=Pseudogymno...  159     3e-41 
+  UniRef50_A0A1B8A3I5 Uncharacterized protein n=11 Tax=Hypocreale...  161     3e-41 
+  UniRef50_A0A146UGU3 Guanine nucleotide-binding subunit beta-2 1...  149     3e-41 
+  UniRef50_A0A094AMX2 Uncharacterized protein n=4 Tax=leotiomycet...  160     3e-41 
+  UniRef50_B0DVW6 Mycorrhiza-induced NACHT/WD40-repeat domain pro...  154     3e-41 
+  UniRef50_A0A139X262 Uncharacterized protein n=2 Tax=Cyanobacter...  160     3e-41 
+  UniRef50_A0A0F0I5J5 Uncharacterized protein n=3 Tax=Aspergillus...  160     3e-41 
+  UniRef50_K9T7Q3 WD40 repeat-containing protein n=1 Tax=Pleuroca...  160     3e-41 
+  UniRef50_A0A238JHU3 Translocation protein TolB n=1 Tax=Tropicib...  158     3e-41 
+  UniRef50_B4W4D8 DnaJ domain protein n=1 Tax=Coleofasciculus cht...  156     3e-41 
+  UniRef50_A0A0E9NIY4 Uncharacterized protein n=2 Tax=Saitoella c...  160     3e-41 
+  UniRef50_A0A1Z4H333 WD-40 repeat protein n=3 Tax=Calothrix TaxI...  153     3e-41 
+  UniRef50_A0A1U7IIY9 Uncharacterized protein n=1 Tax=Phormidium ...  154     4e-41 
+  UniRef50_UPI000B59CF7F protein kinase n=1 Tax=Leptolyngbya ohad...  159     4e-41 
+  UniRef50_A0A177Q2R3 Uncharacterized protein n=1 Tax=Verrucomicr...  160     4e-41 
+  UniRef50_W9HAP6 Atypical/ALPHA protein kinase n=5 Tax=Fusarium ...  160     4e-41 
+  UniRef50_A0A0C9T6U9 Unplaced genomic scaffold SPHSTscaffold_391...  160     4e-41 
+  UniRef50_A0A0D6YJ94 Serine/threonine protein kinase n=12 Tax=Cy...  159     4e-41 
+  UniRef50_A0A1W5CYV6 WD40/YVTN repeat-like-containing domain n=7...  160     5e-41 
+  UniRef50_UPI00089ABD78 WD40 repeat domain-containing protein n=...  159     5e-41 
+  UniRef50_B1WUP9 WD-repeat protein n=2 Tax=Oscillatoriales TaxID...  159     6e-41 
+  UniRef50_Q7ND80 WD-repeat protein n=5 Tax=Terrabacteria group T...  160     6e-41 
+  UniRef50_B7KCU4 WD-40 repeat protein n=1 Tax=Cyanothece sp. (st...  159     7e-41 
+  UniRef50_G4TUZ7 Related to WD40-repeat protein (Notchless prote...  159     7e-41 
+  UniRef50_A0A094IZH7 Uncharacterized protein n=1 Tax=Pseudogymno...  160     7e-41 
+  UniRef50_F4XK01 WD-40 repeat-containing protein n=2 Tax=Cyanoba...  159     7e-41 
+  UniRef50_UPI000B984E6A WD40 repeat domain-containing protein n=...  154     7e-41 
+  UniRef50_A0A146HPI4 Uncharacterized protein n=1 Tax=Mycena chlo...  159     8e-41 
+  UniRef50_A0A166HKN0 WD40 repeat-like protein n=1 Tax=Fibularhiz...  159     8e-41 
+  UniRef50_A0A0D3ACU1 Uncharacterized protein n=1 Tax=Brassica ol...  158     8e-41 
+  UniRef50_A0A093VQM4 Vegetative incompatibility protein HET-E-1 ...  159     9e-41 
+  UniRef50_UPI000BAA4B67 hypothetical protein n=3 Tax=Comamonadac...  155     9e-41 
+  UniRef50_A0A235J0R6 Peptidase C14 n=1 Tax=Nostoc sp. 'Peltigera...  159     9e-41 
+  UniRef50_K9VY32 WD40 repeat-containing protein n=1 Tax=Crinaliu...  153     9e-41 
+  UniRef50_A0A0C9WYM1 Unplaced genomic scaffold K443scaffold_145,...  159     1e-40 
+  UniRef50_UPI0009DFAE7A hypothetical protein n=1 Tax=bacterium e...  159     1e-40 
+  UniRef50_K9ZJZ8 (Myosin heavy-chain) kinase n=6 Tax=Nostocales ...  159     1e-40 
+  UniRef50_D4ZWX6 WD-40 repeat protein n=6 Tax=Arthrospira TaxID=...  158     1e-40 
+  UniRef50_A0A1U7IHS7 Uncharacterized protein n=2 Tax=Phormidium ...  159     1e-40 
+  UniRef50_A0A0D0CM58 Unplaced genomic scaffold GYMLUscaffold_14,...  159     1e-40 
+  UniRef50_A0A0F8A2F8 Uncharacterized protein n=2 Tax=Hirsutella ...  159     1e-40 
+  UniRef50_A0A1F6D3V4 Uncharacterized protein n=2 Tax=cellular or...  151     1e-40 
+  UniRef50_A0A137QU75 Uncharacterized protein n=1 Tax=Leucoagaric...  159     1e-40 
+  UniRef50_K9UUN2 WD-40 repeat-containing protein n=12 Tax=Cyanob...  159     1e-40 
+  UniRef50_A0A1J1KLJ9 Uncharacterized protein n=5 Tax=Cyanobacter...  157     1e-40 
+  UniRef50_A0A1V6U895 Uncharacterized protein n=2 Tax=Penicillium...  159     2e-40 
+  UniRef50_UPI00036E4F48 hypothetical protein n=2 Tax=Oscillatori...  159     2e-40 
+  UniRef50_A0A1Q4RJK8 Uncharacterized protein n=15 Tax=Cyanobacte...  159     2e-40 
+  UniRef50_A0A1W9X1F4 Uncharacterized protein n=1 Tax=Beggiatoa s...  153     2e-40 
+  UniRef50_A0A1B8A3C3 Uncharacterized protein n=1 Tax=Fusarium po...  158     2e-40 
+  UniRef50_A0A1R2BPL2 Uncharacterized protein n=1 Tax=Stentor coe...  158     2e-40 
+  UniRef50_A0A0D0BYL0 Unplaced genomic scaffold GYMLUscaffold_152...  158     2e-40 
+  UniRef50_A0A1F5L4C0 Uncharacterized protein n=1 Tax=Penicillium...  158     2e-40 
+  UniRef50_UPI0002483797 WD40 repeat domain-containing protein n=...  150     2e-40 
+  UniRef50_A0A0C3PVZ9 Uncharacterized protein n=2 Tax=Tulasnella ...  157     2e-40 
+  UniRef50_UPI000346ED70 hypothetical protein n=1 Tax=Pseudanabae...  158     3e-40 
+  UniRef50_A0A1Y2BQS3 WD40 repeat-like protein n=2 Tax=Rhizoclosm...  158     3e-40 
+  UniRef50_A0A0D6KGB7 WD40 protein n=5 Tax=Nostocales TaxID=1161 ...  151     3e-40 
+  UniRef50_A0A243S971 Uncharacterized protein n=5 Tax=Streptomyce...  158     3e-40 
+  UniRef50_UPI0004BAF0CA hypothetical protein n=1 Tax=[Scytonema ...  158     3e-40 
+  UniRef50_B4VLP3 Uncharacterized protein n=1 Tax=Coleofasciculus...  158     3e-40 
+  UniRef50_A8ZQA5 WD-repeat protein n=2 Tax=Acaryochloris marina ...  157     3e-40 
+  UniRef50_A0DP33 Uncharacterized protein n=3 Tax=Paramecium tetr...  155     3e-40 
+  UniRef50_D4ZY98 Serine/threonine protein kinase with WD-40 repe...  157     3e-40 
+  UniRef50_A0A1V6ITL4 WD domain, G-beta repeat n=1 Tax=Deltaprote...  157     4e-40 
+  UniRef50_A0A1U7H8T6 Uncharacterized protein n=1 Tax=Hydrococcus...  157     4e-40 
+  UniRef50_A0A0F9X6H5 Uncharacterized protein (Fragment) n=2 Tax=...  155     4e-40 
+  UniRef50_A0A1Z4GSJ2 WD-40 repeat protein n=3 Tax=Nostocales Tax...  157     4e-40 
+  UniRef50_X0HX70 Atypical/ALPHA protein kinase n=7 Tax=Fusarium ...  157     4e-40 
+  UniRef50_A0A0P6HLV0 Putative Guanine nucleotide-binding protein...  146     4e-40 
+  UniRef50_A0A0D2ILB6 Rhinocladiella mackenziei CBS 650.93 unplac...  156     4e-40 
+  UniRef50_U5N4J0 NTPase-like protein n=4 Tax=Candidatus Symbioba...  157     4e-40 
+  UniRef50_A0A0C9XKB5 Unplaced genomic scaffold K443scaffold_179,...  155     4e-40 
+  UniRef50_A0A0C2PXM1 Serine/threonine protein kinase n=27 Tax=No...  156     5e-40 
+  UniRef50_B0DDW2 Predicted protein n=1 Tax=Laccaria bicolor (str...  157     5e-40 
+  UniRef50_A0A094FWU9 Uncharacterized protein (Fragment) n=1 Tax=...  157     5e-40 
+  UniRef50_A0A1F4K5N7 Uncharacterized protein n=1 Tax=Burkholderi...  157     5e-40 
+  UniRef50_X0BJV1 Uncharacterized protein n=12 Tax=Sordariomycete...  157     5e-40 
+  UniRef50_A0A0C3HAN0 Uncharacterized protein n=1 Tax=Oidiodendro...  157     6e-40 
+  UniRef50_A0A0C2XFT6 Uncharacterized protein n=2 Tax=Serendipita...  156     6e-40 
+  UniRef50_A0A139WQC1 Uncharacterized protein n=1 Tax=Scytonema h...  157     6e-40 
+  UniRef50_UPI000B850AD1 hypothetical protein n=1 Tax=Nitrosomona...  157     7e-40 
+  UniRef50_A0A0L1J6R5 NACHT and WD40 domain protein n=3 Tax=Asper...  157     7e-40 
+  UniRef50_A0A1Y2B2V4 WD40 repeat-like protein n=1 Tax=Rhizoclosm...  157     7e-40 
+  UniRef50_K9TKV8 WD40 repeat-containing protein n=2 Tax=Oscillat...  156     7e-40 
+  UniRef50_I3EN12 Uncharacterized protein n=6 Tax=Nematocida TaxI...  149     7e-40 
+  UniRef50_A8J3X0 Predicted protein (Fragment) n=3 Tax=Eukaryota ...  148     7e-40 
+  UniRef50_X6M0D8 WD-40 repeat-containing protein n=9 Tax=Reticul...  157     7e-40 
+  UniRef50_A0A0V7ZS74 Uncharacterized protein n=1 Tax=Mastigocole...  157     7e-40 
+  UniRef50_A0A137QIW4 Vegetative incompatibility protein HET-E-1 ...  157     8e-40 
+  UniRef50_A0A164T2D8 WD40 repeat-like protein n=3 Tax=Agaricomyc...  153     8e-40 
+  UniRef50_A0A0C2W161 Uncharacterized protein n=8 Tax=Serendipita...  156     8e-40 
+  UniRef50_UPI000455F241 WD40 repeat-like protein n=1 Tax=Conioph...  154     8e-40 
+  UniRef50_A0CQ08 Uncharacterized protein n=2 Tax=Paramecium tetr...  156     8e-40 
+  UniRef50_L8M7S2 WD40 repeat-containing protein (Fragment) n=1 T...  155     9e-40 
+  UniRef50_Q0C7G0 Uncharacterized protein n=1 Tax=Aspergillus ter...  156     9e-40 
+  UniRef50_G4TJH0 Related to WD40-repeat protein (Notchless prote...  156     9e-40 
+  UniRef50_K9WPX6 WD40 repeat-containing protein n=1 Tax=Microcol...  148     9e-40 
+  UniRef50_A0A150PK44 Uncharacterized protein n=1 Tax=Sorangium c...  151     1e-39 
+  UniRef50_A0A1Q4S024 Uncharacterized protein n=4 Tax=Cyanobacter...  156     1e-39 
+  UniRef50_A0A0H2R1N5 WD40 repeat-like protein n=2 Tax=Schizopora...  156     1e-39 
+  UniRef50_Q4WH28 Pfs, NACHT and WD domain protein n=5 Tax=Euroti...  156     1e-39 
+  UniRef50_A0A1H2QWP6 WD40 repeat n=3 Tax=Nitrosomonas communis T...  156     1e-39 
+  UniRef50_A0A1L7WIF0 Related to WD40-repeat protein (Notchless p...  156     1e-39 
+  UniRef50_I4G1L1 Serine/threonine protein kinase n=3 Tax=Cyanoba...  148     1e-39 
+  UniRef50_A0A0D2LJ40 Uncharacterized protein n=1 Tax=Hypholoma s...  155     1e-39 
+  UniRef50_A0YUL3 Peptidase C14, caspase catalytic subunit p20 n=...  156     1e-39 
+  UniRef50_UPI0006939F31 hypothetical protein n=1 Tax=Sulfurospir...  154     1e-39 
+  UniRef50_W6Q9A6 WD repeat protein 23 n=3 Tax=leotiomyceta TaxID...  156     1e-39 
+  UniRef50_A0A0S3TY10 (Myosin heavy-chain) kinase n=4 Tax=Leptoly...  156     1e-39 
+  UniRef50_A0A0D6YGR6 Uncharacterized protein (Fragment) n=3 Tax=...  155     1e-39 
+  UniRef50_K9ZPB6 WD-40 repeat protein n=6 Tax=Cyanobacteria TaxI...  155     1e-39 
+  UniRef50_A0A0D6AAF2 High-affnity carbon uptake protein Hat/HatR...  151     1e-39 
+  UniRef50_A0A1Q3TET5 Uncharacterized protein n=1 Tax=Chloroflexi...  150     1e-39 
+  UniRef50_M2QJ01 Uncharacterized protein (Fragment) n=2 Tax=Ceri...  155     2e-39 
+  UniRef50_B0Y7Y2 Wd-repeat protein n=2 Tax=Aspergillus TaxID=505...  155     2e-39 
+  UniRef50_A0A239J0Y3 Ribosome assembly protein 4 (RSA4) n=1 Tax=...  155     2e-39 
+  UniRef50_M1WS37 High-affnity carbon uptake protein Hat/HatR n=2...  154     2e-39 
+  UniRef50_R0KSP1 Uncharacterized protein (Fragment) n=2 Tax=leot...  152     2e-39 
+  UniRef50_A0A0D0BW33 Unplaced genomic scaffold GYMLUscaffold_279...  155     2e-39 
+  UniRef50_A0A0M9EA39 Repeat-containing protein n=1 Tax=Candidatu...  155     2e-39 
+  UniRef50_A0A176S2Z2 Repeat-containing protein (Fragment) n=1 Ta...  147     2e-39 
+  UniRef50_A0A0C3ITG6 Uncharacterized protein n=4 Tax=Pisolithus ...  154     2e-39 
+  UniRef50_A0A0C3AX78 Uncharacterized protein n=1 Tax=Serendipita...  155     2e-39 
+  UniRef50_A0A1Q5TBX2 Vegetative incompatibility protein HET-E-1 ...  155     2e-39 
+  UniRef50_E0UIW2 WD40 repeat, subgroup n=3 Tax=Terrabacteria gro...  147     2e-39 
+  UniRef50_A0A084R036 Uncharacterized protein n=2 Tax=Stachybotry...  155     2e-39 
+  UniRef50_B0DYX6 Predicted protein n=2 Tax=Laccaria bicolor (str...  155     2e-39 
+  UniRef50_A0A1V6NVZ1 Uncharacterized protein n=1 Tax=Penicillium...  155     2e-39 
+  UniRef50_A0A094IFX8 Uncharacterized protein n=1 Tax=Pseudogymno...  155     2e-39 
+  UniRef50_UPI000A0369D0 hypothetical protein n=1 Tax=Herbidospor...  155     2e-39 
+  UniRef50_A0A0D0BNL7 Unplaced genomic scaffold GYMLUscaffold_49,...  155     2e-39 
+  UniRef50_P49695 Probable serine/threonine-protein kinase PkwA n...  154     2e-39 
+  UniRef50_K9TY81 WD40 repeat, subgroup n=4 Tax=Cyanobacteria Tax...  155     2e-39 
+  UniRef50_M2QY11 Uncharacterized protein n=1 Tax=Ceriporiopsis s...  155     3e-39 
+  UniRef50_UPI000BAE34CE myosin kinase n=1 Tax=Calothrix elsteri ...  155     3e-39 
+  UniRef50_A0E7C7 Uncharacterized protein n=1 Tax=Paramecium tetr...  155     3e-39 
+  UniRef50_U5QDP9 Uncharacterized protein n=2 Tax=Gloeobacter Tax...  153     3e-39 
+  UniRef50_X6N7D8 WD-40 repeat protein (Fragment) n=2 Tax=Reticul...  155     3e-39 
+  UniRef50_X6LZG0 G-protein beta WD-40 repeats containing protein...  149     3e-39 
+
+
+
+Lambda      K        H        a         alpha
+   0.317    0.132    0.428    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 775246611040
+Warning: [psiblast] lcl|Query_1 O18640: Warning: Composition-based score adjustment conditioned on sequence properties and unconditional composition-based score adjustment is not supported with PSSMs, resetting to default value of standard composition-based statistics 
+Results from round 2
+
+
+Query= O18640
+
+Length=318
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+Sequences used in model and found again:
+
+  UniRef50_O18640 Guanine nucleotide-binding protein subunit beta...  494     2e-175
+  UniRef50_E0UC38 Serine/threonine-protein kinase-like domain pro...  482     6e-165
+  UniRef50_UPI0007043F8F LOW QUALITY PROTEIN: uncharacterized pro...  477     7e-160
+  UniRef50_A0A017S901 WD40 repeat-like protein n=1 Tax=Aspergillu...  489     7e-160
+  UniRef50_A7EJN8 Uncharacterized protein n=2 Tax=Sclerotinia scl...  480     4e-159
+  UniRef50_K7W4U6 WD-40 repeat-containing protein n=2 Tax=Anabaen...  489     1e-158
+  UniRef50_UPI0009A33AE5 peptidase C14 n=1 Tax=Cylindrospermopsis...  475     2e-158
+  UniRef50_B8LXS9 G-protein beta WD-40 repeats containing protein...  487     5e-158
+  UniRef50_A7EAT8 Uncharacterized protein n=1 Tax=Sclerotinia scl...  472     7e-158
+  UniRef50_P63244 Receptor of activated protein C kinase 1 n=67 T...  448     4e-157
+  UniRef50_A0A1D9Q631 Uncharacterized protein n=1 Tax=Sclerotinia...  485     7e-157
+  UniRef50_O42248 Guanine nucleotide-binding protein subunit beta...  447     9e-157
+  UniRef50_A0A1Q8S2C4 Vegetative incompatibility protein HET-E-1-...  475     3e-156
+  UniRef50_A0A1Z4HEG3 WD-40 repeat-containing protein n=1 Tax=Cal...  454     3e-156
+  UniRef50_UPI0009D6690F ribosome assembly protein 4 n=2 Tax=Nost...  481     3e-155
+  UniRef50_A0A0K1RZU1 TolB protein periplasmic protein n=21 Tax=M...  457     7e-155
+  UniRef50_K9Q946 WD-40 repeat-containing protein n=2 Tax=Nostoca...  466     1e-154
+  UniRef50_A0A1Z4QJ55 WD-40 repeat-containing protein n=1 Tax=Cyl...  473     2e-154
+  UniRef50_X0BJV1 Uncharacterized protein n=12 Tax=Sordariomycete...  473     3e-154
+  UniRef50_G2YCL9 Similar to prolyl oligopeptidase n=6 Tax=leotio...  446     4e-154
+  UniRef50_A0A1D9QID5 Uncharacterized protein n=3 Tax=Sclerotinia...  473     4e-154
+  UniRef50_K9W457 WD-40 repeat-containing protein n=1 Tax=Crinali...  472     1e-153
+  UniRef50_Q00808 Vegetative incompatibility protein HET-E-1 n=9 ...  471     2e-153
+  UniRef50_G2Y989 Similar to transcription factor Zn, C2H2 n=1 Ta...  457     5e-152
+  UniRef50_B5VVI6 WD-40 repeat protein n=4 Tax=Oscillatoriales Ta...  453     6e-152
+  UniRef50_L7E4Y5 WD domain, G-beta repeat family protein n=3 Tax...  458     7e-152
+  UniRef50_L8MZP2 WD-40 repeat-containing protein n=3 Tax=Pseudan...  471     8e-152
+  UniRef50_K9QDZ2 Serine/threonine protein kinase with WD40 repea...  448     1e-151
+  UniRef50_A0A093W2D8 Vegetative incompatibility protein HET-E-1 ...  446     1e-151
+  UniRef50_A7ERN6 Uncharacterized protein n=4 Tax=leotiomyceta Ta...  444     2e-151
+  UniRef50_Q7ND80 WD-repeat protein n=5 Tax=Terrabacteria group T...  461     4e-151
+  UniRef50_Q2HFK4 Uncharacterized protein n=1 Tax=Chaetomium glob...  473     4e-151
+  UniRef50_D4ZY98 Serine/threonine protein kinase with WD-40 repe...  448     8e-151
+  UniRef50_A0A1Z4QED7 WD-40 repeat protein n=1 Tax=Cylindrospermu...  467     2e-150
+  UniRef50_A0A1Z4NA70 WD-40 repeat-containing protein n=2 Tax=Nos...  453     6e-150
+  UniRef50_A0A1Z4L0I0 WD-40 repeat-containing protein n=6 Tax=Cya...  457     7e-150
+  UniRef50_A0A1Z4SFZ9 WD-40 repeat-containing protein n=14 Tax=No...  457     1e-149
+  UniRef50_A0A1D8TS09 Uncharacterized protein n=3 Tax=Moorea prod...  466     1e-149
+  UniRef50_A0A094F3L8 Uncharacterized protein (Fragment) n=1 Tax=...  458     1e-149
+  UniRef50_Q2GV04 Uncharacterized protein n=2 Tax=Sordariales Tax...  463     2e-149
+  UniRef50_A0A0U5FWH9 Uncharacterized protein n=3 Tax=Aspergillus...  454     5e-149
+  UniRef50_A0A1S9DH71 WD-40 repeat-containing protein n=1 Tax=Asp...  470     6e-149
+  UniRef50_A0A161W3B9 Vegetative incompatibility protein het-e-1 ...  449     6e-149
+  UniRef50_A0A1B8A3I5 Uncharacterized protein n=11 Tax=Hypocreale...  464     1e-148
+  UniRef50_A0A1J1L9R3 Serine/Threonine protein kinase with WD40 r...  439     2e-148
+  UniRef50_A0A0S7DY99 Succinate dehydrogenase assembly factor 2, ...  445     2e-148
+  UniRef50_A0A1J7IPG0 WD40 repeat-like protein n=1 Tax=Coniochaet...  440     4e-148
+  UniRef50_UPI000907DA0F hypothetical protein n=1 Tax=Arthrospira...  449     5e-148
+  UniRef50_E4TH64 WD40 repeat, subgroup n=4 Tax=Bacteria TaxID=2 ...  448     1e-147
+  UniRef50_K9V395 (Myosin heavy-chain) kinase n=5 Tax=Nostocales ...  459     2e-147
+  UniRef50_A0A1Z3HNH1 WD-40 repeat protein n=3 Tax=Leptolyngbyace...  449     3e-147
+  UniRef50_A0A1B8A3C3 Uncharacterized protein n=1 Tax=Fusarium po...  465     4e-147
+  UniRef50_A0A0F7U5E0 Uncharacterized protein n=1 Tax=Penicillium...  443     4e-147
+  UniRef50_I4H2K6 Uncharacterized protein n=5 Tax=root TaxID=1 Re...  424     4e-147
+  UniRef50_A0A1V6PEU5 Uncharacterized protein n=1 Tax=Penicillium...  443     5e-147
+  UniRef50_A0ZF06 WD-40 repeat protein n=2 Tax=Nostocales TaxID=1...  448     6e-147
+  UniRef50_A0A1V6WJB2 Uncharacterized protein n=1 Tax=Penicillium...  451     6e-147
+  UniRef50_A0A235J0R6 Peptidase C14 n=1 Tax=Nostoc sp. 'Peltigera...  450     6e-147
+  UniRef50_UPI0009D7046B hypothetical protein n=1 Tax=Anabaena sp...  431     7e-147
+  UniRef50_UPI0007C84883 hypothetical protein n=1 Tax=Leptolyngby...  450     9e-147
+  UniRef50_B8LTB2 Pfs, NACHT and WD domain protein n=1 Tax=Talaro...  453     9e-147
+  UniRef50_A0A094HM90 Uncharacterized protein n=5 Tax=Leotiomycet...  448     9e-147
+  UniRef50_A0A1B8E9L3 Uncharacterized protein n=3 Tax=Pseudogymno...  460     1e-146
+  UniRef50_A0A1V6PKG8 Uncharacterized protein n=1 Tax=Penicillium...  462     1e-146
+  UniRef50_UPI000B850AD1 hypothetical protein n=1 Tax=Nitrosomona...  447     2e-146
+  UniRef50_UPI000349B725 hypothetical protein n=1 Tax=Oscillatori...  434     2e-146
+  UniRef50_A0A1Z4V0R3 Serine/threonine protein kinase with WD-40 ...  421     2e-146
+  UniRef50_A0A1Y0RF46 Uncharacterized protein n=4 Tax=Nostocales ...  445     4e-146
+  UniRef50_B8MUZ3 WD repeat-containing protein, putative n=1 Tax=...  454     4e-146
+  UniRef50_K9TKV8 WD40 repeat-containing protein n=2 Tax=Oscillat...  439     5e-146
+  UniRef50_A0A0F7ZFL8 Uncharacterized protein n=2 Tax=Hirsutella ...  448     5e-146
+  UniRef50_A0A1L7XXC8 Uncharacterized protein n=1 Tax=Phialocepha...  452     6e-146
+  UniRef50_A0A0A1VVL1 High-affnity carbon uptake protein Hat/HatR...  440     7e-146
+  UniRef50_A0A231LY46 Uncharacterized protein (Fragment) n=1 Tax=...  422     1e-145
+  UniRef50_G2YHL1 Similar to prolyl oligopeptidase n=1 Tax=Botryo...  435     1e-145
+  UniRef50_A0A0C1NFT9 Uncharacterized protein n=10 Tax=Nostocales...  447     1e-145
+  UniRef50_A0A1Z4ULY9 Serine/threonine protein kinase with WD-40 ...  442     2e-145
+  UniRef50_A0A212D000 Uncharacterized protein n=4 Tax=Bilateria T...  421     2e-145
+  UniRef50_E0UJ20 WD40 repeat, subgroup n=5 Tax=Oscillatoriophyci...  447     4e-145
+  UniRef50_Q4WH28 Pfs, NACHT and WD domain protein n=5 Tax=Euroti...  450     4e-145
+  UniRef50_A0A1M3TZM0 Succinate dehydrogenase assembly factor 2, ...  434     4e-145
+  UniRef50_A0A161WNS9 Beta transducin-like protein het-e2c n=1 Ta...  445     6e-145
+  UniRef50_UPI000B5984A3 hypothetical protein n=1 Tax=Leptolyngby...  441     8e-145
+  UniRef50_UPI0004B69E4D hypothetical protein n=2 Tax=Nostocales ...  452     9e-145
+  UniRef50_A0A0N8GRH0 Uncharacterized protein n=1 Tax=Ardenticate...  442     1e-144
+  UniRef50_B0CDS2 WD-40 repeat protein n=2 Tax=Acaryochloris mari...  442     1e-144
+  UniRef50_B8MUB1 WD-repeat protein, putative n=1 Tax=Talaromyces...  443     1e-144
+  UniRef50_A0A1S9D462 WD-40 repeat-containing protein n=1 Tax=Asp...  447     2e-144
+  UniRef50_A0A0K0DH24 Uncharacterized protein n=3 Tax=Strongylida...  427     2e-144
+  UniRef50_B2IZJ6 WD-40 repeat protein n=6 Tax=Nostocales TaxID=1...  454     2e-144
+  UniRef50_A0A1J1KLJ9 Uncharacterized protein n=5 Tax=Cyanobacter...  429     2e-144
+  UniRef50_H3EC27 Uncharacterized protein n=1 Tax=Pristionchus pa...  428     3e-144
+  UniRef50_A3IK50 Peptidase C14, caspase catalytic subunit p20 n=...  438     3e-144
+  UniRef50_A0A1L9TE03 Succinate dehydrogenase assembly factor 2, ...  431     6e-144
+  UniRef50_A0A0F8D7Z7 Vegetative incompatibility protein HET-E-1 ...  442     1e-143
+  UniRef50_A0A0D6KSI4 Tetratricopeptide repeat protein n=6 Tax=No...  453     1e-143
+  UniRef50_G2YHM6 Similar to HET-E n=4 Tax=cellular organisms Tax...  422     1e-143
+
+Sequences not found previously or not previously below threshold:
+
+  UniRef50_B0C3Y2 WD-repeat protein n=6 Tax=Cyanobacteria TaxID=1...  442     7e-144
+
+
+
+Lambda      K        H        a         alpha
+   0.318    0.197    0.786    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0604    0.140     1.90     42.6     43.6 
+
+Effective search space used: 775246611040
+Results from round 3
+
+
+Query= O18640
+
+Length=318
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+Sequences used in model and found again:
+
+  UniRef50_B8LXS9 G-protein beta WD-40 repeats containing protein...  573     0.0   
+  UniRef50_A0A1D9Q631 Uncharacterized protein n=1 Tax=Sclerotinia...  571     0.0   
+  UniRef50_A0A017S901 WD40 repeat-like protein n=1 Tax=Aspergillu...  569     0.0   
+  UniRef50_A7EJN8 Uncharacterized protein n=2 Tax=Sclerotinia scl...  564     0.0   
+  UniRef50_K7W4U6 WD-40 repeat-containing protein n=2 Tax=Anabaen...  560     0.0   
+  UniRef50_UPI0009D6690F ribosome assembly protein 4 n=2 Tax=Nost...  555     0.0   
+  UniRef50_A7EAT8 Uncharacterized protein n=1 Tax=Sclerotinia scl...  555     0.0   
+  UniRef50_A0A1Q8S2C4 Vegetative incompatibility protein HET-E-1-...  553     0.0   
+  UniRef50_A0A1D9QID5 Uncharacterized protein n=3 Tax=Sclerotinia...  551     0.0   
+  UniRef50_E0UC38 Serine/threonine-protein kinase-like domain pro...  550     0.0   
+  UniRef50_X0BJV1 Uncharacterized protein n=12 Tax=Sordariomycete...  550     0.0   
+  UniRef50_Q00808 Vegetative incompatibility protein HET-E-1 n=9 ...  550     0.0   
+  UniRef50_UPI0009A33AE5 peptidase C14 n=1 Tax=Cylindrospermopsis...  549     0.0   
+  UniRef50_A0A1Z4QJ55 WD-40 repeat-containing protein n=1 Tax=Cyl...  545     0.0   
+  UniRef50_Q7ND80 WD-repeat protein n=5 Tax=Terrabacteria group T...  541     0.0   
+  UniRef50_K9Q946 WD-40 repeat-containing protein n=2 Tax=Nostoca...  536     0.0   
+  UniRef50_B5VVI6 WD-40 repeat protein n=4 Tax=Oscillatoriales Ta...  529     0.0   
+  UniRef50_A7ERN6 Uncharacterized protein n=4 Tax=leotiomyceta Ta...  526     0.0   
+  UniRef50_G2YCL9 Similar to prolyl oligopeptidase n=6 Tax=leotio...  521     0.0   
+  UniRef50_A0A1Z4HEG3 WD-40 repeat-containing protein n=1 Tax=Cal...  520     0.0   
+  UniRef50_A0A093W2D8 Vegetative incompatibility protein HET-E-1 ...  518     6e-180
+  UniRef50_UPI000B5984A3 hypothetical protein n=1 Tax=Leptolyngby...  531     8e-180
+  UniRef50_A0A1B8A3I5 Uncharacterized protein n=11 Tax=Hypocreale...  547     1e-179
+  UniRef50_D4ZY98 Serine/threonine protein kinase with WD-40 repe...  522     1e-179
+  UniRef50_K9W457 WD-40 repeat-containing protein n=1 Tax=Crinali...  540     3e-179
+  UniRef50_A0A0K1RZU1 TolB protein periplasmic protein n=21 Tax=M...  518     3e-179
+  UniRef50_L7E4Y5 WD domain, G-beta repeat family protein n=3 Tax...  527     7e-179
+  UniRef50_G2Y989 Similar to transcription factor Zn, C2H2 n=1 Ta...  526     8e-179
+  UniRef50_K9QDZ2 Serine/threonine protein kinase with WD40 repea...  516     3e-178
+  UniRef50_E0UJ20 WD40 repeat, subgroup n=5 Tax=Oscillatoriophyci...  533     3e-178
+  UniRef50_A0A094F3L8 Uncharacterized protein (Fragment) n=1 Tax=...  531     1e-177
+  UniRef50_Q2HFK4 Uncharacterized protein n=1 Tax=Chaetomium glob...  544     1e-177
+  UniRef50_A0A1Z4SFZ9 WD-40 repeat-containing protein n=14 Tax=No...  529     2e-177
+  UniRef50_A0A1S9DH71 WD-40 repeat-containing protein n=1 Tax=Asp...  552     2e-177
+  UniRef50_L8MZP2 WD-40 repeat-containing protein n=3 Tax=Pseudan...  538     3e-177
+  UniRef50_UPI000B850AD1 hypothetical protein n=1 Tax=Nitrosomona...  526     3e-177
+  UniRef50_B0CDS2 WD-40 repeat protein n=2 Tax=Acaryochloris mari...  526     4e-177
+  UniRef50_UPI000907DA0F hypothetical protein n=1 Tax=Arthrospira...  523     8e-177
+  UniRef50_A0A1V6WJB2 Uncharacterized protein n=1 Tax=Penicillium...  528     2e-176
+  UniRef50_A0A1B8E9L3 Uncharacterized protein n=3 Tax=Pseudogymno...  540     2e-176
+  UniRef50_A0A1Z4QED7 WD-40 repeat protein n=1 Tax=Cylindrospermu...  535     3e-176
+  UniRef50_A0A1B8A3C3 Uncharacterized protein n=1 Tax=Fusarium po...  546     3e-176
+  UniRef50_A0A094HM90 Uncharacterized protein n=5 Tax=Leotiomycet...  524     5e-176
+  UniRef50_A0ZF06 WD-40 repeat protein n=2 Tax=Nostocales TaxID=1...  523     5e-176
+  UniRef50_Q2GV04 Uncharacterized protein n=2 Tax=Sordariales Tax...  533     1e-175
+  UniRef50_A0A0D0AWL3 Unplaced genomic scaffold GYMLUscaffold_63,...  514     3e-175
+  UniRef50_I4H2K6 Uncharacterized protein n=5 Tax=root TaxID=1 Re...  495     3e-175
+  UniRef50_A0A1Z4L0I0 WD-40 repeat-containing protein n=6 Tax=Cya...  523     3e-175
+  UniRef50_A0A161W3B9 Vegetative incompatibility protein het-e-1 ...  516     9e-175
+  UniRef50_UPI0007C84883 hypothetical protein n=1 Tax=Leptolyngby...  523     9e-175
+  UniRef50_G2YHL1 Similar to prolyl oligopeptidase n=1 Tax=Botryo...  508     3e-174
+  UniRef50_K9V395 (Myosin heavy-chain) kinase n=5 Tax=Nostocales ...  530     3e-174
+  UniRef50_B0E4G5 Predicted protein (Fragment) n=3 Tax=Agaricomyc...  513     5e-174
+  UniRef50_A0A1Z4V0R3 Serine/threonine protein kinase with WD-40 ...  491     6e-174
+  UniRef50_A0A166MQ78 WD40 repeat-like protein n=3 Tax=Fibularhiz...  516     8e-174
+  UniRef50_A0A0C1NFT9 Uncharacterized protein n=10 Tax=Nostocales...  520     9e-174
+  UniRef50_A0A235J0R6 Peptidase C14 n=1 Tax=Nostoc sp. 'Peltigera...  520     9e-174
+  UniRef50_A0A1Z3HNH1 WD-40 repeat protein n=3 Tax=Leptolyngbyace...  517     1e-173
+  UniRef50_A0A1Z4NA70 WD-40 repeat-containing protein n=2 Tax=Nos...  514     1e-173
+  UniRef50_A0A1J1L9R3 Serine/Threonine protein kinase with WD40 r...  503     2e-173
+  UniRef50_UPI0009D7046B hypothetical protein n=1 Tax=Anabaena sp...  498     3e-173
+  UniRef50_A0A1Z4ULZ7 Serine/threonine protein kinase with WD-40 ...  501     3e-173
+  UniRef50_A0A1W5CZ11 WD40/YVTN repeat-like-containing domain n=1...  526     4e-173
+  UniRef50_A0A0F7U5E0 Uncharacterized protein n=1 Tax=Penicillium...  509     6e-173
+  UniRef50_A0A1D8TS09 Uncharacterized protein n=3 Tax=Moorea prod...  528     8e-173
+  UniRef50_A0A231LY46 Uncharacterized protein (Fragment) n=1 Tax=...  491     8e-173
+  UniRef50_A0A0F7ZFL8 Uncharacterized protein n=2 Tax=Hirsutella ...  517     2e-172
+  UniRef50_A0A1Z4ULY9 Serine/threonine protein kinase with WD-40 ...  512     2e-172
+  UniRef50_B0C3Y2 WD-repeat protein n=6 Tax=Cyanobacteria TaxID=1...  516     3e-172
+  UniRef50_A0A1V6PKG8 Uncharacterized protein n=1 Tax=Penicillium...  533     3e-172
+  UniRef50_A0YMI4 WD-40 repeat protein n=10 Tax=Cyanobacteria Tax...  520     3e-172
+  UniRef50_K9QMH3 WD40 repeat-containing protein n=6 Tax=Cyanobac...  516     4e-172
+  UniRef50_B8LTB2 Pfs, NACHT and WD domain protein n=1 Tax=Talaro...  519     5e-172
+  UniRef50_A0A1Y0RF46 Uncharacterized protein n=4 Tax=Nostocales ...  512     5e-172
+  UniRef50_U1FUC0 Uncharacterized protein n=3 Tax=leotiomyceta Ta...  520     5e-172
+  UniRef50_A0A1V6PEU5 Uncharacterized protein n=1 Tax=Penicillium...  507     6e-172
+  UniRef50_A0A1S9D462 WD-40 repeat-containing protein n=1 Tax=Asp...  518     7e-172
+  UniRef50_G2YHM6 Similar to HET-E n=4 Tax=cellular organisms Tax...  493     8e-172
+  UniRef50_B8MUZ3 WD repeat-containing protein, putative n=1 Tax=...  522     1e-171
+  UniRef50_A0A1U7J5D8 Uncharacterized protein n=2 Tax=Phormidium ...  517     1e-171
+  UniRef50_A0A0C9T6U9 Unplaced genomic scaffold SPHSTscaffold_391...  507     1e-171
+  UniRef50_D5G225 NWD1 (Fragment) n=2 Tax=cellular organisms TaxI...  489     1e-171
+  UniRef50_A0A139X0B4 Uncharacterized protein n=3 Tax=Cyanobacter...  515     1e-171
+  UniRef50_A0A0F8D7Z7 Vegetative incompatibility protein HET-E-1 ...  514     2e-171
+  UniRef50_Q4WH28 Pfs, NACHT and WD domain protein n=5 Tax=Euroti...  520     2e-171
+  UniRef50_S7RPC6 WD40 repeat-like protein (Fragment) n=1 Tax=Glo...  516     2e-171
+  UniRef50_S7Q5N0 Uncharacterized protein n=1 Tax=Gloeophyllum tr...  508     2e-171
+  UniRef50_UPI000349B725 hypothetical protein n=1 Tax=Oscillatori...  498     2e-171
+  UniRef50_A0A161WNS9 Beta transducin-like protein het-e2c n=1 Ta...  513     4e-171
+  UniRef50_UPI000BAE34CE myosin kinase n=1 Tax=Calothrix elsteri ...  521     4e-171
+  UniRef50_E4TH64 WD40 repeat, subgroup n=4 Tax=Bacteria TaxID=2 ...  509     6e-171
+  UniRef50_A0A0U5FWH9 Uncharacterized protein n=3 Tax=Aspergillus...  510     1e-170
+  UniRef50_A0A094IRB2 Uncharacterized protein n=3 Tax=Pseudogymno...  496     1e-170
+  UniRef50_A0A0C3GP31 Uncharacterized protein n=2 Tax=sordariomyc...  512     1e-170
+  UniRef50_A0A0F3GI57 Repeat-containing protein n=1 Tax=Candidatu...  511     2e-170
+  UniRef50_UPI000831A8A6 hypothetical protein n=2 Tax=Anabaena Ta...  512     2e-170
+
+Sequences not found previously or not previously below threshold:
+
+
+
+
+Lambda      K        H        a         alpha
+   0.318    0.229     1.04    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0702    0.140     1.90     42.6     43.6 
+
+Effective search space used: 775246611040
+
+
+  Database: uniref50.fasta
+    Posted date:  Jun 11, 2020  11:28 AM
+  Number of letters in database: 8,120,947,734
+  Number of sequences in database:  26,169,982
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40

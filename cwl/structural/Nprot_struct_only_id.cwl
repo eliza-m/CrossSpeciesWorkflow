@@ -20,6 +20,22 @@ inputs:
     
 # Optional inputs:
 
+   U20folder:
+     type: Directory?
+     default:
+       class: Directory
+       location: ../../databases/uniprot20_2016_02
+     doc: |
+       Uniprot20 database folder.
+
+   U50folder:
+     type: Directory? 
+     default:
+       class: Directory
+       location: ../../databases/uniref50
+     doc: |
+       UniRef50 blast database folder.
+
    outputFilename: 
      type: string?
      default: "struct_results.txt"
@@ -79,6 +95,8 @@ steps:
     scatter: fastaFile
     in:
       fastaFile: getFasta/fastaFile
+      U50folder: U50folder
+      U20folder: U20folder
     out: [results]  
     doc: |
       Run all predictors
