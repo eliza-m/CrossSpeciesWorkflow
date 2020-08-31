@@ -1,20 +1,20 @@
 #TopoPred_TM2: 2-state transmembrane topology prediction results by profile mode 
 #Transmembrane residues are marked with 'H' or 'E' above threshold 0.500 
 # Non-transmembrane residues are marked with '_' below threshold 0.500 
-   1 M _ 0.059 
+   1 M _ 0.058 
    2 T _ 0.017 
    3 E _ 0.013 
    4 Q _ 0.014 
    5 M _ 0.014 
-   6 T _ 0.023 
-   7 V _ 0.025 
-   8 R _ 0.022 
-   9 G _ 0.015 
-  10 T _ 0.010 
+   6 T _ 0.021 
+   7 V _ 0.024 
+   8 R _ 0.020 
+   9 G _ 0.014 
+  10 T _ 0.009 
   11 L _ 0.006 
   12 K _ 0.004 
   13 G _ 0.003 
-  14 H _ 0.003 
+  14 H _ 0.002 
   15 S _ 0.002 
   16 G _ 0.002 
   17 W _ 0.002 
@@ -30,7 +30,7 @@
   27 F _ 0.002 
   28 P _ 0.002 
   29 D _ 0.003 
-  30 M _ 0.005 
+  30 M _ 0.004 
   31 I _ 0.006 
   32 L _ 0.006 
   33 S _ 0.004 
@@ -54,7 +54,7 @@
   51 N _ 0.002 
   52 Y _ 0.002 
   53 G _ 0.003 
-  54 I _ 0.003 
+  54 I _ 0.004 
   55 P _ 0.004 
   56 Q _ 0.005 
   57 R _ 0.005 

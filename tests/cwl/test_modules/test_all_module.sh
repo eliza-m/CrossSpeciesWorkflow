@@ -14,6 +14,8 @@ CWLSCRIPTS=${CSW_HOME}/cwl/
 
 #########################################################
 
+cd ${CSW_HOME}/tests/cwl/test_modules/
+
 # Test Acetylation Module
 
 $RUNNER $ARGS --outdir acetylation/1prot_fasta $CWLSCRIPTS/acetylation/1prot_acet_only_fasta.cwl 1prot_fasta.yml
@@ -52,9 +54,9 @@ $RUNNER $ARGS --outdir localisation/Nprot_id $CWLSCRIPTS/localisation/Nprot_loc_
 
 # Test Structural Module
 
-$RUNNER $ARGS --outdir structural/1prot_fasta $CWLSCRIPTS/structural/1prot_struct_only_fasta.cwl 1prot_fasta.yml
-$RUNNER $ARGS --outdir structural/1prot_id $CWLSCRIPTS/structural/1prot_struct_only_id.cwl 1prot_id.yml
-$RUNNER $ARGS --outdir structural/Nprot_id $CWLSCRIPTS/structural/Nprot_struct_only_id.cwl Nprot_id.yml
+$RUNNER $ARGS --parallel --outdir structural/1prot_fasta $CWLSCRIPTS/structural/1prot_struct_only_fasta.cwl 1prot_fasta.yml
+$RUNNER $ARGS --parallel --outdir structural/1prot_id $CWLSCRIPTS/structural/1prot_struct_only_id.cwl 1prot_id.yml
+$RUNNER $ARGS --parallel --outdir structural/Nprot_id $CWLSCRIPTS/structural/Nprot_struct_only_id.cwl Nprot_id.yml
 
 
 # Test PTM Module

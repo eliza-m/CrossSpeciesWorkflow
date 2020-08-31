@@ -6,8 +6,6 @@ requirements:
 
 inputs:
   files: File[]
-    doc: |
-      Input file array
 
   foldername: 
     type: string?
