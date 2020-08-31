@@ -14,8 +14,8 @@ class: CommandLineTool
 baseCommand: [format-output]
 hints:
   DockerRequirement:
-    #dockerPull: quay.io/dbsb-ibar/species_proteins:latest
-    dockerImageId: quay.io/dbsb-ibar/species_proteins:latest
+    dockerPull: quay.io/dbsb-ibar/species_proteins:latest
+    #dockerImageId: quay.io/dbsb-ibar/species_proteins:latest
 
 
 requirements:

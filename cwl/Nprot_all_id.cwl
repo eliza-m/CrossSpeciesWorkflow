@@ -266,6 +266,7 @@ steps:
       inputFolder: 
         source: [structwrap/folder, acetwrap/folder, glycwrap/folder, phoswrap/folder, sumowrap/folder, lipidwrap/folder, locwrap/folder]
         linkMerge: merge_flattened
+      alnFile: align/alnFile
     scatter:
       - inputFolder
       - module

@@ -7,7 +7,7 @@ RUNNER=cwltool
 # Check if symlinks in ${CSW_HOME}/databases are set to your local sequence databases !!!!!!!!
 
 
-ARGS="--no-match-user --no-read-only --parallel"
+ARGS="--no-match-user --no-read-only"
 
 CWLSCRIPTS=${CSW_HOME}/cwl/
 

@@ -1,0 +1,63 @@
+<BODY LINK="#0000ff" BGCOLOR="#ffffff">
+
+<script language=JavaScript type = "text/javascript">
+  var loc = window.top.location.search.substring(1);
+  if (loc != null && loc !== "" && loc.length > 1) {
+      document.write('<center><h2>',loc,' Server Output - DTU Health Tech</h2></center>');}
+  </script> 
+<hr>
+<pre>
+<p></b>     Asn-Xaa-Ser/Thr sequons in the sequence output below are highlighted in <font color="#0000ff"><b>blue</b></font>.
+          Asparagines predicted to be N-glycosylated are highlighted in <font color="#ff0000"><b>red</font>.
+
+</pre><p><h2>Output for 'LEUK_RAT'</h2><pre>
+
+########################################################################################
+
+    Warning: This sequence may not contain a signal peptide!!
+
+    Proteins without signal peptides are unlikely to be exposed to
+    the N-glycosylation machinery and thus may not be glycosylated
+    (in vivo) even though they contain potential motifs.
+
+    SignalP-NN euk predictions are as follows:
+
+  # name                Cmax  pos ?  Ymax  pos ?  Smax  pos ?  Smean ?  D     ? 
+  LEUK_RAT                   0.125  32  0.112  12  0.136   1  0.107   0.109 N  0.450      SignalP-noTM
+
+    SignalP output is explained at <a target="_blank" href="/services/SignalP-4.1/output.php">https://services.healthtech.dtu.dk/services/SignalP-4.1/output.php</a>
+
+########################################################################################
+
+Name:  LEUK_RAT 	Length:  378
+WAQVVSQENLPNTMTMLPFTPNSESPSTSEALSTYSSIATVPVTEDPKESISPWGQTTAPASSIPLGTPELSSFFFTSAG  <font color="black">    80 </font>
+ASGNTPVPELTTSQEVSTEASLVLFPKSSGVASDPPVTITNPATSSAVASTSLETFKGTSAPPVTVTSSTMTSGPFVATT  <font color="black">   160 </font>
+VSSETSGPPVTMATGSLGPSKETHGLSATIATSSGESSSVAGGTPVFSTKISTTSTPNPITTVPPRPGSSGMLLVSMLIA  <font color="black">   240 </font>
+LTVVLVLVALLLLWRQRQKRRTGALTLSRGGKR<font color="blue"><font color="red">N</font>GT</font>VDAWAGPARVPDEEATTASGSGG<font color="blue"><font color="red">N</font>KS</font>SGAPETDGSGQRPTLTTF  <font color="black">   320 </font>
+FSRRKSRQGSVALEELKPGTGPNLKGEEEPLVGSEDEAVETPTSDGPQAKDGAAPQSL
+................................................................................      80
+................................................................................     160
+................................................................................     240
+.................................N.........................N....................     320
+..........................................................                           400
+
+(Threshold=0.5)
+----------------------------------------------------------------------
+SeqName      Position  Potential   Jury    N-Glyc
+				 agreement result
+----------------------------------------------------------------------
+LEUK_RAT     274 NGTV   0.7323     <font color="red">(9/9)</font>   ++    
+LEUK_RAT     300 NKSS   0.5404     (6/9)   +     
+----------------------------------------------------------------------
+
+</pre>
+<hr>
+Go <a href="javascript:history.back()"><b>back</b></a>.
+<!--
+<button type="button"
+onclick="window.top.location.reload(true);")>
+New Submission</button>
+-->
+</BODY>
+</HTML>
+

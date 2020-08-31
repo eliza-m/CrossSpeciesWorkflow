@@ -1,5 +1,5 @@
 #Module	Phosphorylation
-#Alnfile: 	/var/lib/cwl/stg0810295d-0d35-4563-a9c3-800ece7f13c1/prot.aln
+#Alnfile: 	/var/lib/cwl/stg75a78f41-61e7-46df-84a3-276c50b34d1d/prot.aln
 
 
  alnid	 P63244	 O42248	 O18640	 P38011	Dif	  netphospan	  netphospan	  netphospan	  netphospan	     netphos	     netphos	     netphos	     netphos	  musitedeep	  musitedeep	  musitedeep	  musitedeep	

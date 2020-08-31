@@ -1,0 +1,53 @@
+<head>
+	<style type="text/css" title="currentStyle"> 
+		@import "DataTables-1.7.6/media/css/demo_page.css";
+		@import "DataTables-1.7.6/media/css/demo_table_jui.css";
+		@import "DataTables-1.7.6/examples/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css";
+		@import "DataTables-1.7.6/extras/TableTools/media/css/TableTools.css";
+		@import "assets/css/bootstrap.min.css";
+	</style>
+	<link rel="shortcut icon" href="./assets/ico/favicon.png">
+	<script type="text/javascript" language="javascript" src="DataTables-1.7.6/media/js/jquery.js"></script>	
+	<script type="text/javascript" language="javascript" src="DataTables-1.7.6/media/js/jquery.dataTables.js"></script>	
+	<script type="text/javascript" language="javascript" src="DataTables-1.7.6/extras/TableTools/media/js/TableTools.js"></script>	
+	<script type="text/javascript" language="javascript" src="DataTables-1.7.6/extras/TableTools/media/js/ZeroClipboard.js"></script>	
+	<script type="text/javascript" charset="utf-8"> 
+		function buildTable(){
+				$('.dataTable').dataTable(
+						{
+							"bJQueryUI": true,
+							"iDisplayLength": 20,
+							"bAutoWidth": true,
+							"sPaginationType": "full_numbers",
+							"sDom": '<"H"Tfr>t<"F"ip>',
+							"oTableTools": {
+								"sRowSelect": "multi",
+								"aButtons": ["copy", "csv", "xls", "pdf",
+								{
+									"sExtends":    "collection",
+									"sButtonText": "Save",
+									"aButtons":    [ "csv", "xls", "pdf" ]
+																													
+								}]
+							}
+						}
+					);
+				}
+		function destoryTable()
+		{
+			$('.fg-toolbar').css("display","none");
+			$('table thead').css("display","none");
+			$('table tfoot').css("display","none");
+		}
+		function recoverTable()
+		{
+			$('.fg-toolbar').css("display","block");
+			$('table thead').css("display","table-header-group");
+      			$('table tfoot').css("display","table-footer-group");
+		}	
+		$(document).ready(buildTable);
+	</script> 
+</head><body><div id="container"></br><h2>>P63244 <a href="#" onClick="destoryTable()">Plain</a> <a href="#" onClick="recoverTable()">Rich</a> </h2><!--<p class="seq">MTEQMTLRGTLKGHNGWVTQIATTPQFPDMILSASRDKTIIMWKLTRDETNYGIPQRALRGHSHFVSDVVISSDGQFALSGSWDGTLRLWDLTTGTTTRRFVGHTKDVLSVAFSSDNRQIVSGSRDKTIKLWNTLGVCKYTVQDESHSEWVSCVRFSPNSSNPIIVSCGWDKLVKVWNLANCKLKTNHIGHTGYLNTVTVSPDGSLCASGGKDGQAMLWDLNEGKHLYTLDGGDIINALCFSPNRYWLCAATGPSIKIWDLEGKIIVDELKQEVISTSSKAEPPQCTSLAWSADGQTLFAGYTDNLVRVWQVTIGTR</p>--><table cellpadding="0" cellspacing="0" border="0" class="display dataTable"> 
+<thead><tr><th>Rank</th><th>Position</th><th>Site</th><th>Motif</th><th>Score</th><th>Type</th></tr></thead>
+<tfoot><tr><th>Rank</th><th>Position</th><th>Site</th><th>Motif</th><th>Score</th><th>Type</th></tr></tfoot><tbody>
+<tr class="gradeY"><td class="center">1</td><td class="center">132</td><td class="center">W</td><td class="center">RDKTIKLWNTLGVCK</td><td class="center">0.352</td><td class="center">C-linked</td><tr class="gradeY"><td class="center">2</td><td class="center">150</td><td class="center">W</td><td class="center">QDESHSEWVSCVRFS</td><td class="center">0.303</td><td class="center">C-linked</td><tr class="gradeX"><td class="center">3</td><td class="center">17</td><td class="center">W</td><td class="center">TLKGHNGWVTQIATT</td><td class="center">0.155</td><td class="center">C-linked</td><tr class="gradeX"><td class="center">4</td><td class="center">170</td><td class="center">W</td><td class="center">PIIVSCGWDKLVKVW</td><td class="center">0.152</td><td class="center">C-linked</td><tr class="gradeX"><td class="center">5</td><td class="center">83</td><td class="center">W</td><td class="center">QFALSGSWDGTLRLW</td><td class="center">0.133</td><td class="center">C-linked</td><tr class="gradeX"><td class="center">6</td><td class="center">291</td><td class="center">W</td><td class="center">PQCTSLAWSADGQTL</td><td class="center">0.121</td><td class="center">C-linked</td><tr class="gradeX"><td class="center">7</td><td class="center">90</td><td class="center">W</td><td class="center">WDGTLRLWDLTTGTT</td><td class="center">0.120</td><td class="center">C-linked</td><tr class="gradeX"><td class="center">8</td><td class="center">310</td><td class="center">W</td><td class="center">TDNLVRVWQVTIGTR</td><td class="center">0.111</td><td class="center">C-linked</td><tr class="gradeX"><td class="center">9</td><td class="center">247</td><td class="center">W</td><td class="center">CFSPNRYWLCAATGP</td><td class="center">0.107</td><td class="center">C-linked</td><tr class="gradeD"><td class="center">10</td><td class="center">259</td><td class="center">W</td><td class="center">TGPSIKIWDLEGKII</td><td class="center">0.074</td><td class="center">C-linked</td><tr class="gradeD"><td class="center">11</td><td class="center">219</td><td class="center">W</td><td class="center">KDGQAMLWDLNEGKH</td><td class="center">0.069</td><td class="center">C-linked</td><tr class="gradeD"><td class="center">12</td><td class="center">43</td><td class="center">W</td><td class="center">RDKTIIMWKLTRDET</td><td class="center">0.040</td><td class="center">C-linked</td><tr class="gradeD"><td class="center">13</td><td class="center">177</td><td class="center">W</td><td class="center">WDKLVKVWNLANCKL</td><td class="center">0.022</td><td class="center">C-linked</td></tbody></table></div></body>

@@ -1,5 +1,5 @@
 #Module	Lipid Modification
-#Alnfile: 	/var/lib/cwl/stg788ab702-2fe8-4441-805c-069d09c53b8c/prot.aln
+#Alnfile: 	/var/lib/cwl/stg064a5ec6-63df-40cc-a1f0-320df28f90e8/prot.aln
 
 
  alnid	 P78352	 Q811D0	 F1Q6A0	Dif	    gpslipid	    gpslipid	    gpslipid	    gpslipid	    gpslipid	    gpslipid	    gpslipid	    gpslipid	    gpslipid	    gpslipid	    gpslipid	    gpslipid	
