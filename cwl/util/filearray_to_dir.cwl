@@ -6,14 +6,14 @@ requirements:
 
 inputs:
   files: File[]
-  doc: |
-    Input file array
+    doc: |
+      Input file array
 
   foldername: 
     type: string?
     default: Myfolder
-  doc: |
-    Output directory name
+    doc: |
+      Output directory name
 
 outputs:
   folder: Directory

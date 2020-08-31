@@ -7,8 +7,8 @@ requirements:
 inputs:
    idList:
      type: string[]
-    doc: |
-      input Uniprot IDs.
+     doc: |
+       input Uniprot IDs.
 
 outputs:    
   MultiFastaFile:
