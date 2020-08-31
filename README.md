@@ -56,6 +56,7 @@ Some of the docker images used in the pipeline have complex license, hence you h
 ## Clone repo
 ```
 $ git clone https://github.com/eliza-m/CrossSpeciesWorkflow.git
+$ git checkout GSOC2020
 ```
 Please set the CrossSpeciesWorkflow project home variable and add it to `.bashrc` :
 ```
