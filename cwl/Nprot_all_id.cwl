@@ -98,10 +98,7 @@ outputs:
     doc: |
       A folder containing all localisation predicted raw data
 
-  wf_stdout:
-    type: stdout
 
-stdout: stdout.out
 
 
 steps:

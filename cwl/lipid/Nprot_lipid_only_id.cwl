@@ -38,10 +38,7 @@ inputs:
      doc: |
        print only significant predicted sites (thresholds are predictor specific)
 
-  wf_stdout:
-    type: stdout
 
-stdout: stdout.out
 
 
 outputs:
