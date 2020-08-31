@@ -4,7 +4,7 @@ Content summary:
 * [General Info](#general-info)
 * [Project status](#project-status)
 * [Installation & Setup](#installation-\&-setup)
-* [Running-CWL-workflows](#running-cwl-workflows)
+* [Running CWL workflows](#running-cwl-workflows)
 * [Python API](#python-api)
 * [Prediction Modules Description](#prediction-modules-description)
 * [References](#references)
@@ -25,7 +25,7 @@ This repo intends to create an easy, user accesible and open-source tool for run
 
 
 # Project status 
-The project is currently under development :exclamation:. Some features might not yet won't work properly ::exclamation::
+The project is currently under development :exclamation:. Some features are not yet implemented and might won't work properly ::exclamation::
 
 The project was tested so far only on native Ubuntu 18 & 20 .
 
@@ -38,11 +38,8 @@ Currently there are 3 main modules that deal with:
 * F. Lipid modification
 * G. Cellular localisation
 
-=======
-Many features in this development branch are not yet implemented and won't work properly ::exclamation::
 
-
-# Installation & Setup 
+# Installation & Setup
 
 ## Requirements before using CrossSpeciesWorkflow: 
 To run CWL workflows you can use any CWL runner of your choice. By default (and also for the ease of debugging) we used CWLtool.
@@ -431,6 +428,7 @@ However, for NetNGlyc, NetCGlyc and NetOGlyc, also provided are a Dockerfile, as
 
 
 <br />
+
 ### D. Acetylation module  
 
 #### D1. [NetAcet v1.0](https://services.healthtech.dtu.dk/service.php?NetAcet-1.0) 
@@ -454,6 +452,7 @@ Predicts sumoylation sites (SUMO) and SUMO-interaction Motifs (SIM) [\[ZR 2014\]
 Only online submitted predictions are currently available in the main workflow
 
 <br />
+
 #### F. Lipid modification module 
 
 #### F1. [GPSlipid](http://lipid.biocuckoo.org/) 
