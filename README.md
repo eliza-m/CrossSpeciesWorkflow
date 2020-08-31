@@ -480,6 +480,7 @@ Predicts transmembrane helices and orientation [\[HS 1993\]](#hs-1993)
 Only online submitted predictions are currently available in the main workflow
 for TMHMM, also provided are a Dockerfile, as well python parsers and cwl tools to run them locally. Please see `CONTAINERS.md` for details and examples.
 
+<br />
 
 # References 
 
@@ -516,7 +517,7 @@ Jones DT. (1999) Protein secondary structure prediction based on position-specif
 Hanson, J., Paliwal, K., Litfin, T., Yang, Y., & Zhou, Y. (2019). Improving prediction of protein secondary structure, backbone angles, solvent accessibility and contact numbers by using predicted contact maps and an ensemble of recurrent and residual convolutional neural networks. Bioinformatics (Oxford, England), 35(14), 2403–2410. https://doi.org/10.1093/bioinformatics/bty1006  
 
 
-<br /><br />
+<br />
 
 ### Phosphorylation predictors:
 
@@ -531,7 +532,7 @@ Bioinformatics (2018).
 Duolin Wang, Shuai Zeng, Chunhui Xu, Wangren Qiu, Yanchun Liang, Trupti Joshi, Dong Xu, MusiteDeep: a Deep-learning Framework for General and Kinase-specific Phosphorylation Site Prediction, Bioinformatics 2017.
 
 
-<br /><br />
+<br />
 
 ### Glycosylation predictors:
 
@@ -553,7 +554,7 @@ Pitti T, Chen CT, Lin HN, Choong WK, Hsu WL, Sung TY. N-GlyDE: a two-stage N-lin
 Li F, Li C, Wang M, Webb GI, Zhang Y, Whisstock JC, Song J. GlycoMine: a machine learning-based approach for predicting N-, C-and O-linked glycosylation in the human proteome. Bioinformatics, 2015, 31(9):1411-1419. doi:10.1093/bioinformatics/btu852
 
 
-<br /><br />
+<br />
 
 ### Acetylation predictors:
 ##### \[KB 2005]
@@ -568,13 +569,13 @@ Chang, C., Tung, C., Chen, C. et al. SUMOgo: Prediction of sumoylation sites on 
 ##### \[ZR 2014]
 Zhao Q, Xie Y, Zheng Y, et al. GPS-SUMO: a tool for the prediction of sumoylation sites and SUMO-interaction motifs. Nucleic Acids Res. 2014;42(Web Server issue):W325-W330. doi:10.1093/nar/gku383
 
-<br /><br />
+<br />
 
 ### Lipid modification predictors:
 ##### \[XR 2016]
 Xie Y, Zheng Y, Li H, et al. GPS-Lipid: a robust tool for the prediction of multiple lipid modification sites. Sci Rep. 2016;6:28249. Published 2016 Jun 16. doi:10.1038/srep28249
 
-<br /><br />
+<br />
 
 ### Celullar localisation predictors:
 ##### \[LW 2019]
