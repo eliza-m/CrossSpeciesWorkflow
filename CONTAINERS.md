@@ -4,7 +4,7 @@
 
 While the main workflow relies only on ready to run containers (available on quay.io), we provide additional `Dockerfiles` that can be built and used locally.
 
-Please note that these **ARE NOT REQUIRED** for the current CWL pipeline, but could be optionally added if one wants to. Also, several 3rd party predictors require registering on their website prior downloading the software. 
+Please note that building these containers **IS NOT REQUIRED** for the current CWL pipeline, but could be optionally added if one wants to. Also, several 3rd party predictors require registering on their website prior downloading the software. 
 
 <br />
 
@@ -195,7 +195,6 @@ SCRATCH-1D_1.2/bin/run_SCRATCH-1D_predictors.sh /input/${prot}.fasta /output/${p
 ### A3. [Psipred](http://bioinf.cs.ucl.ac.uk/psipred/) - from UCL Bioinformatics group  
 Docker image contains:
 * PSIPRED Protein Secondary Structure Predictor v4.0 ([github repo](https://github.com/psipred/psipred)) [\[BJ 2019\]](#bj-2019), [\[J 1999\]](#j-1999).
-* DISOPRED Disorder Predictor v3.1 ([github repo](https://github.com/psipred/disopred)) [\[JC 2014\]](#jc-2014)
 
 Build docker image:
 ```bash
@@ -354,7 +353,7 @@ netphospan-1.0.Linux/netphospan -f /input/${prot}.fasta -a PKACA > /output/${pro
 
 MusiteDeep Phosphorylation ([github repo](https://github.com/duolinwang/MusiteDeep)) predicts general and/or kinase specific phosphorylation sites [\[WX 2017\]](#wx-2017). 
 
-There are 4 available dokerfiles:
+There are 2 available dokerfiles:
 * MusiteDeep using Keras1 and Theano CPU-based
 * MusiteDeep using Keras2 and Tensorflow CPU-based - which is much faster than Theano's version
 
@@ -541,9 +540,14 @@ mv isoglyp-predictions.csv /output/${prot}.isoglyp.out; '
 
 <br /><br />
 
-## F. Cellular localisation module :  
+## F. Lipid modification module :  
+:exclamation: Only online predictors are currently used
 
-### F1. [TMP-SSurface](http://deepsumo.renlab.org/) 
+<br /><br />
+
+## G. Cellular localisation module :  
+
+### G1. [TMP-SSurface](http://deepsumo.renlab.org/) 
 Predicts RSA for transmembrane proteins using deep learning [\[LW 2019\]](#lw-2019)
 Github repo - https://github.com/Liuzhe30/TMP-SSurface-2.0
 
@@ -566,7 +570,7 @@ python3 run.py -f /input/${prot}.fasta -p /input/pssm/ -o /output/ ;'
 <br />
 
 
-### F2. [TMHMM v2.0](http://www.cbs.dtu.dk/services/TMHMM/) 
+### G2. [TMHMM v2.0](http://www.cbs.dtu.dk/services/TMHMM/) 
 Predicts transmembrane helices [\[KS 2001\]](#ks-2001)
 
 As all DTU predictors license is for academic and non-profit usage only, in order to download the software it is required to register on their website and accept the license agreement prior accessing the download page. Please register and download the above predictors (linux version as the dockerfile image is ubuntu based) from the [Download link](https://services.healthtech.dtu.dk/software.php)
@@ -591,7 +595,7 @@ cp TMHMM_*/* /output/;'
 <br />
 
 
-### F3. [MEMSAT-SVM](http://bioinf.cs.ucl.ac.uk/psipred/) 
+### G3. [MEMSAT-SVM](http://bioinf.cs.ucl.ac.uk/psipred/) 
 Predicts transmembrane regions and cellular localisation [\[NJ 2009\]](#nj-2009)
 Github repo - https://github.com/psipred/MemSatSVM
 
