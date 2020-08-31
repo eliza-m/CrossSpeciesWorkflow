@@ -22,7 +22,7 @@ inputs:
 
    outputFilename: 
      type: string?
-     default: "sumo_results.txt"
+     default: "sumo_results.tsv"
      doc: |
        parsed data final output filename
 

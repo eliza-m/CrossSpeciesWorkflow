@@ -35,7 +35,7 @@ inputs:
 
    outputFilename: 
      type: string?
-     default: "struct_results.txt"
+     default: "struct_results.tsv"
      doc: |
        parsed data final output filename
 

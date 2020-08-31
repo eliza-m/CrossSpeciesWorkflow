@@ -128,7 +128,7 @@ steps:
       module: 
         default: ["acet", "glyc", "phos", "sumo", "lipid"]
       outputFilename:
-        default: "results.txt"
+        default: "results.tsv"
       signif: signif
       protname: protname
       inputFolder: 

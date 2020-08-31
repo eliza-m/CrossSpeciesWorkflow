@@ -16,7 +16,7 @@ inputs:
 
    outputFilename: 
      type: string?
-     default: "loc_results.txt"
+     default: "loc_results.tsv"
      doc: |
        parsed data final output filename
 

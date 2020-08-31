@@ -197,7 +197,7 @@ steps:
       module: 
         default: ["acet", "glyc", "phos", "sumo", "lipid"]
       outputFilename:
-        default: "results.txt"
+        default: "results.tsv"
       signif: signif
       inputFolder: 
         source: [acetwrap/folder, glycwrap/folder, phoswrap/folder, sumowrap/folder, lipidwrap/folder]

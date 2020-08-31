@@ -77,7 +77,7 @@ inputs:
     type: string?
     inputBinding:
       prefix: --output
-    default: "results.txt"
+    default: "results.tsv"
     doc: |
       output filename of the parsed data
 
@@ -107,14 +107,14 @@ outputs:
       glob: '*'
       outputEval: |
         ${
-          if ( inputs.outputFilename != "results.txt"){
+          if ( inputs.outputFilename != "results.tsv"){
              self[0].basename =  inputs.outputFilename;
           }
           else if (inputs.protname != null) {
-             self[0].basename = inputs.protname + "." + inputs.formattype + "." + inputs.module + ".out";
+             self[0].basename = inputs.protname + "." + inputs.formattype + "." + inputs.module + ".tsv";
           }
           else{
-             self[0].basename = inputs.module + "_results.txt";
+             self[0].basename = inputs.module + "_results.tsv";
           }
           return self[0]
         }

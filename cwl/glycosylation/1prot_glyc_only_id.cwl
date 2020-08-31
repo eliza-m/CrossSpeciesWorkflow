@@ -16,7 +16,7 @@ inputs:
 
    outputFilename: 
      type: string?
-     default: "glyc_results.txt"
+     default: "glyc_results.tsv"
      doc: |
        parsed data final output filename
 

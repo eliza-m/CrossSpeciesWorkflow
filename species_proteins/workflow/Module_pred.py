@@ -148,12 +148,12 @@ class Module_pred :
             layout= self.get_layout_1prot(protname, signif)
 
             # Print header
-            print("#Module:", self.module, sep='\t', file=output)
-            if self.module == "Structural" :
-                print("#DIS_threshold:", self.DIS_threshold, sep='\t', file=output)
-              # print("#ACC_threshold (only for scratch1d):", self.DIS_threshold, sep='\t', file=output)
-            print("#Protname: ", protname, sep='\t', file=output)
-            print("\n", file=output)
+            # print("#Module:", self.module, sep='\t', file=output)
+            # if self.module == "Structural" :
+            #     print("#DIS_threshold:", self.DIS_threshold, sep='\t', file=output)
+            #   # print("#ACC_threshold (only for scratch1d):", self.DIS_threshold, sep='\t', file=output)
+            # print("#Protname: ", protname, sep='\t', file=output)
+            # print("\n", file=output)
 
             if addseq:
                 print('{:>6}{:>5}'.format('resid', 'aa'), sep='\t', end='\t', file=output)
@@ -230,12 +230,12 @@ class Module_pred :
 
 
             # Print header
-            print("#Module", self.module, sep='\t', file=output)
-            print("#Alnfile: ", alnfile, sep='\t', file=output)
-            if self.module == "Structural" :
-                print("#DIS_threshold:", self.DIS_threshold, sep='\t', file=output)
-              # print("#ACC_threshold (only for scratch1d):", self.DIS_threshold, sep='\t', file=output)
-            print("\n", file=output)
+            # print("#Module", self.module, sep='\t', file=output)
+            # print("#Alnfile: ", alnfile, sep='\t', file=output)
+            # if self.module == "Structural" :
+            #     print("#DIS_threshold:", self.DIS_threshold, sep='\t', file=output)
+            #   # print("#ACC_threshold (only for scratch1d):", self.DIS_threshold, sep='\t', file=output)
+            # print("\n", file=output)
 
             if addseq:
                 print('{:>6}'.format('alnid'), sep='\t', end='\t', file=output)

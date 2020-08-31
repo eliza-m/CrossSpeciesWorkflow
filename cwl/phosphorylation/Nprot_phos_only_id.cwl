@@ -22,7 +22,7 @@ inputs:
 
    outputFilename: 
      type: string?
-     default: "phos_results.txt"
+     default: "phos_results.tsv"
      doc: |
        parsed data final output filename
 

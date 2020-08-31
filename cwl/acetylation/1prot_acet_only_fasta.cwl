@@ -19,7 +19,7 @@ inputs:
 
    outputFilename: 
      type: string?
-     default: "acet_results.txt"
+     default: "acet_results.tsv"
      doc: |
        parsed data final output filename
 

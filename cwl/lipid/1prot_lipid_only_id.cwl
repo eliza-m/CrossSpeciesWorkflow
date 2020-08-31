@@ -16,7 +16,7 @@ inputs:
 
    outputFilename: 
      type: string?
-     default: "lipid_results.txt"
+     default: "lipid_results.tsv"
      doc: |
        parsed data final output filename
 
