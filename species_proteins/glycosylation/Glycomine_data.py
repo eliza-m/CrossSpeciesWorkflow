@@ -16,7 +16,7 @@ class Glycomine_data:
         predicted_sites [ protein name ][ start resid ] : array of entry dict
         entry dict has the following keys:
 
-        # Common to all PTS predictors
+        # Common to all PTM predictors
             seq : string (stretch of the predicted sequence)
             start : starting residue id
             end : ending residue id

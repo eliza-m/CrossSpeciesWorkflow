@@ -6,25 +6,16 @@ from species_proteins.workflow.Module_pred import Module_pred
 
 @dataclass
 class Lipid_pred (Module_pred):
-    """Class that organises Lipid modification module output for single protein
-
-    Attributes
-    ----------
+    """
+    Class that organises Lipid module output.
+    It inherits Module_pred base class.
 
     Public Methods
     --------------
-    parseall()
-        Parses all the prediction output files and add the data inside the
-        above attribute data structures.
+    Overridden methods:
 
-    print1prot( self )
-        Prints all predictions in a vertical layout
-        For single protein profile layout
-
-    printNprot( self )
-        Prints all predictions in a vertical layout
-        For multi protein profile layout
-
+    parse_all(paths: dict) -> Lipid_pred:
+        Parses all the prediction output files.
     """
 
     paths: dict
@@ -43,8 +34,17 @@ class Lipid_pred (Module_pred):
     @staticmethod
     def parse_all(paths: dict) -> Lipid_pred:
         """
-        Parses all the prediction output files and add the data inside the
-        above attribute data structures.
+        Parses all the prediction output files.
+
+        Parameters
+        ----------
+        paths :  dict
+            Dictionary with raw prediction data.
+
+        Returns
+        -------
+        Lipid_pred
+            with parsed data
         """
 
         predictions = {}

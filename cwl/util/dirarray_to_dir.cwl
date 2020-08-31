@@ -6,9 +6,14 @@ requirements:
 
 inputs:
   inputFolder: Directory[]
+  doc: |
+    input directory array
+
   outputFolder: 
     type: string?
     default: Myfolder
+  doc: |
+    Output directory name
 
 outputs:
   folder: Directory
@@ -24,7 +29,7 @@ expression: |
   }
     
 doc: |
-  Organize all prediction output as a single folder, that will become next step's input
+  Merges a Directory array into a single Directory
 
 
 

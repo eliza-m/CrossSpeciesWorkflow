@@ -54,6 +54,10 @@ outputs:
     doc: |
       Formated output file
 
+  wf_stdout:
+    type: stdout
+
+stdout: stdout.out
 
 steps:
 

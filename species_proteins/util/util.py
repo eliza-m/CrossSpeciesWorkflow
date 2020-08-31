@@ -5,6 +5,19 @@ from species_proteins.util.MultiFASTA_extra import MultiFASTA_extra
 
 
 def map_aln( alnfile : Path ) -> dict:
+    """
+    Maps alignments positions to individual sequences resids.
+
+    Parameters
+    ----------
+    alnfile : Path
+        Alignment file in FASTA format.
+
+    Returns
+    -------
+    dict:
+        Mapped resids.
+    """
 
     aln = MultiFASTA_extra()
     mapping = {}
@@ -37,7 +50,28 @@ def map_aln( alnfile : Path ) -> dict:
 
 
 
-def get_paths_1prot(inputfolder: Path, output: Path, keys: list, protname: str = None) -> dict:
+def get_paths_1prot(inputfolder: Path, keys: list, protname: str = None) -> dict:
+    """
+    Retrieves paths of the raw prediction output files.
+
+    Parameters
+    ----------
+    inputfolder: Path
+        Folder containing raw prediction data.
+
+    keys: list
+        List of keys to search prediction results.
+
+    protname : string
+        Optional. If multiple files with the same keys are found, an error will be raised to provide protname as
+        an additional keyword to deal with ambiguities.
+
+    Returns
+    -------
+    dict
+        Dictionary with all paths structured based on protnames and predictors detected within the provided folder.
+
+    """
     paths = {};
     for key in keys:
         try:
@@ -80,7 +114,24 @@ def get_paths_1prot(inputfolder: Path, output: Path, keys: list, protname: str =
 
 
 
-def get_paths_Nprot(inputfolder: Path, output: Path, keys: list) -> dict:
+def get_paths_Nprot(inputfolder: Path, keys: list) -> dict:
+    """
+    Retrieves paths of the raw prediction output files.
+
+    Parameters
+    ----------
+    inputfolder: Path
+        Folder containing raw prediction data.
+
+    keys: list
+        List of keys to search prediction results.
+
+    Returns
+    -------
+    dict
+        Dictionary with all paths structured based on protnames and predictors detected within the provided folder.
+    """
+
     paths = {};
     for key in keys:
         try:

@@ -20,3 +20,6 @@ outputs:
     type: stdout
 
 stdout: $(inputs.outputname)
+
+doc: |
+  Concatenates files

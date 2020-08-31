@@ -7,6 +7,8 @@ requirements:
 inputs:
    idList:
      type: string[]
+    doc: |
+      input Uniprot IDs.
 
 outputs:    
   MultiFastaFile:
@@ -31,3 +33,6 @@ steps:
         default: "prot.fasta"
     out: [output]
 
+doc: |
+  Tool runs species_proteins/run.py get-fasta to retrieve a single multi FASTA file
+  required for the alignment tool. Also it will contain original headers.

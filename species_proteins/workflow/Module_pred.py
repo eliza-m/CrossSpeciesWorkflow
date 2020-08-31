@@ -7,20 +7,89 @@ import sys
 
 @dataclass
 class Module_pred :
-    """Base class that organises different module predictions output
+    """
+    Base class that organises different module predictions output
 
     Attributes
     ----------
+    paths :  dict
+        Dictionary with raw prediction data.
+
+    predictions : dict
+        Dictionary with all parsed predictions.
+
+    module : string
+        Module name. Specific to each child class
+
+    availPredictors : list
+        List of available predictors. Specific to each child class
+
+    header : list
+        Printing header specific to each child class.
+
 
     Public Methods
     --------------
-    print_1prot( self )
-        Prints all predictions in a vertical layout
-        For single protein profile layout
 
-    print_Nprot( self )
+    parse_all(paths: dict) -> Module_pred:
+        Virtual method implemented in each child class.
+
+
+    print_1prot(self: Module_pred, outputfile: Path, protname: str = None, addseq: bool = True,
+                    signif: bool = False)
         Prints all predictions in a vertical layout
-        For multi protein profile layout
+        For single protein profile layout.
+
+        Arguments:
+            - self          : Module_pred [required]
+
+            - outputfile    : Path. Filename for results summary output [required]
+
+            - protname      : String. Protname key to print if in the parsed data are multiple protname keys.
+                            If not provided and a single protname key exists it will print it,
+                            but if multiple protname keys are found an error will be raised to provide
+                            as argument the specific protname to print. [Optional. Default: None]
+
+            - addseq        : Boolean. If true prints resid and aminoacid columns. [Optional. Default: True]
+
+            - signif        : Boolean. If true prints only significant predicted sites. Significance thresholds are
+                            predictor specific. [Optional. Default: False]
+
+
+    print_Nprot(self: Module_pred, alnfile: Path, outputfile: Path, addseq: bool = True,
+                    signif: bool = False)
+        Prints all predictions in a vertical layout
+        For multi protein profile layout, showing sequences aligned.
+
+        Arguments:
+            - self          : Module_pred [required]
+
+            - alnfile       : Path. Alignment file to use in multi FASTA format. [required]
+
+            - outputfile    : Path. Filename for results summary output [required]
+
+            - protname      : String. Protname key to print if in the parsed data are multiple protname keys.
+                            If not provided and a single protname key exists it will print it,
+                            but if multiple protname keys are found an error will be raised to provide
+                            as argument the specific protname to print. [Optional. Default: None]
+
+            - addseq        : Boolean. If true prints resid and aminoacid columns. [Optional. Default: True]
+
+            - signif        : Boolean. If true prints only significant predicted sites. Significance thresholds are
+                            predictor specific. [Optional. Default: False]
+
+
+    get_layout_1prot(self: Module_pred, protname: str, signif: bool = False) -> dict
+        Get a vertical layout of the predicted data for each protein sequences, as multiple classes that
+        inherits module_pred keep only a dictionary with the predicted sites, and do not track resids and resnames.
+
+        Arguments:
+            - self          : Module_pred [required]
+
+            - protname      : String. Protname key to to obtain layout of. [required]
+
+            - signif        : Boolean. If true prints only significant predicted sites. Significance thresholds are
+                            predictor specific. [Optional. Default: False]
 
     """
 
@@ -30,8 +99,39 @@ class Module_pred :
     availPredictors = []
     header = []
 
+
+    def parse_all(paths: dict) -> Module_pred:
+        """Virtual method implemented in each child class."""
+        raise NotImplementedError()
+
+
+
     def print_1prot(self: Module_pred, outputfile: Path, protname: str = None, addseq: bool = True,
                     signif: bool = False):
+        """
+        Prints all predictions in a vertical layout. For single protein profile layout.
+
+        Parameters
+        ----------
+        outputfile: Path
+            Filename for results summary output [required]
+
+        protname : String
+            Protname key to print if in the parsed data are multiple protname keys.
+            If not provided and a single protname key exists it will print it,
+            but if multiple protname keys are found an error will be raised to provide
+            as argument the specific protname to print. [Optional. Default: None]
+
+        addseq: Boolean
+            If true prints resid and aminoacid columns. [Optional. Default: True]
+
+        signif: Boolean
+            If true prints only significant predicted sites. Significance thresholds are
+            predictor specific. [Optional. Default: False]
+
+        Returns
+        -------
+        """
 
         try:
             output = open(outputfile, 'w')
@@ -84,6 +184,33 @@ class Module_pred :
 
     def print_Nprot(self: Module_pred, alnfile: Path, outputfile: Path, addseq: bool = True,
                     signif: bool = False):
+        """
+        Prints all predictions in a vertical layout. For multi protein profile layout, showing sequences aligned.
+
+        Parameters
+        ----------
+        alnfile: Path
+            Alignment file to use in multi FASTA format. [required]
+
+        outputfile: Path
+            Filename for results summary output [required]
+
+        protname : String
+            Protname key to print if in the parsed data are multiple protname keys.
+            If not provided and a single protname key exists it will print it,
+            but if multiple protname keys are found an error will be raised to provide
+            as argument the specific protname to print. [Optional. Default: None]
+
+        addseq: Boolean
+            If true prints resid and aminoacid columns. [Optional. Default: True]
+
+        signif: Boolean
+            If true prints only significant predicted sites. Significance thresholds are
+            predictor specific. [Optional. Default: False]
+
+        Returns
+        -------
+        """
 
         try:
             output = open(outputfile, 'w')
@@ -170,15 +297,27 @@ class Module_pred :
 
 
 
-    def parse_all(paths: dict) -> Module_pred:
-        """Virtual"""
-        raise NotImplementedError()
-
-
-
 
 
     def get_layout_1prot(self: Module_pred, protname: str, signif: bool = False) -> dict:
+        """
+        Get a vertical layout of the predicted data for each protein sequences, as multiple classes that
+        inherits module_pred keep only a dictionary with the predicted sites, and do not track resids and resnames.
+
+        Parameters
+        ----------
+        protname: string
+            Protname key to to obtain layout of. [required]
+
+        signif: Boolean
+            If true prints only significant predicted sites. Significance thresholds are
+            predictor specific. [Optional. Default: False]
+
+        Returns
+        -------
+        layout: dict
+            Formated layout for a specific protein sequence and predictor.
+        """
 
         data = self.predictions[protname]
         seq = data['seq'];

@@ -167,7 +167,7 @@ def submit_online(predictor: str, input: Path, output: Path, type: str = None):
                                 - loc            :  Cellular localisation module """ )
 @click.option('--inputfolder', required=True, help='Input folder where all prediction results are stored')
 @click.option('--output', required=True, help='Output formatted file')
-@click.option('--signif', is_flag=True, default=False, required=False, show_default=True, help='Print only significant predicted sites. It applies only for PTS predictors (significance thresholds are method specific.)')
+@click.option('--signif', is_flag=True, default=False, required=False, show_default=True, help='Print only significant predicted sites. It applies only for PTM predictors (significance thresholds are method specific.)')
 @click.option('--protname', required=False, help="""\b
                 Only for single protein format, when within the specified input
                 folder there are multiple files with the same extension, a basename of the protein should be provided.
@@ -202,13 +202,13 @@ def format_output(format: str, module: str, inputfolder: Path, output: Path, sig
         raise
 
     if format == 'single':
-        paths = get_paths_1prot(inputfolder, output, keys[module], protname);
+        paths = get_paths_1prot(inputfolder, keys[module], protname);
 
     elif format == 'multi':
         if alnfile is None:
             print('Please provide alignment file for multi protrein layout')
         if module in keys:
-            paths = get_paths_Nprot(inputfolder, output, keys[module]);
+            paths = get_paths_Nprot(inputfolder, keys[module]);
 
     else:
         print("Unknown format...")

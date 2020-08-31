@@ -1,6 +1,5 @@
 #!/usr/bin/env cwl-runner
 
-# Aligns protein FASTA sequences using clustalo
 cwlVersion: v1.0
 class: CommandLineTool
 baseCommand: [clustalo]
@@ -14,17 +13,19 @@ requirements:
 inputs:
 
   fastaFile:
-  # Multi FASTA file
     type: File
     inputBinding:
       prefix: --in
+    doc: |
+      Multi FASTA file
 
   outputFilename:
     type: string?
     inputBinding:
       prefix: --out
     default: "prot.aln"
-
+    doc: |
+      Aligned filename
 
 outputs:
   alnFile:
@@ -37,5 +38,6 @@ $namespaces:
 $schemas:
   - http://edamontology.org/EDAM_1.22.owl
 
-
+doc: |
+  Aligns protein FASTA sequences using clustalo
 

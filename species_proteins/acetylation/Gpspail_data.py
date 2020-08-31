@@ -26,9 +26,9 @@ class Gpspail_data:
             type : string
             predictor : string (for cases where multiple predictors are available)
 
-        # Predictor specific:
-            enzyme
-            cutoff
+        # Additional fields:
+            enzime: predictions for multple enzymes are parsed
+            cutoff: used for significance
 
     Public Methods
     --------------

@@ -17,7 +17,7 @@ class Musitedeep_data:
         predicted_sites [ protein name ][ start resid ] : array of entry dict
         entry dict has the following keys:
 
-        # Common to all PTS predictors
+        # Common to all PTM predictors
             seq : string (stretch of the predicted sequence)
             start : starting residue id
             end : ending residue id
@@ -26,6 +26,10 @@ class Musitedeep_data:
             score : float (probability)
             type : string (generic or a specific kinase)
             predictor : string (for cases where multiple predictors are available)
+
+        # Additional fields:
+            enzime: predictions for multple enzymes are parsed
+
 
     Public Methods
     --------------

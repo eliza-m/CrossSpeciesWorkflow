@@ -1,19 +1,17 @@
 from bioservices.apps import FASTA, MultiFASTA
-from pathlib import Path
-import sys
-
 
 class MultiFASTA_extra(MultiFASTA):
-    """
-		Inherits bioservices.apps.MultiFASTA and introduces additional features
-    """
+    """Inherits bioservices.apps.MultiFASTA and introduces additional features."""
 
     def read_fasta(self, filename):
-    # Temporary fix for bioservices MultiFASTA read_fasta funtion
-    # that recognises only particular headers such as Swissprot(sp) but not Trembl (tr) part of Uniprot...
-    # by overriding the read_fasta function -> see bellow (at the end)
 
-        """Load several FASTA from a filename"""
+        """
+        Load several FASTA from a filename.
+
+        Overrides base method. Temporary fix for bioservices MultiFASTA read_fasta funtion
+        that recognises only particular headers such as Swissprot(sp) but not Trembl (tr) part of Uniprot...
+
+        """
         fh = open(filename, "r")
         data = fh.read()
         fh.close()

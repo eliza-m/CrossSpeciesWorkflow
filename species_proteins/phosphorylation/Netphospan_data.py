@@ -17,15 +17,19 @@ class Netphospan_data:
         predicted_sites [ protein name ][ start resid ] : array of entry dict
         entry dict has the following keys:
 
-        # Common to all PTS predictors
+        # Common to all PTM predictors
             seq : string (stretch of the predicted sequence)
             start : starting residue id
             end : ending residue id
             is_signif : bool (is the method's specific scoring indicating a
                             potentially significant result)
             score : float (probability)
-            type : string (generic or a specific kinase)
+            type : string
             predictor : string (for cases where multiple predictors are available)
+
+        # Additional fields:
+            enzyme: predictions for multple enzymes are parsed
+
 
     Public Methods
     --------------

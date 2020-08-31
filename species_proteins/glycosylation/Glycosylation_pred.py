@@ -1,8 +1,6 @@
 from __future__ import annotations
 from bioservices.apps import FASTA
-from dataclasses import dataclass, field
-from pathlib import Path
-import sys
+from dataclasses import dataclass
 from species_proteins.glycosylation.Netnglyc_data import Netnglyc_data
 from species_proteins.glycosylation.Netoglyc_data import Netoglyc_data
 from species_proteins.glycosylation.Netcglyc_data import Netcglyc_data
@@ -15,25 +13,16 @@ from species_proteins.workflow.Module_pred import Module_pred
 
 @dataclass
 class Glycosylation_pred (Module_pred):
-    """Class that organises Structural Predictions output for single protein
-
-    Attributes
-    ----------
+    """
+    Class that organises Glycosylation predictions output.
+    It inherits Module_pred base class.
 
     Public Methods
     --------------
-    parseall()
-        Parses all the prediction output files and add the data inside the
-        above attribute data structures.
+    Overridden methods:
 
-    print1prot( self )
-        Prints all predictions in a vertical layout
-        For single protein profile layout
-
-    printNprot( self )
-        Prints all predictions in a vertical layout
-        For multi protein profile layout
-
+    parse_all(paths: dict) -> Glycosylation_pred:
+        Parses all the prediction output files.
     """
 
     paths: dict
@@ -55,8 +44,17 @@ class Glycosylation_pred (Module_pred):
     @staticmethod
     def parse_all(paths: dict) -> Glycosylation_pred:
         """
-        Parses all the prediction output files and add the data inside the
-        above attribute data structures.
+        Parses all the prediction output files.
+
+        Parameters
+        ----------
+        paths :  dict
+            Dictionary with raw prediction data.
+
+        Returns
+        -------
+        Glycosylation_pred
+            with parsed data
         """
 
         predictions = {}
@@ -109,85 +107,6 @@ class Glycosylation_pred (Module_pred):
 
         return Glycosylation_pred(paths, predictions)
 
-
-
-    # def print_1prot(self : Glycosylation_pred, outputfile: Path, protname: str = None, addseq: bool = True, signif: bool = False):
-    #
-    #     try:
-    #
-    #         output = open(outputfile, 'w')
-    #
-    #         if protname is None:
-    #             keys = list( self.predictions.keys() )
-    #             if len(keys)>1:
-    #                 print("Please provide protein name, as predictions from multiple proteins were detected within the specified folder")
-    #                 raise
-    #             else:
-    #                 protname = keys[0]
-    #
-    #         data = self.predictions[ protname ]
-    #
-    #         # Print header
-    #         print("#Module: Glycosylation", sep='\t', file=output)
-    #         print("#Protname: ", protname, sep='\t', file=output)
-    #         print("\n", file=output)
-    #
-    #         if addseq :
-    #             print( '{:>6}{:>5}'.format("#resid", "aa"), sep='\t', end='\t', file=output)
-    #
-    #         header = [ "NetNglyc_N", "NglyDE_N", "Glycomine_N", \
-    #               "NetOglyc_O", "Isoglyp_O", "Glycomine_O", \
-    #               "NetCglyc_C", "Glycomine_C" ]
-    #
-    #         for item in header:
-    #             print( '{:>12}'.format( item ), end='\t', file=output )
-    #         print(file=output)
-    #
-    #         seq = data['seq'];
-    #         protsize = len(seq)
-    #
-    #         # contains predictions in the desired format for printing
-    #         values = {}
-    #         for p in self.availPredictors:
-    #
-    #             if p not in data :
-    #                 # if predictor's data is not available (i.e prediction was not performed)
-    #                 values[p] = ['X' for resid in range(protsize) ]
-    #
-    #             else:
-    #                 # we do not use 0 as, if signif is selected true, predictions with lower scores than significance
-    #                 # threshold would have score 0 which is misleading.
-    #                 values[p] = ['-' for resid in range(protsize) ];
-    #
-    #                 # adding prediction results
-    #                 for resid in data[p]:
-    #                     for entry in data[p][resid]:
-    #                         start = entry['start'] - 1
-    #                         end = entry['end'] - 1
-    #                         score = entry['score']
-    #
-    #                         for resid in range(start, end + 1):
-    #                             # if we have overlaping predictions we choose the one with higher scores
-    #                             if values[p][resid] != '-' and score > values[p][resid]:
-    #                                 continue
-    #                             else:
-    #                                 if signif:
-    #                                     if entry['is_signif'] : values[p][resid] = score
-    #                                 else:
-    #                                     values[p][resid] = score
-    #
-    #         for id in range(protsize):
-    #
-    #             if addseq:
-    #                 print('{:>6}{:>5}'.format(id+1, seq[id]), sep='\t', end='\t', file=output)
-    #
-    #             for p in avail_predictors:
-    #                 print( '{:>12}'.format(values[p][id]), end='\t', file=output )
-    #             print(file=output)
-    #
-    #     except:
-    #         print("Unexpected error:", sys.exc_info()[0])
-    #         raise
 
 
 

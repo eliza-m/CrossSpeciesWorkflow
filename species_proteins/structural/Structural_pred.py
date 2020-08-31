@@ -1,20 +1,22 @@
 from __future__ import annotations
-from dataclasses import dataclass, field
-from pathlib import Path
-import sys
-
+from dataclasses import dataclass
 from species_proteins.structural.Raptorx_data import Raptorx_data
 from species_proteins.structural.Scratch1d_data import Scratch1d_data
 from species_proteins.structural.Psipred_data import Psipred_data
 from species_proteins.structural.Disopred_data import Disopred_data
 from species_proteins.workflow.Module_pred import Module_pred
 
+
 @dataclass
 class Structural_pred (Module_pred):
-    """Class that organises Structural Predictions output for single protein
+    """
+    Class that organises Structural Predictions output.
+    Inherits MOdule_pred base class
 
     Attributes
     ----------
+    Additional from base class:
+
     DIS_threshold : float with values between 0. and 1. (default=0.50)
             Threshold used for disorder class definition of All predictors.
 
@@ -22,40 +24,25 @@ class Structural_pred (Module_pred):
             solvent prediction class definition, default=0.20
 
 
-    RaptorXDir : Path
-        Path of the folder where RaptorX prediction output is being stored.
-
-    PsiPredDir : Path
-        Path of the folder where PsiPred prediction output is being stored.
-
-    DisoPredDir : Path
-        Path of the folder where DisoPred prediction output is being stored.
-
-    Scratch1dDir : Path
-        Path of the folder where Scratch1d prediction output is being stored.
-
-
-    RaptorXPred : RaptorX object
-        Contains parsed predictions output of RaptorX
-
-    Scratch1dPred : Scratch1D object
-        Contains parsed predictions output of Scratch1D
-
-    PsiPredPred : PsiPred object
-        Contains parsed predictions output of PsiPred
-
-    DisoPredPred : DisoPred object
-        Contains parsed predictions output of DisoPred
-
-
     Public Methods
     --------------
-    parsestructural()
-        Parses all the prediction output files and add the data inside the
-        above attribute data structures.
+    Overridden methods:
 
-    printSingleProtVertical( self )
-        Prints all structural predictors in a vertical layout
+    parse_all(paths: dict) -> Phosphorylation_pred:
+        Parses all the prediction output files.
+
+    get_layout_1prot(self: Structural_pred, protname: str, signif: bool = False) -> dict
+        Overides base class method.
+        Get a vertical layout of the predicted data for each protein sequences, as multiple classes that
+        inherits module_pred keep only a dictionary with the predicted sites, and do not track resids and resnames.
+
+        Arguments:
+            - self          : Structural_pred [required]
+
+            - protname      : String. Protname key to to obtain layout of. [required]
+
+            - signif        : Boolean. If true prints only significant predicted sites. Significance thresholds are
+                            predictor specific. [Optional. Default: False]
 
     """
 
@@ -80,10 +67,27 @@ class Structural_pred (Module_pred):
 
     @staticmethod
     def parse_all( paths : dict, DIS_threshold: float = None, ACC_threshold: float = None ) -> Structural_pred:
+
         """
-        Parses all the prediction output files and add the data inside the
-        above attribute data structures.
+        Parses all the prediction output files.
+
+        Parameters
+        ----------
+        paths :  dict
+            Dictionary with raw prediction data.
+
+        DIS_threshold : float with values between 0. and 1. (default=0.50)
+                Threshold used for disorder class definition of All predictors.
+
+        ACC_threshold: probability threshold for Scratch1D (only) rellative
+                solvent prediction class definition, default=0.20
+
+        Returns
+        -------
+        Srtuctural_pred
+            with parsed data
         """
+
         DIS_threshold = DIS_threshold if (DIS_threshold is not None and 0.0 < DIS_threshold < 1.0) else 0.50
         ACC_threshold = ACC_threshold if (ACC_threshold is not None and 0.0 < ACC_threshold < 1.0) else 0.20
 
@@ -115,6 +119,26 @@ class Structural_pred (Module_pred):
 
 
     def get_layout_1prot(self: Module_pred, protname: str, signif: bool = False) -> dict:
+        """
+        Overides base class method
+
+        Get a vertical layout of the predicted data for each protein sequences, as multiple classes that
+        inherits module_pred keep only a dictionary with the predicted sites, and do not track resids and resnames.
+
+        Parameters
+        ----------
+        protname: string
+            Protname key to to obtain layout of. [required]
+
+        signif: Boolean
+            If true prints only significant predicted sites. Significance thresholds are
+            predictor specific. [Optional. Default: False]
+
+        Returns
+        -------
+        layout: dict
+            Formated layout for a specific protein sequence and predictor.
+        """
 
         data = self.predictions[protname]
         protsize = len(data['seq'])

@@ -17,7 +17,7 @@ class Sumogo_data:
         predicted_sites [ protein name ][ start resid ] : array of entry dict
         entry dict has the following keys:
 
-        # Common to all PTS predictors
+        # Common to all PTM predictors
             seq : string (stretch of the predicted sequence)
             start : starting residue id
             end : ending residue id
@@ -26,6 +26,7 @@ class Sumogo_data:
             score : float (interpretation differs between methods)
             type : string
             predictor : string (for cases where multiple predictors are available)
+
 
     Public Methods
     --------------
