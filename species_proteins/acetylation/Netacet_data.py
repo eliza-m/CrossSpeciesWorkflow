@@ -100,7 +100,6 @@ class Netacet_data:
             print("Unexpected error:", sys.exc_info()[0])
             raise
 
-        print(predicted_sites)
         return Netacet_data(predicted_sites)
 
 
