@@ -349,7 +349,7 @@ Options:
 
 ### A. Structural module  
 
-##### A1. [RaptorX Protein Structure Property Prediction](http://raptorx.uchicago.edu/StructurePropertyPred/predict/) - from Xu group
+#### A1. [RaptorX Protein Structure Property Prediction](http://raptorx.uchicago.edu/StructurePropertyPred/predict/) - from Xu group
 
 The [RaptorX-Property repo](https://github.com/realbigws/RaptorX_Property_Fast) linked to the journal paper has been upgraded and split into 2 packages: 
 * [Predict_Property - github repo & manual](https://github.com/realbigws/Predict_Property) 
