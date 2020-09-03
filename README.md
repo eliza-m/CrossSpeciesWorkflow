@@ -15,7 +15,7 @@ While there are a multitude of open source ML methods for prediction of various 
 
 This project aims at developing a scalable workflow that receives the protein FASTA file and runs a series of structural and phenotype related predictors, generating a knowledge dataset that will facilitate further exploration and comparisons according to the following categories of features: secondary structure, solvent accessibility, disordered regions, PTS modifications (phosphorylation, glycosylation, lipid modification, sumoylation, etc).
 
-Deliverables of this project consists of 8 modules for each analysis / prediction type, a Python library for processing inputs & outputs and submitting online jobs when case and CWL pipelines that will facilitate a one-line command run of all the predictors (default or custom configuration).
+Deliverables of this project consists of 8 modules for each analysis / prediction type, a Python library for processing inputs & outputs and submitting online jobs when case and [CWL](https://www.commonwl.org/) pipelines that will facilitate a one-line command run of all the predictors (default or custom configuration).
 
 This repo intends to create an easy, user accesible and open-source tool for running a series of third party predictions software. The main focus is on:
 * Dockerfiles for easy installing existing prediction software.
@@ -42,7 +42,7 @@ Currently there are 3 main modules that deal with:
 # Installation & Setup
 
 ## Requirements before using CrossSpeciesWorkflow: 
-To run CWL workflows you can use any CWL runner of your choice. By default (and also for the ease of debugging) we used CWLtool.
+To run CWL workflows you can use any CWL runner of your choice. By default (and also for the ease of debugging) we used [CWLtool](github.com/common-workflow-language/cwltool) [\[AC 2017\]](#ac-2017).
 Some of the docker images used in the pipeline have complex license, hence you have to build them yourself (the instructions are given)
 
 #### Install Prerequisites
@@ -485,6 +485,9 @@ for TMHMM, also provided are a Dockerfile, as well python parsers and cwl tools 
 # References 
 
 Contains all reference found within the repo.
+
+##### \[AC 2017\]
+Amstutz, P, Crusoe, MR, Singh, M, Kumar, K, Chilton, J, [Unknown], B, Soiland-Reyes, S, Chapman, B, Kotliar, M, Leehr, D, Carrasco, G, Kartashov, A, Tijanic, N, Ménager, H, Safont, PR, Porter, JJ, Molenaar, G, Yuen, D, Barrera, A, Ivkovic, S, Spangler, R, [Unknown], P, Tanjo, T, Vandewege, W, Randall, JC, Kern, J, Bradley, J, Li, J, der Zwaan, JV & Connelly, A, common-workflow-language/cwltool, 2017, Software, GitHub, GitHub. <https://github.com/common-workflow-language/cwltool/releases/tag/1.0.20170828135420>
 
 ### Structural predictors:
 
