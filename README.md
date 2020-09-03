@@ -42,7 +42,7 @@ Currently there are 3 main modules that deal with:
 # Installation & Setup
 
 ## Requirements before using CrossSpeciesWorkflow: 
-To run CWL workflows you can use any CWL runner of your choice. By default (and also for the ease of debugging) we used CWLtool.
+To run CWL workflows you can use any CWL runner of your choice. By default (and also for the ease of debugging) we used [CWLtool](github.com/common-workflow-language/cwltool)[\[HS 2017\]](#hs-1993).
 Some of the docker images used in the pipeline have complex license, hence you have to build them yourself (the instructions are given)
 
 #### Install Prerequisites
@@ -486,6 +486,10 @@ for TMHMM, also provided are a Dockerfile, as well python parsers and cwl tools 
 # References 
 
 Contains all reference found within the repo.
+
+##### \[AC 2017\]
+Amstutz, P, Crusoe, MR, Singh, M, Kumar, K, Chilton, J, [Unknown], B, Soiland-Reyes, S, Chapman, B, Kotliar, M, Leehr, D, Carrasco, G, Kartashov, A, Tijanic, N, Ménager, H, Safont, PR, Porter, JJ, Molenaar, G, Yuen, D, Barrera, A, Ivkovic, S, Spangler, R, [Unknown], P, Tanjo, T, Vandewege, W, Randall, JC, Kern, J, Bradley, J, Li, J, der Zwaan, JV & Connelly, A, common-workflow-language/cwltool, 2017, Software, GitHub, GitHub. <https://github.com/common-workflow-language/cwltool/releases/tag/1.0.20170828135420>
+
 
 ### Structural predictors:
 
