@@ -42,7 +42,7 @@ Currently there are 3 main modules that deal with:
 # Installation & Setup
 
 ## Requirements before using CrossSpeciesWorkflow: 
-To run CWL workflows you can use any CWL runner of your choice. By default (and also for the ease of debugging) we used [CWLtool](github.com/common-workflow-language/cwltool)[\[HS 2017\]](#hs-1993).
+To run CWL workflows you can use any CWL runner of your choice. By default (and also for the ease of debugging) we used [CWLtool](github.com/common-workflow-language/cwltool) [\[AC 2017\]](#ac-2017).
 Some of the docker images used in the pipeline have complex license, hence you have to build them yourself (the instructions are given)
 
 #### Install Prerequisites
