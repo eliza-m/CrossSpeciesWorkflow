@@ -25,7 +25,7 @@ class Acetylation_pred (Module_pred):
     module = 'Acetylation'
     availPredictors = ["netacet", "gpspail"]
     header = [
-        ["netacet", "Nter-acet", "N/A"],
+        ["netacet", "Nter-acet", " "],
         ["gpspail", "K-acet", "CREBBP"],
         ["gpspail", "K-acet", "EP300"],
         ["gpspail", "K-acet", "HAT1"],

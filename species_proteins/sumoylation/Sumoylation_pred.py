@@ -25,9 +25,9 @@ class Sumoylation_pred (Module_pred):
     module = 'Sumoylation'
     availPredictors = ["sumogo", "gpssumo"]
     header = [
-        ["sumogo", "SUMO", "N/A"],
-        ["gpssumo", "SUMO", "N/A"],
-        ["gpssumo", "SIM", "N/A"]
+        ["sumogo", "SUMO", " "],
+        ["gpssumo", "SUMO", " "],
+        ["gpssumo", "SIM", " "]
     ]
 
 

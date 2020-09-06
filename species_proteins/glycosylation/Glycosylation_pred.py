@@ -30,14 +30,14 @@ class Glycosylation_pred (Module_pred):
     availPredictors = ["netnglyc", "nglyde", "glycomineN", "netoglyc", "isoglyp", "glycomineO", "netcglyc",
                        "glycomineC"]
     header = [
-        ["netnglyc", "N-glyc", "N/A"],
-        ["nglyde", "N-glyc", "N/A"],
-        ["glycomineN", "N-glyc", "N/A"],
-        ["netoglyc", "O-glyc", "N/A"],
-        ["isoglyp", "O-glyc", "N/A"],
-        ["glycomineO", "O-glyc", "N/A"],
-        ["netcglyc", "C-glyc", "N/A"],
-        ["glycomineC", "C-glyc", "N/A"]
+        ["netnglyc", "N-glyc", " "],
+        ["nglyde", "N-glyc", " "],
+        ["glycomineN", "N-glyc", " "],
+        ["netoglyc", "O-glyc", " "],
+        ["isoglyp", "O-glyc", " "],
+        ["glycomineO", "O-glyc", " "],
+        ["netcglyc", "C-glyc", " "],
+        ["glycomineC", "C-glyc", " "]
     ]
 
 

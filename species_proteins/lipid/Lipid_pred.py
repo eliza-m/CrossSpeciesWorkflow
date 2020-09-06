@@ -23,10 +23,10 @@ class Lipid_pred (Module_pred):
     module = 'Lipid Modification'
     availPredictors = ["gpslipid"]
     header = [
-        ["gpslipid", "N-Myr", "N/A"],
-        ["gpslipid", "S-Pal", "N/A"],
-        ["gpslipid", "S-Ger", "N/A"],
-        ["gpslipid", "S-Far", "N/A"]
+        ["gpslipid", "N-Myr", " "],
+        ["gpslipid", "S-Pal", " "],
+        ["gpslipid", "S-Ger", " "],
+        ["gpslipid", "S-Far", " "]
     ]
 
 

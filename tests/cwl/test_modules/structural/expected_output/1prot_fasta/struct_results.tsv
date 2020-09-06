@@ -1,6 +1,6 @@
  resid   aa	     raptorx	     psipred	     raptorx	     raptorx	     raptorx	    disopred	
-     _    _	          SS	          SS	          SS	         ACC	         DIS	         DIS	
-     _    _	     3-class	     3-class	     8-class	     3-class	     2-class	     2-class	
+           	          SS	          SS	          SS	         ACC	         DIS	         DIS	
+           	     3-class	     3-class	     8-class	     3-class	     2-class	     2-class	
      1    W	           C	           C	           C	           E	           D	           D	
      2    A	           C	           C	           C	           E	           D	           D	
      3    Q	           C	           C	           C	           E	           D	           D	

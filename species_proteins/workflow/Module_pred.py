@@ -160,7 +160,7 @@ class Module_pred :
 
             for l in range(3):
                 if l>0 and addseq:
-                    print('{:>6}{:>5}'.format('_', '_'), sep='\t', end='\t', file=output)
+                    print('{:>6}{:>5}'.format(' ', ' '), sep='\t', end='\t', file=output)
                 for entry in self.header:
                     print('{:>12}'.format(entry[l]), end='\t', file=output)
                 print(file=output)
@@ -245,10 +245,10 @@ class Module_pred :
 
             for l in range(3):
                 if l > 0 and addseq:
-                    print('{:>6}'.format('N/A'), sep='\t', end='\t', file=output)
+                    print('{:>6}'.format(' '), sep='\t', end='\t', file=output)
                     for prot in alnmapping:
-                        print('{:>7}'.format('N/A'), sep='\t', end='\t', file=output)
-                    print('{:>3}'.format('N/A'), sep='\t', end='\t', file=output)
+                        print('{:>7}'.format(' '), sep='\t', end='\t', file=output)
+                    print('{:>3}'.format(' '), sep='\t', end='\t', file=output)
 
                 for entry in self.header:
                     for prot in alnmapping:
@@ -257,10 +257,10 @@ class Module_pred :
 
 
             if addseq:
-                print('{:>6}'.format('N/A'), sep='\t', end='\t', file=output)
+                print('{:>6}'.format(' '), sep='\t', end='\t', file=output)
                 for prot in alnmapping:
-                    print('{:>7}'.format('N/A'), sep='\t', end='\t', file=output)
-                print('{:>3}'.format('N/A'), sep='\t', end='\t', file=output)
+                    print('{:>7}'.format(' '), sep='\t', end='\t', file=output)
+                print('{:>3}'.format(' '), sep='\t', end='\t', file=output)
 
             for entry in self.header:
                 for prot in alnmapping:
@@ -347,7 +347,7 @@ class Module_pred :
                     elif self.module == "Localisation":
                         type = 'TM'
                         details = '3-class'
-                    else: details='N/A'
+                    else: details=' '
 
                     key = pred + "_" + type + "_" + details
 
