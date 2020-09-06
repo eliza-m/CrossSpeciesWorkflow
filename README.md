@@ -580,8 +580,15 @@ Options:
   --help           Show this message and exit.
 ```
 
+#### Python API structure
 
-
+Found in `${CSW_HOME}/species_proteins` the API is structured on a module basis. Each module folder contains: 
+* Predictor classes `$predictor_data.py` that deal with input preparation, raw outputs parsing and, for a series of predictors, online job submission.
+* Module classes `$module_pred.py` (inherit Module_pred base class) deal with :
+    * raw output paths retrieval
+    * organizing multiple predictors results
+    * printing results in comparative layout.
+    
 <br />
 
 # Known issues
