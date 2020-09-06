@@ -2,8 +2,7 @@
 
 Content summary:
 * [General Info](#general-info)
-* [Project status](#project-status)
-* [Installation & Setup](#installation-\&-setup)
+* [Installation and Setup](#installation-and-setup)
 * [Running CWL workflows](#running-cwl-workflows)
 * [Prediction Modules Description](#prediction-modules-description)
 * [Python API](#python-api)
@@ -24,7 +23,7 @@ Currently there are 7 main modules that deal with different types of predictions
 * F. Lipid modification
 * G. Cellular localisation
 
-This repo intends to create an easy, user accesible and open-source tool for running a series of third party predictions software. The main focus is on:
+This repo intends to create an easy, user accesible and open-source tool for running a series of third party predictions software. Provided are :
 * Dockerfiles for easy installing existing prediction software.
 * Python API for facilitating parsing and organising each predictor's output data.
 * CWL pipelines that facilitates large protein sequences sets prediction jobs submissions and parallelisation.  
@@ -33,19 +32,19 @@ This repo intends to create an easy, user accesible and open-source tool for run
 ### Project status 
 The project is under active development and it was tested so far only on native Ubuntu 18 & 20 .
 
+<br />  
 
-# Installation & Setup
+# Installation and Setup
 
 ## Requirements before using CrossSpeciesWorkflow: 
 To run CWL workflows you can use any CWL runner of your choice. By default (and also for the ease of debugging) we used [CWLtool](github.com/common-workflow-language/cwltool) [\[AC 2017\]](#ac-2017).
-Some of the docker images used in the pipeline have complex license, hence you have to build them yourself (the instructions are given)
 
 #### Install Prerequisites
 * Docker client: 
     * Docker Desktop for Windows or MAC - [click](https://www.docker.com/products/docker-desktop)
     * docker-ce-cli for Linux - [click](docs.docker.com/install/linux/docker-ce/ubuntu/)
 * cwltool - [click](https://github.com/common-workflow-language/cwltool). It can be either downloaded or the user can just use the python environment.
-* Python3.8 and above (Optional: for separately use the Python API)
+* Python3.8 and above (Optional: for separately using the Python API outisde the CWL pipeline)
 
 
 ## Clone repo
@@ -71,13 +70,13 @@ $ python setup.py install
 ## Setup sequence databases
 
 This step **can be skipped** if you do not intend to use the **Structural module**.
-The strctural predictors ONLY require downloading and setting up different protein databases. Links for download are provided bellow
+Only the structural predictors require downloading and setting up different protein databases. Links for download are provided bellow
 * RaptorX
     * Uniprot20 : http://wwwuser.gwdg.de/~compbiol/data/hhsuite/databases/hhsuite_dbs/old-releases/uniprot20_2016_02.tgz
 * Psipred & Disopred:
     * UniRef50/UniRef90 FASTA format : http://uniprot.org/downloads. 
 
-Afterwards, for UniRef50/UniRef90 a blast database needs to be created (this steps need to be done only once, afterwards the database can be used or moved anywhere):
+Afterwards, for UniRef50/UniRef90 a blast database needs to be created (these steps need to be done only once, afterwards the database can be used or moved anywhere):
 ```bash
 # if you do not habe BLAST+ installed run:
 $ sudo apt-get install ncbi-blast+
@@ -112,6 +111,7 @@ uniref50.fasta.01.psq  uniref50.fasta.04.pin  uniref50.fasta.07.phr
 uniref50.fasta.02.phr  uniref50.fasta.04.psq  uniref50.fasta.07.pin
 ```
 
+<br />  
 
 # Running CWL workflows #
 
@@ -120,8 +120,8 @@ uniref50.fasta.02.phr  uniref50.fasta.04.psq  uniref50.fasta.07.pin
 [CWL](https://www.commonwl.org/) workflow scripts provide a easy on-step way to run a series of multi step operations in a scalable and parallelised fashion. Running such a workflow requires: 
 
 * a workflow manager (we use [cwltool](https://github.com/common-workflow-language/cwltool))
-* a cwl script (found in `${CSW_HOME}/cwl` directory) that define the workflow procedure, paramaters and how inputs and outputs of different steps relate to each other. These are scripts **do not need editing** when using different input data or parameters.
-* input file - YML or JSON (examples can be found in `${CSW_HOME}/tests/cwl/test_modules/`)
+* a cwl script (found in `${CSW_HOME}/cwl` directory) that defines the workflow procedure, paramaters and how inputs and outputs of different steps relate to each other. These are scripts **do not need editing** when using different input data or parameters.
+* input file - YML or JSON (examples can be found in `${CSW_HOME}/tests/cwl/test_modules/`) that define where the input files are, values of mandatory / optional parameters.
 
 
 ### CWL workflow scripts
@@ -148,7 +148,7 @@ Provided are tools for different input types such as:
 * **single protein ID**       : 1prot_$module_only_id.cwl
 * **multi protein ID array**  : Nprot_$module_only_id.cwl
 
-The disctinction between single & multi protein mode is that in multi protein mode, sequences are aligned using Clustal Omega in the final output layout.  
+**The disctinction between single & multi protein mode is that in multi protein mode, sequences are aligned using Clustal Omega in the final output layout.**  
 
 Example YML input files are provided within `${CSW_HOME}/tests/cwl/test_modules/` for each input type (single protein FASTA or ID or a list of IDs).
 
@@ -156,32 +156,32 @@ Usage example for a specific module only for a list of protein IDs would be :
 ```
 ### INDIVIDUAL MODULES
 # Structural
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/structural/Nprot_struct_only_id.cwl [YMLfile]
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/structural/Nprot_struct_only_id.cwl [YML/JSON file]
 
 # Acetylation
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/acetylation/Nprot_acet_only_id.cwl [YML/JSONfile]
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/acetylation/Nprot_acet_only_id.cwl [YML/JSON file]
 
 # Glycosylation
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/glycosylation/Nprot_glyc_only_id.cwl [YML/JSONfile]
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/glycosylation/Nprot_glyc_only_id.cwl [YML/JSON file]
 
 # Phosphorylation
 cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/phosphorylation/Nprot_phos_only_id.cwl [YML/JSONfile]
 
 # Lipid modification
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/lipid/Nprot_lipid_only_id.cwl [YML/JSONfile]
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/lipid/Nprot_lipid_only_id.cwl [YML/JSON file]
 
 # Sumoylation 
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/sumoylation/Nprot_sumo_only_id.cwl [YML/JSONfile]
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/sumoylation/Nprot_sumo_only_id.cwl [YML/JSON file]
 
 # Localisation
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/localisation/Nprot_loc_only_id.cwl [YML/JSONfile]
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/localisation/Nprot_loc_only_id.cwl [YML/JSON file]
 
 ### GROUPED MODULES
 # PTM predictions
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/Nprot_ptm_id.cwl [YML/JSONfile]
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/Nprot_ptm_id.cwl [YML/JSON file]
 
 # ALL
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/Nprot_all_id.cwl [YML/JSONfile]
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/Nprot_all_id.cwl [YML/JSON file]
 ```
 
 ### Testing CWL workflows
@@ -189,17 +189,24 @@ cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/Np
 All tests can be run simultaneously by running `${CSW_HOME}/tests/cwl/test_modules/test_all_module.sh`. 
 Output samples for each cwl workflow are found in in module folder in `expected_ourput` directories.
 
+```
+$ cd ${CSW_HOME}/tests/cwl/test_modules/
+$ bash test_all_module.sh
+```
+
 
 ### Output files
 
-Current output is module based and consists of:
+Current outputs are module based and consists of:
 * a directory containing all raw predictions outputs named `$protname_$module_preds`
 * a summary file in `tsv` format named `$module_results.tsv` that contains all predictions output parsed and organised in a comparative manner.
 
+A HTML/JSON output format is currently under development.
+
 The summary tsv file for **single protein format** has a 3-row header. 
 First 2 columns contain **resids** and **amino acids**.
-Nest columns (3 to n) contain predictions ouput. the subheaders reffer to :
-* 1st - predictor method name
+Next columns (3 to end) contain predictions ouput. the subheaders refer to :
+* 1st - prediction method name
 * 2nd - prediction type (such as STY-phosphorylation, Nter-acetylation, K-acetylation)
 * 3rd - predictor specific details or conditions (such as a particular enzyme, or number of classes the prediction refers to). These are predictor specific, so the user needs to be aquinted with each individual prediction methods particularities and how data should be interpreted.
 
@@ -221,7 +228,7 @@ The summary tsv file for **multi protein format** has a 4-row header.
 First column contain **alignment numbering** 
 Next N columns contain **amino acids** of the N sequences predicted.
 Column N+2 named 'Dif' shows positions where sequence differences exist in alignment (marked with * symbol).
-Nest columns (from N+3 to end) contain predictions ouput. the subheaders reffer to :
+Next columns (from N+3 to end) contain predictions ouput. the subheaders refer to :
 * 1st - predictor method name
 * 2nd - prediction type (such as STY-phosphorylation, Nter-acetylation, K-acetylation)
 * 3rd - predictor specific details or conditions (such as a particular enzyme, or number of classes the prediction refers to). These are predictor specific, so the user needs to be aquinted with each individual prediction methods particularities and how data should be interpreted.
@@ -241,7 +248,6 @@ alnid	P63244	O42248	O18640	P38011	Dif	netacet	netacet	netacet	netacet	gpspail	gp
 5	E	E	E	E		-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
 ```
 
-A HTML/JSON output format is currently under development.
 
 
 <br />
@@ -438,6 +444,9 @@ Options:
   --help           Show this message and exit.
 ```
 
+
+<br />
+
 ### Predictions merged output layout & and easy change between output layouts 
 
 Let's assume that you have already performed an "all" module prediction pipeline for your proteins and you want to generate a formatted output only for a specific sequence and only for glycosylation related predictors.
@@ -488,7 +497,9 @@ Options:
 ```
 
 
-### Submit online jobs for a specific predictor on their own server.
+<br />
+
+### Submit online jobs for a specific predictor on their own webserver.
 
 Some of the predictors can be used only on their webserver. We provide a easy to use tool to directly submit a prediction job on predictor's webserver via POST & GET.
 
@@ -553,6 +564,8 @@ Options:
 
 
 
+<br />
+
 # Known issues
 
 CWL workflow related :
@@ -563,6 +576,7 @@ Output related:
 * right now only `tsv` outputs are supported, html/json versions are in development.
 
 
+<br />
 
 # References 
 
