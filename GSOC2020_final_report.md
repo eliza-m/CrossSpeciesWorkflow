@@ -21,6 +21,7 @@ Deliverables of this project consists of 8 modules for each analysis / predictio
 ## Results
 
 During the 3-month internship, the following deliverables were completed :
+A more detailed description can be found [here](https://github.com/eliza-m/CrossSpeciesWorkflow/blob/GSOC2020/README.md). 
 
 ### 1. CWL workflows 
 
@@ -47,39 +48,114 @@ Provided are CWL tools for different input types such as:
 * **single protein ID**       : 1prot_$module_only_id.cwl
 * **multi protein ID array**  : Nprot_$module_only_id.cwl
 
-The distinction between single & multi protein mode is that in **multi** protein mode, sequences are aligned using Clustal Omega in the final output layout.  
+**The distinction between single & multi protein mode is that in multi protein mode, sequences are aligned using Clustal Omega in the final output layout.**  
 
 Usage example for a specific module only for a list of protein IDs would be :
 ```
 ### INDIVIDUAL MODULES
 # Structural
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/structural/Nprot_struct_only_id.cwl [YMLfile]
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/structural/Nprot_struct_only_id.cwl [YML/JSON file]
 
 # Acetylation
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/acetylation/Nprot_acet_only_id.cwl [YML/JSONfile]
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/acetylation/Nprot_acet_only_id.cwl [YML/JSON file]
 
 # Glycosylation
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/glycosylation/Nprot_glyc_only_id.cwl [YML/JSONfile]
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/glycosylation/Nprot_glyc_only_id.cwl [YML/JSON file]
 
 # Phosphorylation
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/phosphorylation/Nprot_phos_only_id.cwl [YML/JSONfile]
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/phosphorylation/Nprot_phos_only_id.cwl [YML/JSON file]
 
 # Lipid modification
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/lipid/Nprot_lipid_only_id.cwl [YML/JSONfile]
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/lipid/Nprot_lipid_only_id.cwl [YML/JSON file]
 
 # Sumoylation 
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/sumoylation/Nprot_sumo_only_id.cwl [YML/JSONfile]
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/sumoylation/Nprot_sumo_only_id.cwl [YML/JSON file]
 
 # Localisation
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/localisation/Nprot_loc_only_id.cwl [YML/JSONfile]
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/localisation/Nprot_loc_only_id.cwl [YML/JSON file]
 
 ### GROUPED MODULES
 # PTM predictions
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/Nprot_ptm_id.cwl [YML/JSONfile]
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/Nprot_ptm_id.cwl [YML/JSON file]
 
 # ALL
-cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/Nprot_all_id.cwl [YML/JSONfile]
+cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/Nprot_all_id.cwl [YML/JSON file]
 ```
+
+
+### Output files
+
+Current outputs are module based and consists of:
+* a directory containing all raw predictions outputs named `$protname_$module_preds`
+* a summary file in `tsv` format named `$module_results.tsv` that contains all predictions output parsed and organised in a comparative manner.
+
+A HTML/JSON output format is currently under development.
+
+The summary tsv file for **single protein format** has a 3-row header. 
+First 2 columns contain **resids** and **amino acids**.
+Next columns (3 to end) contain predictions ouput. the subheaders refer to :
+* 1st - prediction method name
+* 2nd - prediction type (such as STY-phosphorylation, Nter-acetylation, K-acetylation)
+* 3rd - predictor specific details or conditions (such as a particular enzyme, or number of classes the prediction refers to). These are predictor specific, so the user needs to be aquinted with each individual prediction methods particularities and how data should be interpreted.
+
+Example - acetylation module :
+```
+resid	aa	netacet	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	
+ 	 	N-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	
+ 	 	 	CREBBP	EP300	HAT1	KAT2A	KAT2B	KAT5	KAT8	
+1	M	-	-	-	-	-	-	-	-	
+2	T	0.482	-	-	-	-	-	-	-	
+3	E	-	-	-	-	-	-	-	-	
+4	Q	-	-	-	-	-	-	-	-	
+5	M	-	-	-	-	-	-	-	-
+...
+```
+
+
+The summary tsv file for **multi protein format** has a 4-row header. 
+First column contain **alignment numbering** 
+Next N columns contain **amino acids** of the N sequences predicted.
+Column N+2 named 'Dif' shows positions where sequence differences exist in alignment (marked with * symbol).
+Next columns (from N+3 to end) contain predictions ouput. the subheaders refer to :
+* 1st - predictor method name
+* 2nd - prediction type (such as STY-phosphorylation, Nter-acetylation, K-acetylation)
+* 3rd - predictor specific details or conditions (such as a particular enzyme, or number of classes the prediction refers to). These are predictor specific, so the user needs to be aquinted with each individual prediction methods particularities and how data should be interpreted.
+* 4th - Protname / ProtID to which the prediction refers to.
+
+Example - acetylation module:
+
+```
+alnid	P63244	O42248	O18640	P38011	Dif	netacet	netacet	netacet	netacet	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	
+ 	 	 	 	 	 	N-acet	N-acet	N-acet	N-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	
+ 	 	 	 	 	 	 	 	 	 	CREBBP	CREBBP	CREBBP	CREBBP	EP300	EP300	EP300	EP300	HAT1	HAT1	HAT1	HAT1	KAT2A	KAT2A	KAT2A	KAT2A	KAT2B	KAT2B	KAT2B	KAT2B	KAT5	KAT5	KAT5	KAT5	KAT8	KAT8	KAT8	KAT8	
+ 	 	 	 	 	 	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	
+1	-	-	-	M	*	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
+2	-	-	-	A	*	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
+3	M	M	M	S	*	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
+4	T	T	S	N	*	0.482	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
+5	E	E	E	E		-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
+```
+
+
+Example - structural module:
+
+```
+alnid	P63244	O42248	O18640	P38011	Dif	raptorx	raptorx	raptorx	raptorx	psipred	psipred	psipred	psipred	raptorx	raptorx	raptorx	raptorx	raptorx	raptorx	raptorx	raptorx	raptorx	raptorx	raptorx	raptorx	disopred	disopred	disopred	disopred	
+ 	 	 	 	 	 	SS	SS	SS	SS	SS	SS	SS	SS	SS	SS	SS	SS	ACC	ACC	ACC	ACC	DIS	DIS	DIS	DIS	DIS	DIS	DIS	DIS	
+ 	 	 	 	 	 	3-class	3-class	3-class	3-class	3-class	3-class	3-class	3-class	8-class	8-class	8-class	8-class	3-class	3-class	3-class	3-class	2-class	2-class	2-class	2-class	2-class	2-class	2-class	2-class	
+ 	 	 	 	 	 	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	
+1	-	-	-	M	*	C	C	C	C	C	C	C	C	C	C	C	C	E	E	E	E	D	D	D	D	-	-	-	D	
+2	-	-	-	A	*	C	C	C	C	C	C	C	C	C	C	C	C	E	E	E	E	D	D	D	D	-	-	-	D	
+3	M	M	M	S	*	C	C	C	C	C	C	C	C	C	C	C	C	E	E	E	E	D	D	D	D	D	D	D	D	
+4	T	T	S	N	*	C	C	C	C	C	C	C	C	C	C	C	C	E	E	E	E	D	D	D	D	-	-	-	-	
+5	E	E	E	E		C	C	C	C	C	C	C	C	C	C	C	C	E	E	E	E	D	D	D	-	-	-	-	-	
+6	Q	Q	T	V	*	E	C	C	E	C	C	C	C	E	C	C	E	E	E	E	M	-	D	-	-	-	-	-	-	
+7	M	M	L	L	*	E	E	E	E	E	E	C	E	E	E	E	E	M	M	M	M	-	-	-	-	-	-	-	-	
+...
+```
+
+<br />
+
 
 ### CWL workflow tests
 
@@ -98,7 +174,13 @@ Output samples for each (sub)workflow, are found in each module's folder in `exp
 
 
 
+<br />
+
+
 ### 2. Python API
+
+
+The Python API is used directly by the CWL workflow. While completely **optional**, users can find convenient to use the Python API directly for particular purposes, such as the ones described bellow.  
 
 #### Quick & dirty pipeline run 
 
@@ -197,7 +279,10 @@ Options:
 ```
 
 
-#### Submit online jobs for a specific predictor
+### Submit online jobs for a specific predictor on their own webserver.
+
+Some of the predictors can be used only on their webserver. We provide a easy to use tool to directly submit a prediction job on predictor's webserver via POST & GET.
+
 
 Usage example:
 ```
@@ -254,6 +339,7 @@ Options:
   --help           Show this message and exit.
 ```
 
+
 #### Python API structure
 
 Found in `${CSW_HOME}/species_proteins` the API is structured on a module basis. Each module folder contains: 
@@ -269,7 +355,17 @@ Found in `${CSW_HOME}/species_proteins` the API is structured on a module basis.
 While initially we intended to provide one docker image per module, this was no longer possible due to differences between each predictor's prerequisites. Therefore, provided dockerfiles refer to individual methods.
 Details about each methods docker image building and usage are found in [CONTAINERS.md](https://github.com/eliza-m/CrossSpeciesWorkflow/blob/GSOC2020/CONTAINERS.md) file.
 
-Please note that building these images IS NOT REQUIRED for the current CWL pipeline, but could be optionally added if one wants to. As, several 3rd party predictors require registering on their website prior downloading the software, these docker containers needs to be built by each user individually. Current default pipeline uses only containers that could be uploaded to `quay.io`, but alongside the main workflow, cwl tool scripts are also provided for the methods not yet included ( `indiv_predictors` directories within each module).
+Please note that building these images **IS NOT REQUIRED** for the current CWL pipeline, but could be optionally added if one wants to. As, several 3rd party predictors require registering on their website prior downloading the software, these docker containers needs to be built by each user individually. Current default pipeline uses only containers that could be uploaded to `quay.io`, but alongside the main workflow, cwl tool scripts are also provided for the methods not yet included ( `indiv_predictors` directories within each module).
+
+
+## Known issues
+
+CWL workflow related :
+* some code duplication due to CWL v1.0 limitations. CWL v1.2 (currently under development) will support IF operator and we will address this when v1.2 becomes stable.
+* The cwltool flags `--no-match-user` and `--no-read-only` are necessary due to permissions issues (because some of the predictors require generating or editing files in specific locations)
+
+Output related:
+* right now only `tsv` outputs are supported, html/json versions are in development.
 
 
 ## Future Work
@@ -281,6 +377,7 @@ After GSOC internship end I intend to continue adding more features to the pipel
 
 
 ## Closing thoughts
+
 Participating in Google Summer of Code was a great opportunity to learn a lot of new things in a such a short time, for which I am extremely thankful to the mentors, especially to Anton Kulaga for all his advices and suggestions !
 
 
