@@ -50,7 +50,6 @@ To run CWL workflows you can use any CWL runner of your choice. By default (and 
 ## Clone repo
 ```
 $ git clone https://github.com/eliza-m/CrossSpeciesWorkflow.git
-$ git checkout GSOC2020
 ```
 Please set the CrossSpeciesWorkflow project home variable and add it to `.bashrc` :
 ```
