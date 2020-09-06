@@ -210,7 +210,7 @@ Next columns (3 to end) contain predictions ouput. the subheaders refer to :
 * 2nd - prediction type (such as STY-phosphorylation, Nter-acetylation, K-acetylation)
 * 3rd - predictor specific details or conditions (such as a particular enzyme, or number of classes the prediction refers to). These are predictor specific, so the user needs to be aquinted with each individual prediction methods particularities and how data should be interpreted.
 
-Example:
+Example - acetylation module :
 ```
 resid	aa	netacet	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	
  	 	N-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	
@@ -234,7 +234,7 @@ Next columns (from N+3 to end) contain predictions ouput. the subheaders refer t
 * 3rd - predictor specific details or conditions (such as a particular enzyme, or number of classes the prediction refers to). These are predictor specific, so the user needs to be aquinted with each individual prediction methods particularities and how data should be interpreted.
 * 4th - Protname / ProtID to which the prediction refers to.
 
-Example:
+Example - acetylation module:
 
 ```
 alnid	P63244	O42248	O18640	P38011	Dif	netacet	netacet	netacet	netacet	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	
@@ -248,6 +248,24 @@ alnid	P63244	O42248	O18640	P38011	Dif	netacet	netacet	netacet	netacet	gpspail	gp
 5	E	E	E	E		-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
 ```
 
+
+
+Example - structural module:
+
+```
+alnid	P63244	O42248	O18640	P38011	Dif	raptorx	raptorx	raptorx	raptorx	psipred	psipred	psipred	psipred	raptorx	raptorx	raptorx	raptorx	raptorx	raptorx	raptorx	raptorx	raptorx	raptorx	raptorx	raptorx	disopred	disopred	disopred	disopred	
+ 	 	 	 	 	 	SS	SS	SS	SS	SS	SS	SS	SS	SS	SS	SS	SS	ACC	ACC	ACC	ACC	DIS	DIS	DIS	DIS	DIS	DIS	DIS	DIS	
+ 	 	 	 	 	 	3-class	3-class	3-class	3-class	3-class	3-class	3-class	3-class	8-class	8-class	8-class	8-class	3-class	3-class	3-class	3-class	2-class	2-class	2-class	2-class	2-class	2-class	2-class	2-class	
+ 	 	 	 	 	 	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	
+1	-	-	-	M	*	C	C	C	C	C	C	C	C	C	C	C	C	E	E	E	E	D	D	D	D	-	-	-	D	
+2	-	-	-	A	*	C	C	C	C	C	C	C	C	C	C	C	C	E	E	E	E	D	D	D	D	-	-	-	D	
+3	M	M	M	S	*	C	C	C	C	C	C	C	C	C	C	C	C	E	E	E	E	D	D	D	D	D	D	D	D	
+4	T	T	S	N	*	C	C	C	C	C	C	C	C	C	C	C	C	E	E	E	E	D	D	D	D	-	-	-	-	
+5	E	E	E	E		C	C	C	C	C	C	C	C	C	C	C	C	E	E	E	E	D	D	D	-	-	-	-	-	
+6	Q	Q	T	V	*	E	C	C	E	C	C	C	C	E	C	C	E	E	E	E	M	-	D	-	-	-	-	-	-	
+7	M	M	L	L	*	E	E	E	E	E	E	C	E	E	E	E	E	M	M	M	M	-	-	-	-	-	-	-	-	
+...
+```
 
 
 <br />
