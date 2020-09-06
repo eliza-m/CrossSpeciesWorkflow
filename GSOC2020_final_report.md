@@ -20,8 +20,9 @@ Deliverables of this project consists of 8 modules for each analysis / predictio
 
 ## Results
 
-During the 3-month internship, the following deliverables were completed :
 A more detailed description can be found [here](https://github.com/eliza-m/CrossSpeciesWorkflow/blob/GSOC2020/README.md). 
+
+During the 3-month internship, the following deliverables were completed :
 
 ### 1. CWL workflows 
 
