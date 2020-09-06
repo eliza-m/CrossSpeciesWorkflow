@@ -5,31 +5,17 @@ Content summary:
 * [Project status](#project-status)
 * [Installation & Setup](#installation-\&-setup)
 * [Running CWL workflows](#running-cwl-workflows)
-* [Python API](#python-api)
 * [Prediction Modules Description](#prediction-modules-description)
+* [Python API](#python-api)
+* [Known issues](#known-issues)
 * [References](#references)
 
 
 # General Info
-While there are a multitude of open source ML methods for prediction of various structural or biological related attributes, there are no open source pipelines or APIs which allow performing a one command task for running multiple/equivalent methods and join the results in a way that facilitates comparisons and further dissemination. This limits any type of structural/comparative biology analyses, as one would need to install and run >50 software and put together all the results using in-house scripts.
 
-This project aims at developing a scalable workflow that receives the protein FASTA file and runs a series of structural and phenotype related predictors, generating a knowledge dataset that will facilitate further exploration and comparisons according to the following categories of features: secondary structure, solvent accessibility, disordered regions, PTS modifications (phosphorylation, glycosylation, lipid modification, sumoylation, etc).
+This project is a scalable workflow that receives either the protein FASTA file or a list of Uniprot IDs and runs a series of structural and phenotype related predictors, generating a knowledge dataset that will facilitate further exploration and comparisons according to the following categories of features: secondary structure, solvent accessibility, disordered regions, PTS modifications (phosphorylation, glycosylation, lipid modification, sumoylation, etc).
 
-Deliverables of this project consists of 8 modules for each analysis / prediction type, a Python library for processing inputs & outputs and submitting online jobs when case and CWL pipelines that will facilitate a one-line command run of all the predictors (default or custom configuration).
-
-This repo intends to create an easy, user accesible and open-source tool for running a series of third party predictions software. The main focus is on:
-* Dockerfiles for easy installing existing prediction software.
-* Python API for facilitating parsing and organising each predictor's output data.
-* CWL pipelines that facilitates large protein sequences sets prediction jobs submissions and parallelisation.  
-
-
-
-# Project status 
-The project is currently under development :exclamation:. Some features are not yet implemented and might won't work properly ::exclamation::
-
-The project was tested so far only on native Ubuntu 18 & 20 .
-
-Currently there are 3 main modules that deal with:
+Currently there are 7 main modules that deal with different types of predictions :
 * A. Structural related
 * B. Phosphorylation
 * C. Glycosylaytion 
@@ -37,6 +23,15 @@ Currently there are 3 main modules that deal with:
 * E. Sumoylation 
 * F. Lipid modification
 * G. Cellular localisation
+
+This repo intends to create an easy, user accesible and open-source tool for running a series of third party predictions software. The main focus is on:
+* Dockerfiles for easy installing existing prediction software.
+* Python API for facilitating parsing and organising each predictor's output data.
+* CWL pipelines that facilitates large protein sequences sets prediction jobs submissions and parallelisation.  
+
+
+### Project status 
+The project is under active development and it was tested so far only on native Ubuntu 18 & 20 .
 
 
 # Installation & Setup
@@ -49,8 +44,8 @@ Some of the docker images used in the pipeline have complex license, hence you h
 * Docker client: 
     * Docker Desktop for Windows or MAC - [click](https://www.docker.com/products/docker-desktop)
     * docker-ce-cli for Linux - [click](docs.docker.com/install/linux/docker-ce/ubuntu/)
-* cwltool - [click](https://github.com/common-workflow-language/cwltool)
-* Python3.8 and above
+* cwltool - [click](https://github.com/common-workflow-language/cwltool). It can be either downloaded or the user can just use the python environment.
+* Python3.8 and above (Optional: for separately use the Python API)
 
 
 ## Clone repo
@@ -75,7 +70,8 @@ $ python setup.py install
 
 ## Setup sequence databases
 
-Structural module predictors require downloading and setting up different protein databases. Links for download are provided bellow
+This step **can be skipped** if you do not intend to use the **Structural module**.
+The strctural predictors ONLY require downloading and setting up different protein databases. Links for download are provided bellow
 * RaptorX
     * Uniprot20 : http://wwwuser.gwdg.de/~compbiol/data/hhsuite/databases/hhsuite_dbs/old-releases/uniprot20_2016_02.tgz
 * Psipred & Disopred:
@@ -119,9 +115,18 @@ uniref50.fasta.02.phr  uniref50.fasta.04.psq  uniref50.fasta.07.pin
 
 # Running CWL workflows #
 
-### CWL workflow tools
+### Intro
 
-CWL workflow scripts are provided `in ${CSW_HOME}/cwl` directory, for each prediction type module, but also for an overall pipeline covering all modules.
+[CWL](https://www.commonwl.org/) workflow scripts provide a easy on-step way to run a series of multi step operations in a scalable and parallelised fashion. Running such a workflow requires: 
+
+* a workflow manager (we use [cwltool](https://github.com/common-workflow-language/cwltool))
+* a cwl script (found in `${CSW_HOME}/cwl` directory) that define the workflow procedure, paramaters and how inputs and outputs of different steps relate to each other. These are scripts **do not need editing** when using different input data or parameters.
+* input file - YML or JSON (examples can be found in `${CSW_HOME}/tests/cwl/test_modules/`)
+
+
+### CWL workflow scripts
+
+The CWL workflow scripts are provided `in ${CSW_HOME}/cwl` directory, for each prediction type module, but also for an overall pipeline covering all modules.
 
 Individual modules short names are :
 * **struct** - Structural related
@@ -136,7 +141,6 @@ While the following refer to **grouped** predictions modules :
 * **ptm** - All Post Translation Modification modules (acet + glyc + phos + sumo + lipid)
 * **all** - All modules
 
-
 Specific modules can be run individually using designated CWL workflow scripts found in their corresponding modules folder.
 Provided are tools for different input types such as:
 
@@ -145,6 +149,8 @@ Provided are tools for different input types such as:
 * **multi protein ID array**  : Nprot_$module_only_id.cwl
 
 The disctinction between single & multi protein mode is that in multi protein mode, sequences are aligned using Clustal Omega in the final output layout.  
+
+Example YML input files are provided within `${CSW_HOME}/tests/cwl/test_modules/` for each input type (single protein FASTA or ID or a list of IDs).
 
 Usage example for a specific module only for a list of protein IDs would be :
 ```
@@ -178,172 +184,67 @@ cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/Np
 cwltool --no-match-user --no-read-only --outdir [path/to/dir] ${CSW_HOME}/cwl/Nprot_all_id.cwl [YML/JSONfile]
 ```
 
-Example YML input files are provided within `${CSW_HOME}/tests/cwl/test_modules/` for each input type (single protein FASTA or ID or a list of IDs), alongside with cwltool command line examples in `test_all_module.sh` and output samples for each cwl workflow, found in in module folder in `expected_ourput` directories.
+### Testing CWL workflows
+
+All tests can be run simultaneously by running `${CSW_HOME}/tests/cwl/test_modules/test_all_module.sh`. 
+Output samples for each cwl workflow are found in in module folder in `expected_ourput` directories.
 
 
+### Output files
 
-# Python API
+Current output is module based and consists of:
+* a directory containing all raw predictions outputs named `$protname_$module_preds`
+* a summary file in `tsv` format named `$module_results.tsv` that contains all predictions output parsed and organised in a comparative manner.
 
-## Command-line options
+The summary tsv file for **single protein format** has a 3-row header. 
+First 2 columns contain **resids** and **amino acids**.
+Nest columns (3 to n) contain predictions ouput. the subheaders reffer to :
+* 1st - predictor method name
+* 2nd - prediction type (such as STY-phosphorylation, Nter-acetylation, K-acetylation)
+* 3rd - predictor specific details or conditions (such as a particular enzyme, or number of classes the prediction refers to). These are predictor specific, so the user needs to be aquinted with each individual prediction methods particularities and how data should be interpreted.
 
-### Quick & dirty pipeline run 
-
-A simplist selection of the cwl tool can be performed directly from Python API. However it offers a very limited number of options, therefore we recommend using directly CWLtool or other workflow runner
-
-```bash
-# Full pipeline & one protein example
-$ python species_proteins/workflow/run.py pipeline --cwlinput tests/cwl/test_modules/1prot_id.yml --mode single 
---module all --outdir [path/to/dir]  
-
-# Acetylation module & multi protein example
-$ python species_proteins/workflow/run.py pipeline --cwlinput tests/cwl/test_modules/Nprot_id.yml --mode multi 
---module acet --outdir [path/to/dir]             ``` 
+Example:
 ```
-For other options, see help menu:
-```
-$ python species_proteins/workflow/run.py pipeline --help
-Usage: run.py pipeline [OPTIONS]
-
-  Simple wrapper for choosing which CWL workflow to run. For more options
-  uses directly cwltool or a different workflow runner.
-
-Options:
-  --cwlinput TEXT  YML or JSON input file with Uniprot IDs. See provided
-                   examples in /tests folder  [required]
-
-  --mode TEXT      "single" or "multi" protein analysis  [required]
-  --module TEXT    Prediction module - accepted values:
-                   - all            :  All modules
-                   - ptm            :  All Post Translation modifications ( glyc + acet + phos + sumo + lipid)
-                   - struct         :  Structural module
-                   - glyc           :  Glycosylation module
-                   - phos           :  Phosphorylation module
-                   - acet           :  Acetylation module
-                   - lipid          :  Lipid modification module
-                   - sumo           :  Sumoylation module
-                   - loc            :  Cellular localisation module   [required]
-
-  --outdir TEXT    Output directory. Default: current directory.
-  --args TEXT      Argumments to be passed to cwltool.  [default: --no-match-
-                   user --no-read-only]
-
-  --parallel       Run in parallel. NOT recommended due to HTTP response
-                   errors !!!  [default: False]
-
-  --help           Show this message and exit.
-```
-
-### Predictions merged output layout & and easy change between output layouts 
-
-Let's assume that you have already performed an "all" module prediction pipeline for your proteins and you want to generate a formatted output only for a specific sequence and only for glycosylation related predictors.
-
-```
-$ python species_proteins/workflow/run.py format-output --format single --module glyc 
---inputfolder [path/to/predictions/dir] --protname YourID
-```
-As a input folder you can provide directly the overall prediction folder (that containes multiple proteins predictions) and the provided ID will be searched for (prediction output naming is $protID.predictor.*), but if you provide directly the folder of the desired protein the `--protname` argument is no longer needed.
-
-
-For other options, see help menu:
-```
-$ python species_proteins/workflow/run.py format-output --h
-elp
-Usage: run.py format-output [OPTIONS]
-
-  Generates a vertical formatted layout of all predicted outputs. If 'multi'
-  protein format is selected, sequences are shown aligned.
-
-Options:
-  --format TEXT       "single" or "multi" protein layout  [required]
-  --module TEXT       Prediction module - accepted values:
-                      - all            :  All modules
-                      - ptm            :  All Post Translation modifications ( glyc + acet + phos + sumo + lipid)
-                      - struct         :  Structural module
-                      - glyc           :  Glycosylation module
-                      - phos           :  Phosphorylation module
-                      - acet           :  Acetylation module
-                      - lipid          :  Lipid modification module
-                      - sumo           :  Sumoylation module
-                      - loc            :  Cellular localisation module   [required]
-
-  --inputfolder TEXT  Input folder where all prediction results are stored
-                      [required]
-
-  --output TEXT       Output formatted file  [required]
-  --signif            Print only significant predicted sites. It applies only
-                      for PTM predictors (significance thresholds are method
-                      specific.)  [default: False]
-
-  --protname TEXT     Only for single protein format, when within the specified input
-                      folder there are multiple files with the same extension, a basename of the protein should be provided.
-                      Example: protname.predictor.out; Default: null
-
-  --alnfile TEXT      Required for "multi" protein layout.
-  --help              Show this message and exit.
+resid	aa	netacet	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	
+ 	 	N-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	
+ 	 	 	CREBBP	EP300	HAT1	KAT2A	KAT2B	KAT5	KAT8	
+1	M	-	-	-	-	-	-	-	-	
+2	T	0.482	-	-	-	-	-	-	-	
+3	E	-	-	-	-	-	-	-	-	
+4	Q	-	-	-	-	-	-	-	-	
+5	M	-	-	-	-	-	-	-	-
+...
 ```
 
 
-### Submit online jobs for a specific predictor
+The summary tsv file for **multi protein format** has a 4-row header. 
+First column contain **alignment numbering** 
+Next N columns contain **amino acids** of the N sequences predicted.
+Column N+2 named 'Dif' shows positions where sequence differences exist in alignment (marked with * symbol).
+Nest columns (from N+3 to end) contain predictions ouput. the subheaders reffer to :
+* 1st - predictor method name
+* 2nd - prediction type (such as STY-phosphorylation, Nter-acetylation, K-acetylation)
+* 3rd - predictor specific details or conditions (such as a particular enzyme, or number of classes the prediction refers to). These are predictor specific, so the user needs to be aquinted with each individual prediction methods particularities and how data should be interpreted.
+* 4th - Protname / ProtID to which the prediction refers to.
 
-Usage example:
+Example:
+
 ```
-$ python species_proteins/workflow/run.py submit-online --input MyPROT.fasta --predictor gpslipid --output MyPROT.gpslipid.html 
-```
-Some online predictors accept multiFASTA input, some do not...
-
-Other options:
-```
-
-$ python species_proteins/workflow/run.py submit-online --h
-elp
-Usage: run.py submit-online [OPTIONS]
-
-  Submit online jobs for a given predictor
-
-Options:
-  --input TEXT      Input FASTA file   [required]
-  --output TEXT     Output filename  [required]
-  --predictor TEXT  Online predictor to submit sequence to. Predictors list per categories :
-                    - Glycosilation: 'netcglyc', 'netnglyc', 'netoglyc', 'glycomine', 'nglyde'
-                    - Acetylation: 'netacet', 'gpspail'
-                    - Phosphorylation: 'netphos', 'netphospan'
-                    - Lipid modification: 'gpslipid'
-                    - Sumoylation: 'gpssumo', 'sumogo'
-                    - Cellular localisation: 'tmhmm', 'tmpred'   [required]
-
-  --type TEXT       Additional arguments to be passed; predictor specific
-                    (glycomine: "N" or "C" or "O" glicosylation)
-
-  --help            Show this message and exit.
+alnid	P63244	O42248	O18640	P38011	Dif	netacet	netacet	netacet	netacet	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	gpspail	
+ 	 	 	 	 	 	N-acet	N-acet	N-acet	N-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	K-acet	
+ 	 	 	 	 	 	 	 	 	 	CREBBP	CREBBP	CREBBP	CREBBP	EP300	EP300	EP300	EP300	HAT1	HAT1	HAT1	HAT1	KAT2A	KAT2A	KAT2A	KAT2A	KAT2B	KAT2B	KAT2B	KAT2B	KAT5	KAT5	KAT5	KAT5	KAT8	KAT8	KAT8	KAT8	
+ 	 	 	 	 	 	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	P63244	O42248	O18640	P38011	
+1	-	-	-	M	*	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
+2	-	-	-	A	*	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
+3	M	M	M	S	*	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
+4	T	T	S	N	*	0.482	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
+5	E	E	E	E		-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
 ```
 
-IMPORTANT !!!:
-Some online predictors forms do not handle well commonly used FASTA headers, therefore we recommend using as header directly the protein name (no spaces) or ID. Example: `>LEUK_RAT` or '>P12345'. 
-
-Also, in order to easily use the provided parsers for each predictor, we recommend to use prediction output filenames that follow the rule $protname.$predictor.*
-Examples: 'LEUK_RAT.netnglyc.html', 'P12345.nglyde.out', etc. 
+A HTML/JSON output format is currently under development.
 
 
-To ease FASTA files retrieval and manipulation, you can use the provided `get-fasta` CLI function. An example of retrieving sequences of a protein ID and trimming the header youd be:
-```
-$ python species_proteins/workflow/run.py get-fasta --uniprot P12345 --trimheader
-```
-
-Other options
-```
-$ python species_proteins/workflow/run.py get-fasta --help
-Usage: run.py get-fasta [OPTIONS]
-
-  Retrieves fasta file from UniprotKB ID
-
-Options:
-  --uniprot TEXT   Uniprot ID to fetch  [required]
-  --filename TEXT  Filename to save. Default $id.fasta
-  --trimheader     Trimm header to contain only id  [default: False]
-  --mode TEXT      Write("w") or append("a") mode  [default: w]
-  --help           Show this message and exit.
-```
-
+<br />
 
 
 ## Prediction Modules Description
@@ -482,6 +383,186 @@ Only online submitted predictions are currently available in the main workflow
 for TMHMM, also provided are a Dockerfile, as well python parsers and cwl tools to run them locally. Please see `CONTAINERS.md` for details and examples.
 
 <br />
+
+
+# Python API 
+
+The Python API is used directly by the CWL workflow. While completely **optional**, users can find convenient to use the Python API directly for particular purposes, such as the ones described bellow.  
+
+## Command-line options
+
+### Quick & dirty pipeline run 
+
+A simplist selection of the cwl tool can be performed directly from Python API. However it offers a very limited number of options, therefore we recommend using directly CWLtool or other workflow runner
+
+```bash
+# Full pipeline & one protein example
+$ python species_proteins/workflow/run.py pipeline --cwlinput tests/cwl/test_modules/1prot_id.yml --mode single 
+--module all --outdir [path/to/dir]  
+
+# Acetylation module & multi protein example
+$ python species_proteins/workflow/run.py pipeline --cwlinput tests/cwl/test_modules/Nprot_id.yml --mode multi 
+--module acet --outdir [path/to/dir]             ``` 
+```
+For other options, see help menu:
+```
+$ python species_proteins/workflow/run.py pipeline --help
+Usage: run.py pipeline [OPTIONS]
+
+  Simple wrapper for choosing which CWL workflow to run. For more options
+  uses directly cwltool or a different workflow runner.
+
+Options:
+  --cwlinput TEXT  YML or JSON input file with Uniprot IDs. See provided
+                   examples in /tests folder  [required]
+
+  --mode TEXT      "single" or "multi" protein analysis  [required]
+  --module TEXT    Prediction module - accepted values:
+                   - all            :  All modules
+                   - ptm            :  All Post Translation modifications ( glyc + acet + phos + sumo + lipid)
+                   - struct         :  Structural module
+                   - glyc           :  Glycosylation module
+                   - phos           :  Phosphorylation module
+                   - acet           :  Acetylation module
+                   - lipid          :  Lipid modification module
+                   - sumo           :  Sumoylation module
+                   - loc            :  Cellular localisation module   [required]
+
+  --outdir TEXT    Output directory. Default: current directory.
+  --args TEXT      Argumments to be passed to cwltool.  [default: --no-match-
+                   user --no-read-only]
+
+  --parallel       Run in parallel. NOT recommended due to HTTP response
+                   errors !!!  [default: False]
+
+  --help           Show this message and exit.
+```
+
+### Predictions merged output layout & and easy change between output layouts 
+
+Let's assume that you have already performed an "all" module prediction pipeline for your proteins and you want to generate a formatted output only for a specific sequence and only for glycosylation related predictors.
+
+```
+$ python species_proteins/workflow/run.py format-output --format single --module glyc 
+--inputfolder [path/to/predictions/dir] --protname YourID
+```
+As a input folder you can provide directly the overall prediction folder (that containes multiple proteins predictions) and the provided ID will be searched for (prediction output naming is $protID.predictor.*), but if you provide directly the folder of the desired protein the `--protname` argument is no longer needed.
+
+
+For other options, see help menu:
+```
+$ python species_proteins/workflow/run.py format-output --h
+elp
+Usage: run.py format-output [OPTIONS]
+
+  Generates a vertical formatted layout of all predicted outputs. If 'multi'
+  protein format is selected, sequences are shown aligned.
+
+Options:
+  --format TEXT       "single" or "multi" protein layout  [required]
+  --module TEXT       Prediction module - accepted values:
+                      - all            :  All modules
+                      - ptm            :  All Post Translation modifications ( glyc + acet + phos + sumo + lipid)
+                      - struct         :  Structural module
+                      - glyc           :  Glycosylation module
+                      - phos           :  Phosphorylation module
+                      - acet           :  Acetylation module
+                      - lipid          :  Lipid modification module
+                      - sumo           :  Sumoylation module
+                      - loc            :  Cellular localisation module   [required]
+
+  --inputfolder TEXT  Input folder where all prediction results are stored
+                      [required]
+
+  --output TEXT       Output formatted file  [required]
+  --signif            Print only significant predicted sites. It applies only
+                      for PTM predictors (significance thresholds are method
+                      specific.)  [default: False]
+
+  --protname TEXT     Only for single protein format, when within the specified input
+                      folder there are multiple files with the same extension, a basename of the protein should be provided.
+                      Example: protname.predictor.out; Default: null
+
+  --alnfile TEXT      Required for "multi" protein layout.
+  --help              Show this message and exit.
+```
+
+
+### Submit online jobs for a specific predictor on their own server.
+
+Some of the predictors can be used only on their webserver. We provide a easy to use tool to directly submit a prediction job on predictor's webserver via POST & GET.
+
+Usage example:
+```
+$ python species_proteins/workflow/run.py submit-online --input MyPROT.fasta --predictor gpslipid --output MyPROT.gpslipid.html 
+```
+Some online predictors accept multiFASTA input, some do not...
+
+Other options:
+```
+
+$ python species_proteins/workflow/run.py submit-online --h
+elp
+Usage: run.py submit-online [OPTIONS]
+
+  Submit online jobs for a given predictor
+
+Options:
+  --input TEXT      Input FASTA file   [required]
+  --output TEXT     Output filename  [required]
+  --predictor TEXT  Online predictor to submit sequence to. Predictors list per categories :
+                    - Glycosilation: 'netcglyc', 'netnglyc', 'netoglyc', 'glycomine', 'nglyde'
+                    - Acetylation: 'netacet', 'gpspail'
+                    - Phosphorylation: 'netphos', 'netphospan'
+                    - Lipid modification: 'gpslipid'
+                    - Sumoylation: 'gpssumo', 'sumogo'
+                    - Cellular localisation: 'tmhmm', 'tmpred'   [required]
+
+  --type TEXT       Additional arguments to be passed; predictor specific
+                    (glycomine: "N" or "C" or "O" glicosylation)
+
+  --help            Show this message and exit.
+```
+
+IMPORTANT !!!:
+Some online predictors forms do not handle well commonly used FASTA headers, therefore we recommend using as header directly the protein name (no spaces) or ID. Example: `>LEUK_RAT` or '>P12345'. 
+
+Also, in order to easily use the provided parsers for each predictor, we recommend to use prediction output filenames that follow the rule $protname.$predictor.*
+Examples: 'LEUK_RAT.netnglyc.html', 'P12345.nglyde.out', etc. 
+
+
+To ease FASTA files retrieval and manipulation, you can use the provided `get-fasta` CLI function. An example of retrieving sequences of a protein ID and trimming the header youd be:
+```
+$ python species_proteins/workflow/run.py get-fasta --uniprot P12345 --trimheader
+```
+
+Other options
+```
+$ python species_proteins/workflow/run.py get-fasta --help
+Usage: run.py get-fasta [OPTIONS]
+
+  Retrieves fasta file from UniprotKB ID
+
+Options:
+  --uniprot TEXT   Uniprot ID to fetch  [required]
+  --filename TEXT  Filename to save. Default $id.fasta
+  --trimheader     Trimm header to contain only id  [default: False]
+  --mode TEXT      Write("w") or append("a") mode  [default: w]
+  --help           Show this message and exit.
+```
+
+
+
+# Known issues
+
+CWL workflow related :
+* some code duplication due to CWL v1.0 limitations. CWL v1.2 (currently under development) will support IF operator and we will address this when v1.2 becomes stable.
+* The cwltool flags `--no-match-user` and `--no-read-only` are necessary due to permissions issues (because some of the predictors require generating or editing files in specific locations)
+
+Output related:
+* right now only `tsv` outputs are supported, html/json versions are in development.
+
+
 
 # References 
 
